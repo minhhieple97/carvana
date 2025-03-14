@@ -12,13 +12,17 @@
     "seed": "ts-node -r tsconfig-paths/register --compiler-options {\"module\":\"CommonJS\"} prisma/seed/seed.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@prisma/client": "6.5.0",
     "@radix-ui/react-slot": "^1.1.2",
     "bcryptjs": "^3.0.2",
+    "csv": "^6.3.11",
     "next": "15.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.0.2"
+    "slugify": "^1.6.6",
+    "tailwind-merge": "^3.0.2",
+    "unlazy": "^0.12.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
