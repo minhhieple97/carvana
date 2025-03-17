@@ -32,7 +32,8 @@
       "@/pages/*": ["./src/pages/*"],
       "@/public/*": ["./public/*"],
       "@/shared/*": ["./src/components/shared/*"],
-      "@/features/*": ["./src/features/*"]
+      "@/features/*": ["./src/features/*"],
+      "@/env": ["./env.mjs"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
