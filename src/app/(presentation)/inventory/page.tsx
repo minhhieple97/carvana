@@ -1,4 +1,4 @@
-import { ClassifiedsList } from '@/components/classified';
+import { ClassifiedsList } from '@/features/classifieds';
 import { AwaitedPageProps, Favourites } from '@/config/types';
 import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis-store';

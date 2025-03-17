@@ -1,4 +1,4 @@
-import ClassifiedCard from './classified-card';
+import ClassifiedCard from '../../features/classifieds/classified-card';
 import { ClassifiedsListProps } from './types';
 
 export default function ClassifiedsList({ classifieds, favourites }: ClassifiedsListProps) {

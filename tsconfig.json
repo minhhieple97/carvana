@@ -31,7 +31,8 @@
       "@/styles/*": ["./src/styles/*"],
       "@/pages/*": ["./src/pages/*"],
       "@/public/*": ["./public/*"],
-      "@/shared/*": ["./src/components/shared/*"]
+      "@/shared/*": ["./src/components/shared/*"],
+      "@/features/*": ["./src/features/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

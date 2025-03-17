@@ -1,4 +1,4 @@
-import { ClassifiedWithImages } from '../types';
+import { ClassifiedWithImages } from '@/features/classifieds/types';
 import { Cog, Fuel, GaugeCircle, Paintbrush2 } from 'lucide-react';
 import {
   formatColour,

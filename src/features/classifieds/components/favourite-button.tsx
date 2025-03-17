@@ -1,7 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
 import { HeartIcon } from 'lucide-react';
-import { Button } from '../../ui/button';
+import { Button } from '../../../components/ui/button';
 import { endpoints } from '@/config/endpoints';
 import { api } from '@/lib/api-client';
 import { useRouter } from 'next/navigation';

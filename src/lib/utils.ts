@@ -1,4 +1,4 @@
-import { FormatPriceArgs } from '@/components/classified/types';
+import { FormatPriceArgs } from '@/features/classifieds/types';
 import { Colour, FuelType, OdoUnit, Transmission } from '@prisma/client';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
