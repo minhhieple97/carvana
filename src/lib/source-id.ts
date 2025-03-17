@@ -1,24 +1,8 @@
 import { cookies } from 'next/headers';
 import 'server-only';
-import { v4 as uuid } from 'uuid';
+import { SOURCE_ID_KEY } from '@/config/constants';
 
-const SOURCE_ID_KEY = 'sourceId';
-
-export const setSourceId = async () => {
+export async function getSourceId() {
   const cookieStore = await cookies();
-
-  let sourceId = cookieStore.get(SOURCE_ID_KEY)?.value;
-  if (!sourceId) {
-    sourceId = uuid();
-    cookieStore.set(SOURCE_ID_KEY, sourceId, {
-      path: '/',
-    });
-  }
-
-  return sourceId;
-};
-
-export const getSourceId = async () => {
-  const cookieStore = await cookies();
-  return cookieStore.get(SOURCE_ID_KEY)?.value;
-};
+  return cookieStore.get(SOURCE_ID_KEY)!.value;
+}

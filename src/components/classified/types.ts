@@ -1,3 +1,4 @@
+import { Favourites } from '@/config/types';
 import { CurrencyCode, Prisma } from '@prisma/client';
 
 type ClassifiedWithImages = Prisma.ClassifiedGetPayload<{
@@ -8,10 +9,12 @@ type ClassifiedWithImages = Prisma.ClassifiedGetPayload<{
 
 type ClassifiedCardProps = {
   classified: ClassifiedWithImages;
+  favourites: Favourites;
 };
 
 type ClassifiedsListProps = {
   classifieds: ClassifiedWithImages[];
+  favourites: Favourites;
 };
 
 export type { ClassifiedWithImages, ClassifiedCardProps, ClassifiedsListProps };

@@ -7,8 +7,26 @@ import {
   formatOdometerUnit,
   formatTransmission,
 } from '@/lib/utils';
+import { Favourites } from '@/config/types';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { routes } from '@/config/routes';
 
-export const useClassifiedCard = () => {
+export const useClassifiedCard = ({
+  classified,
+  favourites,
+}: {
+  classified: ClassifiedWithImages;
+  favourites: Favourites;
+}) => {
+  const [isFavourite, setIsFavourite] = useState(favourites.ids.includes(classified.id));
+  const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(true);
+  useEffect(() => {
+    if (!isFavourite && pathname === routes.favourites) {
+      setIsVisible(false);
+    }
+  }, [isFavourite, pathname]);
   const getKeyClassifiedInfo = (classified: ClassifiedWithImages) => {
     return [
       {
@@ -35,5 +53,8 @@ export const useClassifiedCard = () => {
   };
   return {
     getKeyClassifiedInfo,
+    isFavourite,
+    setIsFavourite,
+    isVisible,
   };
 };

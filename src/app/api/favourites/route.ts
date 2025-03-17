@@ -2,7 +2,7 @@ import { validateIdSchema } from '@/app/schemas/id.schema';
 import { routes } from '@/config/routes';
 import type { Favourites } from '@/config/types';
 import { redis } from '@/lib/redis-store';
-import { setSourceId } from '@/lib/source-id';
+import { getSourceId } from '@/lib/source-id';
 import { revalidatePath } from 'next/cache';
 import { type NextRequest, NextResponse } from 'next/server';
 
@@ -19,7 +19,7 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
   }
 
-  const sourceId = await setSourceId();
+  const sourceId = await getSourceId();
 
   const storedFavourites = await redis.get<Favourites>(sourceId);
   const favourites: Favourites = storedFavourites || { ids: [] };
