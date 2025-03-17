@@ -6,3 +6,4 @@ export const imageSources = {
 };
 
 export const SOURCE_ID_KEY = 'sourceId';
+export const CLASSIFIEDS_PER_PAGE = 10;
