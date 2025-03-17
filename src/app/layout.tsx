@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+
 import { Mulish, Roboto } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
+
 import { cn } from '@/lib/utils';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
@@ -33,7 +35,7 @@ export default function RootLayout({
   const bodyClasses = cn(
     'min-h-screen antialiased overscroll-none bg-background font-heading',
     roboto.variable,
-    mulish.variable,
+    mulish.variable
   );
 
   return (

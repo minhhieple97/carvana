@@ -1,10 +1,12 @@
-import { validateIdSchema } from '@/app/schemas/id.schema';
-import { routes } from '@/config/routes';
-import type { Favourites } from '@/config/types';
-import { redis } from '@/lib/redis-store';
-import { getSourceId } from '@/lib/source-id';
 import { revalidatePath } from 'next/cache';
 import { type NextRequest, NextResponse } from 'next/server';
+
+import { validateIdSchema } from '@/app/schemas/id.schema';
+import { routes } from '@/config/routes';
+import { redis } from '@/lib/redis-store';
+import { getSourceId } from '@/lib/source-id';
+
+import type { Favourites } from '@/config/types';
 
 export const POST = async (req: NextRequest) => {
   const body = await req.json();

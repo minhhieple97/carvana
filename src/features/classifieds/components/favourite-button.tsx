@@ -1,10 +1,12 @@
 'use client';
-import { cn } from '@/lib/utils';
 import { HeartIcon } from 'lucide-react';
-import { Button } from '../../../components/ui/button';
+import { useRouter } from 'next/navigation';
+
 import { endpoints } from '@/config/endpoints';
 import { api } from '@/lib/api-client';
-import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
+
+import { Button } from '../../../components/ui/button';
 
 type FavouriteButtonProps = {
   setIsFavourite: (isFavourite: boolean) => void;
@@ -33,7 +35,7 @@ export const FavouriteButton = (props: FavouriteButtonProps) => {
       size="icon"
       className={cn(
         'absolute top-2.5 left-3.5 rounded-full z-10 group !h-6 !w-6 lg:!h-8 lg:!w-8 xl:!h-10 xl:!w-10',
-        isFavourite ? 'bg-white' : '!bg-muted/15',
+        isFavourite ? 'bg-white' : '!bg-muted/15'
       )}
     >
       <HeartIcon
@@ -41,7 +43,7 @@ export const FavouriteButton = (props: FavouriteButtonProps) => {
           'duration-200 transition-colors ease-in-out w-3.5 h-3.5 lg:w-4 lg:h-4 xl:w-6 xl:h-6 text-white',
           isFavourite
             ? 'text-pink-500 fill-pink-500'
-            : 'group-hover:text-pink-500 group-hover:fill-pink-500',
+            : 'group-hover:text-pink-500 group-hover:fill-pink-500'
         )}
       />
     </Button>

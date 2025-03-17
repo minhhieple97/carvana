@@ -1,11 +1,13 @@
 'use client';
-import { useClassifiedCard } from './hooks/useClassifiedCard';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ClassifiedCardProps } from './types';
-import { CardImage } from './components/card-image';
-import { PriceTag } from './components/price-tag';
+
 import { CardContent } from './components/card-content';
+import { CardImage } from './components/card-image';
 import { FavouriteButton } from './components/favourite-button';
+import { PriceTag } from './components/price-tag';
+import { useClassifiedCard } from './hooks/useClassifiedCard';
+
+import type { ClassifiedCardProps } from './types';
 export default function ClassifiedCard({ classified, favourites }: ClassifiedCardProps) {
   const { getKeyClassifiedInfo, isFavourite, setIsFavourite, isVisible } = useClassifiedCard({
     classified,

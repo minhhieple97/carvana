@@ -1,5 +1,5 @@
-import { Params } from 'next/dist/server/request/params';
-import { SearchParams } from 'next/dist/server/request/search-params';
+import type { Params } from 'next/dist/server/request/params';
+import type { SearchParams } from 'next/dist/server/request/search-params';
 
 export type PageProps = {
   params: Promise<Params>;

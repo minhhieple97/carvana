@@ -1,5 +1,5 @@
-import { Favourites } from '@/config/types';
-import { CurrencyCode, Prisma } from '@prisma/client';
+import type { Favourites } from '@/config/types';
+import type { CurrencyCode, Prisma } from '@prisma/client';
 
 type ClassifiedWithImages = Prisma.ClassifiedGetPayload<{
   include: {

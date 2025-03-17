@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { v4 as uuid } from 'uuid';
+
 import { SOURCE_ID_KEY } from '@/config/constants';
 
 export async function middleware(request: NextRequest) {

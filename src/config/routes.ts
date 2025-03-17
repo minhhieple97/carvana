@@ -1,4 +1,4 @@
-import { MultiStepFormEnum } from '@/config/types';
+import type { MultiStepFormEnum } from '@/config/types';
 
 export const routes = {
   home: '/',

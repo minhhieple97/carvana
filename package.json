@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "check-types": "tsc --noEmit",
+    "check-all": "npm run lint:fix && npm run format && npm run check-types"
   },
   "prisma": {
     "seed": "ts-node -r tsconfig-paths/register --compiler-options {\"module\":\"CommonJS\"} prisma/seed/seed.ts"
@@ -51,10 +55,13 @@
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
     "prisma": "^6.5.0",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",

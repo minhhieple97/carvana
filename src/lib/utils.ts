@@ -1,7 +1,8 @@
-import { FormatPriceArgs } from '@/features/classifieds/types';
 import { Colour, FuelType, OdoUnit, Transmission } from '@prisma/client';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+
+import type { FormatPriceArgs } from '@/features/classifieds/types';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
