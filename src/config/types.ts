@@ -1,14 +1,19 @@
-import type { Params } from 'next/dist/server/request/params';
+import { CurrencyCode, Prisma } from '@prisma/client';
 import type { SearchParams } from 'next/dist/server/request/search-params';
+import { ChangeEvent } from 'react';
+
+type Params = {
+  [x: string]: string | string[];
+};
 
 export type PageProps = {
-  params: Promise<Params>;
-  searchParams: Promise<SearchParams>;
+  params?: Promise<Params>;
+  searchParams?: Promise<{ [x: string]: string | string[] | undefined }>;
 };
 
 export type AwaitedPageProps = {
-  params: Awaited<PageProps['params']>;
-  searchParams: Awaited<PageProps['searchParams']>;
+  params?: Awaited<PageProps['params']>;
+  searchParams?: Awaited<PageProps['searchParams']>;
 };
 
 export enum MultiStepFormEnum {
@@ -17,6 +22,43 @@ export enum MultiStepFormEnum {
   SUBMIT_DETAILS = 3,
 }
 
-export interface Favourites {
+export type Favourites = {
   ids: number[];
-}
+};
+
+export type SidebarProps = AwaitedPageProps & {
+  minMaxValues: Prisma.GetClassifiedAggregateType<{
+    _min: {
+      year: true;
+      price: true;
+      odoReading: true;
+    };
+    _max: {
+      year: true;
+      odoReading: true;
+      price: true;
+    };
+  }>;
+};
+
+export type TaxonomyFiltersProps = AwaitedPageProps & {
+  handleChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+};
+
+export type FilterOptions<LType, VType> = Array<{
+  label: LType;
+  value: VType;
+}>;
+
+export type RangeFilterProps = TaxonomyFiltersProps & {
+  label: string;
+  minName: string;
+  maxName: string;
+  defaultMin: number;
+  defaultMax: number;
+  increment?: number;
+  thousandSeparator?: boolean;
+  currency?: {
+    currencyCode: CurrencyCode;
+  };
+};
