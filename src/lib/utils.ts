@@ -1,4 +1,4 @@
-import { Colour, FuelType, OdoUnit, Transmission } from '@prisma/client';
+import { BodyType, Colour, FuelType, OdoUnit, Transmission, ULEZCompliance } from '@prisma/client';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -81,4 +81,27 @@ export function formatFuelType(fuelType: FuelType) {
     default:
       return 'Unknown';
   }
+}
+
+export function formatBodyType(bodyType: BodyType) {
+  switch (bodyType) {
+    case BodyType.CONVERTIBLE:
+      return 'Convertible';
+    case BodyType.COUPE:
+      return 'Coupe';
+    case BodyType.HATCHBACK:
+      return 'Hatchback';
+    case BodyType.SUV:
+      return 'SUV';
+    case BodyType.WAGON:
+      return 'Wagon';
+    case BodyType.SEDAN:
+      return 'Sedan';
+    default:
+      return 'Unknown';
+  }
+}
+
+export function formatUlezCompliance(ulezCompliance: ULEZCompliance) {
+  return ulezCompliance === ULEZCompliance.EXEMPT ? 'Exempt' : 'Non-Exempt';
 }
