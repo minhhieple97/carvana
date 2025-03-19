@@ -88,29 +88,32 @@ export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
   };
 
   return (
-    <aside className="w-[21.25rem] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+    <aside className="w-[21.25rem] overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md">
       <div className="sticky top-4">
-        <div className="border-b border-gray-200 p-4">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">Filters</h2>
+        <div className="border-b border-gray-100 p-5">
+          <div className="mb-5 flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-gray-800">Filters</h2>
             <button
               type="button"
               onClick={clearFilters}
               disabled={!filterCount}
               className={cn(
-                'rounded-full px-3 py-1 text-sm transition-all',
+                'rounded-full px-4 py-1.5 text-sm font-medium transition-all',
                 filterCount
-                  ? 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                  : 'cursor-default text-gray-400'
+                  ? 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                  : 'cursor-not-allowed text-gray-300'
               )}
             >
               Clear all {filterCount ? `(${filterCount})` : null}
             </button>
           </div>
-          <SearchInput placeholder="Search classifieds..." className="w-full" />
+          <SearchInput
+            placeholder="Search classifieds..."
+            className="w-full rounded-lg border-gray-200 shadow-sm focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20"
+          />
         </div>
 
-        <div className="max-h-[calc(100vh-12rem)] space-y-6 overflow-y-auto p-4">
+        <div className="max-h-[calc(100vh-12rem)] space-y-7 overflow-y-auto p-5">
           <TaxonomyFilters searchParams={searchParams} handleChange={handleChange} />
 
           {/* Uncomment and update other filters as needed */}
