@@ -1,17 +1,5 @@
 'use client';
 
-import { routes } from '@/config/routes';
-import type { SidebarProps } from '@/config/types';
-import { env } from '@/env';
-import {
-  cn,
-  formatBodyType,
-  formatColour,
-  formatFuelType,
-  formatOdometerUnit,
-  formatTransmission,
-  formatUlezCompliance,
-} from '@/lib/utils';
 import {
   BodyType,
   Colour,
@@ -24,7 +12,21 @@ import {
 import { useRouter } from 'next/navigation';
 import { parseAsString, useQueryStates } from 'nuqs';
 import { type ChangeEvent, useEffect, useState } from 'react';
+
 import { SearchInput, RangeFilter, TaxonomyFilters } from '@/components/shared';
+import { routes } from '@/config/routes';
+import { env } from '@/env';
+import {
+  cn,
+  formatBodyType,
+  formatColour,
+  formatFuelType,
+  formatOdometerUnit,
+  formatTransmission,
+  formatUlezCompliance,
+} from '@/lib/utils';
+
+import type { SidebarProps } from '@/config/types';
 
 export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
   const router = useRouter();

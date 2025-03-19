@@ -1,7 +1,9 @@
 'use client';
-import type { RangeFilterProps } from '@/config/types';
 import { RangeSelect } from '@/components/ui';
+
 import { useRangeFilter } from './useRangeFilter';
+
+import type { RangeFilterProps } from '@/config/types';
 export const RangeFilter = (props: RangeFilterProps) => {
   const { label, minName, maxName, searchParams, handleChange, minOptions, maxOptions } =
     useRangeFilter(props);

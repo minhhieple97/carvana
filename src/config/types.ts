@@ -1,6 +1,6 @@
-import { CurrencyCode, Prisma } from '@prisma/client';
+import type { CurrencyCode, Prisma } from '@prisma/client';
 import type { SearchParams } from 'next/dist/server/request/search-params';
-import { ChangeEvent } from 'react';
+import type { ChangeEvent } from 'react';
 
 type Params = {
   [x: string]: string | string[];

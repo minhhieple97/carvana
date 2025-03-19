@@ -1,11 +1,11 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import debounce from 'debounce';
 import { SearchIcon, XIcon } from 'lucide-react';
-import { useQueryState } from 'nuqs';
-import { type ChangeEvent, useCallback, useRef } from 'react';
+
 import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
+
 import { useSearchInput } from './useSearchInput';
 
 function debounceFunc<T extends (...args: any) => any>(

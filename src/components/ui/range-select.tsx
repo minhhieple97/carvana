@@ -1,8 +1,9 @@
 'use client';
 
+import { cn } from '@/lib/utils';
+
 import type { FilterOptions } from '@/config/types';
 import type { SelectHTMLAttributes } from 'react';
-import { cn } from '@/lib/utils';
 
 type SelectType = SelectHTMLAttributes<HTMLSelectElement> & {
   options: FilterOptions<string, number>;

@@ -1,14 +1,16 @@
 import { Suspense } from 'react';
+
+import { CustomPagination } from '@/components/shared/';
+import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
+import { routes } from '@/config/routes';
 import { ClassifiedsList, getCount } from '@/features/classifieds';
 import { ClassifiedsCount } from '@/features/classifieds';
 import { getClassifieds } from '@/features/classifieds';
-import { getSourceId } from '@/lib/source-id';
-import type { PageProps } from '@/config/types';
 import { getFavourites } from '@/features/classifieds';
-import { CustomPagination } from '@/components/shared/';
-import { routes } from '@/config/routes';
-import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { Sidebar } from '@/features/classifieds/components/sidebar';
+import { getSourceId } from '@/lib/source-id';
+
+import type { PageProps } from '@/config/types';
 
 export default async function ClassifiedsPage(pageProps: PageProps) {
   const searchParams = await pageProps.searchParams;

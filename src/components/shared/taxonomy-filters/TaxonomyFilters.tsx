@@ -1,8 +1,10 @@
 'use client';
 
-import type { TaxonomyFiltersProps } from '@/config/types';
 import { Select } from '@/components/ui';
+
 import { useTaxonomyFilters } from './useTaxonomyFilters';
+
+import type { TaxonomyFiltersProps } from '@/config/types';
 
 export const TaxonomyFilters = (props: TaxonomyFiltersProps) => {
   const { makes, models, modelVariants, handleChange, searchParams } = useTaxonomyFilters(props);

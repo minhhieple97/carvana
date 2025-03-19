@@ -10,7 +10,8 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "check-types": "tsc --noEmit",
-    "check-all": "npm run lint:fix && npm run format && npm run check-types"
+    "check-all": "npm run lint:fix && npm run format && npm run check-types",
+    "fix-all": "npm run lint:fix && npm run format"
   },
   "prisma": {
     "seed": "ts-node -r tsconfig-paths/register --compiler-options {\"module\":\"CommonJS\"} prisma/seed/seed.ts"

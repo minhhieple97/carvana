@@ -8,9 +8,11 @@ import {
   PaginationPrevious,
   Pagination as PaginationRoot,
 } from '@/components/ui/pagination';
-import { PaginationProps } from '@/features/classifieds/types';
 import { cn } from '@/lib/utils';
+
 import { useCustomPagination } from './useCustomPagination';
+
+import type { PaginationProps } from '@/features/classifieds/types';
 
 export const CustomPagination = (props: PaginationProps) => {
   const { styles } = props;

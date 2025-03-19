@@ -1,7 +1,9 @@
-import { env } from '@/env';
-import { PaginationProps } from '@/features/classifieds/types';
 import { useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
+
+import { env } from '@/env';
+
+import type { PaginationProps } from '@/features/classifieds/types';
 
 export const useCustomPagination = (props: PaginationProps) => {
   const { baseURL, totalPages, maxVisiblePages = 5 } = props;

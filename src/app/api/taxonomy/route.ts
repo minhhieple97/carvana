@@ -1,6 +1,8 @@
-import { prisma } from '@/lib/prisma';
-import type { Make, Model, ModelVariant } from '@prisma/client';
 import { type NextRequest, NextResponse } from 'next/server';
+
+import { prisma } from '@/lib/prisma';
+
+import type { Make, Model, ModelVariant } from '@prisma/client';
 
 type LabelValue = {
   label: string;
@@ -13,19 +15,17 @@ type TaxonomyResponse = {
   modelVariants: LabelValue[];
 };
 
-const toLabelValue = (items: Array<{ id: number; name: string }>): LabelValue[] => {
-  return items.map(({ id, name }) => ({
+const toLabelValue = (items: Array<{ id: number; name: string }>): LabelValue[] =>
+  items.map(({ id, name }) => ({
     label: name,
     value: id.toString(),
   }));
-};
 
-const fetchMakes = async () => {
-  return prisma.make.findMany({
+const fetchMakes = async () =>
+  prisma.make.findMany({
     select: { id: true, name: true },
     orderBy: { name: 'asc' },
   });
-};
 
 const fetchModels = async (makeId: string | null): Promise<Model[]> => {
   if (!makeId) return [];

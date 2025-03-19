@@ -1,7 +1,10 @@
-import { redis } from '@/lib/redis-store';
-import type { AwaitedPageProps, Favourites } from '@/config/types';
-import { ClassifiedStatus, Prisma } from '@prisma/client';
+import { ClassifiedStatus } from '@prisma/client';
+
 import { ClassifiedFilterSchema } from '@/app/schemas';
+import { redis } from '@/lib/redis-store';
+
+import type { AwaitedPageProps, Favourites } from '@/config/types';
+import type { Prisma } from '@prisma/client';
 
 export async function getFavourites(sourceId: string | undefined) {
   if (!sourceId) return { ids: [] };

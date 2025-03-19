@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-
-import { useCallback } from 'react';
 import debounce from 'debounce';
 import { useQueryState } from 'nuqs';
-import { ChangeEvent } from 'react';
+import { useRef } from 'react';
+import { useCallback } from 'react';
+
+import type { ChangeEvent } from 'react';
 function debounceFunc<T extends (...args: any) => any>(
   func: T,
   wait: number,
