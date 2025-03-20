@@ -5,8 +5,7 @@ import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
 import { ClassifiedsList, getCount } from '@/features/classifieds';
 import { ClassifiedsCount } from '@/features/classifieds';
-import { getClassifieds } from '@/features/classifieds';
-import { getFavourites } from '@/features/classifieds';
+import { getFavourites, getClassifieds, getClassifiedsMinMaxValues } from '@/features/classifieds';
 import { Sidebar } from '@/features/classifieds/components/sidebar';
 import { getSourceId } from '@/lib/source-id';
 
@@ -14,26 +13,18 @@ import type { PageProps } from '@/config/types';
 
 export default async function ClassifiedsPage(pageProps: PageProps) {
   const searchParams = await pageProps.searchParams;
-  const [classifieds, sourceId, count] = await Promise.all([
+  const [classifieds, sourceId, count, minMaxValues] = await Promise.all([
     getClassifieds(searchParams),
     getSourceId(),
     getCount(searchParams),
+    getClassifiedsMinMaxValues(),
   ]);
+  const totalPages = Math.ceil(count / CLASSIFIEDS_PER_PAGE);
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-6">
-          <Sidebar
-            searchParams={searchParams}
-            minMaxValues={{
-              _min: { year: 1925, price: 0, odoReading: 0 },
-              _max: {
-                year: new Date().getFullYear(),
-                price: 21474836,
-                odoReading: 1000000,
-              },
-            }}
-          />
+          <Sidebar searchParams={searchParams} minMaxValues={minMaxValues} />
           <div className="flex-1">
             <div className="flex flex-col gap-6">
               <header className="flex flex-col gap-2">
@@ -48,7 +39,7 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                   <div className="flex justify-end">
                     <CustomPagination
                       baseURL={routes.classifieds}
-                      totalPages={Math.ceil(count / CLASSIFIEDS_PER_PAGE)}
+                      totalPages={totalPages}
                       styles={{
                         paginationRoot: 'w-auto ml-auto',
                         paginationLink:

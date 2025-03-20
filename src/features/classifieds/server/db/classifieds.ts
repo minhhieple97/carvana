@@ -4,9 +4,10 @@ import { PageSchema } from '@/app/schemas';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { prisma } from '@/lib/prisma';
 
-import { buildClassifiedFilterQuery } from '../services/classifieds';
+import { buildClassifiedFilterQuery } from '../services';
 
 import type { AwaitedPageProps } from '@/config/types';
+import { ClassifiedStatus } from '@prisma/client';
 
 export const getCount = async (searchParams: AwaitedPageProps['searchParams']) => {
   noStore();
@@ -29,3 +30,17 @@ export const getClassifieds = async (searchParams: AwaitedPageProps['searchParam
     take: CLASSIFIEDS_PER_PAGE,
   });
 };
+export const getClassifiedsMinMaxValues = async () =>
+  prisma.classified.aggregate({
+    where: { status: ClassifiedStatus.LIVE },
+    _min: {
+      year: true,
+      price: true,
+      odoReading: true,
+    },
+    _max: {
+      price: true,
+      year: true,
+      odoReading: true,
+    },
+  });
