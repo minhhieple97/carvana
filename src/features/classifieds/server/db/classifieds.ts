@@ -10,7 +10,8 @@ import type { AwaitedPageProps } from '@/config/types';
 
 export const getCount = async (searchParams: AwaitedPageProps['searchParams']) => {
   noStore();
-  return prisma.classified.count();
+  const query = buildClassifiedFilterQuery(searchParams);
+  return prisma.classified.count({ where: query });
 };
 
 export const getClassifieds = async (searchParams: AwaitedPageProps['searchParams']) => {
@@ -20,9 +21,9 @@ export const getClassifieds = async (searchParams: AwaitedPageProps['searchParam
   const page = validPage ? validPage : 1;
 
   const offset = (page - 1) * CLASSIFIEDS_PER_PAGE;
-
+  const query = buildClassifiedFilterQuery(searchParams);
   return prisma.classified.findMany({
-    where: buildClassifiedFilterQuery(searchParams),
+    where: query,
     include: { images: { take: 1 } },
     skip: offset,
     take: CLASSIFIEDS_PER_PAGE,
