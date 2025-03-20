@@ -22,29 +22,42 @@ export const RangeSelect = (props: RangeSelectProps) => {
 
   return (
     <div className={cn('space-y-1.5', className)}>
-      <label className="text-sm font-medium text-gray-700 select-none">{label}</label>
+      <label className="text-gray-900 font-semibold mb-1.5 text-[0.925rem] select-none">
+        {label}
+      </label>
       <div className="grid grid-cols-2 gap-2">
         <div className="relative">
           <select
             {...minSelect}
             className={cn(
-              'w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm',
-              'focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20',
-              'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500',
-              'appearance-none pr-10 transition-colors duration-200',
+              'w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm',
+              'focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20',
+              'disabled:cursor-not-allowed disabled:bg-gray-50/50 disabled:text-gray-400',
+              'appearance-none pr-10 transition-all duration-200',
+              'text-gray-900 font-medium',
+              'hover:border-gray-300',
               minSelect.error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
             )}
           >
-            <option value="">Min {label}</option>
+            <option value="" className="text-gray-500 font-normal">
+              Min {label}
+            </option>
             {minSelect.options.map((option) => (
-              <option key={option.value} value={option.value}>
+              <option
+                key={option.value}
+                value={option.value}
+                className="text-gray-900 font-medium py-1.5"
+              >
                 {option.label}
               </option>
             ))}
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
             <svg
-              className="h-4 w-4 text-gray-400"
+              className={cn(
+                'h-4 w-4 transition-colors',
+                minSelect.disabled ? 'text-gray-400' : 'text-gray-600'
+              )}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -62,23 +75,34 @@ export const RangeSelect = (props: RangeSelectProps) => {
           <select
             {...maxSelect}
             className={cn(
-              'w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm',
-              'focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20',
-              'disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500',
-              'appearance-none pr-10 transition-colors duration-200',
+              'w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm',
+              'focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20',
+              'disabled:cursor-not-allowed disabled:bg-gray-50/50 disabled:text-gray-400',
+              'appearance-none pr-10 transition-all duration-200',
+              'text-gray-900 font-medium',
+              'hover:border-gray-300',
               maxSelect.error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
             )}
           >
-            <option value="">Max {label}</option>
+            <option value="" className="text-gray-500 font-normal">
+              Max {label}
+            </option>
             {maxSelect.options.map((option) => (
-              <option key={option.value} value={option.value}>
+              <option
+                key={option.value}
+                value={option.value}
+                className="text-gray-900 font-medium py-1.5"
+              >
                 {option.label}
               </option>
             ))}
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
             <svg
-              className="h-4 w-4 text-gray-400"
+              className={cn(
+                'h-4 w-4 transition-colors',
+                maxSelect.disabled ? 'text-gray-400' : 'text-gray-600'
+              )}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -94,7 +118,7 @@ export const RangeSelect = (props: RangeSelectProps) => {
         </div>
       </div>
       {(minSelect.error || maxSelect.error) && (
-        <p className="text-sm text-red-500">{minSelect.error || maxSelect.error}</p>
+        <p className="text-sm font-medium text-red-600">{minSelect.error || maxSelect.error}</p>
       )}
     </div>
   );
