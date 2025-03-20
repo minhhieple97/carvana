@@ -18,10 +18,6 @@ export const TaxonomyFilters = (props: TaxonomyFiltersProps) => {
         onChange={handleChange}
         options={makes}
         placeholder="Select make"
-        labelClassName="text-gray-900 font-semibold mb-1.5 text-[0.925rem]"
-        selectClassName="hover:border-gray-300 max-h-[280px]"
-        containerClassName="relative"
-        optionsClassName="max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent"
       />
       <Select
         label="Model"
@@ -31,10 +27,6 @@ export const TaxonomyFilters = (props: TaxonomyFiltersProps) => {
         onChange={handleChange}
         disabled={!models.length}
         placeholder="Select model"
-        labelClassName="text-gray-900 font-semibold mb-1.5 text-[0.925rem]"
-        selectClassName="hover:border-gray-300"
-        containerClassName="relative"
-        optionsClassName="max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent"
       />
       <Select
         label="Model Variant"
@@ -44,10 +36,6 @@ export const TaxonomyFilters = (props: TaxonomyFiltersProps) => {
         onChange={handleChange}
         disabled={!modelVariants.length}
         placeholder="Select variant"
-        labelClassName="text-gray-900 font-semibold mb-1.5 text-[0.925rem]"
-        selectClassName="hover:border-gray-300"
-        containerClassName="relative"
-        optionsClassName="max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent"
       />
     </div>
   );

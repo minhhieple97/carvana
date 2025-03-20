@@ -38,7 +38,7 @@ export const Select = (props: SelectProps) => {
   return (
     <div className={cn('space-y-1.5', className)}>
       {label && (
-        <label className={cn('text-sm font-semibold text-gray-900 select-none', labelClassName)}>
+        <label className={cn('text-gray-900 font-semibold mb-1.5 text-[0.925rem]', labelClassName)}>
           {label}
         </label>
       )}
@@ -54,8 +54,8 @@ export const Select = (props: SelectProps) => {
             'appearance-none pr-10 transition-all duration-200',
             'text-gray-900 font-medium',
             'hover:border-gray-300',
-            error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20',
-            optionsClassName,
+            error &&
+              'border-red-500 focus:border-red-500 focus:ring-red-500/20 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent',
             selectClassName
           )}
           {...rest}
