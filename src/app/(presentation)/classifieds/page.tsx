@@ -19,7 +19,6 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
     getSourceId(),
     getCount(searchParams),
   ]);
-
   return (
     <main className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
@@ -43,7 +42,7 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                     <Suspense
                       fallback={<div className="h-6 w-48 animate-pulse bg-gray-200 rounded" />}
                     >
-                      <ClassifiedsCount />
+                      <ClassifiedsCount count={count} />
                     </Suspense>
                   </div>
                   <div className="flex justify-end">
