@@ -7,3 +7,5 @@ export { CardActions } from './components/card-actions';
 export { ClassifiedsCount } from './components/classifieds-count';
 export { getCount, getClassifieds, getClassifiedsMinMaxValues } from './server/db';
 export { getFavourites } from './server/services';
+export * from './types';
+export * from './components';
