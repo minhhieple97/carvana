@@ -57,7 +57,7 @@ export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
           />
         </div>
 
-        <div className="max-h-[calc(100vh-12rem)] space-y-7 overflow-y-auto p-5">
+        <div className="space-y-7 p-5">
           <TaxonomyFilters searchParams={searchParams} handleChange={handleChange} />
 
           <RangeFilter
