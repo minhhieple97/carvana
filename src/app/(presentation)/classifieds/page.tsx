@@ -10,7 +10,7 @@ import {
   ClassifiedsList,
   getCount,
 } from '@/features/classifieds';
-import { getSourceId } from '@/lib';
+import { getSourceId } from '@/lib/source-id';
 
 export default async function ClassifiedsPage(pageProps: PageProps) {
   const searchParams = await pageProps.searchParams;

@@ -1,5 +1,4 @@
-import ClassifiedCard from '../../features/classifieds/classified-card';
-
+import ClassifiedCard from './classified-card';
 import type { ClassifiedsListProps } from './types';
 
 export const ClassifiedsList = ({ classifieds, favourites }: ClassifiedsListProps) => {
