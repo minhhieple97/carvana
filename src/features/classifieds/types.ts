@@ -57,16 +57,3 @@ export type CardSpecificationsProps = {
 export type CardActionsProps = {
   slug: string;
 };
-
-export type PaginationProps = {
-  baseURL: string;
-  totalPages: number;
-  maxVisiblePages?: number;
-  styles: {
-    paginationRoot: string;
-    paginationPrevious: string;
-    paginationNext: string;
-    paginationLink: string;
-    paginationLinkActive: string;
-  };
-};

@@ -62,3 +62,16 @@ export type RangeFilterProps = TaxonomyFiltersProps & {
     currencyCode: CurrencyCode;
   };
 };
+
+export type PaginationProps = {
+  baseURL: string;
+  totalPages: number;
+  maxVisiblePages?: number;
+  styles: {
+    paginationRoot: string;
+    paginationPrevious: string;
+    paginationNext: string;
+    paginationLink: string;
+    paginationLinkActive: string;
+  };
+};

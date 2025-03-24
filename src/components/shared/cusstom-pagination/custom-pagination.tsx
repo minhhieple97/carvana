@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 
 import { useCustomPagination } from './useCustomPagination';
 
-import type { PaginationProps } from '@/features/classifieds';
+import type { PaginationProps } from '@/config';
 
 export const CustomPagination = (props: PaginationProps) => {
   const { styles } = props;
