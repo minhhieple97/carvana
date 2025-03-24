@@ -1,7 +1,5 @@
 'use client';
-import { routes } from '@/config/routes';
 import type { SidebarProps } from '@/config/types';
-import { env } from '@/env';
 import {
   cn,
   formatBodyType,
@@ -27,6 +25,7 @@ import { Select } from '@/components/ui';
 import { RangeFilter, SearchInput } from '@/components/shared';
 import { TaxonomyFilters } from '@/components/shared';
 import { useDialogFilters } from './useDialogFilters';
+
 type DialogFiltersProps = SidebarProps & {
   count: number;
 };
@@ -42,60 +41,72 @@ export const DialogFilters = (props: DialogFiltersProps) => {
     <Dialog open={open} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button variant="outline" size="icon" className="lg:hidden">
-          <Settings2 className="w-4 h-4" />{' '}
+          <Settings2 className="h-4 w-4" />
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[425px] h-[90vh] overflow-y-auto rounded-xl bg-white">
-        <div className="space-y-6">
-          <div>
-            <div className="text-lg font-semibold flex justify-between">
-              <DialogTitle>Filters</DialogTitle>
-            </div>
-            <div className="mt-2" />
+        <div className="border-b border-gray-100 p-5">
+          <div className="mb-5 flex items-center justify-between">
+            <DialogTitle className="text-xl font-semibold text-gray-800">Filters</DialogTitle>
+            <button
+              type="button"
+              onClick={clearFilters}
+              disabled={!filterCount}
+              className={cn(
+                'rounded-full px-4 py-1.5 text-sm font-medium transition-all',
+                filterCount
+                  ? 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                  : 'cursor-not-allowed text-gray-300'
+              )}
+            >
+              Clear all {filterCount ? `(${filterCount})` : null}
+            </button>
           </div>
-
           <SearchInput
             placeholder="Search classifieds..."
-            className="w-full px-3 py-2 border rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border-gray-200 shadow-sm focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20"
+          />
+        </div>
+
+        <div className="space-y-7 p-5">
+          <TaxonomyFilters searchParams={searchParams} handleChange={handleChange} />
+
+          <RangeFilter
+            label="Year"
+            minName="minYear"
+            maxName="maxYear"
+            defaultMin={_min.year || 1925}
+            defaultMax={_max.year || new Date().getFullYear()}
+            handleChange={handleChange}
+            searchParams={searchParams}
+          />
+          <RangeFilter
+            label="Price"
+            minName="minPrice"
+            maxName="maxPrice"
+            defaultMin={_min.price || 0}
+            defaultMax={_max.price || 21474836}
+            handleChange={handleChange}
+            searchParams={searchParams}
+            increment={1000000}
+            thousandSeparator
+            currency={{
+              currencyCode: 'GBP',
+            }}
+          />
+          <RangeFilter
+            label="Odometer Reading"
+            minName="minReading"
+            maxName="maxReading"
+            defaultMin={_min.odoReading || 0}
+            defaultMax={_max.odoReading || 1000000}
+            handleChange={handleChange}
+            searchParams={searchParams}
+            increment={5000}
+            thousandSeparator
           />
 
-          <div className="space-y-2">
-            <TaxonomyFilters searchParams={searchParams} handleChange={handleChange} />
-
-            <RangeFilter
-              label="Year"
-              minName="minYear"
-              maxName="maxYear"
-              defaultMin={_min.year || 1925}
-              defaultMax={_max.year || new Date().getFullYear()}
-              handleChange={handleChange}
-              searchParams={searchParams}
-            />
-            <RangeFilter
-              label="Price"
-              minName="minPrice"
-              maxName="maxPrice"
-              defaultMin={_min.price || 0}
-              defaultMax={_max.price || 21474836}
-              handleChange={handleChange}
-              searchParams={searchParams}
-              increment={1000000}
-              thousandSeparator
-              currency={{
-                currencyCode: 'GBP',
-              }}
-            />
-            <RangeFilter
-              label="Odometer Reading"
-              minName="minReading"
-              maxName="maxReading"
-              defaultMin={_min.odoReading || 0}
-              defaultMax={_max.odoReading || 1000000}
-              handleChange={handleChange}
-              searchParams={searchParams}
-              increment={5000}
-              thousandSeparator
-            />
+          <div className="space-y-4">
             <Select
               label="Currency"
               name="currency"
@@ -166,7 +177,6 @@ export const DialogFilters = (props: DialogFiltersProps) => {
                 value,
               }))}
             />
-
             <Select
               label="Doors"
               name="doors"
@@ -189,28 +199,9 @@ export const DialogFilters = (props: DialogFiltersProps) => {
             />
           </div>
 
-          <div className="flex flex-col space-y-2">
-            <Button type="button" onClick={() => setIsOpen(false)} className="w-full">
-              Search{count > 0 ? ` (${count})` : null}
-            </Button>
-
-            {filterCount > 0 && (
-              <Button
-                type="button"
-                variant="outline"
-                onClick={clearFilters}
-                aria-disabled={!filterCount}
-                className={cn(
-                  'text-sm py-1',
-                  !filterCount
-                    ? 'disabled opacity-50 pointer-events-none cursor-default'
-                    : 'hover:underline'
-                )}
-              >
-                Clear all {filterCount ? `(${filterCount})` : null}
-              </Button>
-            )}
-          </div>
+          <Button type="button" onClick={() => setIsOpen(false)} className="w-full mt-6">
+            Show Results {count > 0 ? `(${count})` : null}
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

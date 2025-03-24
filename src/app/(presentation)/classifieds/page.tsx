@@ -36,18 +36,18 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                     >
                       <ClassifiedsCount count={count} />
                     </Suspense>
+                  </div>
+                  <div className="flex items-center gap-4">
                     <DialogFilters
                       minMaxValues={minMaxValues}
                       count={count}
                       searchParams={searchParams}
                     />
-                  </div>
-                  <div className="flex justify-end">
                     <CustomPagination
                       baseURL={routes.classifieds}
                       totalPages={totalPages}
                       styles={{
-                        paginationRoot: 'w-auto ml-auto',
+                        paginationRoot: 'w-auto',
                         paginationLink:
                           'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80 font-medium transition-colors',
                         paginationLinkActive:
