@@ -32,7 +32,7 @@ export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
     searchParams,
   });
   return (
-    <aside className="w-[21.25rem] overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md hidden lg:block">
+    <aside className="w-72 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md hidden lg:block">
       <div className="sticky top-4">
         <div className="border-b border-gray-100 p-5">
           <div className="mb-5 flex items-center justify-between">
