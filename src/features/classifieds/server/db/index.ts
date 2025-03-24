@@ -1,1 +1,1 @@
-export { getCount, getClassifieds, getClassifiedsMinMaxValues } from './classifieds';
+export * from './classifieds';

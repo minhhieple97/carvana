@@ -1,12 +1,16 @@
 import { Suspense } from 'react';
-
-import { CustomPagination } from '@/components/shared/';
+import { CustomPagination, DialogFilters } from '@/components';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
-import { ClassifiedsList, getCount } from '@/features/classifieds';
-import { ClassifiedsCount } from '@/features/classifieds';
-import { getFavourites, getClassifieds, getClassifiedsMinMaxValues } from '@/features/classifieds';
-import { Sidebar } from '@/features/classifieds/components/sidebar';
+import {
+  getFavourites,
+  getClassifieds,
+  getClassifiedsMinMaxValues,
+  Sidebar,
+  ClassifiedsCount,
+  ClassifiedsList,
+  getCount,
+} from '@/features/classifieds';
 import { getSourceId } from '@/lib/source-id';
 
 import type { PageProps } from '@/config/types';
@@ -35,6 +39,11 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                     >
                       <ClassifiedsCount count={count} />
                     </Suspense>
+                    <DialogFilters
+                      minMaxValues={minMaxValues}
+                      count={count}
+                      searchParams={searchParams}
+                    />
                   </div>
                   <div className="flex justify-end">
                     <CustomPagination

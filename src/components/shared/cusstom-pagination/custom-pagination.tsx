@@ -7,12 +7,12 @@ import {
   PaginationNext,
   PaginationPrevious,
   Pagination as PaginationRoot,
-} from '@/components/ui/pagination';
+} from '@/components';
 import { cn } from '@/lib/utils';
 
 import { useCustomPagination } from './useCustomPagination';
 
-import type { PaginationProps } from '@/features/classifieds/types';
+import type { PaginationProps } from '@/features/classifieds';
 
 export const CustomPagination = (props: PaginationProps) => {
   const { styles } = props;

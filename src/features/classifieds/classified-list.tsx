@@ -2,7 +2,7 @@ import ClassifiedCard from '../../features/classifieds/classified-card';
 
 import type { ClassifiedsListProps } from './types';
 
-export default function ClassifiedsList({ classifieds, favourites }: ClassifiedsListProps) {
+export const ClassifiedsList = ({ classifieds, favourites }: ClassifiedsListProps) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {classifieds.map((classified) => (
@@ -10,4 +10,4 @@ export default function ClassifiedsList({ classifieds, favourites }: Classifieds
       ))}
     </div>
   );
-}
+};
