@@ -20,7 +20,7 @@ import {
   formatOdometerUnit,
   formatTransmission,
   formatUlezCompliance,
-} from '@/lib/utils';
+} from '@/lib';
 
 import type { SidebarProps } from '@/config/types';
 import { Select } from '@/components/ui';

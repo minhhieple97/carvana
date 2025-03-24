@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { endpoints } from '@/config/endpoints';
-import { api } from '@/lib/api-client';
-
-import type { FilterOptions, TaxonomyFiltersProps } from '@/config/types';
+import { endpoints, FilterOptions, TaxonomyFiltersProps } from '@/config';
+import { api } from '@/lib';
 
 export const useTaxonomyFilters = (props: TaxonomyFiltersProps) => {
   const { searchParams, handleChange } = props;

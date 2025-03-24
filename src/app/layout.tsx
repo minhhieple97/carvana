@@ -4,7 +4,7 @@ import { Mulish, Roboto } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 

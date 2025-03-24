@@ -1,4 +1,4 @@
-import { bcryptPasswordHash } from '@/lib/bcrypt';
+import { bcryptPasswordHash } from '@/lib';
 import type { PrismaClient } from '@prisma/client';
 
 export async function seedAdmin(prisma: PrismaClient) {

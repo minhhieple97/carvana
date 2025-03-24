@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib';
 
 import type { Make, Model, ModelVariant } from '@prisma/client';
 
