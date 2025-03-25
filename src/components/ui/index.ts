@@ -4,3 +4,4 @@ export * from './input';
 export * from './button';
 export * from './dialog';
 export * from './pagination';
+export * from './sheet';
