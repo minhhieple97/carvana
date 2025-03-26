@@ -1,4 +1,3 @@
-'use client';
 import { Button } from '@/components/ui';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui';
 import { MenuIcon } from 'lucide-react';

@@ -9,7 +9,7 @@ import {
   formatNumber,
   formatOdometerUnit,
   formatTransmission,
-} from '@/lib';
+} from '@/lib/utils';
 
 import type { Favourites } from '@/config/types';
 import type { ClassifiedWithImages } from '@/features/classifieds/types';

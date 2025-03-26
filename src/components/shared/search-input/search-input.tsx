@@ -4,7 +4,7 @@ import debounce from 'debounce';
 import { SearchIcon, XIcon } from 'lucide-react';
 
 import { Input } from '@/components';
-import { cn } from '@/lib';
+import { cn } from '@/lib/utils';
 
 import { useSearchInput } from './useSearchInput';
 

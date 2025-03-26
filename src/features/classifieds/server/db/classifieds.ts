@@ -1,8 +1,9 @@
+'use server';
 import { unstable_noStore as noStore } from 'next/cache';
 
 import { PageSchema } from '@/app/schemas';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
-import { prisma } from '@/lib';
+import { prisma } from '@/lib/prisma';
 
 import { buildClassifiedFilterQuery } from '../services';
 

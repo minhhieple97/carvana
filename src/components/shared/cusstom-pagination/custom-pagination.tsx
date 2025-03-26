@@ -8,7 +8,7 @@ import {
   PaginationPrevious,
   Pagination as PaginationRoot,
 } from '@/components';
-import { cn } from '@/lib';
+import { cn } from '@/lib/utils';
 
 import { useCustomPagination } from './useCustomPagination';
 

@@ -1,7 +1,7 @@
 import { ClassifiedStatus } from '@prisma/client';
 
 import { ClassifiedFilterSchema } from '@/app/schemas';
-import { redis } from '@/lib';
+import { redis } from '@/lib/redis-store';
 
 import type { AwaitedPageProps, Favourites } from '@/config/types';
 import type { Prisma } from '@prisma/client';

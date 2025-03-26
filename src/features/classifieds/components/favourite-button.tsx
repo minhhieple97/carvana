@@ -3,8 +3,8 @@ import { HeartIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 import { endpoints } from '@/config/endpoints';
-import { api } from '@/lib';
-import { cn } from '@/lib';
+import { api } from '@/lib/api-client';
+import { cn } from '@/lib/utils';
 
 import { Button } from '../../../components/ui/button';
 

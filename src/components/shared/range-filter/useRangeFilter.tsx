@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { formatNumber, formatPrice } from '@/lib';
+import { formatNumber, formatPrice } from '@/lib/utils';
 
 import type { FilterOptions, RangeFilterProps } from '@/config/types';
 export const useRangeFilter = (props: RangeFilterProps) => {

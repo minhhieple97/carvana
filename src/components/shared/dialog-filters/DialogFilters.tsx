@@ -8,7 +8,7 @@ import {
   formatOdometerUnit,
   formatTransmission,
   formatUlezCompliance,
-} from '@/lib';
+} from '@/lib/utils';
 import {
   BodyType,
   Colour,
