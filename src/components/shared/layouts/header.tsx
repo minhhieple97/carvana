@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { navLinks } from '@/config/constants';
 import { routes } from '@/config/routes';
 import { HeartIcon } from 'lucide-react';
@@ -32,16 +31,28 @@ export const PublicHeader = async () => {
         ))}
       </nav>
 
-      <Button asChild variant="ghost" size="icon" className="relative inline-block group">
-        <Link href={routes.favourites}>
-          <div className="flex group-hover:bg-pink-500 duration-200 transition-colors ease-in-out items-center justify-center w-10 h-10 bg-muted rounded-full">
-            <HeartIcon className="w-6 h-6 text-primary group-hover:text-white group-hover:fill-white" />
+      <div className="relative inline-flex group">
+        <Link href={routes.favourites} className="flex items-center justify-center">
+          <div
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-muted 
+                        transition-all duration-200 ease-in-out
+                        group-hover:bg-pink-500"
+          >
+            <HeartIcon
+              className="w-6 h-6 text-primary transition-all duration-200 ease-in-out
+                         group-hover:text-white group-hover:fill-white"
+            />
           </div>
-          <div className="absolute -top-1.5 -right-1.5 flex items-center justify-center w-5 h-5 text-white bg-pink-500 rounded-full group-hover:bg-primary">
+          <div
+            className="absolute -top-1.5 -right-1.5 flex items-center justify-center w-5 h-5 
+                        text-white bg-pink-500 rounded-full 
+                        transition-all duration-200 ease-in-out
+                        group-hover:bg-primary"
+          >
             <span className="text-xs">{favourites ? favourites.ids.length : 0}</span>
           </div>
         </Link>
-      </Button>
+      </div>
 
       <MobileMenu />
     </header>
