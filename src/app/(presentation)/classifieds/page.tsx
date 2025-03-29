@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
+
 import { CustomPagination, DialogFilters } from '@/components';
-import { CLASSIFIEDS_PER_PAGE, routes, PageProps } from '@/config';
+import { CLASSIFIEDS_PER_PAGE, routes } from '@/config';
 import {
   getFavourites,
   getClassifieds,
@@ -11,6 +12,8 @@ import {
   getCount,
 } from '@/features/classifieds';
 import { getSourceId } from '@/lib/source-id';
+
+import type { PageProps } from '@/config';
 
 export default async function ClassifiedsPage(pageProps: PageProps) {
   const searchParams = await pageProps.searchParams;

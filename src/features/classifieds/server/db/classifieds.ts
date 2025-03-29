@@ -1,4 +1,5 @@
 'use server';
+import { ClassifiedStatus } from '@prisma/client';
 import { unstable_noStore as noStore } from 'next/cache';
 
 import { PageSchema } from '@/app/schemas';
@@ -8,7 +9,6 @@ import { prisma } from '@/lib/prisma';
 import { buildClassifiedFilterQuery } from '../services';
 
 import type { AwaitedPageProps } from '@/config/types';
-import { ClassifiedStatus } from '@prisma/client';
 
 export const getCount = async (searchParams: AwaitedPageProps['searchParams']) => {
   noStore();

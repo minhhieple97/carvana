@@ -1,11 +1,13 @@
-import { parseAsString } from 'nuqs';
-
 import { useRouter } from 'next/navigation';
+import { parseAsString } from 'nuqs';
 import { useQueryStates } from 'nuqs';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import { routes } from '@/config/routes';
 import { env } from '@/env';
-import { PageProps } from '@/config/types';
+
+import type { PageProps } from '@/config/types';
+import type { ChangeEvent } from 'react';
 
 export const useDialogFilters = (searchParams: Awaited<PageProps['searchParams']>) => {
   const [open, setIsOpen] = useState(false);

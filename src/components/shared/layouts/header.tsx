@@ -1,10 +1,12 @@
-import { navLinks } from '@/config/constants';
-import { routes } from '@/config/routes';
 import { HeartIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getSourceId } from '@/lib/source-id';
+
+import { navLinks } from '@/config/constants';
+import { routes } from '@/config/routes';
 import { getFavourites } from '@/features/classifieds';
+import { getSourceId } from '@/lib/source-id';
+
 import { MobileMenu } from './mobile-menu';
 
 export const PublicHeader = async () => {

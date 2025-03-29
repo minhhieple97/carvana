@@ -1,14 +1,4 @@
 'use client';
-import type { SidebarProps } from '@/config/types';
-import {
-  cn,
-  formatBodyType,
-  formatColour,
-  formatFuelType,
-  formatOdometerUnit,
-  formatTransmission,
-  formatUlezCompliance,
-} from '@/lib/utils';
 import {
   BodyType,
   Colour,
@@ -19,12 +9,25 @@ import {
   ULEZCompliance,
 } from '@prisma/client';
 import { Settings2 } from 'lucide-react';
+
+import { RangeFilter, SearchInput } from '@/components/shared';
+import { TaxonomyFilters } from '@/components/shared';
 import { Button } from '@/components/ui';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui';
 import { Select } from '@/components/ui';
-import { RangeFilter, SearchInput } from '@/components/shared';
-import { TaxonomyFilters } from '@/components/shared';
+import {
+  cn,
+  formatBodyType,
+  formatColour,
+  formatFuelType,
+  formatOdometerUnit,
+  formatTransmission,
+  formatUlezCompliance,
+} from '@/lib/utils';
+
 import { useDialogFilters } from './useDialogFilters';
+
+import type { SidebarProps } from '@/config/types';
 
 type DialogFiltersProps = SidebarProps & {
   count: number;

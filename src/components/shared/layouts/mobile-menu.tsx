@@ -1,7 +1,8 @@
-import { Button } from '@/components/ui';
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui';
 import { MenuIcon } from 'lucide-react';
 import Link from 'next/link';
+
+import { Button } from '@/components/ui';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui';
 import { navLinks } from '@/config/constants';
 
 export const MobileMenu = () => (

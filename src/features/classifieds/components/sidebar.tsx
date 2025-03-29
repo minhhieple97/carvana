@@ -11,7 +11,7 @@ import {
 } from '@prisma/client';
 
 import { SearchInput, RangeFilter, TaxonomyFilters } from '@/components/shared';
-
+import { Select } from '@/components/ui';
 import {
   cn,
   formatBodyType,
@@ -22,9 +22,9 @@ import {
   formatUlezCompliance,
 } from '@/lib/utils';
 
-import type { SidebarProps } from '@/config/types';
-import { Select } from '@/components/ui';
 import { useSidebar } from '../hooks/useSidebar';
+
+import type { SidebarProps } from '@/config/types';
 
 export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
   const { _min, _max } = minMaxValues;

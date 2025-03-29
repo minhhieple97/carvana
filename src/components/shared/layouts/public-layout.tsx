@@ -1,13 +1,12 @@
-import type { PropsWithChildren } from 'react';
 import { PublicFooter } from './footer';
 import { PublicHeader } from './header';
 
-export const PublicLayout = ({ children }: PropsWithChildren) => {
-  return (
-    <>
-      <PublicHeader />
-      <main className="bg-white">{children}</main>
-      <PublicFooter />
-    </>
-  );
-};
+import type { PropsWithChildren } from 'react';
+
+export const PublicLayout = ({ children }: PropsWithChildren) => (
+  <>
+    <PublicHeader />
+    <main className="bg-white">{children}</main>
+    <PublicFooter />
+  </>
+);

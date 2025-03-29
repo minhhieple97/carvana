@@ -1,13 +1,15 @@
 'use server';
 
-import type { PrevState } from '@/config/types';
-import { prisma } from '@/lib/prisma';
 import { CustomerStatus } from '@prisma/client';
 import {
   PrismaClientKnownRequestError,
   PrismaClientValidationError,
 } from '@prisma/client/runtime/library';
+
 import { SubscribeSchema } from '@/app/schemas';
+import { prisma } from '@/lib/prisma';
+
+import type { PrevState } from '@/config/types';
 
 export const subscribeAction = async (_: PrevState, formData: FormData) => {
   try {
