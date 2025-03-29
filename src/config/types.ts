@@ -75,3 +75,8 @@ export type PaginationProps = {
     paginationLinkActive: string;
   };
 };
+
+export type PrevState = {
+  success: boolean;
+  message: string;
+};

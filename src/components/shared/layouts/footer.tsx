@@ -3,6 +3,7 @@ import { routes } from '@/config/routes';
 import { SiInstagram, SiMeta, SiX } from '@icons-pack/react-simple-icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import { NewsletterForm } from '../news-letter-form';
 const socialLinks = [
   {
     id: 1,
@@ -53,6 +54,7 @@ export const PublicFooter = () => {
             </Link>
           </li>
         </ul>
+        <NewsletterForm />
       </div>
       <div className="container mx-auto mt-8 text-center text-gray-700">
         <h4 className="text-lg font-bold text-primary">Company Info</h4>
