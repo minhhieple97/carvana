@@ -1,6 +1,6 @@
 'use client';
 
-import { CircleCheckIcon, CircleX, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
@@ -12,19 +12,29 @@ const SubscribeButton = () => {
 
   return (
     <Button disabled={pending} type="submit" className="w-full uppercase font-bold">
-      {pending && <Loader2 className="h-4 w-4 shrink-0 animate-spin" aria-hidden="true" />}{' '}
-      Subscribe Now
+      {pending ? (
+        <>
+          <Loader2 className="h-4 w-4 shrink-0 animate-spin mr-2" aria-hidden="true" />
+          Subscribing...
+        </>
+      ) : (
+        'Subscribe Now'
+      )}
     </Button>
   );
 };
+
 export const NewsletterForm = () => {
-  const { form, handleFormAction, formRef, state } = useNewsletterForm();
+  const { form, handleSubmit, formAction, formRef } = useNewsletterForm();
+
   return (
     <div className="space-y-4">
       <h3 className="text-xl font-bold text-primary">Subscribe to our inventory updates</h3>
-      <p className="text-gray-700">Enter your details to receive new stock updates</p>
+      <p className="text-gray-700 dark:text-gray-300">
+        Enter your details to receive new stock updates
+      </p>
       <Form {...form}>
-        <form ref={formRef} className="space-y-2" action={handleFormAction} onSubmit={() => null}>
+        <form ref={formRef} action={formAction} className="space-y-2" onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 space-x-2">
             <FormField
               control={form.control}
@@ -64,19 +74,6 @@ export const NewsletterForm = () => {
             )}
           />
           <SubscribeButton />
-
-          {state.success && (
-            <div className="flex items-center gap-2 rounded-md bg-green-500 p-3 text-white">
-              <CircleCheckIcon className="h-5 w-5" />
-              <span>Success! {state.message}</span>
-            </div>
-          )}
-          {!state.success && state.message && (
-            <div className="flex items-center gap-2 rounded-md bg-green-500 p-3 text-white">
-              <CircleX className="h-5 w-5" />
-              <span>Error! {state.message}</span>
-            </div>
-          )}
         </form>
       </Form>
     </div>

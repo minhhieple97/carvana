@@ -1,12 +1,14 @@
-import { useActionState } from 'react';
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useActionState } from 'react';
 import { useRef, useEffect } from 'react';
-import { subscribeAction } from '@/features/classifieds';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+
 import { SubscribeSchema } from '@/app/schemas';
+import { subscribeAction } from '@/features/classifieds';
 
 export const useNewsletterForm = () => {
-  const [state, formAction] = useActionState(subscribeAction, {
+  const [state, formAction, isPending] = useActionState(subscribeAction, {
     success: false,
     message: '',
   });
@@ -16,19 +18,26 @@ export const useNewsletterForm = () => {
     mode: 'onChange',
   });
 
-  const handleFormAction = async (formData: FormData) => {
-    const valid = await form.trigger();
-    if (!valid) return;
-    formAction(formData);
-  };
-
   const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    if (state.success && formRef.current) {
-      formRef.current.reset();
+  const handleSubmit = async (e: React.FormEvent) => {
+    const valid = await form.trigger();
+    if (!valid) {
+      e.preventDefault();
+      return;
     }
-  }, [state.success]);
+  };
 
-  return { form, handleFormAction, formRef, state };
+  useEffect(() => {
+    if (!isPending) {
+      if (state.success) {
+        form.reset();
+        toast.success(state.message || 'Successfully subscribed!');
+      } else if (state.message) {
+        toast.error(state.message);
+      }
+    }
+  }, [state, isPending, form]);
+
+  return { form, formAction, formRef, state, handleSubmit };
 };
