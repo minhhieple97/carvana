@@ -9,6 +9,7 @@
   --font-body:
     var(--font-body), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -66,116 +67,76 @@
       height: 0;
     }
   }
-  @keyframes keyframes {
-    slide-out {
-      0% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(-10px);
-      }
-      100% {
-        transform: translateX(100vw);
-      }
+  @keyframes keyframes-slide-out {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(100vw);
     }
   }
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* Single Consolidated Base Layer */
 @layer base {
+  /* Light mode variables (default) */
   :root {
-    --destructive-foreground: 0 0% 100%;
-    --secondary-foreground: 210 20% 10%;
-    --popover-foreground: 210 20% 10%;
-    --primary-foreground: 0 0% 100%;
-    --accent-foreground: 0 0% 100%;
-    --muted-foreground: 210 40% 30%;
-    --card-foreground: 210 20% 10%;
-    --destructive: 0 80% 60%;
-    --background: 210 20% 96%;
+    --background: 210 20% 98%;
     --foreground: 210 20% 10%;
-    --secondary: 40 90% 60%;
-    --popover: 210 10% 86%;
+    --card: 210 20% 100%;
+    --card-foreground: 210 20% 10%;
+    --popover: 210 20% 100%;
+    --popover-foreground: 210 20% 10%;
     --primary: 210 70% 50%;
-    --border: 210 10% 59%;
-    --accent: 0 70% 50%;
-    --muted: 210 10% 86%;
-    --input: 210 10% 63%;
-    --card: 210 20% 96%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 15% 94%;
+    --secondary-foreground: 210 15% 30%;
+    --muted: 210 15% 94%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 210 70% 95%;
+    --accent-foreground: 210 70% 40%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
     --ring: 210 70% 50%;
     --radius: 0.5rem;
   }
 
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+  /* Dark mode variables */
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 22%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 27%;
+    --input: 217 33% 27%;
+    --ring: 210 40% 98%;
   }
 
-  body {
-    @apply bg-background text-foreground font-body;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading;
-  }
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: 210 20% 10%;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: 210 20% 98%;
-    --muted-foreground: 210 40% 80%;
-    --popover-foreground: 210 20% 98%;
-    --card-foreground: 210 20% 98%;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  @apply antialiased;
-}
-
-.custom-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='gray'><path d='m7 10l5 5 5-5z' /> </svg>")
-    no-repeat;
-  background-position: right 0px center;
-}
-
-/*
-  ---break---
-*/
-
-@layer base {
+  /* Base element styling */
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    line-height: 1.6;
   }
 
   h1,
@@ -184,10 +145,47 @@ body {
   h4,
   h5,
   h6 {
-    @apply text-foreground font-medium tracking-tight;
+    @apply font-heading font-semibold tracking-tight text-foreground;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+  h4 {
+    @apply text-lg md:text-xl;
   }
 
   p {
-    @apply text-foreground/90 leading-relaxed;
+    @apply text-foreground/90 mb-4 leading-relaxed;
+  }
+
+  a {
+    @apply text-primary underline-offset-4 transition-colors hover:underline hover:text-primary/90;
+  }
+
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    -webkit-appearance: button;
+    background-color: transparent;
+    background-image: none;
+  }
+
+  .custom-select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    @apply bg-background border pr-8 pl-3 py-2 rounded-md;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23${theme('colors.foreground / 0.6')}'%3E%3Cpath d='m7 10l5 5 5-5z' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
   }
 }
