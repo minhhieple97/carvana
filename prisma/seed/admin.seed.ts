@@ -1,4 +1,5 @@
-import { bcryptPasswordHash } from '@/lib';
+import { bcryptPasswordHash } from '@/lib/bcrypt';
+
 import type { PrismaClient } from '@prisma/client';
 
 export async function seedAdmin(prisma: PrismaClient) {
@@ -10,8 +11,6 @@ export async function seedAdmin(prisma: PrismaClient) {
       password,
     },
   });
-
-  console.log('Admin created: ', admin);
 
   return admin;
 }

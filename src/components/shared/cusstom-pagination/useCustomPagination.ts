@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { env } from '@/env';
 
-import type { PaginationProps } from '@/features/classifieds/types';
+import type { PaginationProps } from '@/config/types';
 
 export const useCustomPagination = (props: PaginationProps) => {
   const { baseURL, totalPages, maxVisiblePages = 5 } = props;
