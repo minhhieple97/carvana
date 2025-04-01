@@ -1,19 +1,19 @@
 import { Suspense } from 'react';
 
 import { PageSchema } from '@/app/schemas/page.schema';
+import { CustomPagination } from '@/components/shared/cusstom-pagination';
+import { InventorySkeleton } from '@/components/shared/inventory/inventory-skeleton';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
-import type { PageProps } from '@/config/types';
-import { getSourceId } from '@/lib/source-id';
 import ClassifiedCard from '@/features/classifieds/classified-card';
 import {
   getFavouriteIds,
   getPaginatedFavouriteClassifieds,
   getFavouritesCount,
 } from '@/features/favourites';
+import { getSourceId } from '@/lib/source-id';
 
-import { InventorySkeleton } from '@/components/shared/inventory/inventory-skeleton';
-import { CustomPagination } from '@/components/shared/cusstom-pagination';
+import type { PageProps } from '@/config/types';
 
 async function FavouriteList({ searchParams }: PageProps) {
   const params = await searchParams;
