@@ -162,7 +162,7 @@
   }
 
   p {
-    @apply text-foreground/90 mb-4 leading-relaxed;
+    @apply text-foreground/90 leading-relaxed;
   }
 
   a {
