@@ -16,6 +16,11 @@ export const useNewsletterForm = () => {
   const form = useForm({
     resolver: zodResolver(SubscribeSchema),
     mode: 'onChange',
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+    },
   });
 
   const formRef = useRef<HTMLFormElement>(null);
