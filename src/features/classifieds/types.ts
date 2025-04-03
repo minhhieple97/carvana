@@ -13,7 +13,7 @@ type ClassifiedCardProps = {
 };
 
 type ClassifiedsListProps = {
-  classifieds: ClassifiedWithImages[];
+  classifiedsPromise: Promise<ClassifiedWithImages[]>;
   favourites: Favourites;
 };
 

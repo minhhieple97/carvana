@@ -14,11 +14,12 @@ import {
 import { getSourceId } from '@/lib/source-id';
 
 import type { PageProps } from '@/config';
+import { InventorySkeleton } from '@/components/shared/inventory';
 
 export default async function ClassifiedsPage(pageProps: PageProps) {
   const searchParams = await pageProps.searchParams;
-  const [classifieds, sourceId, count, minMaxValues] = await Promise.all([
-    getClassifieds(searchParams),
+  const classifiedsPromise = getClassifieds(searchParams);
+  const [sourceId, count, minMaxValues] = await Promise.all([
     getSourceId(),
     getCount(searchParams),
     getClassifiedsMinMaxValues(),
@@ -65,18 +66,10 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                 </div>
               </header>
 
-              <Suspense
-                fallback={
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {Array.from({ length: 8 }).map((_, i) => (
-                      <div key={i} className="h-[400px] bg-gray-200 rounded-lg animate-pulse" />
-                    ))}
-                  </div>
-                }
-              >
+              <Suspense fallback={<InventorySkeleton />}>
                 <section className="bg-white rounded-xl shadow-sm p-6">
                   <ClassifiedsList
-                    classifieds={classifieds}
+                    classifiedsPromise={classifiedsPromise}
                     favourites={await getFavourites(sourceId)}
                   />
                 </section>
