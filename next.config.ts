@@ -5,6 +5,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'carvana-890304154.imgix.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'majestic-motors.s3.eu-west-2.amazonaws.com',
         port: '',
         pathname: '/**',
