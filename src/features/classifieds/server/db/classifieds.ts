@@ -45,3 +45,11 @@ export const getClassifiedsMinMaxValues = async () =>
       odoReading: true,
     },
   });
+
+export const getSingleClassified = async (slug: string) => {
+  noStore();
+  return prisma.classified.findUnique({
+    where: { slug },
+    include: { images: true, make: true },
+  });
+};
