@@ -1,14 +1,14 @@
 'use client';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { CardContent } from './components/card-content';
-import { CardImage } from './components/card-image';
-import { FavouriteButton } from './components/favourite-button';
-import { PriceTag } from './components/price-tag';
-import { useClassifiedCard } from './hooks/useClassifiedCard';
+import { CardContent } from './card-content';
+import { CardImage } from './card-image';
+import { FavouriteButton } from './favourite-button';
+import { PriceTag } from './price-tag';
+import { useClassifiedCard } from '../hooks/useClassifiedCard';
 
-import type { ClassifiedCardProps } from './types';
-export default function ClassifiedCard({ classified, favourites }: ClassifiedCardProps) {
+import type { ClassifiedCardProps } from '@/features/classifieds';
+export const ClassifiedCard = ({ classified, favourites }: ClassifiedCardProps) => {
   const { getKeyClassifiedInfo, isFavourite, setIsFavourite, isVisible } = useClassifiedCard({
     classified,
     favourites,
@@ -38,4 +38,4 @@ export default function ClassifiedCard({ classified, favourites }: ClassifiedCar
       )}
     </AnimatePresence>
   );
-}
+};

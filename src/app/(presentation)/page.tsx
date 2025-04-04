@@ -1,7 +1,10 @@
-import { FeaturesSection } from '@/features/homepage/features-section';
-import { HeroSection } from '@/features/homepage/hero-section';
-import { LatestArrivals } from '@/features/homepage/latest-arrivals';
-import { OurBrandsSection } from '@/features/homepage/our-brands-section';
+import {
+  FeaturesSection,
+  HeroSection,
+  LatestArrivals,
+  OurBrandsSection,
+} from '@/features/homepage/components';
+
 import type { PageProps } from '@/config/types';
 
 export default async function Home(props: PageProps) {
