@@ -6,7 +6,7 @@ import { CustomPagination } from '@/components/shared/cusstom-pagination';
 import { InventorySkeleton } from '@/components/shared/inventory/inventory-skeleton';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
-import ClassifiedCard from '@/features/classifieds/classified-card';
+import { ClassifiedCard } from '@/features/classifieds';
 import {
   getFavouriteIds,
   getPaginatedFavouriteClassifieds,
