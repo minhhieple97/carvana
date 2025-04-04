@@ -1,14 +1,14 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { routes } from '@/config/routes';
 
 import type { CardImageProps } from '../types';
+import { ImgixImage } from '@/components/ui/imgix-image';
 
 export const CardImage = ({ image, slug }: CardImageProps) => (
   <div className="relative aspect-4/3">
     <Link href={routes.singleClassified(slug)} className="absolute inset-0">
-      <Image
+      <ImgixImage
         placeholder="blur"
         src={image?.src ?? ''}
         blurDataURL={image?.blurhash ?? ''}
