@@ -1,4 +1,4 @@
-export * from './classified-list';
+export * from './components/classified-list';
 export * from './components/card-image';
 export * from './components/price-tag';
 export * from './components/card-content';
