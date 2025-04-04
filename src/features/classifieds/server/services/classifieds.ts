@@ -118,6 +118,7 @@ export const getLatestArrivals = () => dbGetLatestArrivals();
 
 export const getFeaturedBrands = () => dbGetFeaturedBrands();
 
-export const getLiveClassifiedsCount = () => dbGetLiveClassifiedsCount();
+export const getLiveClassifiedsCount = (condition: Prisma.ClassifiedWhereInput) =>
+  dbGetLiveClassifiedsCount(condition);
 
 export const getClassifiedsMinMaxValues = () => dbGetClassifiedsMinMaxValues();

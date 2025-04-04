@@ -5,7 +5,7 @@ import { routes } from './routes';
 export const imageSources = {
   classifiedPlaceholder: `${env.NEXT_PUBLIC_IMGIX_URL}/uploads/AdobeStock_855683950.jpeg`,
   carLinup: `${env.NEXT_PUBLIC_IMGIX_URL}/uploads/AdobeStock_197763326.jpeg`,
-  featureSection: 'https://majestic-motors.s3.eu-west-2.amazonaws.com/uploads/feature-section.jpg',
+  featureSection: `${env.NEXT_PUBLIC_IMGIX_URL}/uploads/AdobeStock_753683117.jpeg`,
 };
 
 export const SOURCE_ID_KEY = 'sourceId';

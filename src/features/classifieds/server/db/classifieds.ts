@@ -73,7 +73,7 @@ export const getFeaturedBrands = () =>
     },
   });
 
-export const getLiveClassifiedsCount = () =>
+export const getLiveClassifiedsCount = (condition: Prisma.ClassifiedWhereInput) =>
   prisma.classified.count({
-    where: { status: ClassifiedStatus.LIVE },
+    where: { ...condition },
   });

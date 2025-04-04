@@ -1,6 +1,8 @@
-import type { Prisma, PrismaClient } from '@prisma/client';
-import { parse } from 'csv';
 import fs from 'node:fs';
+
+import { parse } from 'csv';
+
+import type { Prisma, PrismaClient } from '@prisma/client';
 
 type Row = {
   make: string;
@@ -28,15 +30,13 @@ export async function seedTaxonomy(prisma: PrismaClient) {
         });
       })
       .on('error', (error) => {
-        console.log({ error });
+        console.error({ error });
         reject(error);
       })
       .on('end', () => {
         resolve(eachRow);
       });
   });
-
-  console.log(rows);
 
   type MakeModelMap = {
     [make: string]: {
@@ -72,10 +72,8 @@ export async function seedTaxonomy(prisma: PrismaClient) {
     }
   }
 
-  console.log({ result });
-
-  const makePromises = Object.entries(result).map(([name]) => {
-    return prisma.make.upsert({
+  const makePromises = Object.entries(result).map(([name]) =>
+    prisma.make.upsert({
       where: {
         name,
       },
@@ -91,11 +89,10 @@ export async function seedTaxonomy(prisma: PrismaClient) {
           .replace(/\s+/g, '-')
           .toLowerCase()}-logo.png?auto=format,compress`,
       },
-    });
-  });
+    })
+  );
 
   const makes = await Promise.all(makePromises);
-  console.log(`Seeded db with ${makes.length} makes 🌱`);
 
   const modelPromises: Prisma.Prisma__ModelClient<unknown, unknown>[] = [];
 
@@ -116,7 +113,7 @@ export async function seedTaxonomy(prisma: PrismaClient) {
             name: model,
             make: { connect: { id: make.id } },
           },
-        }),
+        })
       );
     }
   }
@@ -124,7 +121,7 @@ export async function seedTaxonomy(prisma: PrismaClient) {
   async function insertInBatches<TUpsertArgs>(
     items: TUpsertArgs[],
     batchSize: number,
-    insertFunction: (batch: TUpsertArgs[]) => void,
+    insertFunction: (batch: TUpsertArgs[]) => void
   ) {
     for (let i = 0; i < items.length; i += batchSize) {
       const batch = items.slice(i, i + batchSize);
@@ -136,9 +133,8 @@ export async function seedTaxonomy(prisma: PrismaClient) {
     modelPromises,
     BATCH_SIZE,
     async (batch) => {
-      const models = await Promise.all(batch);
-      console.log(`Seeded batch of ${models.length} models 🌱`);
-    },
+      await Promise.all(batch);
+    }
   );
 
   const variantPromises: Prisma.Prisma__ModelVariantClient<unknown, unknown>[] = [];
@@ -167,7 +163,7 @@ export async function seedTaxonomy(prisma: PrismaClient) {
               yearEnd: year_range.yearEnd,
               model: { connect: { id: model.id } },
             },
-          }),
+          })
         );
       }
     }
@@ -177,8 +173,7 @@ export async function seedTaxonomy(prisma: PrismaClient) {
     variantPromises,
     BATCH_SIZE,
     async (batch) => {
-      const variants = await Promise.all(batch);
-      console.log(`Seeded batch of ${variants.length} variants 🌱`);
-    },
+      await Promise.all(batch);
+    }
   );
 }

@@ -1,13 +1,14 @@
 import { routes } from '@/config/routes';
-import { prisma } from '@/lib/prisma';
-import { ClassifiedStatus } from '@prisma/client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getBrandsCount } from '../classifieds';
-import { getBrands } from '../classifieds';
+import { getFeaturedBrands, getLiveClassifiedsCount } from '../classifieds';
+import { ClassifiedStatus } from '@prisma/client';
 
 export const OurBrandsSection = async () => {
-  const [brands, count] = await Promise.all([getBrands(), getBrandsCount()]);
+  const [brands, count] = await Promise.all([
+    getFeaturedBrands(),
+    getLiveClassifiedsCount({ status: ClassifiedStatus.LIVE }),
+  ]);
 
   return (
     <div className="py-16 sm:py-24 bg-white">
