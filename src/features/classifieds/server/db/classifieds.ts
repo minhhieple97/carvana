@@ -1,29 +1,16 @@
 'server-only';
 import { ClassifiedStatus } from '@prisma/client';
-import { unstable_noStore as noStore } from 'next/cache';
 
-import { PageSchema } from '@/app/schemas';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { prisma } from '@/lib/prisma';
 
-import { buildClassifiedFilterQuery } from '../services';
+import type { Prisma } from '@prisma/client';
 
-import type { AwaitedPageProps } from '@/config/types';
+export const getClassifiedCount = (query: Prisma.ClassifiedWhereInput) =>
+  prisma.classified.count({ where: query });
 
-export const getCount = async (searchParams: AwaitedPageProps['searchParams']) => {
-  noStore();
-  const query = buildClassifiedFilterQuery(searchParams);
-  return prisma.classified.count({ where: query });
-};
-
-export const getClassifieds = async (searchParams: AwaitedPageProps['searchParams']) => {
-  noStore();
-  const validPage = PageSchema.parse(searchParams?.page);
-
-  const page = validPage ? validPage : 1;
-
+export const getClassifieds = (query: Prisma.ClassifiedWhereInput, page: number) => {
   const offset = (page - 1) * CLASSIFIEDS_PER_PAGE;
-  const query = buildClassifiedFilterQuery(searchParams);
   return prisma.classified.findMany({
     where: query,
     include: { images: { take: 1 } },
@@ -31,7 +18,8 @@ export const getClassifieds = async (searchParams: AwaitedPageProps['searchParam
     take: CLASSIFIEDS_PER_PAGE,
   });
 };
-export const getClassifiedsMinMaxValues = async () =>
+
+export const getClassifiedsMinMaxValues = () =>
   prisma.classified.aggregate({
     where: { status: ClassifiedStatus.LIVE },
     _min: {
@@ -46,22 +34,20 @@ export const getClassifiedsMinMaxValues = async () =>
     },
   });
 
-export const getSingleClassified = async (slug: string) =>
+export const getSingleClassified = (slug: string) =>
   prisma.classified.findUnique({
     where: { slug },
     include: { images: true, make: true },
   });
 
-export const getLatestArrivals = async () => {
-  noStore();
-  return prisma.classified.findMany({
+export const getLatestArrivals = () =>
+  prisma.classified.findMany({
     where: { status: ClassifiedStatus.LIVE },
     take: 6,
     include: { images: true },
   });
-};
 
-export const getBrands = () =>
+export const getFeaturedBrands = () =>
   prisma.make.findMany({
     where: {
       name: {
@@ -87,7 +73,7 @@ export const getBrands = () =>
     },
   });
 
-export const getBrandsCount = async () =>
+export const getLiveClassifiedsCount = () =>
   prisma.classified.count({
     where: { status: ClassifiedStatus.LIVE },
   });

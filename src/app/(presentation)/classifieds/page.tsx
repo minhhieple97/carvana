@@ -9,7 +9,7 @@ import {
   Sidebar,
   ClassifiedsCount,
   ClassifiedsList,
-  getCount,
+  getClassifiedsCount,
 } from '@/features/classifieds';
 import { getSourceId } from '@/lib/source-id';
 
@@ -21,7 +21,7 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
   const classifiedsPromise = getClassifieds(searchParams);
   const [sourceId, count, minMaxValues] = await Promise.all([
     getSourceId(),
-    getCount(searchParams),
+    getClassifiedsCount(searchParams),
     getClassifiedsMinMaxValues(),
   ]);
   const totalPages = Math.ceil(count / CLASSIFIEDS_PER_PAGE);

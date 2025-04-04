@@ -1,7 +1,16 @@
 import { ClassifiedStatus } from '@prisma/client';
 
-import { ClassifiedFilterSchema } from '@/app/schemas';
+import { ClassifiedFilterSchema, PageSchema } from '@/app/schemas';
 import { redis } from '@/lib/redis-store';
+
+import {
+  getClassifiedCount as dbGetClassifiedCount,
+  getClassifieds as dbGetClassifieds,
+  getFeaturedBrands as dbGetFeaturedBrands,
+  getLatestArrivals as dbGetLatestArrivals,
+  getLiveClassifiedsCount as dbGetLiveClassifiedsCount,
+  getClassifiedsMinMaxValues as dbGetClassifiedsMinMaxValues,
+} from '../db/classifieds';
 
 import type { AwaitedPageProps, Favourites } from '@/config/types';
 import type { Prisma } from '@prisma/client';
@@ -65,6 +74,7 @@ export const buildClassifiedFilterQuery = (
 
       return acc;
     },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     {} as { [key: string]: any }
   );
 
@@ -90,3 +100,24 @@ export const buildClassifiedFilterQuery = (
     ...mapParamsToFields,
   };
 };
+
+export const getClassifiedsCount = (searchParams: AwaitedPageProps['searchParams']) => {
+  const query = buildClassifiedFilterQuery(searchParams);
+  return dbGetClassifiedCount(query);
+};
+
+export const getClassifieds = (searchParams: AwaitedPageProps['searchParams']) => {
+  const validPage = PageSchema.parse(searchParams?.page);
+  const page = validPage ? validPage : 1;
+
+  const query = buildClassifiedFilterQuery(searchParams);
+  return dbGetClassifieds(query, page);
+};
+
+export const getLatestArrivals = () => dbGetLatestArrivals();
+
+export const getFeaturedBrands = () => dbGetFeaturedBrands();
+
+export const getLiveClassifiedsCount = () => dbGetLiveClassifiedsCount();
+
+export const getClassifiedsMinMaxValues = () => dbGetClassifiedsMinMaxValues();

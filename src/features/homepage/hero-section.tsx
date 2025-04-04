@@ -7,7 +7,7 @@ import { HomepageTaxonomyFilters } from './homepage-filters';
 import { SearchButton } from './search-button';
 
 import { Button } from '@/components/ui/button';
-import { getClassifiedsMinMaxValues, getCount } from '../classifieds';
+import { getClassifiedsMinMaxValues, getClassifiedsCount } from '../classifieds';
 
 export const HeroSection = async (props: AwaitedPageProps) => {
   const { searchParams } = props;
@@ -15,7 +15,7 @@ export const HeroSection = async (props: AwaitedPageProps) => {
   const isFilterApplied = totalFiltersApplied > 0;
 
   const [classifiedsCount, minMaxResult] = await Promise.all([
-    getCount(searchParams),
+    getClassifiedsCount(searchParams),
     getClassifiedsMinMaxValues(),
   ]);
 
