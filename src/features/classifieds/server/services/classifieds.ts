@@ -10,6 +10,7 @@ import {
   getLatestArrivals as dbGetLatestArrivals,
   getLiveClassifiedsCount as dbGetLiveClassifiedsCount,
   getClassifiedsMinMaxValues as dbGetClassifiedsMinMaxValues,
+  getSingleClassified as dbGetSingleClassified,
 } from '../db/classifieds';
 
 import type { AwaitedPageProps, Favourites } from '@/config/types';
@@ -113,6 +114,8 @@ export const getClassifieds = (searchParams: AwaitedPageProps['searchParams']) =
   const query = buildClassifiedFilterQuery(searchParams);
   return dbGetClassifieds(query, page);
 };
+
+export const getSingleClassified = (slug: string) => dbGetSingleClassified(slug);
 
 export const getLatestArrivals = () => dbGetLatestArrivals();
 

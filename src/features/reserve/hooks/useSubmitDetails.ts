@@ -2,10 +2,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { type SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 import { SubmitDetailsSchema } from '@/app/schemas/customer.schema';
 import { MultiStepFormEnum } from '@/config/types';
-import { toast } from '@/hooks/use-toast';
 import { formatDate } from '@/lib/utils';
 
 import { createCustomerAction } from '../actions';
@@ -59,22 +59,11 @@ export const useSubmitDetails = (
       });
 
       if (!success) {
-        toast({
-          title: 'Error',
-          description: message,
-          type: 'background',
-          duration: 2500,
-          variant: 'destructive',
-        });
+        toast.error(message);
         return;
       }
 
-      toast({
-        title: 'Success',
-        description: message,
-        type: 'background',
-        duration: 1000,
-      });
+      toast.success(message);
 
       setTimeout(() => {
         // router.push(routes.success(params?.slug as string));
