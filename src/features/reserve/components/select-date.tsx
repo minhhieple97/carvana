@@ -3,16 +3,17 @@
 import { type MultiStepFormComponentProps } from '@/config/types';
 import { generateDateOptions, generateTimeOptions } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
-import { Button } from '@/components';
 import {
+  Button,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Select } from '@/components/ui/select';
+  Select,
+} from '@/components/ui';
+
 import { useSelectDate } from '../hooks';
 
 export const SelectDate = (props: MultiStepFormComponentProps) => {

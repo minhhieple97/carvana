@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { type SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 import { SelectDateSchema } from '@/app/schemas/form.schema';
 import { routes } from '@/config/routes';
@@ -25,8 +26,8 @@ export const useSelectDate = (
     resolver: zodResolver(SelectDateSchema),
     mode: 'onBlur',
     defaultValues: {
-      handoverDate: handoverDate ? decodeURIComponent(handoverDate) : handoverDate,
-      handoverTime: handoverTime ? decodeURIComponent(handoverTime) : handoverTime,
+      handoverDate: handoverDate ? decodeURIComponent(handoverDate) : '',
+      handoverTime: handoverTime ? decodeURIComponent(handoverTime) : '',
     },
   });
 
@@ -45,19 +46,35 @@ export const useSelectDate = (
 
   const onSelectDate: SubmitHandler<SelectDateType> = (data) => {
     startTransition(async () => {
-      const valid = await form.trigger();
-      if (!valid) return;
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      try {
+        // Validate the form data explicitly
+        const result = SelectDateSchema.safeParse(data);
 
-      const url = new URL(
-        routes.reserve(classified.slug, MultiStepFormEnum.SUBMIT_DETAILS),
-        env.NEXT_PUBLIC_APP_URL
-      );
+        if (!result.success) {
+          // Get formatted error messages
+          const errorMessages = result.error.errors.map((err) => err.message).join(', ');
+          toast.error(errorMessages || 'Please select valid date and time');
+          return;
+        }
 
-      url.searchParams.set('handoverDate', encodeURIComponent(data.handoverDate));
-      url.searchParams.set('handoverTime', encodeURIComponent(data.handoverTime));
+        // Log the validated data to confirm format
+        console.log('Validated data:', result.data);
 
-      router.push(url.toString());
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        const url = new URL(
+          routes.reserve(classified.slug, MultiStepFormEnum.SUBMIT_DETAILS),
+          env.NEXT_PUBLIC_APP_URL
+        );
+
+        url.searchParams.set('handoverDate', encodeURIComponent(result.data.handoverDate));
+        url.searchParams.set('handoverTime', encodeURIComponent(result.data.handoverTime));
+
+        router.push(url.toString());
+      } catch (error) {
+        console.error('Date selection error:', error);
+        toast.error('An error occurred while processing your selection');
+      }
     });
   };
 

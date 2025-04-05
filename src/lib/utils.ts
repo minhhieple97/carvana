@@ -1,6 +1,6 @@
 import { BodyType, Colour, FuelType, OdoUnit, Transmission, ULEZCompliance } from '@prisma/client';
 import { clsx, type ClassValue } from 'clsx';
-import { format, parse } from 'date-fns';
+import { parse } from 'date-fns';
 import { twMerge } from 'tailwind-merge';
 
 import type { FormatPriceArgs } from '@/features/classifieds/types';
@@ -108,41 +108,67 @@ export function formatUlezCompliance(ulezCompliance: ULEZCompliance) {
 
 export const generateDateOptions = () => {
   const today = new Date();
-  const dates = [];
-  for (let i = 0; i < 30; i++) {
+  const options = [];
+
+  // Generate dates for the next 365 days
+  for (let i = 0; i < 365; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
-    dates.push({
-      label: format(date, 'dd MMM yyyy'),
-      value: format(date, 'dd MMM yyyy'),
+
+    // Format as "DD MMM YYYY" (e.g., "05 Apr 2025")
+    const formattedDate = date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+
+    options.push({
+      label: formattedDate,
+      value: formattedDate,
     });
   }
-  return dates;
+
+  return options;
 };
 
 export const generateTimeOptions = () => {
-  const times = [];
-  const startHour = 8;
-  const endHour = 18;
+  const options = [];
+  const hours = ['09', '10', '11', '12', '01', '02', '03', '04', '05'];
+  const minutes = ['00', '30'];
 
-  for (let hour = startHour; hour < endHour; hour++) {
-    const date = new Date();
-    date.setDate(date.getDate() + 1);
-    date.setHours(hour);
-    date.setMinutes(0);
-
-    const formattedTime = date.toLocaleTimeString('en-GB', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true,
+  // AM times
+  hours.slice(0, 3).forEach((hour) => {
+    minutes.forEach((minute) => {
+      const time = `${hour}:${minute} am`;
+      options.push({
+        label: time,
+        value: time,
+      });
     });
+  });
 
-    times.push({
-      label: formattedTime,
-      value: formattedTime,
+  // PM times (12pm is noon)
+  options.push({
+    label: '12:00 pm',
+    value: '12:00 pm',
+  });
+  options.push({
+    label: '12:30 pm',
+    value: '12:30 pm',
+  });
+
+  // Rest of PM times
+  hours.slice(4).forEach((hour) => {
+    minutes.forEach((minute) => {
+      const time = `${hour}:${minute} pm`;
+      options.push({
+        label: time,
+        value: time,
+      });
     });
-  }
-  return times;
+  });
+
+  return options;
 };
 
 export const formatDate = (date: string, time: string) => {
