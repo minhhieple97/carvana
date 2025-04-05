@@ -14,7 +14,7 @@ export const createCustomerAction = async (props: CreateCustomerType) => {
       return { success: false, message: 'Invalid data' };
     }
 
-    if (data.terms !== 'true') {
+    if (!data.terms) {
       return { success: false, message: 'You must accept the terms' };
     }
 
@@ -24,7 +24,7 @@ export const createCustomerAction = async (props: CreateCustomerType) => {
       data: {
         ...rest,
         bookingDate: date,
-        termsAccepted: terms === 'true',
+        termsAccepted: terms,
         classified: { connect: { slug } },
       },
     });

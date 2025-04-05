@@ -46,7 +46,6 @@ export const useSubmitDetails = (
   const onSubmitDetails: SubmitHandler<SubmitDetailsSchemaType> = (data) => {
     startTransition(async () => {
       try {
-        // Validate form data
         const result = SubmitDetailsSchema.safeParse(data);
         if (!result.success) {
           const errorMessages = result.error.errors.map((err) => err.message).join(', ');
@@ -54,7 +53,6 @@ export const useSubmitDetails = (
           return;
         }
 
-        // Get and decode handover date/time from URL
         const handoverDate = searchParams?.handoverDate
           ? decodeURIComponent(searchParams.handoverDate as string)
           : undefined;
@@ -62,18 +60,15 @@ export const useSubmitDetails = (
           ? decodeURIComponent(searchParams.handoverTime as string)
           : undefined;
 
-        // Validate handover date and time
         const dateTimeValidation = isValidHandoverDateTime(handoverDate, handoverTime);
         if (!dateTimeValidation.isValid) {
           toast.error(dateTimeValidation.error || 'Invalid handover date or time');
-          // Redirect back to date selection
           const url = new URL(window.location.href);
           url.searchParams.set('step', MultiStepFormEnum.SELECT_DATE.toString());
           router.push(url.toString());
           return;
         }
 
-        // Additional form validation
         const valid = await form.trigger();
         if (!valid) {
           toast.error('Please fill in all required fields correctly');
@@ -87,7 +82,7 @@ export const useSubmitDetails = (
 
         await new Promise((resolve) => setTimeout(resolve, 500));
 
-        // Format the date after validation
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const date = formatDate(handoverDate!, handoverTime!);
 
         const { success, message } = await createCustomerAction({

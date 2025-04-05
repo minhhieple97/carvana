@@ -110,22 +110,22 @@ export const generateDateOptions = () => {
   const today = new Date();
   const options = [];
 
-  // Generate dates for the next 365 days
   for (let i = 0; i < 365; i++) {
     const date = new Date(today);
     date.setDate(today.getDate() + i);
 
-    // Format as "DD MMM YYYY" (e.g., "05 Apr 2025")
-    const formattedDate = date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    });
+    if (date >= today) {
+      const formattedDate = date.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      });
 
-    options.push({
-      label: formattedDate,
-      value: formattedDate,
-    });
+      options.push({
+        label: formattedDate,
+        value: formattedDate,
+      });
+    }
   }
 
   return options;
@@ -135,10 +135,23 @@ export const generateTimeOptions = () => {
   const options = [];
   const hours = ['09', '10', '11', '12', '01', '02', '03', '04', '05'];
   const minutes = ['00', '30'];
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-  // AM times
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+
   hours.slice(0, 3).forEach((hour) => {
     minutes.forEach((minute) => {
+      const timeHour = parseInt(hour);
+      const timeMinute = parseInt(minute);
+
+      if (today.getTime() === now.setHours(0, 0, 0, 0)) {
+        if (timeHour < currentHour || (timeHour === currentHour && timeMinute <= currentMinute)) {
+          return;
+        }
+      }
+
       const time = `${hour}:${minute} am`;
       options.push({
         label: time,
@@ -147,19 +160,28 @@ export const generateTimeOptions = () => {
     });
   });
 
-  // PM times (12pm is noon)
-  options.push({
-    label: '12:00 pm',
-    value: '12:00 pm',
-  });
-  options.push({
-    label: '12:30 pm',
-    value: '12:30 pm',
-  });
+  if (!(today.getTime() === now.setHours(0, 0, 0, 0) && currentHour >= 12)) {
+    options.push({
+      label: '12:00 pm',
+      value: '12:00 pm',
+    });
+    options.push({
+      label: '12:30 pm',
+      value: '12:30 pm',
+    });
+  }
 
-  // Rest of PM times
   hours.slice(4).forEach((hour) => {
     minutes.forEach((minute) => {
+      const timeHour = parseInt(hour) + 12;
+      const timeMinute = parseInt(minute);
+
+      if (today.getTime() === now.setHours(0, 0, 0, 0)) {
+        if (timeHour < currentHour || (timeHour === currentHour && timeMinute <= currentMinute)) {
+          return;
+        }
+      }
+
       const time = `${hour}:${minute} pm`;
       options.push({
         label: time,
@@ -188,7 +210,6 @@ export const isValidHandoverDateTime = (date: string | undefined, time: string |
     };
   }
 
-  // Validate date format (DD MMM YYYY)
   const dateRegex = /^\d{2} [A-Za-z]{3} \d{4}$/;
   if (!dateRegex.test(date)) {
     return {
@@ -197,7 +218,6 @@ export const isValidHandoverDateTime = (date: string | undefined, time: string |
     };
   }
 
-  // Validate time format (HH:MM am/pm)
   const timeRegex = /^\d{2}:\d{2} [ap]m$/;
   if (!timeRegex.test(time)) {
     return {
@@ -207,11 +227,9 @@ export const isValidHandoverDateTime = (date: string | undefined, time: string |
   }
 
   try {
-    // Try parsing the date to ensure it's valid
     const parsedDate = parse(date, 'dd MMM yyyy', new Date());
     const parsedTime = parse(time, 'hh:mm aa', new Date());
 
-    // Check if the date is valid
     if (isNaN(parsedDate.getTime()) || isNaN(parsedTime.getTime())) {
       return {
         isValid: false,
@@ -219,7 +237,6 @@ export const isValidHandoverDateTime = (date: string | undefined, time: string |
       };
     }
 
-    // Check if the date is in the future
     const now = new Date();
     const dateTime = formatDate(date, time);
     if (dateTime < now) {
