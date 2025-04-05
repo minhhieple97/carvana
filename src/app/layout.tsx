@@ -32,15 +32,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const bodyClasses = cn(
-    'min-h-screen antialiased overscroll-none bg-background font-heading',
-    roboto.variable,
-    mulish.variable
-  );
-
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={bodyClasses}>
+      <body
+        className={cn(
+          'min-h-screen antialiased overscroll-none bg-background font-heading',
+          roboto.variable,
+          mulish.variable
+        )}
+      >
         <NextTopLoader showSpinner={false} />
         <NuqsAdapter>{children}</NuqsAdapter>
         <Toaster />
