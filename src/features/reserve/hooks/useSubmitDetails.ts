@@ -5,6 +5,7 @@ import { type SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
 import { SubmitDetailsSchema } from '@/app/schemas/customer.schema';
+import { routes } from '@/config/routes';
 import { MultiStepFormEnum } from '@/config/types';
 import { formatDate } from '@/lib/utils';
 
@@ -66,7 +67,7 @@ export const useSubmitDetails = (
       toast.success(message);
 
       setTimeout(() => {
-        // router.push(routes.success(params?.slug as string));
+        router.push(routes.success(params?.slug as string));
       }, 1000);
     });
   };

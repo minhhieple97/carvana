@@ -8,4 +8,5 @@ export const routes = {
   favourites: '/favourites',
   classifieds: '/classifieds',
   signIn: '/sign-in',
+  success: (slug: string) => `/classifieds/${slug}/success`,
 };
