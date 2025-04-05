@@ -179,3 +179,64 @@ export const formatDate = (date: string, time: string) => {
 
   return parsedDate;
 };
+
+export const isValidHandoverDateTime = (date: string | undefined, time: string | undefined) => {
+  if (!date || !time) {
+    return {
+      isValid: false,
+      error: 'Handover date and time are required',
+    };
+  }
+
+  // Validate date format (DD MMM YYYY)
+  const dateRegex = /^\d{2} [A-Za-z]{3} \d{4}$/;
+  if (!dateRegex.test(date)) {
+    return {
+      isValid: false,
+      error: 'Date must be in format: DD MMM YYYY (e.g., 05 Apr 2025)',
+    };
+  }
+
+  // Validate time format (HH:MM am/pm)
+  const timeRegex = /^\d{2}:\d{2} [ap]m$/;
+  if (!timeRegex.test(time)) {
+    return {
+      isValid: false,
+      error: 'Time must be in format: HH:MM am/pm (e.g., 09:00 am)',
+    };
+  }
+
+  try {
+    // Try parsing the date to ensure it's valid
+    const parsedDate = parse(date, 'dd MMM yyyy', new Date());
+    const parsedTime = parse(time, 'hh:mm aa', new Date());
+
+    // Check if the date is valid
+    if (isNaN(parsedDate.getTime()) || isNaN(parsedTime.getTime())) {
+      return {
+        isValid: false,
+        error: 'Invalid date or time',
+      };
+    }
+
+    // Check if the date is in the future
+    const now = new Date();
+    const dateTime = formatDate(date, time);
+    if (dateTime < now) {
+      return {
+        isValid: false,
+        error: 'Handover date and time must be in the future',
+      };
+    }
+
+    return {
+      isValid: true,
+      error: null,
+    };
+  } catch {
+    return {
+      isValid: false,
+      error: 'Invalid date or time format',
+    };
+  }
+};
