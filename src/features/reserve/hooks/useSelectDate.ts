@@ -47,18 +47,13 @@ export const useSelectDate = (
   const onSelectDate: SubmitHandler<SelectDateType> = (data) => {
     startTransition(async () => {
       try {
-        // Validate the form data explicitly
         const result = SelectDateSchema.safeParse(data);
 
         if (!result.success) {
-          // Get formatted error messages
           const errorMessages = result.error.errors.map((err) => err.message).join(', ');
           toast.error(errorMessages || 'Please select valid date and time');
           return;
         }
-
-        // Log the validated data to confirm format
-        console.log('Validated data:', result.data);
 
         await new Promise((resolve) => setTimeout(resolve, 500));
 
