@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { nanoid } from 'nanoid';
 import { useRouter } from 'next/navigation';
-import { useTransition } from 'react';
+import { useRef, useTransition } from 'react';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -19,6 +20,9 @@ export const useSubmitDetails = (
   searchParams: AwaitedPageProps['searchParams']
 ) => {
   const router = useRouter();
+  const requestIdRef = useRef<string>(nanoid());
+  const isSubmittingRef = useRef<boolean>(false);
+
   const form = useForm<SubmitDetailsSchemaType>({
     resolver: zodResolver(SubmitDetailsSchema),
     mode: 'onChange',
@@ -28,6 +32,7 @@ export const useSubmitDetails = (
       email: '',
       mobile: '',
       terms: false,
+      requestId: requestIdRef.current,
     },
   });
 
@@ -44,12 +49,20 @@ export const useSubmitDetails = (
   };
 
   const onSubmitDetails: SubmitHandler<SubmitDetailsSchemaType> = (data) => {
+    if (isSubmittingRef.current) {
+      toast.info('Your reservation is being processed. Please wait...');
+      return;
+    }
+
     startTransition(async () => {
       try {
+        isSubmittingRef.current = true;
+
         const result = SubmitDetailsSchema.safeParse(data);
         if (!result.success) {
           const errorMessages = result.error.errors.map((err) => err.message).join(', ');
           toast.error(errorMessages || 'Please fill in all required fields correctly');
+          isSubmittingRef.current = false;
           return;
         }
 
@@ -66,17 +79,20 @@ export const useSubmitDetails = (
           const url = new URL(window.location.href);
           url.searchParams.set('step', MultiStepFormEnum.SELECT_DATE.toString());
           router.push(url.toString());
+          isSubmittingRef.current = false;
           return;
         }
 
         const valid = await form.trigger();
         if (!valid) {
           toast.error('Please fill in all required fields correctly');
+          isSubmittingRef.current = false;
           return;
         }
 
         if (!data.terms) {
           toast.error('You must agree to the terms and conditions');
+          isSubmittingRef.current = false;
           return;
         }
 
@@ -89,10 +105,12 @@ export const useSubmitDetails = (
           slug: params?.slug as string,
           date,
           ...data,
+          requestId: requestIdRef.current,
         });
 
         if (!success) {
           toast.error(message);
+          isSubmittingRef.current = false;
           return;
         }
 
@@ -104,6 +122,7 @@ export const useSubmitDetails = (
       } catch (error) {
         console.error('Submit details error:', error);
         toast.error('An error occurred while submitting your details');
+        isSubmittingRef.current = false;
       }
     });
   };

@@ -1,7 +1,6 @@
 'use client';
 
 import { type MultiStepFormComponentProps } from '@/config/types';
-import { generateDateOptions, generateTimeOptions } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import {
   Button,
@@ -18,10 +17,8 @@ import { useSelectDate } from '../hooks';
 
 export const SelectDate = (props: MultiStepFormComponentProps) => {
   const { searchParams, classified } = props;
-  const { form, isPending, isPrevPending, prevStep, onSelectDate } = useSelectDate(
-    searchParams,
-    classified
-  );
+  const { form, isPending, isPrevPending, prevStep, onSelectDate, dateOptions, timeOptions } =
+    useSelectDate(searchParams, classified);
 
   return (
     <Form {...form}>
@@ -37,7 +34,7 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
               <FormItem>
                 <FormLabel htmlFor="handoverDate">Select a Date</FormLabel>
                 <FormControl>
-                  <Select options={generateDateOptions()} placeholder="Select a date" {...rest} />
+                  <Select options={dateOptions} placeholder="Select a date" {...rest} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -50,7 +47,7 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
               <FormItem>
                 <FormLabel htmlFor="handoverTime">Select a Time</FormLabel>
                 <FormControl>
-                  <Select options={generateTimeOptions()} placeholder="Select a time" {...rest} />
+                  <Select options={timeOptions} placeholder="Select a time" {...rest} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

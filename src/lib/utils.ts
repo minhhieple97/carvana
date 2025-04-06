@@ -257,3 +257,90 @@ export const isValidHandoverDateTime = (date: string | undefined, time: string |
     };
   }
 };
+
+export const isSelectedDateToday = (selectedDate: string): boolean => {
+  try {
+    const today = new Date();
+    const formattedToday = today.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+
+    return selectedDate === formattedToday;
+  } catch {
+    return false;
+  }
+};
+
+export const getTimeOptions = (selectedDate?: string) => {
+  const options = [];
+  const hours = ['09', '10', '11', '12', '01', '02', '03', '04', '05'];
+  const minutes = ['00', '30'];
+  const now = new Date();
+
+  const isToday = selectedDate ? isSelectedDateToday(selectedDate) : false;
+
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+
+  hours.slice(0, 3).forEach((hour) => {
+    minutes.forEach((minute) => {
+      const timeHour = parseInt(hour);
+      const adjustedHour = timeHour;
+
+      if (isToday) {
+        if (
+          adjustedHour < currentHour ||
+          (adjustedHour === currentHour && parseInt(minute) <= currentMinute)
+        ) {
+          return;
+        }
+      }
+
+      const time = `${hour}:${minute} am`;
+      options.push({
+        label: time,
+        value: time,
+      });
+    });
+  });
+
+  if (!isToday || currentHour < 12 || (currentHour === 12 && currentMinute < 30)) {
+    options.push({
+      label: '12:00 pm',
+      value: '12:00 pm',
+    });
+  }
+
+  if (!isToday || currentHour < 12 || (currentHour === 12 && currentMinute < 30)) {
+    options.push({
+      label: '12:30 pm',
+      value: '12:30 pm',
+    });
+  }
+
+  hours.slice(4).forEach((hour) => {
+    minutes.forEach((minute) => {
+      const displayHour = parseInt(hour);
+      const timeHour = displayHour + 12;
+
+      if (isToday) {
+        if (
+          timeHour < currentHour ||
+          (timeHour === currentHour && parseInt(minute) <= currentMinute)
+        ) {
+          return;
+        }
+      }
+
+      const time = `${hour}:${minute} pm`;
+      options.push({
+        label: time,
+        value: time,
+      });
+    });
+  });
+
+  return options;
+};

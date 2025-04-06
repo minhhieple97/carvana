@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { useTransition } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -8,6 +8,7 @@ import { SelectDateSchema } from '@/app/schemas/form.schema';
 import { routes } from '@/config/routes';
 import { MultiStepFormEnum } from '@/config/types';
 import { env } from '@/env';
+import { generateDateOptions, getTimeOptions } from '@/lib/utils';
 
 import type { SelectDateType } from '@/app/schemas/form.schema';
 import type { PageProps } from '@/config/types';
@@ -34,6 +35,32 @@ export const useSelectDate = (
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isPrevPending, startPrevTransition] = useTransition();
+
+  const [selectedDate, setSelectedDate] = useState<string>(
+    handoverDate ? decodeURIComponent(handoverDate) : ''
+  );
+
+  const dateOptions = generateDateOptions();
+
+  const [timeOptions, setTimeOptions] = useState(() => getTimeOptions(selectedDate));
+
+  const watchedDate = form.watch('handoverDate');
+
+  useEffect(() => {
+    setSelectedDate(watchedDate);
+    setTimeOptions(getTimeOptions(watchedDate));
+
+    if (watchedDate) {
+      const currentValue = form.getValues('handoverTime');
+      const isValidOption = getTimeOptions(watchedDate).some(
+        (option) => option.value === currentValue
+      );
+
+      if (currentValue && !isValidOption) {
+        form.setValue('handoverTime', '');
+      }
+    }
+  }, [watchedDate, form]);
 
   const prevStep = () => {
     startPrevTransition(async () => {
@@ -79,5 +106,7 @@ export const useSelectDate = (
     isPrevPending,
     prevStep,
     onSelectDate,
+    dateOptions,
+    timeOptions,
   };
 };

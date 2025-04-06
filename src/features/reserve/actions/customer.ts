@@ -1,82 +1,82 @@
 'use server';
 
-import { CreateCustomerSchema, UpdateCustomerSchema } from '@/app/schemas/customer.schema';
-import { prisma } from '@/lib/prisma';
+import { nanoid } from 'nanoid';
+
+import {
+  validateCustomerData,
+  checkRecentSubmission,
+  checkExistingReservation,
+  createNewCustomer,
+  saveSubmissionToRedis,
+  deleteCustomer as deleteCustomerService,
+  updateCustomer as updateCustomerService,
+  cleanupRedisSubmission,
+  buildSubmissionKey,
+} from '../server/services/customer';
 
 import type { CreateCustomerType } from '@/app/schemas/customer.schema';
 import type { CustomerStatus } from '@prisma/client';
 
 export const createCustomerAction = async (props: CreateCustomerType) => {
   try {
-    const { data, success } = CreateCustomerSchema.safeParse(props);
+    const { success, message, data } = validateCustomerData(props);
 
-    if (!success) {
-      return { success: false, message: 'Invalid data' };
+    if (!success || !data) {
+      return { success, message };
     }
 
-    if (!data.terms) {
-      return { success: false, message: 'You must accept the terms' };
+    const { email, mobile, slug } = data;
+    const requestId = props.requestId || nanoid();
+    const submissionKey = buildSubmissionKey(email, mobile, slug);
+    const {
+      isRecent,
+      isDuplicate,
+      message: throttleMessage,
+    } = await checkRecentSubmission(submissionKey, requestId);
+
+    if (isRecent) {
+      if (isDuplicate) {
+        return { success: true, message: 'Reservation Successful!' };
+      }
+      return { success: false, message: throttleMessage };
     }
 
-    const { date, terms, slug, ...rest } = data;
+    const { exists, message: existsMessage } = await checkExistingReservation(
+      email,
+      slug,
+      data.date
+    );
 
-    await prisma.customer.create({
-      data: {
-        ...rest,
-        bookingDate: date,
-        termsAccepted: terms,
-        classified: { connect: { slug } },
-      },
+    if (exists) {
+      return { success: false, message: existsMessage };
+    }
+
+    await saveSubmissionToRedis(submissionKey, requestId);
+
+    const result = await createNewCustomer({
+      ...data,
+      requestId,
     });
 
-    return { success: true, message: 'Reservation Successful!' };
+    return result;
   } catch (error) {
+    console.error(error);
+    if (props.email && props.mobile && props.slug) {
+      const submissionKey = buildSubmissionKey(props.email, props.mobile, props.slug);
+      await cleanupRedisSubmission(submissionKey);
+    }
     if (error instanceof Error) {
       return { success: false, message: error.message };
     }
-
     return { success: false, message: 'Something went wrong' };
   }
 };
 
-export const deleteCustomerAction = async (id: number) => {
-  try {
-    await prisma.customer.delete({ where: { id } });
-    return { success: true, message: 'Customer deleted' };
-  } catch {
-    return {
-      success: false,
-      message: 'Something went wrong deleting customer',
-    };
-  }
-};
+export const deleteCustomerAction = async (id: number) => deleteCustomerService(id);
 
 export const updateCustomerAction = async (props: { id: number; status: CustomerStatus }) => {
   try {
-    const validProps = UpdateCustomerSchema.safeParse(props);
-
-    if (!validProps.success) return { success: false, message: 'Invalid data' };
-
-    const customer = await prisma.customer.findUnique({
-      where: { id: validProps.data?.id },
-    });
-
-    if (!customer) return { success: false, message: 'Customer not found' };
-
-    await prisma.customer.update({
-      where: { id: customer.id },
-      data: {
-        status: validProps.data.status,
-        lifecycle: {
-          create: {
-            oldStatus: customer.status,
-            newStatus: validProps.data.status,
-          },
-        },
-      },
-    });
-
-    return { success: true, message: 'Customer updated' };
+    return updateCustomerService(props.id, props.status);
   } catch (error) {
     if (error instanceof Error) {
       return { success: false, message: error.message };

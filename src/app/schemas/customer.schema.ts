@@ -24,6 +24,7 @@ export const SubmitDetailsSchema = z.object({
     .refine((val) => val === true, {
       message: 'You must agree to the terms and conditions',
     }),
+  requestId: z.string().optional(),
 });
 
 export type SubmitDetailsSchemaType = z.infer<typeof SubmitDetailsSchema>;
@@ -31,6 +32,7 @@ export type SubmitDetailsSchemaType = z.infer<typeof SubmitDetailsSchema>;
 export const CreateCustomerSchema = SubmitDetailsSchema.extend({
   date: z.date(),
   slug: z.string(),
+  requestId: z.string().optional(),
 });
 
 export type CreateCustomerType = z.infer<typeof CreateCustomerSchema>;
