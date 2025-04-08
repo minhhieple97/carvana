@@ -1,7 +1,6 @@
 'use client';
 
 import { Loader2 } from 'lucide-react';
-import { useFormStatus } from 'react-dom';
 
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
@@ -9,25 +8,8 @@ import { Input } from '@/components/ui/input';
 
 import { useNewsletterForm } from './useNewsletterForm';
 
-const SubscribeButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button disabled={pending} type="submit" className="w-full uppercase font-bold">
-      {pending ? (
-        <>
-          <Loader2 className="h-4 w-4 shrink-0 animate-spin mr-2" aria-hidden="true" />
-          Subscribing...
-        </>
-      ) : (
-        'Subscribe Now'
-      )}
-    </Button>
-  );
-};
-
 export const NewsletterForm = () => {
-  const { form, handleSubmit, formAction, formRef } = useNewsletterForm();
+  const { form, handleSubmit, formRef, isPending } = useNewsletterForm();
 
   return (
     <div className="space-y-4">
@@ -36,7 +18,7 @@ export const NewsletterForm = () => {
         Enter your details to receive new stock updates
       </p>
       <Form {...form}>
-        <form ref={formRef} action={formAction} className="space-y-2" onSubmit={handleSubmit}>
+        <form ref={formRef} className="space-y-2" onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 space-x-2">
             <FormField
               control={form.control}
@@ -75,7 +57,16 @@ export const NewsletterForm = () => {
               </FormItem>
             )}
           />
-          <SubscribeButton />
+          <Button disabled={isPending} type="submit" className="w-full uppercase font-bold">
+            {isPending ? (
+              <>
+                <Loader2 className="h-4 w-4 shrink-0 animate-spin mr-2" aria-hidden="true" />
+                Subscribing...
+              </>
+            ) : (
+              'Subscribe Now'
+            )}
+          </Button>
         </form>
       </Form>
     </div>

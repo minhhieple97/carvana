@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useActionState } from 'react';
-import { useRef, useEffect } from 'react';
+import { useAction } from 'next-safe-action/hooks';
+import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -8,9 +8,14 @@ import { SubscribeSchema } from '@/app/schemas';
 import { subscribeAction } from '@/features/classifieds';
 
 export const useNewsletterForm = () => {
-  const [state, formAction, isPending] = useActionState(subscribeAction, {
-    success: false,
-    message: '',
+  const { execute, isPending } = useAction(subscribeAction, {
+    onSuccess: (result) => {
+      form.reset();
+      toast.success(result.data?.message || 'Successfully subscribed!');
+    },
+    onError: (result) => {
+      toast.error(result.error.serverError || 'An error occurred while submitting your details');
+    },
   });
 
   const form = useForm({
@@ -26,23 +31,13 @@ export const useNewsletterForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     const valid = await form.trigger();
-    if (!valid) {
-      e.preventDefault();
-      return;
-    }
+    if (!valid) return;
+
+    const formData = form.getValues();
+    execute(formData);
   };
 
-  useEffect(() => {
-    if (!isPending) {
-      if (state.success) {
-        form.reset();
-        toast.success(state.message || 'Successfully subscribed!');
-      } else if (state.message) {
-        toast.error(state.message);
-      }
-    }
-  }, [state, isPending, form]);
-
-  return { form, formAction, formRef, state, handleSubmit };
+  return { form, formRef, handleSubmit, isPending };
 };

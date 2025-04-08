@@ -46,3 +46,9 @@ export type EditCustomerType = z.infer<typeof EditCustomerSchema>;
 export const UpdateCustomerSchema = EditCustomerSchema.extend({
   id: z.number(),
 });
+
+export const DeleteCustomerSchema = z.object({
+  id: z.number(),
+});
+
+export type DeleteCustomerType = z.infer<typeof DeleteCustomerSchema>;

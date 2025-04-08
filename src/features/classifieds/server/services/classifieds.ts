@@ -11,6 +11,8 @@ import {
   getLiveClassifiedsCount as dbGetLiveClassifiedsCount,
   getClassifiedsMinMaxValues as dbGetClassifiedsMinMaxValues,
   getSingleClassified as dbGetSingleClassified,
+  getSubscriber as dbGetSubscriber,
+  createSubscriber as dbCreateSubscriber,
 } from '../db/classifieds';
 
 import type { AwaitedPageProps, Favourites } from '@/config/types';
@@ -125,3 +127,8 @@ export const getLiveClassifiedsCount = (condition: Prisma.ClassifiedWhereInput) 
   dbGetLiveClassifiedsCount(condition);
 
 export const getClassifiedsMinMaxValues = () => dbGetClassifiedsMinMaxValues();
+
+export const getSubscriber = (email: string) => dbGetSubscriber(email);
+
+export const createSubscriber = (customer: Prisma.CustomerCreateInput) =>
+  dbCreateSubscriber(customer);

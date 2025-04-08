@@ -1,34 +1,22 @@
 import { nanoid } from 'nanoid';
 
-import { CreateCustomerSchema, UpdateCustomerSchema } from '@/app/schemas/customer.schema';
 import { redis } from '@/lib/redis-store';
+import { ActionError } from '@/lib/safe-action';
 
 import {
   createCustomer,
   findCustomerReservation,
   deleteCustomer as dbDeleteCustomer,
-  findCustomerById,
+  findCustomerById as dbFindCustomerById,
   updateCustomerStatus,
 } from '../db/customer';
 
 import type { CreateCustomerType } from '@/app/schemas/customer.schema';
+import type { CustomerStatus } from '@prisma/client';
 
 const REDIS_SUBMISSION_PREFIX = 'customer_submission:';
 const THROTTLE_TIME = 30000;
 const THROTTLE_TIME_EXPIRY = 3600;
-export const validateCustomerData = (props: CreateCustomerType) => {
-  const { data, success } = CreateCustomerSchema.safeParse(props);
-
-  if (!success) {
-    return { success: false, message: 'Invalid data', data: null };
-  }
-
-  if (!data.terms) {
-    return { success: false, message: 'You must accept the terms', data: null };
-  }
-
-  return { success: true, data };
-};
 
 export const checkRecentSubmission = async (submissionKey: string, requestId: string) => {
   const now = Date.now();
@@ -113,43 +101,29 @@ export const createNewCustomer = async (data: CreateCustomerType) => {
     requestId,
   });
 
-  return { success: true, message: 'Reservation Successful!' };
+  return { message: 'Reservation Successful!' };
 };
 
-export const deleteCustomer = async (id: number) => {
-  try {
-    await dbDeleteCustomer(id);
-    return { success: true, message: 'Customer deleted' };
-  } catch {
-    return { success: false, message: 'Something went wrong deleting customer' };
-  }
-};
+export const deleteCustomer = async (id: number) => dbDeleteCustomer(id);
 
-export const updateCustomer = async (id: number, status: string) => {
-  const validProps = UpdateCustomerSchema.safeParse({ id, status });
-
-  if (!validProps.success) {
-    return { success: false, message: 'Invalid data' };
-  }
-
-  const customer = await findCustomerById(validProps.data.id);
+export const updateCustomer = async (id: number, status: CustomerStatus) => {
+  const customer = await dbFindCustomerById(id);
 
   if (!customer) {
-    return { success: false, message: 'Customer not found' };
+    throw new ActionError('Customer not found');
   }
 
-  await updateCustomerStatus(customer.id, validProps.data.status, customer.status);
-
-  return { success: true, message: 'Customer updated' };
+  await updateCustomerStatus(customer.id, status, customer.status);
 };
+
+export const findCustomerById = async (id: number) => dbFindCustomerById(id);
 
 export const cleanupRedisSubmission = async (submissionKey: string) => {
   try {
     await redis.del(submissionKey);
     return true;
-  } catch (error) {
-    console.error('Redis error while removing submission:', error);
-    return false;
+  } catch {
+    throw new Error('Redis error while removing submission');
   }
 };
 

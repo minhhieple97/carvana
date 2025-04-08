@@ -17,10 +17,7 @@ import { useSubmitDetails } from '../hooks';
 
 export const SubmitDetails = (props: MultiStepFormComponentProps) => {
   const { params, searchParams } = props;
-  const { form, isPending, isPrevPending, prevStep, onSubmitDetails } = useSubmitDetails(
-    params,
-    searchParams
-  );
+  const { form, isPending, prevStep, onSubmitDetails } = useSubmitDetails(params, searchParams);
 
   return (
     <Form {...form}>
@@ -120,11 +117,10 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
           <Button
             type="button"
             onClick={prevStep}
-            disabled={isPrevPending}
+            disabled={isPending}
             className="uppercase font-bold flex gap-x-3 w-full flex-1"
           >
-            {isPrevPending ? <Loader2 className="w-4 h-4 shrink-0 animate-spin" /> : null} Previous
-            Step
+            Previous Step
           </Button>
           <Button
             type="submit"

@@ -1,54 +1,26 @@
 'use server';
 
 import { CustomerStatus } from '@prisma/client';
-import {
-  PrismaClientKnownRequestError,
-  PrismaClientValidationError,
-} from '@prisma/client/runtime/library';
 
 import { SubscribeSchema } from '@/app/schemas';
-import { prisma } from '@/lib/prisma';
+import { action, ActionError } from '@/lib/safe-action';
 
-import type { PrevState } from '@/config/types';
+import { createSubscriber, getSubscriber } from '../server/services';
 
-export const subscribeAction = async (_: PrevState, formData: FormData) => {
-  try {
-    const { data, success, error } = SubscribeSchema.safeParse({
-      firstName: formData.get('firstName') as string,
-      lastName: formData.get('lastName') as string,
-      email: formData.get('email') as string,
-    });
+export const subscribeAction = action.schema(SubscribeSchema).action(async ({ parsedInput }) => {
+  const { firstName, lastName, email } = parsedInput;
 
-    if (!success) {
-      return { success: false, message: error.message };
-    }
-
-    const subscriber = await prisma.customer.findFirst({
-      where: { email: data.email },
-    });
-
-    if (subscriber) {
-      return { success: false, message: 'You are already subscribed!' };
-    }
-
-    await prisma.customer.create({
-      data: {
-        ...data,
-        status: CustomerStatus.SUBSCRIBER,
-      },
-    });
-
-    return { success: true, message: 'Subscribed successfully!' };
-  } catch (error) {
-    if (error instanceof PrismaClientKnownRequestError) {
-      return { success: false, message: error.message };
-    }
-    if (error instanceof PrismaClientValidationError) {
-      return { success: false, message: error.message };
-    }
-    if (error instanceof Error) {
-      return { success: false, message: error.message };
-    }
-    return { success: false, message: 'Something went wrong!' };
+  const subscriber = await getSubscriber(email);
+  if (subscriber) {
+    throw new ActionError('You are already subscribed!');
   }
-};
+
+  await createSubscriber({
+    firstName,
+    lastName,
+    email,
+    status: CustomerStatus.SUBSCRIBER,
+  });
+
+  return { message: 'Subscribed successfully!' };
+});

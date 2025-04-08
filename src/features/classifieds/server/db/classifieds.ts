@@ -1,5 +1,5 @@
 'server-only';
-import { ClassifiedStatus } from '@prisma/client';
+import { ClassifiedStatus, CustomerStatus } from '@prisma/client';
 
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { prisma } from '@/lib/prisma';
@@ -76,4 +76,14 @@ export const getFeaturedBrands = () =>
 export const getLiveClassifiedsCount = (condition: Prisma.ClassifiedWhereInput) =>
   prisma.classified.count({
     where: { ...condition },
+  });
+
+export const getSubscriber = (email: string) =>
+  prisma.customer.findFirst({
+    where: { email },
+  });
+
+export const createSubscriber = (customer: Prisma.CustomerCreateInput) =>
+  prisma.customer.create({
+    data: { ...customer, status: CustomerStatus.SUBSCRIBER },
   });

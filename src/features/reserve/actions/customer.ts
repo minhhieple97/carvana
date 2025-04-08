@@ -2,85 +2,63 @@
 
 import { nanoid } from 'nanoid';
 
+import { CreateCustomerSchema, DeleteCustomerSchema, UpdateCustomerSchema } from '@/app/schemas';
+import { action, ActionError } from '@/lib/safe-action';
+
 import {
-  validateCustomerData,
-  checkRecentSubmission,
+  buildSubmissionKey,
   checkExistingReservation,
+  checkRecentSubmission,
   createNewCustomer,
   saveSubmissionToRedis,
   deleteCustomer as deleteCustomerService,
   updateCustomer as updateCustomerService,
   cleanupRedisSubmission,
-  buildSubmissionKey,
+  findCustomerById,
 } from '../server/services/customer';
 
-import type { CreateCustomerType } from '@/app/schemas/customer.schema';
-import type { CustomerStatus } from '@prisma/client';
-
-export const createCustomerAction = async (props: CreateCustomerType) => {
-  try {
-    const { success, message, data } = validateCustomerData(props);
-
-    if (!success || !data) {
-      return { success, message };
-    }
-
-    const { email, mobile, slug } = data;
-    const requestId = props.requestId || nanoid();
+export const createCustomerAction = action
+  .schema(CreateCustomerSchema)
+  .action(async ({ parsedInput }) => {
+    const { email, mobile, slug } = parsedInput;
     const submissionKey = buildSubmissionKey(email, mobile, slug);
-    const {
-      isRecent,
-      isDuplicate,
-      message: throttleMessage,
-    } = await checkRecentSubmission(submissionKey, requestId);
 
-    if (isRecent) {
-      if (isDuplicate) {
-        return { success: true, message: 'Reservation Successful!' };
+    try {
+      const requestId = parsedInput.requestId || nanoid();
+
+      const recentCheck = await checkRecentSubmission(submissionKey, requestId);
+
+      if (recentCheck.isRecent && !recentCheck.isDuplicate) {
+        throw new ActionError(recentCheck.message || 'Too many submissions');
       }
-      return { success: false, message: throttleMessage };
-    }
 
-    const { exists, message: existsMessage } = await checkExistingReservation(
-      email,
-      slug,
-      data.date
-    );
+      const existingReservation = await checkExistingReservation(email, slug, parsedInput.date);
 
-    if (exists) {
-      return { success: false, message: existsMessage };
-    }
-
-    await saveSubmissionToRedis(submissionKey, requestId);
-
-    const result = await createNewCustomer({
-      ...data,
-      requestId,
-    });
-
-    return result;
-  } catch (error) {
-    console.error(error);
-    if (props.email && props.mobile && props.slug) {
-      const submissionKey = buildSubmissionKey(props.email, props.mobile, props.slug);
+      if (existingReservation.exists) {
+        throw new ActionError(existingReservation.message);
+      }
+      await saveSubmissionToRedis(submissionKey, requestId);
+      return createNewCustomer({ ...parsedInput, requestId });
+    } catch (error) {
       await cleanupRedisSubmission(submissionKey);
+      throw error;
     }
-    if (error instanceof Error) {
-      return { success: false, message: error.message };
-    }
-    return { success: false, message: 'Something went wrong' };
-  }
-};
+  });
 
-export const deleteCustomerAction = async (id: number) => deleteCustomerService(id);
+export const updateCustomerAction = action
+  .schema(UpdateCustomerSchema)
+  .action(async ({ parsedInput }) => {
+    const { id, status } = parsedInput;
 
-export const updateCustomerAction = async (props: { id: number; status: CustomerStatus }) => {
-  try {
-    return updateCustomerService(props.id, props.status);
-  } catch (error) {
-    if (error instanceof Error) {
-      return { success: false, message: error.message };
+    const customer = await findCustomerById(id);
+
+    if (!customer) {
+      throw new ActionError('Customer not found');
     }
-    return { success: false, message: 'Something went wrong' };
-  }
-};
+
+    return updateCustomerService(id, status);
+  });
+
+export const deleteCustomerAction = action
+  .schema(DeleteCustomerSchema)
+  .action(async ({ parsedInput }) => deleteCustomerService(parsedInput.id));
