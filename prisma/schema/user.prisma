@@ -1,7 +1,14 @@
+enum Role {
+  admin
+  user
+}
+
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
   password  String
+  salt      String
+  role      Role     @default(user)
   sessions  Session[]
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")

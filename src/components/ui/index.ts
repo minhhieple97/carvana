@@ -9,3 +9,4 @@ export * from './checkbox';
 export * from './form';
 export * from './sonner';
 export * from './end-buttons';
+export * from './label';
