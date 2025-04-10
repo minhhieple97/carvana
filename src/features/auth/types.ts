@@ -1,4 +1,4 @@
-import type { SignInSchema, SignUpSchema, SessionSchema } from '@/app/schemas';
+import type { SignInSchema, SignUpSchema, SessionSchema } from '@/schemas';
 import type { z } from 'zod';
 
 export type UserSession = z.infer<typeof SessionSchema>;

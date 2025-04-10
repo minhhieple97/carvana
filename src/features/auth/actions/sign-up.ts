@@ -2,8 +2,8 @@
 
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
 
-import { SignUpSchema } from '@/app/schemas';
 import { action, ActionError } from '@/lib/safe-action';
+import { SignUpSchema } from '@/schemas';
 
 import { signUp } from '../services';
 

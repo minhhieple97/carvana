@@ -4,8 +4,8 @@ import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
-import { SubscribeSchema } from '@/app/schemas';
 import { subscribeAction } from '@/features/classifieds';
+import { SubscribeSchema } from '@/schemas';
 
 export const useNewsletterForm = () => {
   const { execute, isPending } = useAction(subscribeAction, {

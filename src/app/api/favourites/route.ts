@@ -1,10 +1,10 @@
 import { revalidatePath } from 'next/cache';
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { validateIdSchema } from '@/app/schemas';
 import { routes } from '@/config';
 import { redis } from '@/lib/redis-store';
 import { getSourceId } from '@/lib/source-id';
+import { validateIdSchema } from '@/schemas';
 
 import type { Favourites } from '@/config';
 

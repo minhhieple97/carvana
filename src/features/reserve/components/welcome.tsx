@@ -1,7 +1,5 @@
 'use client';
 
-import { Button, HTMLParser } from '@/components';
-import { type MultiStepFormComponentProps } from '@/config/types';
 import {
   ArrowRightIcon,
   CircleCheckIcon,
@@ -11,6 +9,10 @@ import {
   StarIcon,
 } from 'lucide-react';
 import Image from 'next/image';
+
+import { Button, HTMLParser } from '@/components';
+import { type MultiStepFormComponentProps } from '@/config/types';
+
 import { useWelcome } from '../hooks';
 
 export const Welcome = (props: MultiStepFormComponentProps) => {

@@ -1,13 +1,15 @@
+import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
 import { imageSources } from '@/config/constants';
 import { routes } from '@/config/routes';
-import type { AwaitedPageProps } from '@/config/types';
+import { getClassifiedsMinMaxValues, getClassifiedsCount } from '@/features/classifieds';
 import { imgixLoader } from '@/lib/imgix-loader';
-import Link from 'next/link';
+
 import { HomepageTaxonomyFilters } from './homepage-filters';
 import { SearchButton } from './search-button';
 
-import { Button } from '@/components/ui/button';
-import { getClassifiedsMinMaxValues, getClassifiedsCount } from '@/features/classifieds';
+import type { AwaitedPageProps } from '@/config/types';
 
 export const HeroSection = async (props: AwaitedPageProps) => {
   const { searchParams } = props;

@@ -1,7 +1,7 @@
 'use client';
 
 import { imgixLoader } from '@/lib/imgix-loader';
-import type { Image as PrismaImage } from '@prisma/client';
+
 import FsLightbox from 'fslightbox-react';
 import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
@@ -10,10 +10,14 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/virtual';
 import { EffectFade, Navigation, Thumbs, Virtual } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
-import type { Swiper as SwiperType } from 'swiper/types';
+
 import { SwiperButtons } from '@/components/shared/swiper-button';
 import { ImgixImage } from '@/components/ui/imgix-image';
+
 import { CarouselSkeleton } from './carousel-skeleton';
+
+import type { Image as PrismaImage } from '@prisma/client';
+import type { Swiper as SwiperType } from 'swiper/types';
 
 interface ClassifiedCarouselProps {
   images: PrismaImage[];
@@ -103,8 +107,8 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
         onSwiper={setSwiper}
         spaceBetween={10}
         slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
+        freeMode
+        watchSlidesProgress
         modules={[Navigation, Thumbs, EffectFade]}
       >
         {images.map((image) => (

@@ -1,9 +1,9 @@
-import { MultiStepFormSchema } from '@/app/schemas/form.schema';
+import { notFound } from 'next/navigation';
 
 import { MultiStepFormEnum, type PageProps } from '@/config/types';
 import { SelectDate, SubmitDetails, Welcome } from '@/features/reserve';
 import { prisma } from '@/lib/prisma';
-import { notFound } from 'next/navigation';
+import { MultiStepFormSchema } from '@/schemas/form.schema';
 
 const MAP_STEP_TO_COMPONENT = {
   [MultiStepFormEnum.WELCOME]: Welcome,

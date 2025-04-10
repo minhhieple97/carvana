@@ -1,10 +1,11 @@
 'use client';
 
-import { routes } from '@/config/routes';
-import { env } from '@/env';
 import Link from 'next/link';
 import { parseAsString, useQueryStates } from 'nuqs';
+
 import { Button } from '@/components/ui';
+import { routes } from '@/config/routes';
+import { env } from '@/env';
 
 export const SearchButton = ({ count }: { count: number }) => {
   const [{ make, model, modelVariant, minYear, maxYear, minPrice, maxPrice }] = useQueryStates(

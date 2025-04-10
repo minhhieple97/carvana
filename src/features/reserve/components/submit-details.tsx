@@ -1,7 +1,7 @@
 'use client';
 
-import { type MultiStepFormComponentProps } from '@/config/types';
 import { Loader2 } from 'lucide-react';
+
 import {
   Button,
   Checkbox,
@@ -13,6 +13,8 @@ import {
   FormMessage,
   Input,
 } from '@/components/ui';
+import { type MultiStepFormComponentProps } from '@/config/types';
+
 import { useSubmitDetails } from '../hooks';
 
 export const SubmitDetails = (props: MultiStepFormComponentProps) => {

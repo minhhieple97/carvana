@@ -7,7 +7,9 @@ import { SwiperSlide } from 'swiper/react';
 
 import { ClassifiedCardSkeleton } from '@/components/shared/inventory';
 import { SwiperButtons } from '@/components/shared/swiper-button';
-import { ClassifiedWithImages, ClassifiedCard } from '@/features/classifieds';
+import { ClassifiedCard } from '@/features/classifieds';
+
+import type { ClassifiedWithImages } from '@/features/classifieds';
 
 type CarouselProps = {
   classifieds: ClassifiedWithImages[];
@@ -37,7 +39,7 @@ export const LatestArrivalsCarousel = (props: CarouselProps) => {
         }}
         pagination={{ clickable: true }}
         modules={[Navigation]}
-        loop={true}
+        loop
         spaceBetween={30}
         slidesPerView={1}
         breakpoints={{
@@ -52,13 +54,11 @@ export const LatestArrivalsCarousel = (props: CarouselProps) => {
           },
         }}
       >
-        {classifieds.map((classified) => {
-          return (
-            <SwiperSlide key={classified.id}>
-              <ClassifiedCard classified={classified} favourites={{ ids: favourites }} />
-            </SwiperSlide>
-          );
-        })}
+        {classifieds.map((classified) => (
+          <SwiperSlide key={classified.id}>
+            <ClassifiedCard classified={classified} favourites={{ ids: favourites }} />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <SwiperButtons
         prevClassName="-left-16 border border-2 border-border hidden lg:flex"

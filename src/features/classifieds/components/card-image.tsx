@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
+import { ImgixImage } from '@/components/ui/imgix-image';
 import { routes } from '@/config/routes';
 
 import type { CardImageProps } from '../types';
-import { ImgixImage } from '@/components/ui/imgix-image';
 
 export const CardImage = ({ image, slug }: CardImageProps) => (
   <div className="relative aspect-4/3">

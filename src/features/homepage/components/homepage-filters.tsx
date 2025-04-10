@@ -1,9 +1,11 @@
 'use client';
 
-import { RangeFilter } from '@/components/shared/range-filter';
 import { TaxonomyFilters } from '@/components';
-import type { SidebarProps } from '@/config/types';
+import { RangeFilter } from '@/components/shared/range-filter';
+
 import { useHomepageFilters } from '../hooks/useHomepageFilters';
+
+import type { SidebarProps } from '@/config/types';
 
 interface HomepageTaxonomyFiltersProps extends SidebarProps {}
 

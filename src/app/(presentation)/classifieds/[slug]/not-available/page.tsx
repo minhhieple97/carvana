@@ -1,5 +1,6 @@
-import { EndButtons } from '@/components/ui/end-buttons';
 import { XCircle } from 'lucide-react';
+
+import { EndButtons } from '@/components/ui/end-buttons';
 
 export default function NotAvailablePage() {
   return (

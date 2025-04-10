@@ -1,8 +1,9 @@
 'use client';
 
-import { imgixLoader } from '@/lib/imgix-loader';
 import Image, { type ImageProps } from 'next/image';
 import { useState } from 'react';
+
+import { imgixLoader } from '@/lib/imgix-loader';
 
 type ImgixImageProps = Omit<ImageProps, 'priority' | 'loading'>;
 

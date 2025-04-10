@@ -6,15 +6,15 @@ import { useRef } from 'react';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
-import { SubmitDetailsSchema } from '@/app/schemas/customer.schema';
 import { routes } from '@/config/routes';
 import { MultiStepFormEnum } from '@/config/types';
 import { formatDate, isValidHandoverDateTime } from '@/lib/utils';
+import { SubmitDetailsSchema } from '@/schemas/customer.schema';
 
 import { createCustomerAction } from '../actions';
 
-import type { SubmitDetailsSchemaType } from '@/app/schemas/customer.schema';
 import type { AwaitedPageProps } from '@/config/types';
+import type { SubmitDetailsSchemaType } from '@/schemas/customer.schema';
 
 export const useSubmitDetails = (
   params: AwaitedPageProps['params'],

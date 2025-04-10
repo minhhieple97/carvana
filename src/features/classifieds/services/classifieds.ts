@@ -1,7 +1,7 @@
 import { ClassifiedStatus } from '@prisma/client';
 
-import { ClassifiedFilterSchema, PageSchema } from '@/app/schemas';
 import { redis } from '@/lib/redis-store';
+import { ClassifiedFilterSchema, PageSchema } from '@/schemas';
 
 import {
   getClassifiedCount as dbGetClassifiedCount,

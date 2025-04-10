@@ -2,8 +2,8 @@
 
 import { nanoid } from 'nanoid';
 
-import { CreateCustomerSchema, DeleteCustomerSchema, UpdateCustomerSchema } from '@/app/schemas';
 import { action, ActionError } from '@/lib/safe-action';
+import { CreateCustomerSchema, DeleteCustomerSchema, UpdateCustomerSchema } from '@/schemas';
 
 import {
   buildSubmissionKey,

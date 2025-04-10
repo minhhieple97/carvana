@@ -1,7 +1,6 @@
-import { Suspense } from 'react';
 import { unstable_cache as cache } from 'next/cache';
+import { Suspense } from 'react';
 
-import { PageSchema } from '@/app/schemas/page.schema';
 import { CustomPagination } from '@/components/shared/cusstom-pagination';
 import { InventorySkeleton } from '@/components/shared/inventory/inventory-skeleton';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
@@ -13,13 +12,12 @@ import {
   getTotalFavouritesCount,
 } from '@/features/favourites';
 import { getSourceId } from '@/lib/source-id';
+import { PageSchema } from '@/schemas/page.schema';
 
 import type { PageProps } from '@/config/types';
 
 const getCachedFavouriteIds = cache(
-  async (sourceId: string | undefined) => {
-    return await getFavouriteIds(sourceId);
-  },
+  async (sourceId: string | undefined) => await getFavouriteIds(sourceId),
   ['favourite-ids'],
   { revalidate: 60 } // 60 seconds
 );

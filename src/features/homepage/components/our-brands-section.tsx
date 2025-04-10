@@ -1,8 +1,9 @@
-import { routes } from '@/config/routes';
+import { ClassifiedStatus } from '@prisma/client';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { routes } from '@/config/routes';
 import { getFeaturedBrands, getLiveClassifiedsCount } from '@/features/classifieds';
-import { ClassifiedStatus } from '@prisma/client';
 
 export const OurBrandsSection = async () => {
   const [brands, count] = await Promise.all([
@@ -28,7 +29,7 @@ export const OurBrandsSection = async () => {
               href={`${routes.classifieds}?make=${id}`}
               className="hover:scale-110 transition-all duration-100 ease-in-out relative h-24 flex items-center justify-center"
             >
-              <Image src={image} alt={name} className="object-contain aspect-1/1" fill={true} />
+              <Image src={image} alt={name} className="object-contain aspect-1/1" fill />
             </Link>
           ))}
         </div>

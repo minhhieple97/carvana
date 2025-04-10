@@ -11,7 +11,7 @@ import {
   updateCustomerStatus,
 } from '../db/customer';
 
-import type { CreateCustomerType } from '@/app/schemas/customer.schema';
+import type { CreateCustomerType } from '@/schemas/customer.schema';
 import type { CustomerStatus } from '@prisma/client';
 
 const REDIS_SUBMISSION_PREFIX = 'customer_submission:';

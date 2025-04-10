@@ -2,8 +2,8 @@
 
 import { CustomerStatus } from '@prisma/client';
 
-import { SubscribeSchema } from '@/app/schemas';
 import { action, ActionError } from '@/lib/safe-action';
+import { SubscribeSchema } from '@/schemas';
 
 import { createSubscriber, getSubscriber } from '../services';
 

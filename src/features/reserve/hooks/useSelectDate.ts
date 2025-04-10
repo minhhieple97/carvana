@@ -4,14 +4,14 @@ import { useEffect, useState, useTransition } from 'react';
 import { type SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
-import { SelectDateSchema } from '@/app/schemas/form.schema';
 import { routes } from '@/config/routes';
 import { MultiStepFormEnum } from '@/config/types';
 import { env } from '@/env';
 import { generateDateOptions, getTimeOptions } from '@/lib/utils';
+import { SelectDateSchema } from '@/schemas/form.schema';
 
-import type { SelectDateType } from '@/app/schemas/form.schema';
 import type { PageProps } from '@/config/types';
+import type { SelectDateType } from '@/schemas/form.schema';
 import type { Prisma } from '@prisma/client';
 
 export const useSelectDate = (

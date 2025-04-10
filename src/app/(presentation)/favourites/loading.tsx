@@ -1,7 +1,7 @@
 import { InventorySkeleton } from '@/components/shared/inventory/inventory-skeleton';
-import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Card } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
+import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 
 export default function FavouritesLoading() {
   return (

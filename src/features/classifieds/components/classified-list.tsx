@@ -1,8 +1,9 @@
 'use client';
+import { use } from 'react';
+
 import { ClassifiedCard } from './classified-card';
 
 import type { ClassifiedsListProps } from '../types';
-import { use } from 'react';
 export const ClassifiedsList = ({ classifiedsPromise, favourites }: ClassifiedsListProps) => {
   const classifieds = use(classifiedsPromise);
   return (

@@ -1,9 +1,11 @@
-import type { Favourites } from '@/config/types';
+import { getLatestArrivals } from '@/features/classifieds';
 import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis-store';
 import { getSourceId } from '@/lib/source-id';
+
 import { LatestArrivalsCarousel } from './latest-arrivals-carousel';
-import { getLatestArrivals } from '@/features/classifieds';
+
+import type { Favourites } from '@/config/types';
 
 export const LatestArrivals = async () => {
   const classifieds = await getLatestArrivals();

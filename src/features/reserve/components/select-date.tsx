@@ -1,7 +1,7 @@
 'use client';
 
-import { type MultiStepFormComponentProps } from '@/config/types';
 import { Loader2 } from 'lucide-react';
+
 import {
   Button,
   Form,
@@ -12,6 +12,7 @@ import {
   FormMessage,
   Select,
 } from '@/components/ui';
+import { type MultiStepFormComponentProps } from '@/config/types';
 
 import { useSelectDate } from '../hooks';
 

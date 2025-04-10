@@ -1,4 +1,5 @@
 import { formatPrice } from '@/lib/utils';
+
 import type { PriceTagProps } from '../types';
 
 export const PriceTag = ({ price }: PriceTagProps) => (

@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 
-import { SessionSchema } from '@/app/schemas';
 import { redis as redisClient } from '@/lib/redis-store';
+import { SessionSchema } from '@/schemas';
 
 import type { UserSession } from '../types';
 import type { Cookies } from '../types';

@@ -1,5 +1,6 @@
-import { EndButtons } from '@/components/ui';
 import { CircleCheck } from 'lucide-react';
+
+import { EndButtons } from '@/components/ui';
 
 export default function SuccessfulReservationPage() {
   return (
