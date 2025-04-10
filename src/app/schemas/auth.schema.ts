@@ -1,3 +1,4 @@
+import { Role } from '@prisma/client';
 import { z } from 'zod';
 
 const emailField = z.string().email('Invalid email address');
@@ -24,5 +25,7 @@ export const SignUpSchema = z
     path: ['confirmPassword'],
   });
 
-export type SignInInput = z.infer<typeof SignInSchema>;
-export type SignUpInput = z.infer<typeof SignUpSchema>;
+export const SessionSchema = z.object({
+  id: z.string(),
+  role: z.enum(Object.values(Role) as [string, ...string[]]),
+});

@@ -3,7 +3,7 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 
 import { createUser, verifyUserCredentials } from '../db/auth';
 
-import type { SignInInput, SignUpInput } from '@/app/schemas';
+import type { SignUpInput, SignInInput } from '../types';
 
 export type SignUpParams = Omit<SignUpInput, 'confirmPassword' | 'role'>;
 export type SignInParams = SignInInput;

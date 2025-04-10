@@ -1,7 +1,7 @@
 import { hashPassword, comparePasswords, generateSalt } from '@/lib/passwordHasher';
 import { prisma } from '@/lib/prisma';
 
-import type { SignInInput, SignUpInput } from '@/app/schemas';
+import type { SignInInput, SignUpInput } from '../types';
 import type { Role } from '@prisma/client';
 
 export type CreateUserData = Omit<SignUpInput, 'confirmPassword'> & {
