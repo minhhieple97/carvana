@@ -15,7 +15,7 @@ import {
   updateCustomer as updateCustomerService,
   cleanupRedisSubmission,
   findCustomerById,
-} from '../server/services/customer';
+} from '../services/customer';
 
 export const createCustomerAction = action
   .schema(CreateCustomerSchema)

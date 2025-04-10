@@ -5,7 +5,7 @@ import { CustomerStatus } from '@prisma/client';
 import { SubscribeSchema } from '@/app/schemas';
 import { action, ActionError } from '@/lib/safe-action';
 
-import { createSubscriber, getSubscriber } from '../server/services';
+import { createSubscriber, getSubscriber } from '../services';
 
 export const subscribeAction = action.schema(SubscribeSchema).action(async ({ parsedInput }) => {
   const { firstName, lastName, email } = parsedInput;

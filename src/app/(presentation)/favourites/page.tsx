@@ -9,8 +9,8 @@ import { routes } from '@/config/routes';
 import { ClassifiedCard } from '@/features/classifieds';
 import {
   getFavouriteIds,
-  getPaginatedFavouriteClassifieds,
-  getFavouritesCount,
+  getPaginatedFavourites,
+  getTotalFavouritesCount,
 } from '@/features/favourites';
 import { getSourceId } from '@/lib/source-id';
 
@@ -31,8 +31,8 @@ const getCachedClassifieds = cache(
     }
 
     const [classifieds, count] = await Promise.all([
-      getPaginatedFavouriteClassifieds({ favouriteIds, page }),
-      getFavouritesCount(favouriteIds),
+      getPaginatedFavourites(favouriteIds, page),
+      getTotalFavouritesCount(favouriteIds),
     ]);
 
     return { classifieds, count };
