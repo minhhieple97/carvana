@@ -27,7 +27,7 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
   const totalPages = Math.ceil(count / CLASSIFIEDS_PER_PAGE);
   return (
     <main className="min-h-screen bg-gray-50">
-      <div className="container mx-auto py-8">
+      <div className="mx-auto py-8">
         <div className="flex gap-6">
           <Sidebar searchParams={searchParams} minMaxValues={minMaxValues} />
           <div className="flex-1">

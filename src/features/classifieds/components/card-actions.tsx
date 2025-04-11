@@ -19,7 +19,6 @@ export const CardActions = ({ slug }: CardActionsProps) => (
         href={routes.reserve(slug, MultiStepFormEnum.WELCOME)}
         className="flex items-center justify-center gap-1 sm:gap-2"
       >
-        <CalendarDays className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />
         <span>Reserve</span>
       </Link>
     </Button>
@@ -34,7 +33,6 @@ export const CardActions = ({ slug }: CardActionsProps) => (
         className="flex items-center justify-center gap-1 sm:gap-2"
       >
         <span>View Details</span>
-        <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
       </Link>
     </Button>
   </div>
