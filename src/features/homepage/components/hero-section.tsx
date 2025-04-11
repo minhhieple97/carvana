@@ -23,32 +23,66 @@ export const HeroSection = async (props: AwaitedPageProps) => {
 
   return (
     <section
-      className="relative flex items-center justify-center h-[calc(100vh-4rem)] bg-cover bg-center"
+      className="relative flex items-center justify-center min-h-[calc(100vh-4rem)] bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url(${imgixLoader({ src: imageSources.carLinup, width: 1280, quality: 100 })})`,
+        backgroundImage: `url(${imgixLoader({
+          src: imageSources.carLinup,
+          width: 1920,
+          quality: 85,
+          auto: 'format,compress',
+        })})`,
       }}
     >
-      <div className="absolute inset-0 bg-black opacity-75" />
-      <div className="container lg:grid space-y-12 grid-cols-2 items-center relative z-10">
-        <div className="px-10 lg:px-0">
-          <h1 className="text-2xl text-center lg:text-left md:text-4xl lg:text-8xl uppercase font-extrabold text-white">
-            Unbeatable Deals on New & Used Cars
-          </h1>
-          <h2 className="mt-4 uppercase text-center lg:text-left text-base md:text-3xl lg:text-4xl text-white">
-            Discover your dream car today
-          </h2>
-        </div>
-        <div className="max-w-md w-full mx-auto p-6 bg-white sm:rounded-xl shadow-lg">
-          <div className="space-y-4">
-            <div className="space-y-2 flex flex-col w-full gap-x-4">
-              <HomepageTaxonomyFilters minMaxValues={minMaxResult} searchParams={searchParams} />
-            </div>
-            <SearchButton count={classifiedsCount} />
-            {isFilterApplied && (
-              <Button asChild variant="outline" className="w-full hover:bg-slate-200">
-                <Link href={routes.home}>Clear Filters ({totalFiltersApplied})</Link>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/70" />
+      <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20 z-10 relative">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+          <div className="w-full lg:w-1/2 space-y-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tight">
+              <span className="text-primary-400">Unbeatable Deals</span> on New & Used Cars
+            </h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light">
+              Discover your dream car today
+            </h2>
+            <div className="hidden md:block">
+              <Button
+                size="lg"
+                className="mt-4 text-lg bg-primary-500 hover:bg-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                asChild
+              >
+                <Link href={routes.classifieds}>Browse All Cars</Link>
               </Button>
-            )}
+            </div>
+          </div>
+
+          <div className="w-full lg:w-1/2 max-w-md mx-auto lg:mx-0 lg:ml-auto">
+            <div className="bg-white/95 backdrop-blur-sm p-6 sm:p-8 rounded-xl shadow-2xl border border-gray-100 transition-all duration-300 hover:shadow-primary-500/10">
+              <div className="space-y-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">
+                  Find Your Perfect Match
+                </h3>
+                <div className="space-y-4 flex flex-col w-full">
+                  <HomepageTaxonomyFilters
+                    minMaxValues={minMaxResult}
+                    searchParams={searchParams}
+                  />
+                </div>
+                <SearchButton count={classifiedsCount} />
+                {isFilterApplied && (
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full hover:bg-slate-100 transition-colors"
+                  >
+                    <Link href={routes.home}>
+                      Clear Filters{' '}
+                      <span className="ml-1 px-1.5 py-0.5 bg-slate-200 rounded-full text-xs">
+                        {totalFiltersApplied}
+                      </span>
+                    </Link>
+                  </Button>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
