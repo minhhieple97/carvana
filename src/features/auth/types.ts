@@ -1,5 +1,7 @@
 import type { SignInSchema, SignUpSchema, SessionSchema } from '@/schemas';
 import type { Role } from '@prisma/client';
+import type { ReactNode } from 'react';
+import type { UseFormReturn } from 'react-hook-form';
 import type { z } from 'zod';
 
 export type UserSession = z.infer<typeof SessionSchema>;
@@ -27,3 +29,24 @@ export type CreateUserData = Omit<SignUpInput, 'confirmPassword'> & {
 };
 
 export type SignInData = SignInInput;
+
+export type FormField = {
+  id: string;
+  label: string;
+  type: string;
+  placeholder: string;
+  autoComplete?: string;
+};
+
+export interface AuthFormProps {
+  title: string;
+  fields: FormField[];
+  submitButtonText: string;
+  footerText?: ReactNode;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  isPending: boolean;
+  error: string | null;
+  success: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  form: UseFormReturn<any>;
+}

@@ -30,11 +30,10 @@ export const signIn = async ({ email, password }: SignInInput) => {
     const user = await verifyUserCredentials({ email, password });
 
     if (!user) {
-      return { success: false, error: 'Invalid credentials' };
+      throw new ActionError('Invalid credentials');
     }
-
-    return { success: true, user };
+    return user;
   } catch {
-    return { success: false, error: 'Authentication failed' };
+    throw new ActionError('Authentication failed');
   }
 };
