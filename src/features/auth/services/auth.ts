@@ -5,10 +5,7 @@ import { createUser, verifyUserCredentials } from '../db/auth';
 
 import type { SignUpInput, SignInInput } from '../types';
 
-export type SignUpParams = Omit<SignUpInput, 'confirmPassword' | 'role'>;
-export type SignInParams = SignInInput;
-
-export const signUp = async ({ email, password }: SignUpParams) => {
+export const signUp = async ({ email, password }: SignUpInput) => {
   try {
     const user = await createUser({ email, password, role: Role.user });
     return { user };
@@ -26,7 +23,7 @@ export const signUp = async ({ email, password }: SignUpParams) => {
   }
 };
 
-export const signIn = async ({ email, password }: SignInParams) => {
+export const signIn = async ({ email, password }: SignInInput) => {
   try {
     const user = await verifyUserCredentials({ email, password });
 

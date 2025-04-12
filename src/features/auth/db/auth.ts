@@ -1,14 +1,7 @@
 import { hashPassword, comparePasswords, generateSalt } from '@/lib/passwordHasher';
 import { prisma } from '@/lib/prisma';
 
-import type { SignInInput, SignUpInput } from '../types';
-import type { Role } from '@prisma/client';
-
-export type CreateUserData = Omit<SignUpInput, 'confirmPassword'> & {
-  role?: Role;
-};
-
-export type SignInData = SignInInput;
+import type { CreateUserData, SignInData } from '../types';
 
 export const createUser = async ({ email, password, role = 'user' }: CreateUserData) => {
   const salt = generateSalt();
@@ -50,7 +43,6 @@ export const verifyUserCredentials = async ({ email, password }: SignInData) => 
     return null;
   }
 
-  // Use the comparePasswords function with the user's salt
   const isPasswordValid = await comparePasswords({
     password,
     salt: user.salt,

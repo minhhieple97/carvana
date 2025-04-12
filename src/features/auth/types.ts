@@ -1,4 +1,5 @@
 import type { SignInSchema, SignUpSchema, SessionSchema } from '@/schemas';
+import type { Role } from '@prisma/client';
 import type { z } from 'zod';
 
 export type UserSession = z.infer<typeof SessionSchema>;
@@ -20,3 +21,9 @@ export type Cookies = {
 
 export type SignInInput = z.infer<typeof SignInSchema>;
 export type SignUpInput = z.infer<typeof SignUpSchema>;
+
+export type CreateUserData = Omit<SignUpInput, 'confirmPassword'> & {
+  role?: Role;
+};
+
+export type SignInData = SignInInput;
