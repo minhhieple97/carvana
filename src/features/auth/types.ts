@@ -1,3 +1,5 @@
+import type { getUserById } from './db';
+import type { getUserFromSession } from './services/session';
 import type { SignInSchema, SignUpSchema, SessionSchema } from '@/schemas';
 import type { Role } from '@prisma/client';
 import type { ReactNode } from 'react';
@@ -50,3 +52,7 @@ export interface AuthFormProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<any>;
 }
+
+export type FullUser = Exclude<Awaited<ReturnType<typeof getUserById>>, undefined | null>;
+
+export type User = Exclude<Awaited<ReturnType<typeof getUserFromSession>>, undefined | null>;

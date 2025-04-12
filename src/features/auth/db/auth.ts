@@ -59,3 +59,8 @@ export const verifyUserCredentials = async ({ email, password }: SignInData) => 
     role: user.role,
   };
 };
+
+export const getUserById = async (id: string) =>
+  prisma.user.findUnique({
+    where: { id },
+  });
