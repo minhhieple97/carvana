@@ -7,6 +7,6 @@ export const routes = {
   reserve: (slug: string, step: MultiStepFormEnum) => `/classifieds/${slug}/reserve?step=${step}`,
   favourites: '/favourites',
   classifieds: '/classifieds',
-  signIn: '/sign-in',
+  signIn: '/signin',
   success: (slug: string) => `/classifieds/${slug}/success`,
 };
