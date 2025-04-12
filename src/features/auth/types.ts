@@ -20,7 +20,7 @@ export type Cookies = {
 };
 
 export type SignInInput = z.infer<typeof SignInSchema>;
-export type SignUpInput = z.infer<typeof SignUpSchema>;
+export type SignUpInput = Omit<z.infer<typeof SignUpSchema>, 'confirmPassword'>;
 
 export type CreateUserData = Omit<SignUpInput, 'confirmPassword'> & {
   role?: Role;

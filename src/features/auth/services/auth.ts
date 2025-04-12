@@ -1,6 +1,8 @@
 import { Role } from '@prisma/client';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 
+import { ActionError } from '@/lib/safe-action';
+
 import { createUser, verifyUserCredentials } from '../db/auth';
 
 import type { SignUpInput, SignInInput } from '../types';
@@ -8,7 +10,7 @@ import type { SignUpInput, SignInInput } from '../types';
 export const signUp = async ({ email, password }: SignUpInput) => {
   try {
     const user = await createUser({ email, password, role: Role.user });
-    return { user };
+    return user;
   } catch (error) {
     if (
       error instanceof PrismaClientKnownRequestError &&
@@ -16,10 +18,10 @@ export const signUp = async ({ email, password }: SignUpInput) => {
       typeof error.meta?.target === 'string' &&
       error.meta.target.includes('email')
     ) {
-      return { error: 'Email already in use' };
+      throw new ActionError('Email already in use');
     }
 
-    return { error: 'Failed to create user' };
+    throw new ActionError('Failed to create user');
   }
 };
 
