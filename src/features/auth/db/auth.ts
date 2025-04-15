@@ -39,7 +39,7 @@ export const findUserByEmail = async (email: string) =>
 export const verifyUserCredentials = async ({ email, password }: SignInData) => {
   const user = await findUserByEmail(email);
 
-  if (!user) {
+  if (!user || !user.salt || !user.password) {
     return null;
   }
 

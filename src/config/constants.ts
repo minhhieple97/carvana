@@ -1,5 +1,3 @@
-import { env } from '@/env';
-
 import { routes } from './routes';
 
 // export const imageSources = {
@@ -20,3 +18,7 @@ export const navLinks = [
   { id: 1, href: routes.home, label: 'Home' },
   { id: 2, href: routes.classifieds, label: 'Classifieds' },
 ];
+
+export const SESSION_EXPIRATION_SECONDS = 60 * 60 * 24 * 7; // 7 days
+export const COOKIE_SESSION_KEY = 'session-id';
+export const SESSION_PREFIX = 'session:';

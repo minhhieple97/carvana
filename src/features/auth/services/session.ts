@@ -1,20 +1,17 @@
-import crypto from 'crypto';
+import { v4 as uuidv4 } from 'uuid';
 
+import { COOKIE_SESSION_KEY, SESSION_EXPIRATION_SECONDS, SESSION_PREFIX } from '@/config/constants';
 import { redis as redisClient } from '@/lib/redis-store';
 import { SessionSchema } from '@/schemas';
 
 import type { UserSession } from '../types';
 import type { Cookies } from '../types';
 
-const SESSION_EXPIRATION_SECONDS = 60 * 60 * 24 * 7; // 7 days
-const COOKIE_SESSION_KEY = 'session-id';
-const SESSION_PREFIX = 'session:';
-
-const generateSessionId = (): string => crypto.randomBytes(512).toString('hex').normalize();
+const generateSessionId = (): string => uuidv4();
 
 const getSessionKey = (sessionId: string): string => `${SESSION_PREFIX}${sessionId}`;
 
-const getSessionIdFromCookies = (cookies: Pick<Cookies, 'get'>): string | null =>
+export const getSessionIdFromCookies = (cookies: Pick<Cookies, 'get'>): string | null =>
   cookies.get(COOKIE_SESSION_KEY)?.value ?? null;
 
 const setCookie = (sessionId: string, cookies: Pick<Cookies, 'set'>): void => {

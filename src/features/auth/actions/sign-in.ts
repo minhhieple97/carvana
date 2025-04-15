@@ -16,7 +16,6 @@ export const signInAction = action.schema(SignInSchema).action(async ({ parsedIn
 
     await createUserSession(user, await cookies());
   } catch (error) {
-    console.error('Sign-in error:', error);
     if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) {
       throw error;

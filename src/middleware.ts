@@ -1,20 +1,31 @@
-import { Role } from '@prisma/client';
 import { NextResponse, type NextRequest } from 'next/server';
 import { v4 as uuid } from 'uuid';
 
-import { SOURCE_ID_KEY } from '@/config/constants';
+import { COOKIE_SESSION_KEY, SOURCE_ID_KEY } from '@/config/constants';
 
-import { routes } from './config/routes';
-import { getUserFromSession } from './features/auth';
-const adminRoutes = ['/admin'];
-const privateRoutes = ['/private'];
+import { routes } from './config';
+
+const ADMIN_ROUTE_PREFIX = '/admin';
+
+const PRIVATE_ROUTES = ['/private', '/dashboard', '/account', '/settings'];
+
 export const middleware = async (request: NextRequest) => {
-  const response = (await middlewareAuth(request)) ?? NextResponse.next();
+  const { pathname } = request.nextUrl;
+  const sessionToken = request.cookies.get(COOKIE_SESSION_KEY)?.value;
 
+  const isAdminRoute = pathname.startsWith(ADMIN_ROUTE_PREFIX);
+
+  const isPrivateRoute = PRIVATE_ROUTES.some((route) => pathname.startsWith(route));
+
+  if ((isAdminRoute || isPrivateRoute) && !sessionToken) {
+    return NextResponse.redirect(new URL(routes.signIn, request.url));
+  }
+
+  const response = NextResponse.next();
   const sourceId = request.cookies.get(SOURCE_ID_KEY)?.value;
+
   if (!sourceId) {
-    const newSourceId = uuid();
-    response.cookies.set(SOURCE_ID_KEY, newSourceId, {
+    response.cookies.set(SOURCE_ID_KEY, uuid(), {
       path: '/',
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
@@ -23,25 +34,6 @@ export const middleware = async (request: NextRequest) => {
   }
 
   return response;
-};
-
-const middlewareAuth = async (request: NextRequest) => {
-  if (privateRoutes.includes(request.nextUrl.pathname)) {
-    const user = await getUserFromSession(request.cookies);
-    if (user == null) {
-      return NextResponse.redirect(new URL(routes.signIn, request.url));
-    }
-  }
-
-  if (adminRoutes.includes(request.nextUrl.pathname)) {
-    const user = await getUserFromSession(request.cookies);
-    if (user == null) {
-      return NextResponse.redirect(new URL(routes.signIn, request.url));
-    }
-    if (user.role !== Role.admin) {
-      return NextResponse.redirect(new URL(routes.home, request.url));
-    }
-  }
 };
 
 export const config = {

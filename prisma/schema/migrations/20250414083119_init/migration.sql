@@ -25,6 +25,12 @@ CREATE TYPE "Transmission" AS ENUM ('MANUAL', 'AUTOMATIC');
 -- CreateEnum
 CREATE TYPE "CustomerStatus" AS ENUM ('SUBSCRIBER', 'INTERESTED', 'CONTACTED', 'PURCHASED', 'COLD');
 
+-- CreateEnum
+CREATE TYPE "Role" AS ENUM ('admin', 'user');
+
+-- CreateEnum
+CREATE TYPE "OAuthProvider" AS ENUM ('discord', 'github');
+
 -- CreateTable
 CREATE TABLE "classifieds" (
     "id" SERIAL NOT NULL,
@@ -41,12 +47,12 @@ CREATE TABLE "classifieds" (
     "make_id" INTEGER NOT NULL,
     "model_id" INTEGER NOT NULL,
     "model_variant_id" INTEGER,
-    "ulezCompliance" "ULEZCompliance" NOT NULL DEFAULT 'EXEMPT',
+    "ulez_compliance" "ULEZCompliance" NOT NULL DEFAULT 'EXEMPT',
     "transmission" "Transmission" NOT NULL DEFAULT 'MANUAL',
     "colour" "Colour" NOT NULL DEFAULT 'BLACK',
-    "fuelType" "FuelType" NOT NULL DEFAULT 'PETROL',
-    "bodyType" "BodyType" NOT NULL DEFAULT 'SEDAN',
-    "odoUnit" "OdoUnit" NOT NULL DEFAULT 'MILES',
+    "fuel_type" "FuelType" NOT NULL DEFAULT 'PETROL',
+    "body_type" "BodyType" NOT NULL DEFAULT 'SEDAN',
+    "odo_unit" "OdoUnit" NOT NULL DEFAULT 'MILES',
     "currency" "CurrencyCode" NOT NULL DEFAULT 'GBP',
     "status" "ClassifiedStatus" NOT NULL DEFAULT 'DRAFT',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -66,6 +72,7 @@ CREATE TABLE "customers" (
     "terms_accepted" BOOLEAN NOT NULL DEFAULT false,
     "status" "CustomerStatus" NOT NULL DEFAULT 'INTERESTED',
     "classified_id" INTEGER,
+    "request_id" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
@@ -101,8 +108,8 @@ CREATE TABLE "page_views" (
     "id" SERIAL NOT NULL,
     "path" TEXT NOT NULL,
     "viewed_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "ipAddress" TEXT,
-    "userAgent" TEXT,
+    "ip_address" TEXT,
+    "user_agent" TEXT,
     "referrer" TEXT,
 
     CONSTRAINT "page_views_pkey" PRIMARY KEY ("id")
@@ -114,7 +121,7 @@ CREATE TABLE "sessions" (
     "session_token" TEXT NOT NULL,
     "user_id" TEXT NOT NULL,
     "expires" TIMESTAMP(3) NOT NULL,
-    "requires2FA" BOOLEAN NOT NULL DEFAULT true,
+    "requires_2fa" BOOLEAN NOT NULL DEFAULT true,
 
     CONSTRAINT "sessions_pkey" PRIMARY KEY ("id")
 );
@@ -146,8 +153,8 @@ CREATE TABLE "model_variants" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "model_id" INTEGER NOT NULL,
-    "yearStart" INTEGER NOT NULL,
-    "yearEnd" INTEGER NOT NULL,
+    "year_start" INTEGER NOT NULL,
+    "year_end" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
@@ -158,11 +165,24 @@ CREATE TABLE "model_variants" (
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
+    "password" TEXT,
+    "salt" TEXT,
+    "role" "Role" NOT NULL DEFAULT 'user',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "user_oauth_accounts" (
+    "user_id" TEXT NOT NULL,
+    "provider" "OAuthProvider" NOT NULL,
+    "provider_account_id" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "user_oauth_accounts_pkey" PRIMARY KEY ("provider_account_id","provider")
 );
 
 -- CreateIndex
@@ -195,6 +215,9 @@ CREATE UNIQUE INDEX "model_variants_model_id_name_key" ON "model_variants"("mode
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "user_oauth_accounts_provider_account_id_key" ON "user_oauth_accounts"("provider_account_id");
+
 -- AddForeignKey
 ALTER TABLE "classifieds" ADD CONSTRAINT "classifieds_make_id_fkey" FOREIGN KEY ("make_id") REFERENCES "makes"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
@@ -221,3 +244,6 @@ ALTER TABLE "models" ADD CONSTRAINT "models_make_id_fkey" FOREIGN KEY ("make_id"
 
 -- AddForeignKey
 ALTER TABLE "model_variants" ADD CONSTRAINT "model_variants_model_id_fkey" FOREIGN KEY ("model_id") REFERENCES "models"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "user_oauth_accounts" ADD CONSTRAINT "user_oauth_accounts_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
