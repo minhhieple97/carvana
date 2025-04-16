@@ -1,15 +1,35 @@
 'use client';
 
-import { CircleCheckIcon, CircleX, Loader2 } from 'lucide-react';
+import { CircleCheckIcon, CircleX, Github, Loader2 } from 'lucide-react';
 import { Button, Input, Label } from '@/components/ui';
 import { FormProvider } from 'react-hook-form';
+import { oAuthSignIn } from '../actions/sign-in';
 import type { AuthFormProps } from '../types';
+import type { OAuthProvider } from '@prisma/client';
 
 const SubmitButton = ({ text, isPending }: { text: string; isPending: boolean }) => {
   return (
     <Button disabled={isPending} type="submit" className="w-full uppercase font-bold">
       {isPending && <Loader2 className="h-4 w-4 shrink-0 animate-spin mr-2" aria-hidden="true" />}{' '}
       {text}
+    </Button>
+  );
+};
+
+const OAuthButton = ({ provider }: { provider: OAuthProvider }) => {
+  const handleOAuthSignIn = async () => {
+    await oAuthSignIn(provider);
+  };
+
+  return (
+    <Button
+      type="button"
+      variant="outline"
+      onClick={handleOAuthSignIn}
+      className="w-full flex items-center justify-center gap-2"
+    >
+      {provider === 'github' && <Github className="h-4 w-4" />}
+      Continue with {provider.charAt(0).toUpperCase() + provider.slice(1)}
     </Button>
   );
 };
@@ -24,6 +44,7 @@ export const AuthForm = ({
   error,
   success,
   form,
+  showOAuth = true,
 }: AuthFormProps) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] m-auto bg-white">
@@ -56,6 +77,18 @@ export const AuthForm = ({
                   )}
                 </div>
               ))}
+
+              {showOAuth && (
+                <div className="mt-6 space-y-4">
+                  <div className="relative flex items-center justify-center">
+                    <span className="absolute inset-x-0 h-px bg-muted" />
+                    <span className="relative bg-white px-4 text-sm text-muted-foreground">
+                      Or continue with
+                    </span>
+                  </div>
+                  <OAuthButton provider="github" />
+                </div>
+              )}
 
               {footerText && (
                 <div className="my-6">

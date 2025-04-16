@@ -2,7 +2,6 @@ import type { getUserById } from './db';
 import type { getUserFromSession } from './services/session';
 import type { SignInSchema, SignUpSchema, SessionSchema } from '@/schemas';
 import type { Role } from '@prisma/client';
-import type { ReactNode } from 'react';
 import type { UseFormReturn } from 'react-hook-form';
 import type { z } from 'zod';
 
@@ -40,19 +39,32 @@ export type FormField = {
   autoComplete?: string;
 };
 
-export interface AuthFormProps {
+export type AuthFormProps = {
   title: string;
-  fields: FormField[];
+  fields: {
+    id: string;
+    label: string;
+    type: string;
+    autoComplete?: string;
+    placeholder?: string;
+  }[];
   submitButtonText: string;
-  footerText?: ReactNode;
+  footerText?: React.ReactNode;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   isPending: boolean;
   error: string | null;
   success: string | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   form: UseFormReturn<any>;
-}
+  showOAuth?: boolean;
+};
 
 export type FullUser = Exclude<Awaited<ReturnType<typeof getUserById>>, undefined | null>;
 
 export type User = Exclude<Awaited<ReturnType<typeof getUserFromSession>>, undefined | null>;
+
+export type OAuthUser = {
+  id: string;
+  email: string;
+  name?: string;
+};

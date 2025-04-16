@@ -1,9 +1,11 @@
 import type { CurrencyCode, Prisma } from '@prisma/client';
 import type { ChangeEvent } from 'react';
 
-type Params = {
+export type Params = {
   [x: string]: string | string[];
 };
+
+export type AwaitedParams = Awaited<PageProps['params']>;
 
 export type PageProps = {
   params?: Promise<Params>;

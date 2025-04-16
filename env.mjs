@@ -10,6 +10,9 @@ export const env = createEnv({
     AWS_S3_BUCKET_NAME: z.string(),
     AWS_S3_ACCESS_KEY_ID: z.string(),
     AWS_S3_SECRET_ACCESS_KEY: z.string(),
+    OAUTH_REDIRECT_URL_BASE: z.string(),
+    GITHUB_CLIENT_ID: z.string(),
+    GITHUB_CLIENT_SECRET: z.string(),
   },
 
   client: {
@@ -27,5 +30,8 @@ export const env = createEnv({
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     NEXT_PUBLIC_IMGIX_URL: process.env.NEXT_PUBLIC_IMGIX_URL,
+    GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+    GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+    OAUTH_REDIRECT_URL_BASE: process.env.OAUTH_REDIRECT_URL_BASE,
   },
 });
