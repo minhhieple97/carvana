@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 
-import { seedAdmin } from './admin.seed';
-import { seedClassifieds } from './classifieds.seed';
-import { seedImages } from './images.seed';
-import { seedTaxonomy } from './taxonomy.seed';
+// import { seedAdmin } from './admin.seed';
+// import { seedClassifieds } from './classifieds.seed';
+// import { seedImages } from './images.seed';
+// import { seedTaxonomy } from './taxonomy.seed';
 
 const prisma = new PrismaClient();
 

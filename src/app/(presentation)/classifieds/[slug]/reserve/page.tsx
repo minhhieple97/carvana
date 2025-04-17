@@ -23,7 +23,7 @@ export default async function ReservePage(props: PageProps) {
   });
 
   if (!success) {
-    console.log({ error });
+    console.error({ error });
     notFound();
   }
 

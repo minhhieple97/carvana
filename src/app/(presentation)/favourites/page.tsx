@@ -39,7 +39,6 @@ const getCachedClassifieds = cache(
   { revalidate: 60 } // 60 seconds
 );
 
-// Separate component for empty state to reduce complexity
 function EmptyFavouritesState() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] text-center">
@@ -51,7 +50,6 @@ function EmptyFavouritesState() {
   );
 }
 
-// Separate component for the classified grid to improve readability
 function ClassifiedGrid({
   classifieds,
   favouriteIds,

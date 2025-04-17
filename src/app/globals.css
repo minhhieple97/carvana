@@ -1,4 +1,7 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*
   ---break---
 */
@@ -166,7 +169,7 @@
   }
 
   a {
-    @apply text-primary underline-offset-4 transition-colors hover:underline hover:text-primary/90;
+    @apply text-primary underline-offset-4 transition-colors;
   }
 
   button,
