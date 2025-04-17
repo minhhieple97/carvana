@@ -9,4 +9,12 @@ export const routes = {
   classifieds: '/classifieds',
   signIn: '/signin',
   success: (slug: string) => `/classifieds/${slug}/success`,
+  admin: {
+    dashboard: '/admin/dashboard',
+    classifieds: '/admin/classifieds',
+    editClassified: (id: number) => `/admin/classifieds/edit/${id}`,
+    customers: '/admin/customers',
+    editCustomer: (id: number) => `/admin/customers/edit/${id}`,
+    settings: '/admin/settings',
+  },
 };
