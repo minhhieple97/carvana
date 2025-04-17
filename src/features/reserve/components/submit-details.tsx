@@ -95,21 +95,25 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
               control={form.control}
               name="terms"
               render={({ field }) => (
-                <FormItem className="flex items-center gap-x-2">
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4">
                   <FormControl>
                     <Checkbox
-                      className="cursor-pointer m-0"
+                      id="terms"
+                      className="h-4 w-4 border-gray-300 rounded"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <FormLabel
-                    htmlFor="terms"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex"
-                  >
-                    I agree to the terms and conditions <span className="text-red-500 ml-1">*</span>
-                  </FormLabel>
-                  <FormMessage />
+                  <div className="space-y-1 leading-none">
+                    <FormLabel
+                      htmlFor="terms"
+                      className="text-sm font-medium leading-none ■-pointer"
+                    >
+                      I agree to the terms and conditions{' '}
+                      <span className="text-red-500 ml-1">*</span>
+                    </FormLabel>
+                    <FormMessage />
+                  </div>
                 </FormItem>
               )}
             />
