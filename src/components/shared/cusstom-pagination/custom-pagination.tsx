@@ -20,11 +20,15 @@ export const CustomPagination = (props: PaginationProps) => {
     useCustomPagination(props);
 
   return (
-    <PaginationRoot className={styles.paginationRoot}>
-      <PaginationContent className="lg:gap-4 justify-end">
+    <PaginationRoot className={cn('w-full mt-6', styles?.paginationRoot)}>
+      <PaginationContent className="justify-end gap-1 md:gap-2 items-center">
         <PaginationItem>
           <PaginationPrevious
-            className={cn(currentPage <= 1 && 'hidden', styles.paginationPrevious)}
+            className={cn(
+              'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-md',
+              currentPage <= 1 && 'opacity-50 pointer-events-none',
+              styles?.paginationPrevious
+            )}
             href={createPageUrl(currentPage - 1)}
             onClick={(e) => {
               e.preventDefault();
@@ -34,9 +38,12 @@ export const CustomPagination = (props: PaginationProps) => {
         </PaginationItem>
 
         {visibleRange.start > 1 && (
-          <PaginationItem className="hidden lg:block">
+          <PaginationItem className="hidden md:block">
             <PaginationLink
-              className={styles.paginationLink}
+              className={cn(
+                'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md min-w-[32px] h-[32px] flex items-center justify-center',
+                styles?.paginationLink
+              )}
               href="#"
               onClick={(e) => {
                 e.preventDefault();
@@ -72,7 +79,14 @@ export const CustomPagination = (props: PaginationProps) => {
                   e.preventDefault();
                   setPage(pageNumber);
                 }}
-                className={cn(styles.paginationLink, isActive && styles.paginationLinkActive)}
+                className={cn(
+                  'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center',
+                  isActive
+                    ? 'bg-primary text-primary-foreground font-semibold hover:bg-primary/90'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
+                  styles?.paginationLink,
+                  isActive && styles?.paginationLinkActive
+                )}
                 {...(rel ? { rel } : {})}
               >
                 {pageNumber}
@@ -82,9 +96,12 @@ export const CustomPagination = (props: PaginationProps) => {
         })}
 
         {visibleRange.end < totalPages && (
-          <PaginationItem className="hidden lg:block">
+          <PaginationItem className="hidden md:block">
             <PaginationLink
-              className={styles.paginationLink}
+              className={cn(
+                'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md min-w-[32px] h-[32px] flex items-center justify-center',
+                styles?.paginationLink
+              )}
               href="#"
               onClick={(e) => {
                 e.preventDefault();
@@ -98,7 +115,11 @@ export const CustomPagination = (props: PaginationProps) => {
 
         <PaginationItem>
           <PaginationNext
-            className={cn(currentPage >= totalPages && 'hidden', styles.paginationNext)}
+            className={cn(
+              'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-md',
+              currentPage >= totalPages && 'opacity-50 pointer-events-none',
+              styles?.paginationNext
+            )}
             href={createPageUrl(currentPage + 1)}
             onClick={(e) => {
               e.preventDefault();
