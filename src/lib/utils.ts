@@ -344,3 +344,9 @@ export const getTimeOptions = (selectedDate?: string) => {
 
   return options;
 };
+
+export function calculatePercentageChange(current: number, previous: number) {
+  if (previous === 0) return current > 0 ? 100 : current < 0 ? -100 : 0;
+
+  return ((current - previous) / Math.abs(previous)) * 100;
+}
