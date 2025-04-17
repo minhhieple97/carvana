@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
+import { routes } from '@/config';
 import { SignUpSchema } from '@/schemas';
 
 import { signUpAction } from '../actions/sign-up';
@@ -26,8 +27,7 @@ export const useSignUpForm = () => {
 
   const { execute, isPending, result } = useAction(signUpAction, {
     onSuccess: () => {
-      form.reset();
-      router.push('/dashboard');
+      router.push(routes.admin.dashboard);
     },
     onError: ({ error }) => {
       console.error('Sign up error:', error);

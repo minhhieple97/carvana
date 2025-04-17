@@ -3,18 +3,19 @@
 import { useRouter } from 'next/navigation';
 import { useAction } from 'next-safe-action/hooks';
 
+import { routes } from '@/config';
+
 import { signInAction } from '../actions/sign-in';
 import { signUpAction } from '../actions/sign-up';
 
 import type { FormField } from '../types';
 import type { FormEvent } from 'react';
-
 export const useSignInAction = () => {
   const router = useRouter();
 
   const action = useAction(signInAction, {
     onSuccess: () => {
-      router.push('/dashboard');
+      router.push(routes.admin.dashboard);
     },
     onError: ({ error }) => {
       console.error('Sign in error:', error);
@@ -62,7 +63,7 @@ export const useSignUpAction = () => {
 
   const action = useAction(signUpAction, {
     onSuccess: () => {
-      router.push('/dashboard');
+      router.push(routes.admin.dashboard);
     },
     onError: ({ error }) => {
       console.error('Sign up error:', error);
