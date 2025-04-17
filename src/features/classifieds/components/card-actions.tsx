@@ -24,7 +24,7 @@ export const CardActions = ({ slug }: CardActionsProps) => (
     </Button>
 
     <Button
-      className="group w-full bg-primary hover:bg-primary/90 transition-all duration-300 text-[11px] xs:text-xs sm:text-sm"
+      className="group w-full bg-primary transition-all duration-300 text-[11px] xs:text-xs sm:text-sm"
       asChild
       size="sm"
     >
