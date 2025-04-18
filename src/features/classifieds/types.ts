@@ -1,23 +1,23 @@
-import type { Favourites } from '@/config/types';
-import type { CurrencyCode, Prisma } from '@prisma/client';
+import { ClassifiedStatus, type Classified, type CurrencyCode, type Prisma } from '@prisma/client';
 
-type ClassifiedWithImages = Prisma.ClassifiedGetPayload<{
+import type { BadgeProps, Favourites } from '@/config/types';
+import type { UpdateClassifiedType } from '@/schemas';
+
+export type ClassifiedWithImages = Prisma.ClassifiedGetPayload<{
   include: {
     images: true;
   };
 }>;
 
-type ClassifiedCardProps = {
+export type ClassifiedCardProps = {
   classified: ClassifiedWithImages;
   favourites: Favourites;
 };
 
-type ClassifiedsListProps = {
+export type ClassifiedsListProps = {
   classifiedsPromise: Promise<ClassifiedWithImages[]>;
   favourites: Favourites;
 };
-
-export type { ClassifiedWithImages, ClassifiedCardProps, ClassifiedsListProps };
 
 export type FormatPriceArgs = {
   price: number | null;
@@ -56,4 +56,17 @@ export type CardSpecificationsProps = {
 
 export type CardActionsProps = {
   slug: string;
+};
+
+export type ClassifiedImages = UpdateClassifiedType['images'];
+
+export type ClassifiedKeys = keyof Pick<
+  Classified,
+  'status' | 'title' | 'vrm' | 'id' | 'views' | 'year' | 'colour' | 'price' | 'createdAt'
+>;
+
+export const ClassifiedBadgeMap: Record<ClassifiedStatus, BadgeProps['variant']> = {
+  [ClassifiedStatus.DRAFT]: 'secondary',
+  [ClassifiedStatus.LIVE]: 'default',
+  [ClassifiedStatus.SOLD]: 'destructive',
 };
