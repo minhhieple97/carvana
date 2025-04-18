@@ -377,3 +377,14 @@ export const formatClassifiedStatus = (status: ClassifiedStatus) => {
       return 'Draft';
   }
 };
+
+export const generateYears = (minYear: number, maxYear?: number) => {
+  const currentYear = maxYear ? maxYear : new Date().getFullYear();
+  const years: string[] = [];
+
+  for (let year = currentYear; year >= minYear; year--) {
+    years.push(`${year}`);
+  }
+
+  return years;
+};
