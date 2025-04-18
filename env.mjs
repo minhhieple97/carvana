@@ -13,6 +13,7 @@ export const env = createEnv({
     OAUTH_REDIRECT_URL_BASE: z.string(),
     GITHUB_CLIENT_ID: z.string(),
     GITHUB_CLIENT_SECRET: z.string(),
+    OPENAI_API_KEY: z.string(),
   },
 
   client: {
@@ -33,5 +34,6 @@ export const env = createEnv({
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
     OAUTH_REDIRECT_URL_BASE: process.env.OAUTH_REDIRECT_URL_BASE,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   },
 });
