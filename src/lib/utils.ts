@@ -1,6 +1,7 @@
 import { BodyType, Colour, FuelType, OdoUnit, Transmission, ULEZCompliance } from '@prisma/client';
 import { clsx, type ClassValue } from 'clsx';
 import { parse } from 'date-fns';
+import prettyBytes from 'pretty-bytes';
 import { twMerge } from 'tailwind-merge';
 
 import type { FormatPriceArgs } from '@/features/classifieds/types';
@@ -350,3 +351,10 @@ export function calculatePercentageChange(current: number, previous: number) {
 
   return ((current - previous) / Math.abs(previous)) * 100;
 }
+
+export const convertToMb = (bytes: number) =>
+  prettyBytes(bytes, {
+    bits: false,
+    maximumFractionDigits: 1,
+    space: false,
+  });
