@@ -1,6 +1,9 @@
 import type { ClassifiedAI } from '@/schemas/classified-ai.schema';
 import type { Prisma } from '@prisma/client';
 import type { Make } from '@prisma/client';
+import type { UserContent } from 'ai';
+import type { StreamableValue } from 'ai/rsc';
+import type { ReactNode } from 'react';
 
 export type DashboardDataType = Promise<KPIData>;
 export type ChartDataType = Promise<ChartData>;
@@ -59,31 +62,38 @@ export type StreamableSkeletonProps = Partial<Omit<ClassifiedAI, 'make'>> & {
   done?: boolean;
 };
 
-// --- Moved Types from classified.types.ts ---
-
-// Type for creating images within classified creation
 export type CreateClassifiedImageDbInput = Omit<Prisma.ImageUncheckedCreateInput, 'classifiedId'>;
 
-// Type for the data needed by the createClassified db function
 export type CreateClassifiedDbInput = Omit<
   Prisma.ClassifiedUncheckedCreateInput,
-  'id' | 'createdAt' | 'updatedAt' | 'images' | 'price' // Price handled separately or defaulted
+  'id' | 'createdAt' | 'updatedAt' | 'images' | 'price'
 > & {
-  price: number; // Ensure price is number (pennies/cents)
-  images: CreateClassifiedImageDbInput[]; // Renamed type for clarity
+  price: number;
+  images: CreateClassifiedImageDbInput[];
 };
 
-// Type for updating images within classified update
 export type UpdateClassifiedImagesInput = Omit<
   Prisma.ImageUncheckedCreateInput,
   'classifiedId' | 'id'
 >;
 
-// Type for the data needed by the updateClassified db function (excluding images array)
 export type UpdateClassifiedDbInput = Omit<
   Prisma.ClassifiedUncheckedUpdateInput,
-  'id' | 'createdAt' | 'updatedAt' | 'images' | 'price' // Price handled separately
+  'id' | 'createdAt' | 'updatedAt' | 'images' | 'price'
 > & {
-  price: number; // Ensure price is number (pennies/cents)
+  price: number;
 };
-// --- End of Moved Types ---
+
+export type ServerMessage = {
+  id?: number;
+  name?: string | undefined;
+  role: 'user' | 'assistant' | 'system';
+  content: UserContent;
+};
+
+export type ClientMessage = {
+  id: number;
+  role: 'user' | 'assistant';
+  display: ReactNode;
+  classified: StreamableValue<StreamableSkeletonProps>;
+};
