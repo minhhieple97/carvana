@@ -20,29 +20,30 @@ interface SalesChartProps {
 
 export const SalesChart = (props: SalesChartProps) => {
   const { data } = props;
-
   const chartData = use(data);
 
   return (
-    <Card className="mb-6 bg-gray-800 border-gray-700">
+    <Card className="mb-6 bg-card border-border">
       <CardHeader>
-        <CardTitle className="text-gray-100">
+        <CardTitle className="text-card-foreground">
           Monthly Sales {new Date().getFullYear() - 1}/{new Date().getFullYear()}
         </CardTitle>
-        <CardDescription className="text-gray-400">Number of cars sold per month</CardDescription>
+        <CardDescription className="text-muted-foreground">
+          Number of cars sold per month
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={500}>
           <BarChart data={chartData}>
             <XAxis
               dataKey="month"
-              stroke="#888888"
+              stroke="hsl(var(--muted-foreground))"
               fontSize={12}
               tickLine={false}
               axisLine={false}
             />
             <YAxis
-              stroke="#888888"
+              stroke="hsl(var(--muted-foreground))"
               fontSize={12}
               tickLine={false}
               axisLine={false}
@@ -60,11 +61,13 @@ export const SalesChart = (props: SalesChartProps) => {
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-gray-800 border border-gray-700 p-2 rounded">
-        <p className="text-gray-100">
-          {`${label}: ${formatPrice({ price: payload[0].value as number, currency: 'GBP' })}`}
+      <div className="bg-card border border-border p-2 rounded shadow-md">
+        <p className="font-medium text-card-foreground">{label}</p>
+        <p className="text-primary text-lg font-bold">
+          {formatPrice({ price: payload[0].value as number, currency: 'GBP' })}
         </p>
       </div>
     );
   }
+  return null;
 };

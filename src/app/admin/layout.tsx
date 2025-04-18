@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react';
 
 export default async function AdminLayout({ children }: PropsWithChildren) {
   return (
-    <div className="flex bg-primary-900 min-h-screen w-full">
+    <div className="dark flex bg-background min-h-screen w-full text-foreground">
       <AdminSidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
         <AdminHeader />

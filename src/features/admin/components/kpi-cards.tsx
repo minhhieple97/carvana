@@ -84,17 +84,17 @@ const KPICard = (props: DashboardItem[][number]) => {
   const { icon: Icon, ...rest } = props;
 
   return (
-    <Card key={rest.id} className="bg-gray-800 border-gray-700">
+    <Card key={rest.id} className="bg-card border-border">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <div className="flex flex-col space-y-1">
-          <CardTitle className="text-gray-100">{rest.title}</CardTitle>
-          <CardDescription className="text-muted">{rest.description}</CardDescription>
+          <CardTitle className="text-card-foreground">{rest.title}</CardTitle>
+          <CardDescription className="text-muted-foreground">{rest.description}</CardDescription>
         </div>
-        <Icon className="h-6 w-6 text-gray-400" />
+        <Icon className="h-6 w-6 text-muted-foreground" />
       </CardHeader>
 
       <CardContent className="flex items-center justify-between">
-        <span className="text-2xl font-bold text-gray-100">
+        <span className="text-2xl font-bold text-card-foreground">
           {rest.style === 'currency'
             ? formatPrice({ price: rest.amount, currency: 'GBP' })
             : formatNumber(rest.amount, {
@@ -107,8 +107,9 @@ const KPICard = (props: DashboardItem[][number]) => {
         <p
           className={cn(
             'text-xs',
-            !rest.percentage && '!text-gray-200',
-            rest.percentage > 0 ? 'text-green-500' : 'text-red-500'
+            rest.percentage === 0 && 'text-muted-foreground',
+            rest.percentage > 0 && 'text-green-500',
+            rest.percentage < 0 && 'text-red-500'
           )}
         >
           {rest.percentage === 0

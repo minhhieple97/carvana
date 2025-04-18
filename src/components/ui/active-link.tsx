@@ -21,7 +21,7 @@ export const ActiveLink = (props: ActiveLinkProps) => {
         className,
         isActive
           ? 'bg-primary text-primary-foreground hover:bg-primary'
-          : 'text-muted hover:bg-white/10'
+          : 'text-white/80 hover:bg-white/30'
       )}
     >
       {children}
