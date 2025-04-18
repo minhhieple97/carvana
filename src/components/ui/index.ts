@@ -15,3 +15,6 @@ export * from './card';
 export * from './radio-group';
 export * from './label';
 export * from './skeleton';
+export * from './table';
+export * from './imgix-image';
+export * from './badge';

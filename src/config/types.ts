@@ -1,4 +1,6 @@
+import type { badgeVariants } from '@/components';
 import type { CurrencyCode, Prisma } from '@prisma/client';
+import type { VariantProps } from 'class-variance-authority';
 import type { ChangeEvent } from 'react';
 
 export type Params = {
@@ -82,8 +84,18 @@ export type PrevState = {
   message: string;
 };
 
-export interface MultiStepFormComponentProps extends AwaitedPageProps {
+export type MultiStepFormComponentProps = AwaitedPageProps & {
   classified: Prisma.ClassifiedGetPayload<{
     include: { make: true };
   }>;
-}
+};
+
+export type ProgressArgs = {
+  sent: number;
+  total: number;
+  uuid: string;
+  percentage: number;
+  key?: string;
+};
+
+export type BadgeProps = React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof badgeVariants>;

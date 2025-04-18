@@ -19,6 +19,8 @@ export const env = createEnv({
   client: {
     NEXT_PUBLIC_APP_URL: z.string(),
     NEXT_PUBLIC_IMGIX_URL: z.string().url(),
+    NEXT_PUBLIC_TINYMCE_API_KEY: z.string(),
+    NEXT_PUBLIC_S3_URL: z.string().url(),
   },
 
   runtimeEnv: {
@@ -35,5 +37,7 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
     OAUTH_REDIRECT_URL_BASE: process.env.OAUTH_REDIRECT_URL_BASE,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    NEXT_PUBLIC_TINYMCE_API_KEY: process.env.NEXT_PUBLIC_TINYMCE_API_KEY,
+    NEXT_PUBLIC_S3_URL: process.env.NEXT_PUBLIC_S3_URL,
   },
 });

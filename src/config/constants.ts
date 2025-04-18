@@ -25,3 +25,5 @@ export const SESSION_PREFIX = 'session:';
 
 export const MAX_IMAGE_SIZE = 20 * 1000 * 1000; // 2mb
 export const MAX_IMAGES = 20;
+
+export const sortOrder = ['asc', 'desc'] as const;
