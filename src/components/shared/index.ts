@@ -6,3 +6,5 @@ export * from './taxonomy-filters';
 export * from './dialog-filters';
 export * from './layouts';
 export * from './radio-filter';
+export * from './sort-icon';
+export * from './admin-table-footer';
