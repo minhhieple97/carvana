@@ -1,4 +1,12 @@
-import { BodyType, Colour, FuelType, OdoUnit, Transmission, ULEZCompliance } from '@prisma/client';
+import {
+  BodyType,
+  ClassifiedStatus,
+  Colour,
+  FuelType,
+  OdoUnit,
+  Transmission,
+  ULEZCompliance,
+} from '@prisma/client';
 import { clsx, type ClassValue } from 'clsx';
 import { parse } from 'date-fns';
 import prettyBytes from 'pretty-bytes';
@@ -358,3 +366,14 @@ export const convertToMb = (bytes: number) =>
     maximumFractionDigits: 1,
     space: false,
   });
+
+export const formatClassifiedStatus = (status: ClassifiedStatus) => {
+  switch (status) {
+    case ClassifiedStatus.LIVE:
+      return 'Live';
+    case ClassifiedStatus.SOLD:
+      return 'Sold';
+    case ClassifiedStatus.DRAFT:
+      return 'Draft';
+  }
+};
