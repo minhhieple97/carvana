@@ -22,3 +22,6 @@ export const navLinks = [
 export const SESSION_EXPIRATION_SECONDS = 60 * 60 * 24 * 7; // 7 days
 export const COOKIE_SESSION_KEY = 'session-id';
 export const SESSION_PREFIX = 'session:';
+
+export const MAX_IMAGE_SIZE = 20 * 1000 * 1000; // 2mb
+export const MAX_IMAGES = 20;
