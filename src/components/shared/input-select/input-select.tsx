@@ -1,3 +1,5 @@
+'use client';
+
 import type { FilterOptions } from '@/config/types';
 import { cn } from '@/lib/utils';
 import { useFormContext } from 'react-hook-form';

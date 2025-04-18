@@ -67,6 +67,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
+    "react-number-format": "^5.4.4",
     "react-tooltip": "^5.28.1",
     "recharts": "^2.15.2",
     "sanitize-html": "^2.14.0",

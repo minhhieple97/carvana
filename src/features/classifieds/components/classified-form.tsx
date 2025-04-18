@@ -1,7 +1,7 @@
 'use client';
 
 import { Loader2 } from 'lucide-react';
-import { Form } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 
 import { ClassifiedFormFields } from './classified-form-fields';
 import { MultiImageUploader } from './multi-image-uploader';
@@ -26,7 +26,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
   const { form, handleSubmit, isPending, statusOptions } = useClassifiedForm(classified);
 
   return (
-    <Form {...form}>
+    <FormProvider {...form}>
       <form onSubmit={handleSubmit}>
         <h1 className="text-3xl font-bold mb-6 text-muted">Upload Vehicle</h1>
         <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -76,6 +76,6 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
           </div>
         </div>
       </form>
-    </Form>
+    </FormProvider>
   );
 };
