@@ -8,3 +8,5 @@ export * from './layouts';
 export * from './radio-filter';
 export * from './sort-icon';
 export * from './admin-table-footer';
+export * from './input-select';
+export * from './number-input';
