@@ -1,23 +1,8 @@
-import { fetchMonthlyKPIData, fetchMonthlySalesData } from '../db';
 import { calculatePercentageChange } from '@/lib/utils';
 
-export type ChartDataItem = {
-  month: string;
-  sales: number;
-};
+import { fetchMonthlyKPIData, fetchMonthlySalesData } from '../db';
 
-export type ChartData = ChartDataItem[];
-
-export interface KPIData {
-  totalSales: number;
-  carsSoldThisMonth: number;
-  newCustomersThisMonth: number;
-  conversionRate: number;
-  conversionRatePercentageChange: number;
-  salesPercentageChange: number;
-  carsSoldPercentageChange: number;
-  newCustomersPercentageChange: number;
-}
+import type { KPIData } from '../types';
 
 export async function getDashboardData(): Promise<KPIData> {
   const {

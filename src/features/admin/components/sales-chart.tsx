@@ -14,9 +14,9 @@ import {
   YAxis,
 } from 'recharts';
 
-interface SalesChartProps {
+type SalesChartProps = {
   data: ChartDataType;
-}
+};
 
 export const SalesChart = (props: SalesChartProps) => {
   const { data } = props;

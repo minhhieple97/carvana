@@ -11,3 +11,4 @@ export * from './sonner';
 export * from './end-buttons';
 export * from './label';
 export * from './active-link';
+export * from './card';
