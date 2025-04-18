@@ -19,9 +19,9 @@ import { CarouselSkeleton } from './carousel-skeleton';
 import type { Image as PrismaImage } from '@prisma/client';
 import type { Swiper as SwiperType } from 'swiper/types';
 
-interface ClassifiedCarouselProps {
+type ClassifiedCarouselProps = {
   images: PrismaImage[];
-}
+};
 
 const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
   ssr: false,
