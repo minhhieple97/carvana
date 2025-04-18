@@ -53,10 +53,10 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
 
   return (
     <TableHeader>
-      <TableRow className="hover:bg-transparent border-primary-800">
-        <TableHead className="text-muted w-[80px]">
+      <TableRow className="hover:bg-accent/30 border-border/50 bg-card">
+        <TableHead className="text-muted-foreground font-medium w-[80px]">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('id')}
             onKeyDown={() => handleSort('id')}
           >
@@ -68,10 +68,10 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted w-[80px]">Image</TableHead>
-        <TableHead className="text-muted w-[150px]">
+        <TableHead className="text-muted-foreground font-medium w-[80px]">Image</TableHead>
+        <TableHead className="text-muted-foreground font-medium w-[150px]">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('title')}
             onKeyDown={() => handleSort('title')}
           >
@@ -83,9 +83,9 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted w-[150px]">
+        <TableHead className="text-muted-foreground font-medium w-[150px]">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('price')}
             onKeyDown={() => handleSort('price')}
           >
@@ -97,9 +97,9 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted w-[150px]">
+        <TableHead className="text-muted-foreground font-medium w-[150px]">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('vrm')}
             onKeyDown={() => handleSort('vrm')}
           >
@@ -111,9 +111,9 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted w-[150px]">
+        <TableHead className="text-muted-foreground font-medium w-[150px]">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('colour')}
             onKeyDown={() => handleSort('colour')}
           >
@@ -125,9 +125,9 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted">
+        <TableHead className="text-muted-foreground font-medium">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('status')}
             onKeyDown={() => handleSort('status')}
           >
@@ -139,9 +139,9 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted hidden md:table-cell">
+        <TableHead className="text-muted-foreground font-medium hidden md:table-cell">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('createdAt')}
             onKeyDown={() => handleSort('createdAt')}
           >
@@ -153,9 +153,9 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted">
+        <TableHead className="text-muted-foreground font-medium">
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
             onClick={() => handleSort('views')}
             onKeyDown={() => handleSort('views')}
           >
@@ -167,7 +167,7 @@ export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
             />
           </div>
         </TableHead>
-        <TableHead className="text-muted w-[100px]">Actions</TableHead>
+        <TableHead className="text-muted-foreground font-medium w-[100px]">Actions</TableHead>
       </TableRow>
     </TableHeader>
   );
