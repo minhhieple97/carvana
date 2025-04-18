@@ -7,7 +7,7 @@ import { useHomepageFilters } from '../hooks/useHomepageFilters';
 
 import type { SidebarProps } from '@/config/types';
 
-interface HomepageTaxonomyFiltersProps extends SidebarProps {}
+type HomepageTaxonomyFiltersProps = SidebarProps;
 
 export const HomepageTaxonomyFilters = ({
   searchParams,
