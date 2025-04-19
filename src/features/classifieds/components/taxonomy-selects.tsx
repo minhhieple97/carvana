@@ -62,7 +62,7 @@ export const TaxonomySelects = () => {
             <FormLabel htmlFor="make">Make</FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-white/90 bg-primary-900 border-primary-700 focus:border-primary-600"
                 options={makes}
                 onChange={(e) => handleChange(e, onChange)}
                 {...rest}
@@ -80,7 +80,7 @@ export const TaxonomySelects = () => {
             <FormLabel htmlFor="model">Model</FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-white/90 bg-primary-900 border-primary-700 focus:border-primary-600"
                 options={models}
                 onChange={(e) => handleChange(e, onChange)}
                 {...rest}
@@ -98,7 +98,7 @@ export const TaxonomySelects = () => {
             <FormLabel htmlFor="modelVariant">Model Variant</FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-white/90 bg-primary-900 border-primary-700 focus:border-primary-600"
                 options={modelVariants}
                 onChange={(e) => handleChange(e, onChange)}
                 {...rest}

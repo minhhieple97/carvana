@@ -22,8 +22,8 @@ export const useClassifiedForm = (classified: ClassifiedWithImages) => {
     resolver: zodResolver(updateClassifiedSchema),
     defaultValues: {
       id: classified.id,
-      odoUnit: OdoUnit.MILES,
-      currency: CurrencyCode.GBP,
+      odoUnit: classified.odoUnit,
+      currency: classified.currency,
       ...(classified && {
         images: classified.images
           ? classified.images.map((image, index) => ({
@@ -34,8 +34,8 @@ export const useClassifiedForm = (classified: ClassifiedWithImages) => {
               done: true,
             }))
           : [],
-        make: classified.makeId.toString(),
-        model: classified.modelId.toString(),
+        make: classified.makeId,
+        model: classified.modelId,
         modelVariant: classified.modelVariantId?.toString(),
         year: classified.year.toString(),
         vrm: classified.vrm ?? '',

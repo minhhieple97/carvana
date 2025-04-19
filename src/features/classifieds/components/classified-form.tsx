@@ -24,11 +24,10 @@ type ClassifiedFormProps = {
 
 export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
   const { form, handleSubmit, isPending, statusOptions } = useClassifiedForm(classified);
-
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit}>
-        <h1 className="text-3xl font-bold mb-6 text-muted">Upload Vehicle</h1>
+        <h1 className="text-3xl font-bold mb-6 text-white">Upload Vehicle</h1>
         <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ClassifiedFormFields />
           <div className="space-y-6">
@@ -37,7 +36,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
               name="images"
               render={({ field: { name, onChange } }) => (
                 <FormItem>
-                  <FormLabel className="text-muted" htmlFor="images">
+                  <FormLabel className="text-white/90" htmlFor="images">
                     Images (up to {MAX_IMAGES})
                   </FormLabel>
                   <FormControl>
@@ -53,14 +52,14 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
               name="status"
               render={({ field: { ref, ...rest } }) => (
                 <FormItem>
-                  <FormLabel className="text-muted" htmlFor="status">
+                  <FormLabel className="text-white/90" htmlFor="status">
                     Status
                   </FormLabel>
                   <FormControl>
                     <Select
                       options={statusOptions}
                       noDefault={false}
-                      selectClassName="bg-primary-800 border-transparent text-muted/75"
+                      selectClassName="bg-primary-900 border-primary-700 text-white/90 focus:border-primary-600"
                       {...rest}
                     />
                   </FormControl>
@@ -69,7 +68,11 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
               )}
             />
 
-            <Button disabled={isPending} type="submit" className="w-full flex gap-x-2">
+            <Button
+              disabled={isPending}
+              type="submit"
+              className="w-full flex gap-x-2 bg-primary-600 hover:bg-primary-700 text-white"
+            >
               {isPending && <Loader2 className="animate-spin h-4 w-4" />}
               Submit
             </Button>

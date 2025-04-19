@@ -22,6 +22,16 @@
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
+  /* Form field specific colors */
+  --form-bg: #111827;
+  --form-border: #1f2937;
+  --form-border-focus: #374151;
+  --form-text: rgba(255, 255, 255, 0.9);
+  --form-placeholder: rgba(255, 255, 255, 0.5);
+  --form-input-height: 2.5rem;
+  --form-label-color: #f8fafc;
+  --form-radius: 0.375rem;
+
   --color-primary-800: #081a2b;
   --color-primary-900: #040f19;
   --color-primary: hsl(var(--primary));

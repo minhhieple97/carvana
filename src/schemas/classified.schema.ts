@@ -52,8 +52,8 @@ export type CreateClassifiedType = z.infer<typeof CreateClassifiedSchema>;
 export const updateClassifiedSchema = z.object({
   id: z.number(),
   year: z.string(),
-  make: z.string(),
-  model: z.string(),
+  make: z.number(),
+  model: z.number(),
   modelVariant: z.string().optional(),
   description: z.string().nullable(),
   vrm: z.string().nullable(),

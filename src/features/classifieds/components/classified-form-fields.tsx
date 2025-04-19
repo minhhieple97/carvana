@@ -40,8 +40,8 @@ const RichTextEditor = dynamic(
     ssr: false,
     loading: () => (
       <div className="space-y-2 flex flex-col">
-        <Skeleton className="w-24 h-4 bg-primary-800" />
-        <Skeleton className="h-[200px] w-full bg-primary-800" />
+        <Skeleton className="w-24 h-4 bg-primary-900" />
+        <Skeleton className="h-[200px] w-full bg-primary-900" />
       </div>
     ),
   }
@@ -53,16 +53,18 @@ export const ClassifiedFormFields = () => {
   const form = useFormContext();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-muted">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white/90">
       <FormField
         control={form.control}
         name="year"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="year">Year</FormLabel>
+            <FormLabel htmlFor="year" className="text-form-label-color">
+              Year
+            </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={years.map((year) => ({
                   label: year,
                   value: year,
@@ -85,7 +87,7 @@ export const ClassifiedFormFields = () => {
         selectName="currency"
         inputMode="numeric"
         placeholder="0"
-        className="h-10"
+        className="h-form-input-height"
       />
 
       <InputSelect
@@ -98,7 +100,7 @@ export const ClassifiedFormFields = () => {
         selectName="odoUnit"
         inputMode="numeric"
         placeholder="0"
-        className="h-10"
+        className="h-form-input-height"
       />
 
       <FormField
@@ -106,10 +108,12 @@ export const ClassifiedFormFields = () => {
         name="transmission"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="transmission">Transmission</FormLabel>
+            <FormLabel htmlFor="transmission" className="text-form-label-color">
+              Transmission
+            </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(Transmission).map((value) => ({
                   label: formatTransmission(value),
                   value,
@@ -126,10 +130,12 @@ export const ClassifiedFormFields = () => {
         name="fuelType"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="fuelType">Fuel Type</FormLabel>
+            <FormLabel htmlFor="fuelType" className="text-form-label-color">
+              Fuel Type
+            </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(FuelType).map((value) => ({
                   label: formatFuelType(value),
                   value,
@@ -146,10 +152,12 @@ export const ClassifiedFormFields = () => {
         name="bodyType"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="bodyType">Body Type</FormLabel>
+            <FormLabel htmlFor="bodyType" className="text-form-label-color">
+              Body Type
+            </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(BodyType).map((value) => ({
                   label: formatBodyType(value),
                   value,
@@ -166,10 +174,12 @@ export const ClassifiedFormFields = () => {
         name="colour"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="colour">Colour</FormLabel>
+            <FormLabel htmlFor="colour" className="text-form-label-color">
+              Colour
+            </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(Colour).map((value) => ({
                   label: formatColour(value),
                   value,
@@ -186,10 +196,12 @@ export const ClassifiedFormFields = () => {
         name="ulezCompliance"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="ulezCompliance">ULEZ Compliance</FormLabel>
+            <FormLabel htmlFor="ulezCompliance" className="text-form-label-color">
+              ULEZ Compliance
+            </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-muted/75 bg-primary-800 border-transparent"
+                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(ULEZCompliance).map((value) => ({
                   label: formatUlezCompliance(value),
                   value,
@@ -207,11 +219,13 @@ export const ClassifiedFormFields = () => {
         name="vrm"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="vrm">Vehicle Registration Mark</FormLabel>
+            <FormLabel htmlFor="vrm" className="text-form-label-color">
+              Vehicle Registration Mark
+            </FormLabel>
             <FormControl>
               <Input
                 placeholder="LA16 PYW"
-                className="uppercase text-muted h-10 mt-1 bg-primary-800 placeholder:text-muted/75"
+                className="uppercase text-form-text h-form-input-height bg-form-bg border-form-border rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus placeholder:text-form-placeholder transition-colors"
                 {...rest}
               />
             </FormControl>
@@ -224,14 +238,15 @@ export const ClassifiedFormFields = () => {
         name="doors"
         render={({ field: { onChange, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="doors">Doors</FormLabel>
+            <FormLabel htmlFor="doors" className="text-form-label-color">
+              Doors
+            </FormLabel>
             <FormControl>
               <NumberInput
                 max={6}
                 min={1}
                 placeholder="0"
-                style={{ background: '#081a2b' }}
-                className="text-muted placeholder:text-muted/75"
+                className="text-form-text bg-form-bg h-form-input-height border-form-border rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 onValueChange={(values) => {
                   onChange(values.floatValue);
                 }}
@@ -247,14 +262,15 @@ export const ClassifiedFormFields = () => {
         name="seats"
         render={({ field: { onChange, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="seats">Seats</FormLabel>
+            <FormLabel htmlFor="seats" className="text-form-label-color">
+              Seats
+            </FormLabel>
             <FormControl>
               <NumberInput
                 max={8}
                 min={1}
                 placeholder="0"
-                style={{ background: '#081a2b' }}
-                className="text-muted placeholder:text-muted/75"
+                className="text-form-text bg-form-bg h-form-input-height border-form-border rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 onValueChange={(values) => {
                   onChange(values.floatValue);
                 }}

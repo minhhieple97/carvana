@@ -27,11 +27,14 @@ export const InputSelect = (props: InputSelectProps) => {
         name={inputName}
         render={({ field: { onChange, ...rest } }) => (
           <FormItem>
-            {label && <FormLabel htmlFor={inputName}>{label}</FormLabel>}
+            {label && (
+              <FormLabel htmlFor={inputName} className="text-form-label-color">
+                {label}
+              </FormLabel>
+            )}
             <FormControl>
               <NumberInput
-                style={{ backgroundColor: '#081a2b' }}
-                className="text-muted/75"
+                className="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 onValueChange={(values) => {
                   onChange(values.floatValue);
                 }}
@@ -49,10 +52,10 @@ export const InputSelect = (props: InputSelectProps) => {
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
             <FormControl>
-              <div className="absolute right-0 -translate-y-10 h-10 flex items-center pr-2 border-l border-l-white/10 border-input">
+              <div className="absolute right-0 -translate-y-10 h-form-input-height flex items-center border-l border-l-form-border">
                 <select
                   className={cn(
-                    'custom-select appearance-none pr-10 bg-no-repeat disabled:bg-white/10 border rounded-md focus:outline-hidden focus:ring-0 focus-visible:ring-0 pl-3 text-muted/75 border-transparent'
+                    'custom-select appearance-none pr-10 h-full bg-no-repeat bg-form-bg text-form-text border-transparent rounded-r-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors'
                   )}
                   {...rest}
                 >
