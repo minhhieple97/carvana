@@ -15,7 +15,7 @@ export default function ClassifiedsLoading() {
       </div>
 
       <Table>
-        <div className="border-b border-border/30">
+        <thead className="border-b border-border/30">
           <TableRow>
             {Array(10)
               .fill(0)
@@ -25,7 +25,7 @@ export default function ClassifiedsLoading() {
                 </TableCell>
               ))}
           </TableRow>
-        </div>
+        </thead>
         <TableBody>
           {Array(5)
             .fill(0)
@@ -67,7 +67,7 @@ export default function ClassifiedsLoading() {
               </TableRow>
             ))}
         </TableBody>
-        <div className="border-primary-800 bg-transparent">
+        <tfoot className="border-primary-800 bg-transparent">
           <TableRow className="hover:bg-transparent">
             <TableCell colSpan={10}>
               <div className="flex items-center justify-between">
@@ -76,7 +76,7 @@ export default function ClassifiedsLoading() {
               </div>
             </TableCell>
           </TableRow>
-        </div>
+        </tfoot>
       </Table>
     </>
   );
