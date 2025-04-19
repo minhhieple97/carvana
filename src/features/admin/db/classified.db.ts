@@ -5,6 +5,7 @@ import type {
   UpdateClassifiedDbInput,
   UpdateClassifiedImagesInput,
 } from '../types';
+import type { ClassifiedStatus } from '@prisma/client';
 
 export const findMakeById = (id: number) => prisma.make.findUnique({ where: { id } });
 
@@ -73,4 +74,47 @@ export const deleteClassifiedById = (id: number) => prisma.classified.delete({ w
 export const findMakeByName = (name: string) =>
   prisma.make.findFirst({
     where: { name },
+  });
+
+export const findClassifiedsWithFilter = async ({
+  query,
+  status,
+  sort,
+  order,
+  skip,
+  take,
+}: {
+  query?: string | undefined;
+  status?: string | undefined;
+  sort: string;
+  order: 'asc' | 'desc';
+  skip: number;
+  take: number;
+}) => {
+  const where = {
+    ...(query && { title: { contains: query, mode: 'insensitive' as const } }),
+    ...(status && status !== 'ALL' && { status: status as ClassifiedStatus }),
+  };
+
+  return prisma.classified.findMany({
+    where,
+    orderBy: { [sort]: order },
+    include: { images: { take: 1 } },
+    skip,
+    take,
+  });
+};
+
+export const countClassifiedsWithFilter = async ({
+  query,
+  status,
+}: {
+  query?: string | undefined;
+  status?: string | undefined;
+}) =>
+  prisma.classified.count({
+    where: {
+      ...(query && { title: { contains: query, mode: 'insensitive' as const } }),
+      ...(status && status !== 'ALL' && { status: status as ClassifiedStatus }),
+    },
   });

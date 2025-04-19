@@ -24,6 +24,8 @@ import {
   createClassifiedWithImages,
   updateClassifiedAndImages,
   deleteClassifiedById as deleteClassifiedDb,
+  findClassifiedsWithFilter,
+  countClassifiedsWithFilter,
 } from '../db/classified.db';
 import { findMakeByName } from '../db/taxonomy.db';
 import { findOrCreateModel } from '../db/taxonomy.db';
@@ -36,6 +38,8 @@ import type {
   UpdateClassifiedDbInput,
   UpdateClassifiedImagesInput,
 } from '../types';
+import type { ClassifiedKeys } from '@/features';
+import type { ClassifiedWithImages } from '@/features/classifieds/types';
 import type { CreateClassifiedType, UpdateClassifiedType } from '@/schemas/classified.schema';
 import type { ModelVariant } from '@prisma/client';
 
@@ -216,5 +220,44 @@ export const mapToTaxonomyOrCreate = async ({
     makeId: make.id,
     modelId: model.id,
     modelVariantId: resolvedModelVariant?.id ?? null,
+  };
+};
+
+export const getAdminClassifieds = async ({
+  page,
+  itemsPerPage,
+  sort,
+  order,
+  filters,
+}: {
+  page: string;
+  itemsPerPage: string;
+  sort: ClassifiedKeys;
+  order: 'asc' | 'desc';
+  filters: { q?: string | undefined; status?: string | undefined };
+}): Promise<{ classifieds: ClassifiedWithImages[]; count: number; totalPages: number }> => {
+  const offset = (Number(page) - 1) * Number(itemsPerPage);
+
+  const [classifieds, count] = await Promise.all([
+    findClassifiedsWithFilter({
+      query: filters.q,
+      status: filters.status,
+      sort: sort as string,
+      order,
+      skip: offset,
+      take: Number(itemsPerPage),
+    }),
+    countClassifiedsWithFilter({
+      query: filters.q,
+      status: filters.status,
+    }),
+  ]);
+
+  const totalPages = Math.ceil(count / Number(itemsPerPage));
+
+  return {
+    classifieds,
+    count,
+    totalPages,
   };
 };

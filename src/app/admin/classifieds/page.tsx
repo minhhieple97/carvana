@@ -3,14 +3,13 @@ import { ClassifiedsTableHeader } from '@/features/classifieds/components/classi
 import { PageProps, routes } from '@/config';
 import { ClassifiedKeys } from '@/features';
 import { AdminClassifiedsHeader } from '@/features/admin/components/classifeds-header';
-import { prisma } from '@/lib/prisma';
 import { validatePagination } from '@/schemas/pagination.schema';
 import { AdminClassifiedFilterSchema } from '@/schemas/table-filters.schema';
-import { ClassifiedsTableSortSchema } from '@/schemas/table-sort.schema';
-import { ClassifiedsTableSortType } from '@/schemas/table-sort.schema';
+import { ClassifiedsTableSortSchema, ClassifiedsTableSortType } from '@/schemas/table-sort.schema';
 import { validateSortOrder } from '@/schemas/table-sort.schema';
 import { ClassifiedsTableRow } from '@/features/classifieds/components/classified-table-row';
 import { AdminTableFooter } from '@/components';
+import { getAdminClassifieds } from '@/features/admin/services/classified.service';
 
 export default async function ClassifiedsPage(props: PageProps) {
   const searchParams = await props.searchParams;
@@ -26,31 +25,16 @@ export default async function ClassifiedsPage(props: PageProps) {
     schema: ClassifiedsTableSortSchema,
   });
 
-  const offset = (Number(page) - 1) * Number(itemsPerPage);
-
-  const { data, error } = AdminClassifiedFilterSchema.safeParse(searchParams);
-
+  const { data: filters, error } = AdminClassifiedFilterSchema.safeParse(searchParams);
   if (error) console.log('Validation error: ', error);
 
-  const classifieds = await prisma.classified.findMany({
-    where: {
-      ...(data?.q && { title: { contains: data.q, mode: 'insensitive' } }),
-      ...(data?.status && data.status !== 'ALL' && { status: data.status }),
-    },
-    orderBy: { [sort as string]: order as 'asc' | 'desc' },
-    include: { images: { take: 1 } },
-    skip: offset,
-    take: Number(itemsPerPage),
+  const { classifieds, totalPages } = await getAdminClassifieds({
+    page,
+    itemsPerPage,
+    sort: sort as ClassifiedKeys,
+    order: order as 'asc' | 'desc',
+    filters: filters || {},
   });
-
-  const count = await prisma.classified.count({
-    where: {
-      ...(data?.q && { title: { contains: data.q, mode: 'insensitive' } }),
-      ...(data?.status && data.status !== 'ALL' && { status: data.status }),
-    },
-  });
-
-  const totalPages = Math.ceil(count / Number(itemsPerPage));
 
   return (
     <>
