@@ -14,34 +14,47 @@ export const RadioFilter = (props: RadioFilterProps) => {
   const router = useRouter();
   const status = (searchParams?.status as string) || 'all';
 
-  const handleStatus = (status: Lowercase<ClassifiedStatus>) => {
+  const handleStatus = (status: Lowercase<ClassifiedStatus | 'all'>) => {
     const currentUrlParams = new URLSearchParams(window.location.search);
-    currentUrlParams.set('status', status.toUpperCase());
+    if (status === 'all') {
+      currentUrlParams.delete('status');
+    } else {
+      currentUrlParams.set('status', status.toUpperCase());
+    }
     const url = new URL(window.location.href);
     url.search = currentUrlParams.toString();
     router.push(url.toString());
   };
 
   return (
-    <RadioGroup onValueChange={handleStatus} defaultValue="all" className="flex items-center gap-4">
-      {items.map((item) => (
-        <Label
-          htmlFor={item.toLowerCase()}
-          className={cn(
-            'flex-1 rounded-md px-4 py-2 text-center text-muted text-sm font-medium transition-colors hover:bg-primary-800 cursor-pointer',
-            status?.toLowerCase() === item.toLowerCase() && 'text-white bg-primary-800'
-          )}
-          key={item}
-        >
-          <RadioGroupItem
-            id={item.toLowerCase()}
-            value={item.toLowerCase()}
-            checked={status?.toLowerCase() === item.toLowerCase()}
-            className="peer sr-only"
-          />
-          {item}
-        </Label>
-      ))}
+    <RadioGroup
+      onValueChange={handleStatus}
+      defaultValue={status.toLowerCase()}
+      className="flex items-center gap-2 border border-border/50 rounded-md p-1 bg-card"
+    >
+      {items.map((item) => {
+        const itemLower = item.toLowerCase();
+        const isChecked = status.toLowerCase() === itemLower;
+        return (
+          <Label
+            htmlFor={itemLower}
+            className={cn(
+              'rounded px-3 py-1 text-center text-sm font-medium transition-colors hover:bg-accent/50 hover:text-foreground cursor-pointer',
+              !isChecked && 'text-muted-foreground',
+              isChecked && 'bg-primary text-primary-foreground shadow-sm'
+            )}
+            key={item}
+          >
+            <RadioGroupItem
+              id={itemLower}
+              value={itemLower}
+              checked={isChecked}
+              className="peer sr-only"
+            />
+            {item}
+          </Label>
+        );
+      })}
     </RadioGroup>
   );
 };
