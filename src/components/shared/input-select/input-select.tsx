@@ -33,41 +33,36 @@ export const InputSelect = (props: InputSelectProps) => {
               </FormLabel>
             )}
             <FormControl>
-              <NumberInput
-                className="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
-                onValueChange={(values) => {
-                  onChange(values.floatValue);
-                }}
-                {...rest}
-                {...numberInputProps}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name={selectName}
-        render={({ field: { ref, ...rest } }) => (
-          <FormItem>
-            <FormControl>
-              <div className="absolute right-0 -translate-y-10 h-form-input-height flex items-center border-l border-l-form-border">
-                <select
-                  className={cn(
-                    'custom-select appearance-none pr-10 h-full bg-no-repeat bg-form-bg text-form-text border-transparent rounded-r-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors'
-                  )}
+              <div className="flex items-center">
+                <NumberInput
+                  className="text-form-text bg-form-bg border-form-border h-10 rounded-l-form-radius rounded-r-none placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors flex-grow"
+                  onValueChange={(values) => {
+                    onChange(values.floatValue);
+                  }}
                   {...rest}
-                >
-                  {options.map((option) => (
-                    <option key={option.value} value={option.label}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                  {...numberInputProps}
+                />
+                <FormField
+                  control={form.control}
+                  name={selectName}
+                  render={({ field: { ref, ...rest } }) => (
+                    <select
+                      className={cn(
+                        'custom-select appearance-none px-3 h-10 bg-no-repeat bg-form-bg text-form-text border border-form-border rounded-r-form-radius rounded-l-none border-l-0 focus:border-form-border-focus hover:border-form-border-focus transition-colors min-w-[100px] text-center mt-1'
+                      )}
+                      {...rest}
+                    >
+                      {options.map((option) => (
+                        <option key={option.value} value={option.label}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                />
               </div>
             </FormControl>
-            <FormMessage className="text-sm text-red-500" />
+            <FormMessage />
           </FormItem>
         )}
       />
