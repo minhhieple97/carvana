@@ -23,7 +23,10 @@ const DragAndDropContext = dynamic(
     loading: () => (
       <div className="gap-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
         {[1, 2, 3, 4, 5, 6].map((i) => (
-          <Skeleton key={i} className="aspect-3/2 rounded-md w-full" />
+          <Skeleton
+            key={i}
+            className="aspect-3/2 rounded-md w-full bg-slate-800/50 dark:bg-slate-700/40"
+          />
         ))}
       </div>
     ),
@@ -141,14 +144,19 @@ export const MultiImageUploader = (props: MultiImageUploaderProps) => {
   };
 
   return (
-    <div className={cn(className, 'space-y-3 mt-1')}>
+    <div
+      className={cn(
+        className,
+        'space-y-4 mt-2 bg-slate-900/20 dark:bg-slate-800/20 p-4 rounded-xl border border-slate-200/10 dark:border-slate-700/50 backdrop-blur-sm'
+      )}
+    >
       <DragAndDrop
         items={items}
         setFiles={setFiles}
         isUploading={isUploading}
         setIsUploading={setIsUploading}
       />
-      <div className="relative overflow-hidden rounded-lg">
+      <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-slate-900/10 to-slate-800/10 dark:from-slate-900/20 dark:to-slate-800/30 shadow-inner p-1">
         <DragAndDropContext
           replace={handleItemsUpdate}
           items={items}

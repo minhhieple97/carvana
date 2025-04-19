@@ -36,7 +36,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
               name="images"
               render={({ field: { name, onChange } }) => (
                 <FormItem>
-                  <FormLabel className="text-white/90" htmlFor="images">
+                  <FormLabel className="text-white" htmlFor="images">
                     Images (up to {MAX_IMAGES})
                   </FormLabel>
                   <FormControl>
@@ -59,7 +59,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
                     <Select
                       options={statusOptions}
                       noDefault={false}
-                      selectClassName="bg-primary-900 border-primary-700 text-white/90 focus:border-primary-600"
+                      selectClassName="bg-background border-form-border text-form-text focus:border-form-border-focus"
                       {...rest}
                     />
                   </FormControl>
@@ -71,7 +71,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
             <Button
               disabled={isPending}
               type="submit"
-              className="w-full flex gap-x-2 bg-primary-600 hover:bg-primary-700 text-white"
+              className="w-full flex gap-x-2 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 shadow-sm rounded-form-radius transition-colors duration-200"
             >
               {isPending && <Loader2 className="animate-spin h-4 w-4" />}
               Submit

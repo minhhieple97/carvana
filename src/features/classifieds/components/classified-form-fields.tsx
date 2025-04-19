@@ -64,7 +64,7 @@ export const ClassifiedFormFields = () => {
             </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={years.map((year) => ({
                   label: year,
                   value: year,
@@ -87,7 +87,7 @@ export const ClassifiedFormFields = () => {
         selectName="currency"
         inputMode="numeric"
         placeholder="0"
-        className="h-form-input-height"
+        className="h-form-input-height bg-background border-form-border rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
       />
 
       <InputSelect
@@ -113,7 +113,7 @@ export const ClassifiedFormFields = () => {
             </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(Transmission).map((value) => ({
                   label: formatTransmission(value),
                   value,
@@ -135,7 +135,7 @@ export const ClassifiedFormFields = () => {
             </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(FuelType).map((value) => ({
                   label: formatFuelType(value),
                   value,
@@ -157,7 +157,7 @@ export const ClassifiedFormFields = () => {
             </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(BodyType).map((value) => ({
                   label: formatBodyType(value),
                   value,
@@ -179,7 +179,7 @@ export const ClassifiedFormFields = () => {
             </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(Colour).map((value) => ({
                   label: formatColour(value),
                   value,
@@ -201,7 +201,7 @@ export const ClassifiedFormFields = () => {
             </FormLabel>
             <FormControl>
               <Select
-                selectClassName="text-form-text bg-form-bg border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(ULEZCompliance).map((value) => ({
                   label: formatUlezCompliance(value),
                   value,
@@ -225,7 +225,7 @@ export const ClassifiedFormFields = () => {
             <FormControl>
               <Input
                 placeholder="LA16 PYW"
-                className="uppercase text-form-text h-form-input-height bg-form-bg border-form-border rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus placeholder:text-form-placeholder transition-colors"
+                className="uppercase text-form-text h-form-input-height bg-background border-form-border rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus placeholder:text-form-placeholder transition-colors"
                 {...rest}
               />
             </FormControl>
@@ -246,7 +246,7 @@ export const ClassifiedFormFields = () => {
                 max={6}
                 min={1}
                 placeholder="0"
-                className="text-form-text bg-form-bg h-form-input-height border-form-border rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                className="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 onValueChange={(values) => {
                   onChange(values.floatValue);
                 }}
@@ -270,7 +270,7 @@ export const ClassifiedFormFields = () => {
                 max={8}
                 min={1}
                 placeholder="0"
-                className="text-form-text bg-form-bg h-form-input-height border-form-border rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+                className="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 onValueChange={(values) => {
                   onChange(values.floatValue);
                 }}

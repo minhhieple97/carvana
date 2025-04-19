@@ -170,10 +170,9 @@ export const DragAndDrop = (props: DragAndDropProps) => {
         >
           <ImagePlus className="mx-auto mb-3 h-auto w-9 text-gray-400" />
           <p className="mb-1">
-            <span className="text-primary">Upload Files</span>
-            <span className="ml-1 text-muted/75">or drag and drop</span>
+            <span className="text-primary">Upload Files or drag and drop</span>
           </p>
-          <p className="text-xs text-muted/75">
+          <p className="text-xs text-primary">
             PNG, JPG, WEBP, up to {convertToMb(MAX_IMAGE_SIZE)} each.
           </p>
         </div>
