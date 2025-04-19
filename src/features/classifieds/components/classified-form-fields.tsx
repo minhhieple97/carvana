@@ -87,7 +87,7 @@ export const ClassifiedFormFields = () => {
         selectName="currency"
         inputMode="numeric"
         placeholder="0"
-        className="h-form-input-height bg-background border-form-border rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
+        className="h-form-input-height bg-background border-form-border rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors text-white"
       />
 
       <InputSelect
@@ -100,7 +100,7 @@ export const ClassifiedFormFields = () => {
         selectName="odoUnit"
         inputMode="numeric"
         placeholder="0"
-        className="h-form-input-height"
+        className="h-form-input-height bg-background border-form-border rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors text-white"
       />
 
       <FormField
