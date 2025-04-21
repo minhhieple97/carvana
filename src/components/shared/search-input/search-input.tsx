@@ -27,15 +27,11 @@ export const SearchInput = (props: SearchInputProps) => {
 
   return (
     <form className="relative flex-1 group">
-      <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400 transition-colors group-focus-within:text-primary" />
+      <SearchIcon className="absolute left-4 top-2.5 h-4 w-4 text-gray-400 transition-colors group-focus-within:text-primary" />
       <Input
         ref={inputRef}
         defaultValue={q || ''}
-        className={cn(
-          'pl-8 transition-all hover:border-gray-400 focus:border-primary',
-          'placeholder:text-gray-400 text-gray-700',
-          className
-        )}
+        style={{ paddingLeft: '2.5rem' }}
         onChange={onChange}
         type="text"
         {...rest}

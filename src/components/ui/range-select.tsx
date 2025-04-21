@@ -31,7 +31,7 @@ export const RangeSelect = (props: RangeSelectProps) => {
               'focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20',
               'disabled:cursor-not-allowed disabled:bg-gray-50/50 disabled:text-gray-400',
               'appearance-none pr-10 transition-all duration-200',
-              'text-gray-900 font-medium',
+              'font-medium',
               'hover:border-gray-300',
               minSelect.error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
             )}
@@ -40,11 +40,7 @@ export const RangeSelect = (props: RangeSelectProps) => {
               Min {label}
             </option>
             {minSelect.options.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-                className="text-gray-900 font-medium py-1.5"
-              >
+              <option key={option.value} value={option.value} className="font-medium py-1.5">
                 {option.label}
               </option>
             ))}
@@ -76,7 +72,7 @@ export const RangeSelect = (props: RangeSelectProps) => {
               'focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20',
               'disabled:cursor-not-allowed disabled:bg-gray-50/50 disabled:text-gray-400',
               'appearance-none pr-10 transition-all duration-200',
-              'text-gray-900 font-medium',
+              'font-medium',
               'hover:border-gray-300',
               maxSelect.error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
             )}
@@ -85,11 +81,7 @@ export const RangeSelect = (props: RangeSelectProps) => {
               Max {label}
             </option>
             {maxSelect.options.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-                className="text-gray-900 font-medium py-1.5"
-              >
+              <option key={option.value} value={option.value} className="font-medium py-1.5">
                 {option.label}
               </option>
             ))}

@@ -374,4 +374,21 @@
   .content-container {
     @apply bg-background text-foreground;
   }
+
+  /* Pagination specific styles */
+  .pagination-link {
+    @apply border border-border dark:border-input bg-background dark:bg-card shadow-sm;
+  }
+
+  .pagination-link-active {
+    @apply border-primary dark:border-primary shadow-md;
+  }
+
+  .pagination-ellipsis {
+    @apply border border-transparent hover:border-border dark:hover:border-input;
+  }
+
+  .pagination-nav {
+    @apply border border-border dark:border-input bg-background dark:bg-card shadow-sm;
+  }
 }

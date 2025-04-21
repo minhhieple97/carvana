@@ -15,7 +15,7 @@ export const PublicHeader = async () => {
   const favourites = await getFavourites(sourceId);
 
   return (
-    <header className="flex items-center justify-between h-16 px-4 bg-transparent gap-x-6">
+    <header className="container mx-auto flex items-center justify-between h-16 px-4 bg-transparent gap-x-6">
       <div className="flex items-center flex-1">
         <Link href={routes.home} className="flex items-center gap-2">
           <Image width={300} height={100} alt="logo" className="relative" src="/logo.svg" />

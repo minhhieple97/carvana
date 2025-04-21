@@ -20,7 +20,7 @@ const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
   ssr: false,
   loading: () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-8">
-      {[1, 2, 3].map((i) => (
+      {[1, 2, 3, 4].map((i) => (
         <ClassifiedCardSkeleton key={i} />
       ))}
     </div>

@@ -38,7 +38,9 @@ export const Select = (props: SelectProps) => {
   return (
     <div className={cn('space-y-1.5', className)}>
       {label && (
-        <label className={cn('text-gray-900 font-semibold mb-1.5 text-[0.925rem]', labelClassName)}>
+        <label
+          className={cn('font-semibold mb-1.5 text-[0.925rem] text-foreground', labelClassName)}
+        >
           {label}
         </label>
       )}
@@ -48,20 +50,20 @@ export const Select = (props: SelectProps) => {
           value={value ?? ''}
           disabled={disabled}
           className={cn(
-            'w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm',
-            'focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20',
-            'disabled:cursor-not-allowed disabled:bg-gray-50/50 disabled:text-gray-400',
+            'w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm',
+            'focus:border-ring/50 focus:outline-none focus:ring-2 focus:ring-ring/20',
+            'disabled:■-not-allowed disabled:bg-muted/50 disabled:text-muted-foreground',
             'appearance-none pr-10 transition-all duration-200',
-            'text-gray-900 font-medium',
-            'hover:border-gray-300',
+            'text-foreground font-medium',
+            'hover:border-input-border',
             error &&
-              'border-red-500 focus:border-red-500 focus:ring-red-500/20 scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent',
+              'border-destructive focus:border-destructive focus:ring-destructive/20 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent max-h-[280px] overflow-y-auto',
             selectClassName
           )}
           {...rest}
         >
           {noDefault && (
-            <option value="" className="text-gray-500 font-normal">
+            <option value="" className="text-muted-foreground font-normal dark:text-gray-300">
               {placeholder || `Select ${label?.toLowerCase()}`}
             </option>
           )}
@@ -69,7 +71,10 @@ export const Select = (props: SelectProps) => {
             <option
               key={option.value}
               value={option.value}
-              className={cn('text-gray-900 font-medium py-1.5', optionsClassName)}
+              className={cn(
+                'text-foreground font-medium py-1.5 dark:text-gray-200',
+                optionsClassName
+              )}
             >
               {option.label}
             </option>
@@ -79,7 +84,7 @@ export const Select = (props: SelectProps) => {
           <svg
             className={cn(
               'h-4 w-4 transition-colors',
-              disabled ? 'text-gray-400' : 'text-gray-600'
+              disabled ? 'text-muted-foreground' : 'text-foreground/60'
             )}
             fill="none"
             viewBox="0 0 24 24"
@@ -89,7 +94,7 @@ export const Select = (props: SelectProps) => {
           </svg>
         </div>
       </div>
-      {error && <p className="text-sm font-medium text-red-600">{error}</p>}
+      {error && <p className="text-sm font-medium text-destructive">{error}</p>}
     </div>
   );
 };

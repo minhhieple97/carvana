@@ -51,10 +51,7 @@ export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
               Clear all {filterCount ? `(${filterCount})` : null}
             </button>
           </div>
-          <SearchInput
-            placeholder="Search classifieds..."
-            className="w-full rounded-lg border-input bg-background shadow-sm focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20"
-          />
+          <SearchInput placeholder="Search classifieds..." className=" w-full" />
         </div>
 
         <div className="space-y-7 p-5">

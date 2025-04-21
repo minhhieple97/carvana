@@ -19,14 +19,15 @@ export const CustomPagination = (props: PaginationProps) => {
   const { currentPage, visibleRange, createPageUrl, handleEllipsisClick, setPage, totalPages } =
     useCustomPagination(props);
 
-  // Define base styles using CSS variables or Tailwind dark mode variants
+  // Define base styles using CSS variables for better theme support
   const baseLinkStyle =
-    'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center text-secondary-foreground hover:bg-accent hover:text-accent-foreground';
-  const activeLinkStyle = 'bg-primary text-primary-foreground font-semibold hover:bg-primary/90';
+    'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center text-foreground dark:text-foreground hover:bg-accent hover:text-accent-foreground pagination-link';
+  const activeLinkStyle =
+    'bg-primary text-primary-foreground font-semibold hover:bg-primary/90 pagination-link-active';
   const ellipsisStyle =
-    'text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md min-w-[32px] h-[32px] flex items-center justify-center';
+    'text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md min-w-[32px] h-[32px] flex items-center justify-center pagination-ellipsis';
   const prevNextStyle =
-    'text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md';
+    'text-foreground dark:text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md pagination-nav';
   const disabledStyle = 'opacity-50 pointer-events-none';
 
   return (
