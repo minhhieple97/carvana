@@ -19,17 +19,21 @@ export const Welcome = (props: MultiStepFormComponentProps) => {
   const { isPending, nextStep } = useWelcome();
 
   return (
-    <div className="mx-auto bg-white rounded-b-lg shadow-lg">
+    <div className="mx-auto bg-card dark:bg-card text-card-foreground dark:text-card-foreground rounded-b-lg shadow-lg border border-border dark:border-input/50">
       <div className="p-6">
         <div className="flex gap-x-12 justify-between">
           <div className="flex-1">
             <div className="flex items-start mb-4">
-              <CircleCheckIcon className="text-green-500 w-6 h-6 mr-2" />
-              <p className="text-gray-700">Reserve in minutes with 2 simple steps</p>
+              <CircleCheckIcon className="text-green-500 dark:text-green-400 w-6 h-6 mr-2" />
+              <p className="text-foreground/80 dark:text-foreground/70">
+                Reserve in minutes with 2 simple steps
+              </p>
             </div>
             <div className="flex items-start mb-4">
-              <CircleCheckIcon className="text-green-500 w-6 h-6 mr-2" />
-              <p className="text-gray-700">Arrange a handover date for your new vehicle</p>
+              <CircleCheckIcon className="text-green-500 dark:text-green-400 w-6 h-6 mr-2" />
+              <p className="text-foreground/80 dark:text-foreground/70">
+                Arrange a handover date for your new vehicle
+              </p>
             </div>
           </div>
           <div className="flex flex-1 space-x-2">
@@ -43,38 +47,42 @@ export const Welcome = (props: MultiStepFormComponentProps) => {
               />
             </div>
             <div className="flex-1">
-              <h2 className="text-lg font-semibold line-clamp-1">{props.classified.title}</h2>
-              <div className="text-xs line-clamp-2">
+              <h2 className="text-lg font-semibold line-clamp-1 text-foreground dark:text-foreground">
+                {props.classified.title}
+              </h2>
+              <div className="text-xs line-clamp-2 text-muted-foreground dark:text-muted-foreground/90">
                 <HTMLParser html={props.classified.description ?? ''} />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex justify-around items-center bg-gray-100 p-4 rounded-md mb-4">
+        <div className="flex justify-around items-center bg-muted/40 dark:bg-muted/20 p-4 rounded-md mb-4">
           <div className="text-center">
-            <p className="font-bold">Select Handover Date & Time</p>
-            <p className="text-gray-500">approx. 1 minute</p>
+            <p className="font-bold text-foreground dark:text-foreground/90">
+              Select Handover Date & Time
+            </p>
+            <p className="text-muted-foreground dark:text-muted-foreground/80">approx. 1 minute</p>
           </div>
-          <ArrowRightIcon className="w-6 h-6" />
+          <ArrowRightIcon className="w-6 h-6 text-foreground/70 dark:text-foreground/60" />
           <div className="text-center">
-            <p className="font-bold">Submit Your Details</p>
-            <p className="text-gray-500">approx. 1 minute</p>
+            <p className="font-bold text-foreground dark:text-foreground/90">Submit Your Details</p>
+            <p className="text-muted-foreground dark:text-muted-foreground/80">approx. 1 minute</p>
           </div>
         </div>
-        <p className="font-bold mb-4">Ready to begin?</p>
+        <p className="font-bold mb-4 text-foreground dark:text-foreground">Ready to begin?</p>
         <div className="flex justify-around items-center">
           <div className="flex items-center flex-col justify-center space-y-2">
-            <LockIcon className="w-6 h-6" />
-            <p className="text-gray-700">SSL Secure</p>
+            <LockIcon className="w-6 h-6 text-foreground/70 dark:text-foreground/60" />
+            <p className="text-foreground/80 dark:text-foreground/70">SSL Secure</p>
           </div>
           <div className="flex items-center flex-col justify-center space-y-2">
-            <StarIcon className="w-6 h-6" />
-            <p className="text-gray-700">Trustpilot</p>
+            <StarIcon className="w-6 h-6 text-foreground/70 dark:text-foreground/60" />
+            <p className="text-foreground/80 dark:text-foreground/70">Trustpilot</p>
           </div>
           <div className="flex items-center flex-col justify-center space-y-2">
-            <CreditCardIcon className="w-6 h-6" />
-            <p className="text-gray-700">Stripe</p>
+            <CreditCardIcon className="w-6 h-6 text-foreground/70 dark:text-foreground/60" />
+            <p className="text-foreground/80 dark:text-foreground/70">Stripe</p>
           </div>
         </div>
       </div>

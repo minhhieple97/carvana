@@ -24,7 +24,7 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
   return (
     <Form {...form}>
       <form
-        className="mx-auto bg-white flex flex-col rounded-b-lg shadow-lg p-6 h-96"
+        className="mx-auto bg-card dark:bg-card flex flex-col rounded-b-lg shadow-lg p-6 h-96 text-card-foreground dark:text-card-foreground border border-border dark:border-input/50"
         onSubmit={form.handleSubmit(onSelectDate)}
       >
         <div className="space-y-6 flex-1">
@@ -33,7 +33,12 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
             name="handoverDate"
             render={({ field: { ref, ...rest } }) => (
               <FormItem>
-                <FormLabel htmlFor="handoverDate">Select a Date</FormLabel>
+                <FormLabel
+                  htmlFor="handoverDate"
+                  className="text-foreground dark:text-foreground/90"
+                >
+                  Select a Date
+                </FormLabel>
                 <FormControl>
                   <Select options={dateOptions} placeholder="Select a date" {...rest} />
                 </FormControl>
@@ -46,7 +51,12 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
             name="handoverTime"
             render={({ field: { ref, ...rest } }) => (
               <FormItem>
-                <FormLabel htmlFor="handoverTime">Select a Time</FormLabel>
+                <FormLabel
+                  htmlFor="handoverTime"
+                  className="text-foreground dark:text-foreground/90"
+                >
+                  Select a Time
+                </FormLabel>
                 <FormControl>
                   <Select options={timeOptions} placeholder="Select a time" {...rest} />
                 </FormControl>
@@ -60,7 +70,8 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
             type="button"
             onClick={prevStep}
             disabled={isPrevPending}
-            className="uppercase font-bold flex gap-x-3 w-full flex-1"
+            className="uppercase font-bold flex gap-x-3 w-full flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+            variant="secondary"
           >
             {isPrevPending ? <Loader2 className="w-4 h-4 shrink-0 animate-spin" /> : null} Previous
             Step

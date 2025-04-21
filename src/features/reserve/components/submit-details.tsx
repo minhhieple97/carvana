@@ -24,7 +24,7 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
   return (
     <Form {...form}>
       <form
-        className="mx-auto bg-white flex flex-col rounded-b-lg shadow-lg p-6 h-96"
+        className="mx-auto bg-card dark:bg-card text-card-foreground dark:text-card-foreground flex flex-col rounded-b-lg shadow-lg p-6 h-96 border border-border dark:border-input/50"
         onSubmit={form.handleSubmit(onSubmitDetails)}
       >
         <div className="space-y-6 flex-1">
@@ -34,8 +34,11 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="firstName" className="flex">
-                    First Name <span className="text-red-500 ml-1">*</span>
+                  <FormLabel
+                    htmlFor="firstName"
+                    className="flex text-foreground dark:text-foreground/90"
+                  >
+                    First Name <span className="text-destructive ml-1">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your first name" {...field} />
@@ -49,8 +52,11 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="lastName" className="flex">
-                    Last Name <span className="text-red-500 ml-1">*</span>
+                  <FormLabel
+                    htmlFor="lastName"
+                    className="flex text-foreground dark:text-foreground/90"
+                  >
+                    Last Name <span className="text-destructive ml-1">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your last name" {...field} />
@@ -64,8 +70,11 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="email" className="flex">
-                    Email Address <span className="text-red-500 ml-1">*</span>
+                  <FormLabel
+                    htmlFor="email"
+                    className="flex text-foreground dark:text-foreground/90"
+                  >
+                    Email Address <span className="text-destructive ml-1">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your email address" type="email" {...field} />
@@ -79,8 +88,11 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
               name="mobile"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="mobile" className="flex">
-                    Mobile Number <span className="text-red-500 ml-1">*</span>
+                  <FormLabel
+                    htmlFor="mobile"
+                    className="flex text-foreground dark:text-foreground/90"
+                  >
+                    Mobile Number <span className="text-destructive ml-1">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your mobile number" type="tel" {...field} />
@@ -95,11 +107,11 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
               control={form.control}
               name="terms"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4">
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-muted/30 dark:bg-muted/10">
                   <FormControl>
                     <Checkbox
                       id="terms"
-                      className="h-4 w-4 border-gray-300 rounded"
+                      className="h-4 w-4 border-input rounded"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
@@ -107,10 +119,10 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
                   <div className="space-y-1 leading-none">
                     <FormLabel
                       htmlFor="terms"
-                      className="text-sm font-medium leading-none ■-pointer"
+                      className="text-sm font-medium leading-none cursor-pointer text-foreground dark:text-foreground/90"
                     >
                       I agree to the terms and conditions{' '}
-                      <span className="text-red-500 ml-1">*</span>
+                      <span className="text-destructive ml-1">*</span>
                     </FormLabel>
                     <FormMessage />
                   </div>
@@ -124,7 +136,8 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
             type="button"
             onClick={prevStep}
             disabled={isPending}
-            className="uppercase font-bold flex gap-x-3 w-full flex-1"
+            className="uppercase font-bold flex gap-x-3 w-full flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+            variant="secondary"
           >
             Previous Step
           </Button>
