@@ -48,43 +48,43 @@ const features = (props: ClassifiedWithImagesAndMake) => [
   },
   {
     id: 2,
-    icon: <Fingerprint className="w-6 h-6 mx-auto text-gray-500" />,
+    icon: <Fingerprint className="w-6 h-6 mx-auto text-muted-foreground" />,
     label: props.vrm,
   },
   {
     id: 3,
-    icon: <CarIcon className="w-6 h-6 mx-auto text-gray-500" />,
+    icon: <CarIcon className="w-6 h-6 mx-auto text-muted-foreground" />,
     label: formatBodyType(props.bodyType),
   },
   {
     id: 4,
-    icon: <FuelIcon className="w-6 h-6 mx-auto text-gray-500" />,
+    icon: <FuelIcon className="w-6 h-6 mx-auto text-muted-foreground" />,
     label: formatFuelType(props.fuelType),
   },
   {
     id: 5,
-    icon: <PowerIcon className="w-6 h-6 mx-auto text-gray-500" />,
+    icon: <PowerIcon className="w-6 h-6 mx-auto text-muted-foreground" />,
     label: formatTransmission(props.transmission),
   },
   {
     id: 6,
-    icon: <GaugeIcon className="w-6 h-6 mx-auto text-gray-500" />,
+    icon: <GaugeIcon className="w-6 h-6 mx-auto text-muted-foreground" />,
     label: `${formatNumber(props.odoReading)} ${formatOdometerUnit(props.odoUnit)}`,
   },
   {
     id: 7,
-    icon: <UsersIcon className="w-6 h-6 mx-auto text-gray-500" />,
+    icon: <UsersIcon className="w-6 h-6 mx-auto text-muted-foreground" />,
     label: props.seats,
   },
   {
     id: 8,
-    icon: <CarFrontIcon className="w-6 h-6 mx-auto text-gray-500" />,
+    icon: <CarFrontIcon className="w-6 h-6 mx-auto text-muted-foreground" />,
     label: props.doors,
   },
 ];
 
 export const ClassifiedView = (props: ClassifiedWithImagesAndMake) => (
-  <div className="flex flex-col container mx-auto px-4 md:px-0 py-12">
+  <div className="flex flex-col container mx-auto px-4 md:px-0 py-12 bg-background text-foreground">
     <div className="flex flex-col md:flex-row">
       <div className="md:w-1/2">
         <ClassifiedCarousel images={props.images} />
@@ -99,21 +99,21 @@ export const ClassifiedView = (props: ClassifiedWithImagesAndMake) => (
             height={120}
           />
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold">{props.title}</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground">{props.title}</h1>
           </div>
         </div>
 
         <div className="mt-4 flex items-center space-x-2 mb-2">
-          <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-md">
+          <span className="bg-muted text-muted-foreground text-sm font-medium px-2.5 py-0.5 rounded-md">
             {props.year}
           </span>
-          <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-md">
+          <span className="bg-muted text-muted-foreground text-sm font-medium px-2.5 py-0.5 rounded-md">
             {formatNumber(props.odoReading)} {formatOdometerUnit(props.odoUnit)}
           </span>
-          <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-md">
+          <span className="bg-muted text-muted-foreground text-sm font-medium px-2.5 py-0.5 rounded-md">
             {formatColour(props.colour)}
           </span>
-          <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-md">
+          <span className="bg-muted text-muted-foreground text-sm font-medium px-2.5 py-0.5 rounded-md">
             {formatFuelType(props.fuelType)}
           </span>
         </div>
@@ -123,7 +123,7 @@ export const ClassifiedView = (props: ClassifiedWithImagesAndMake) => (
           </div>
         )}
 
-        <div className="text-4xl font-bold my-4 w-full border border-slate-200 flex justify-center items-center rounded-xl py-12">
+        <div className="text-4xl font-bold my-4 w-full border border-border flex justify-center items-center rounded-xl py-12">
           Our Price: {formatPrice({ price: props.price, currency: props.currency })}
         </div>
         <Button className="uppercase font-bold py-3 px-6 rounded w-full mb-4" size="lg" asChild>
@@ -134,7 +134,7 @@ export const ClassifiedView = (props: ClassifiedWithImagesAndMake) => (
           {features(props).map(({ id, icon, label }) => (
             <div
               key={id}
-              className="bg-gray-100 rounded-lg shadow-xs p-4 text-center flex items-center flex-col"
+              className="bg-muted/50 rounded-lg shadow-xs p-4 text-center flex items-center flex-col text-foreground"
             >
               {icon}
               <p className="text-sm font-medium mt-2">{label}</p>

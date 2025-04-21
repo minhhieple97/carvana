@@ -18,6 +18,7 @@ import { CarouselSkeleton } from './carousel-skeleton';
 
 import type { Image as PrismaImage } from '@prisma/client';
 import type { Swiper as SwiperType } from 'swiper/types';
+import { cn } from '@/lib/utils';
 
 type ClassifiedCarouselProps = {
   images: PrismaImage[];
@@ -67,7 +68,7 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
         sources={sources}
         type="image"
       />
-      <div className="relative">
+      <div className="relative group">
         <Swiper
           navigation={{
             prevEl: '.swiper-button-prev',
@@ -95,13 +96,16 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
                 width={600}
                 height={400}
                 quality={45}
-                className="aspect-3/2 object-cover rounded-md cursor-pointer"
+                className="aspect-3/2 object-cover rounded-md cursor-pointer w-full"
                 onClick={handleImageClick}
               />
             </SwiperSlide>
           ))}
+          <SwiperButtons
+            prevClassName="absolute top-1/2 -translate-y-1/2 left-4 z-10 bg-background/70 hover:bg-background/90 text-foreground rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            nextClassName="absolute top-1/2 -translate-y-1/2 right-4 z-10 bg-background/70 hover:bg-background/90 text-foreground rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          />
         </Swiper>
-        <SwiperButtons prevClassName="left-4 bg-white" nextClassName="right-4 bg-white" />{' '}
       </div>
       <SwiperThumb
         onSwiper={setSwiper}
@@ -110,9 +114,16 @@ export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
         freeMode
         watchSlidesProgress
         modules={[Navigation, Thumbs, EffectFade]}
+        className="mt-2"
       >
-        {images.map((image) => (
-          <SwiperSlide className="relative mt-2 h-fit w-full cursor-grab" key={image.id}>
+        {images.map((image, index) => (
+          <SwiperSlide
+            className={cn(
+              'relative h-fit w-full cursor-grab transition-opacity duration-200',
+              activeIndex !== index && 'opacity-60 hover:opacity-80'
+            )}
+            key={image.id}
+          >
             <ImgixImage
               className="object-cover aspect-3/2 rounded-md"
               width={150}

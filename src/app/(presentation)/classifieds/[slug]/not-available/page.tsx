@@ -4,10 +4,10 @@ import { EndButtons } from '@/components/ui/end-buttons';
 
 export default function NotAvailablePage() {
   return (
-    <div className="flex items-center justify-center min-h-[80dvh]">
+    <div className="flex items-center justify-center min-h-[80dvh] bg-background text-foreground">
       <div className="flex flex-col items-center p-8 space-y-4">
         <XCircle className="w-16 h-16 text-muted-foreground" />
-        <p className="text-lg font-semibold text-center">
+        <p className="text-lg font-semibold text-center text-foreground">
           Sorry, that vehicle is no longer available.
         </p>
         <p className="text-center text-muted-foreground">
