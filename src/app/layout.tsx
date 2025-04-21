@@ -6,7 +6,8 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import { cn } from '@/lib/utils';
 import './globals.css';
-import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from '@/components/ui';
+import { ThemeProvider } from '@/components/shared';
 
 export const metadata: Metadata = {
   title: 'Car Dealer Website',
@@ -41,9 +42,16 @@ export default function RootLayout({
           mulish.variable
         )}
       >
-        <NextTopLoader showSpinner={false} />
-        <NuqsAdapter>{children}</NuqsAdapter>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextTopLoader showSpinner={true} />
+          <NuqsAdapter>{children}</NuqsAdapter>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

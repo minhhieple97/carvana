@@ -97,49 +97,170 @@
 @layer base {
   /* Light mode variables (default) */
   :root {
+    /* Core colors */
     --background: 210 20% 98%;
     --foreground: 210 20% 10%;
+
+    /* UI Elements */
     --card: 210 20% 100%;
     --card-foreground: 210 20% 10%;
     --popover: 210 20% 100%;
     --popover-foreground: 210 20% 10%;
+
+    /* Brand colors */
     --primary: 210 70% 50%;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 15% 94%;
     --secondary-foreground: 210 15% 30%;
+
+    /* Semantic colors */
     --muted: 210 15% 94%;
     --muted-foreground: 210 10% 45%;
     --accent: 210 70% 95%;
     --accent-foreground: 210 70% 40%;
     --destructive: 0 80% 60%;
     --destructive-foreground: 0 0% 100%;
+
+    /* UI borders */
     --border: 210 15% 88%;
     --input: 210 15% 88%;
     --ring: 210 70% 50%;
+
+    /* Radii */
     --radius: 0.5rem;
+
+    /* Form specific colors */
+    --form-bg: 0 0% 100%;
+    --form-border: 210 15% 90%;
+    --form-border-focus: 210 70% 50%;
+    --form-text: 210 20% 10%;
+    --form-placeholder: 210 10% 60%;
+    --form-label-color: 210 10% 20%;
   }
 
   /* Dark mode variables */
   .dark {
+    /* Core colors */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
+
+    /* UI Elements */
     --card: 222 47% 14%;
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
+
+    /* Brand colors */
     --primary: 210 40% 98%;
     --primary-foreground: 222 47% 11%;
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
+
+    /* Semantic colors */
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
     --accent: 217 33% 22%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
+
+    /* UI borders */
     --border: 217 33% 27%;
-    --input: 217 33% 27%;
+    --input: 217 33% 22%;
+    --input-border: 217 33% 30%;
     --ring: 210 40% 98%;
+
+    /* Form specific colors */
+    --form-bg: 222 47% 14%;
+    --form-border: 217 33% 27%;
+    --form-border-focus: 210 40% 70%;
+    --form-text: 210 40% 98%;
+    --form-placeholder: 215 20% 65%;
+    --form-label-color: 210 40% 90%;
+  }
+
+  /* CSS variables for theme */
+  :root {
+    --font-heading:
+      var(--font-heading), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-body:
+      var(--font-body), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
+
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+    --color-primary-800: #081a2b;
+    --color-primary-900: #040f19;
+
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
+
+    --color-destructive: hsl(var(--destructive));
+    --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+    --color-popover: hsl(var(--popover));
+    --color-popover-foreground: hsl(var(--popover-foreground));
+
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
+
+    --form-input-height: 2.5rem;
+    --form-radius: 0.375rem;
+
+    /* Radii variants */
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+  }
+
+  /* Animation definitions */
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes keyframes-slide-out {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+
+  :root {
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+    --animate-slide-out: slideOut 0.5s forwards;
   }
 
   /* Base element styling */
@@ -152,6 +273,23 @@
     line-height: 1.6;
   }
 
+  /* Better dark mode media query support */
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) {
+      color-scheme: dark;
+    }
+  }
+
+  /* Smooth theme transitions */
+  *,
+  ::before,
+  ::after {
+    transition-property: color, background-color, border-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+  }
+
+  /* Typography */
   h1,
   h2,
   h3,
@@ -182,6 +320,7 @@
     @apply text-primary underline-offset-4 transition-colors;
   }
 
+  /* Form elements */
   button,
   [type='button'],
   [type='reset'],
@@ -196,9 +335,43 @@
     -webkit-appearance: none;
     appearance: none;
     @apply bg-background border pr-8 pl-3 py-2 rounded-md;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23${theme('colors.foreground / 0.6')}'%3E%3Cpath d='m7 10l5 5 5-5z' /%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a1a1aa'%3E%3Cpath d='m7 10l5 5 5-5z' /%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.5rem center;
     background-size: 1.5em 1.5em;
+  }
+
+  .dark .custom-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2371717a'%3E%3Cpath d='m7 10l5 5 5-5z' /%3E%3C/svg%3E");
+  }
+
+  /* Improved focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Apply base input styles */
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
+  input[type='password'],
+  textarea,
+  select {
+    @apply block w-full rounded-md border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-input dark:bg-input;
+  }
+}
+
+/* Add these to the components section */
+@layer components {
+  .search-filter-card {
+    @apply bg-white/90 dark:bg-card/90 backdrop-blur-sm border border-border dark:border-gray-800 rounded-xl shadow-xl transition-all duration-300 p-6 sm:p-8;
+  }
+
+  .filter-label {
+    @apply block text-sm font-medium text-foreground mb-1.5;
+  }
+
+  .content-container {
+    @apply bg-background text-foreground;
   }
 }

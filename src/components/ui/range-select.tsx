@@ -22,9 +22,6 @@ export const RangeSelect = (props: RangeSelectProps) => {
 
   return (
     <div className={cn('space-y-1.5', className)}>
-      <label className="text-gray-900 font-semibold mb-1.5 text-[0.925rem] select-none">
-        {label}
-      </label>
       <div className="grid grid-cols-2 gap-2">
         <div className="relative">
           <select

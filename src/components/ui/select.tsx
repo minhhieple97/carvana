@@ -69,7 +69,7 @@ export const Select = (props: SelectProps) => {
             <option
               key={option.value}
               value={option.value}
-              className="text-gray-900 font-medium py-1.5"
+              className={cn('text-gray-900 font-medium py-1.5', optionsClassName)}
             >
               {option.label}
             </option>

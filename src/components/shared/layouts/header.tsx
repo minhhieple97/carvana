@@ -8,6 +8,7 @@ import { getFavourites } from '@/features/classifieds';
 import { getSourceId } from '@/lib/source-id';
 
 import { MobileMenu } from './mobile-menu';
+import { ThemeToggle } from '../theme-toggle';
 
 export const PublicHeader = async () => {
   const sourceId = await getSourceId();
@@ -33,6 +34,8 @@ export const PublicHeader = async () => {
           </Link>
         ))}
       </nav>
+
+      <ThemeToggle />
 
       <div className="relative inline-flex group">
         <Link href={routes.favourites} className="flex items-center justify-center">
