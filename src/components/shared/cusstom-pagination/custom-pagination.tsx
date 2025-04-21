@@ -19,14 +19,24 @@ export const CustomPagination = (props: PaginationProps) => {
   const { currentPage, visibleRange, createPageUrl, handleEllipsisClick, setPage, totalPages } =
     useCustomPagination(props);
 
+  // Define base styles using CSS variables or Tailwind dark mode variants
+  const baseLinkStyle =
+    'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center text-secondary-foreground hover:bg-accent hover:text-accent-foreground';
+  const activeLinkStyle = 'bg-primary text-primary-foreground font-semibold hover:bg-primary/90';
+  const ellipsisStyle =
+    'text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md min-w-[32px] h-[32px] flex items-center justify-center';
+  const prevNextStyle =
+    'text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md';
+  const disabledStyle = 'opacity-50 pointer-events-none';
+
   return (
     <PaginationRoot className={cn('w-full mt-6', styles?.paginationRoot)}>
       <PaginationContent className="justify-end gap-1 md:gap-2 items-center">
         <PaginationItem>
           <PaginationPrevious
             className={cn(
-              'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-md',
-              currentPage <= 1 && 'opacity-50 pointer-events-none',
+              prevNextStyle,
+              currentPage <= 1 && disabledStyle,
               styles?.paginationPrevious
             )}
             href={createPageUrl(currentPage - 1)}
@@ -40,10 +50,7 @@ export const CustomPagination = (props: PaginationProps) => {
         {visibleRange.start > 1 && (
           <PaginationItem className="hidden md:block">
             <PaginationLink
-              className={cn(
-                'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md min-w-[32px] h-[32px] flex items-center justify-center',
-                styles?.paginationLink
-              )}
+              className={cn(ellipsisStyle, styles?.paginationLink)}
               href="#"
               onClick={(e) => {
                 e.preventDefault();
@@ -80,10 +87,8 @@ export const CustomPagination = (props: PaginationProps) => {
                   setPage(pageNumber);
                 }}
                 className={cn(
-                  'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center',
-                  isActive
-                    ? 'bg-primary text-primary-foreground font-semibold hover:bg-primary/90'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
+                  baseLinkStyle,
+                  isActive ? activeLinkStyle : '',
                   styles?.paginationLink,
                   isActive && styles?.paginationLinkActive
                 )}
@@ -98,10 +103,7 @@ export const CustomPagination = (props: PaginationProps) => {
         {visibleRange.end < totalPages && (
           <PaginationItem className="hidden md:block">
             <PaginationLink
-              className={cn(
-                'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md min-w-[32px] h-[32px] flex items-center justify-center',
-                styles?.paginationLink
-              )}
+              className={cn(ellipsisStyle, styles?.paginationLink)}
               href="#"
               onClick={(e) => {
                 e.preventDefault();
@@ -116,8 +118,8 @@ export const CustomPagination = (props: PaginationProps) => {
         <PaginationItem>
           <PaginationNext
             className={cn(
-              'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-md',
-              currentPage >= totalPages && 'opacity-50 pointer-events-none',
+              prevNextStyle,
+              currentPage >= totalPages && disabledStyle,
               styles?.paginationNext
             )}
             href={createPageUrl(currentPage + 1)}

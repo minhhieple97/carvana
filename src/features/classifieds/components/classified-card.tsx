@@ -22,7 +22,7 @@ export const ClassifiedCard = ({ classified, favourites }: ClassifiedCardProps) 
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="group grid grid-rows-[auto,1fr] h-full rounded-md sm:rounded-lg overflow-hidden shadow-sm sm:shadow-md hover:shadow-xl transition-all duration-300 bg-white text-xs sm:text-sm max-w-md"
+          className="group grid grid-rows-[auto,1fr] h-full rounded-md sm:rounded-lg overflow-hidden shadow-sm sm:shadow-md hover:shadow-xl transition-all duration-300 bg-card text-xs sm:text-sm max-w-md"
         >
           <div className="relative">
             <CardImage image={classified.images[0]} slug={classified.slug} />

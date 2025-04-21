@@ -26,22 +26,22 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
   ]);
   const totalPages = Math.ceil(count / CLASSIFIEDS_PER_PAGE);
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="mx-auto py-8">
-        <div className="flex gap-6">
+    <main className="min-h-screen bg-background">
+      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-6">
           <Sidebar searchParams={searchParams} minMaxValues={minMaxValues} />
           <div className="flex-1">
             <div className="flex flex-col gap-6">
               <header className="flex flex-col gap-2">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   <div className="flex-1">
                     <Suspense
-                      fallback={<div className="h-6 w-48 animate-pulse bg-gray-200 rounded" />}
+                      fallback={<div className="h-6 w-48 animate-pulse bg-muted rounded" />}
                     >
                       <ClassifiedsCount count={count} />
                     </Suspense>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
                     <DialogFilters
                       minMaxValues={minMaxValues}
                       count={count}
@@ -51,15 +51,15 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                       baseURL={routes.classifieds}
                       totalPages={totalPages}
                       styles={{
-                        paginationRoot: 'w-auto',
+                        paginationRoot: 'w-auto mt-0',
                         paginationLink:
-                          'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80 font-medium transition-colors',
+                          'text-secondary-foreground hover:text-accent-foreground hover:bg-accent font-medium transition-colors',
                         paginationLinkActive:
-                          'bg-primary/90 text-white hover:bg-primary hover:text-white font-semibold shadow-sm',
+                          'bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm',
                         paginationPrevious:
-                          'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80 font-medium transition-colors',
+                          'text-secondary-foreground hover:text-accent-foreground hover:bg-accent font-medium transition-colors',
                         paginationNext:
-                          'text-gray-600 hover:text-gray-900 hover:bg-gray-100/80 font-medium transition-colors',
+                          'text-secondary-foreground hover:text-accent-foreground hover:bg-accent font-medium transition-colors',
                       }}
                     />
                   </div>
@@ -67,7 +67,7 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
               </header>
 
               <Suspense fallback={<InventorySkeleton />}>
-                <section className="bg-white rounded-xl shadow-sm p-6">
+                <section className="bg-card text-card-foreground border border-border rounded-xl shadow-sm p-4 sm:p-6">
                   <ClassifiedsList
                     classifiedsPromise={classifiedsPromise}
                     favourites={await getFavourites(sourceId)}

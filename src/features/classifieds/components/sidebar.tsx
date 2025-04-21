@@ -32,11 +32,11 @@ export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
     searchParams,
   });
   return (
-    <aside className="w-72 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md hidden lg:block">
+    <aside className="w-72 overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-md hidden lg:block">
       <div className="sticky top-4">
-        <div className="border-b border-gray-100 p-5">
+        <div className="border-b border-border p-5">
           <div className="mb-5 flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-gray-800">Filters</h2>
+            <h2 className="text-xl font-semibold text-foreground">Filters</h2>
             <button
               type="button"
               onClick={clearFilters}
@@ -44,8 +44,8 @@ export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
               className={cn(
                 'rounded-full px-4 py-1.5 text-sm font-medium transition-all',
                 filterCount
-                  ? 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                  : 'cursor-not-allowed text-gray-300'
+                  ? 'bg-secondary text-secondary-foreground hover:bg-muted hover:text-muted-foreground'
+                  : 'cursor-not-allowed text-muted-foreground/50'
               )}
             >
               Clear all {filterCount ? `(${filterCount})` : null}
@@ -53,7 +53,7 @@ export const Sidebar = ({ minMaxValues, searchParams }: SidebarProps) => {
           </div>
           <SearchInput
             placeholder="Search classifieds..."
-            className="w-full rounded-lg border-gray-200 shadow-sm focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20"
+            className="w-full rounded-lg border-input bg-background shadow-sm focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20"
           />
         </div>
 

@@ -10,7 +10,7 @@ import type { CardActionsProps } from '../types';
 export const CardActions = ({ slug }: CardActionsProps) => (
   <div className="mt-2 sm:mt-4 flex flex-col sm:grid sm:grid-cols-2 gap-1.5 sm:gap-2">
     <Button
-      className="group w-full bg-white border-primary text-primary hover:bg-primary/5 hover:border-primary/90 transition-all duration-300 text-[11px] xs:text-xs sm:text-sm"
+      className="group w-full bg-background border-primary text-primary hover:bg-primary/5 hover:border-primary/90 transition-all duration-300 text-[11px] xs:text-xs sm:text-sm"
       asChild
       variant="outline"
       size="sm"

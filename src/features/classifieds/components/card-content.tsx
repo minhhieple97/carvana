@@ -13,14 +13,14 @@ export const CardContent = ({ classified, specifications }: CardContentProps) =>
     <div className="flex-1 space-y-2 sm:space-y-3">
       <Link
         className="block text-sm md:text-base font-semibold tracking-tight
-                   text-gray-900 line-clamp-1 transition-colors hover:text-primary"
+                   text-foreground line-clamp-1 transition-colors hover:text-primary"
         href={routes.singleClassified(classified.slug)}
       >
         {classified.title}
       </Link>
 
       {classified.description && (
-        <div className="text-gray-600 text-xs md:text-sm line-clamp-2 leading-snug">
+        <div className="text-muted-foreground text-xs md:text-sm line-clamp-2 leading-snug">
           <HTMLParser html={classified.description} />
         </div>
       )}

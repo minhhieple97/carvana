@@ -1,7 +1,7 @@
 import type { CardSpecificationsProps } from '../types';
 
 export const CardSpecifications = ({ specifications }: CardSpecificationsProps) => (
-  <div className="grid grid-cols-2 gap-2 text-sm text-gray-600">
+  <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
     {specifications
       .filter((v) => v.value)
       .map(({ id, icon, value }) => (
