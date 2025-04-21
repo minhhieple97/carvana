@@ -13,7 +13,7 @@ export const CardContent = ({ classified, specifications }: CardContentProps) =>
     <div className="flex-1 space-y-2 sm:space-y-3">
       <Link
         className="block text-sm md:text-base font-semibold tracking-tight
-                   text-foreground line-clamp-1 transition-colors hover:text-primary"
+                   text-foreground dark:text-foreground/95 line-clamp-1 transition-colors hover:text-primary"
         href={routes.singleClassified(classified.slug)}
       >
         {classified.title}

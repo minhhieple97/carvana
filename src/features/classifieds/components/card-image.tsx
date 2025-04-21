@@ -11,8 +11,8 @@ export const CardImage = ({ image, slug }: CardImageProps) => {
     return (
       <div className="relative aspect-4/3 h-48 w-full">
         <Link href={routes.singleClassified(slug)} className="absolute inset-0">
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-            <span>No image</span>
+          <div className="w-full h-full bg-muted dark:bg-muted/50 flex items-center justify-center">
+            <span className="text-muted-foreground font-medium">No image</span>
           </div>
         </Link>
       </div>
