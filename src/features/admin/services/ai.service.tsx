@@ -9,11 +9,11 @@ import {
 } from '@/schemas/classified-ai.schema';
 
 import { StreamableSkeleton } from '../components/streamable-skeleton';
-import { findMakeByName } from '../db/classified.db';
 
 import { mapToTaxonomyOrCreate } from './index';
 
 import type { StreamableSkeletonProps } from '../types';
+import { findMakeByName } from '../db/taxonomy.db';
 
 const openai = createOpenAI({
   apiKey: env.OPENAI_API_KEY,

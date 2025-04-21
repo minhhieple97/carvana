@@ -71,11 +71,6 @@ export const updateClassifiedAndImages = async (
 
 export const deleteClassifiedById = (id: number) => prisma.classified.delete({ where: { id } });
 
-export const findMakeByName = (name: string) =>
-  prisma.make.findFirst({
-    where: { name },
-  });
-
 export const findClassifiedsWithFilter = async ({
   query,
   status,
