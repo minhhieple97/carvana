@@ -1,13 +1,14 @@
 'use client';
 
+import { parseAsStringLiteral, useQueryState } from 'nuqs';
+
+import { SortIcon } from '@/components';
+import { TableHead, TableHeader, TableRow } from '@/components/ui';
 import { sortOrder } from '@/config/constants';
 
+import type { ClassifiedKeys } from '../types';
+import type { PageProps } from '@/config';
 import type { Classified } from '@prisma/client';
-import { parseAsStringLiteral, useQueryState } from 'nuqs';
-import { TableHead, TableHeader, TableRow } from '@/components/ui';
-import { ClassifiedKeys } from '../types';
-import { PageProps } from '@/config';
-import { SortIcon } from '@/components';
 
 const classifiedKeys = [
   'status',

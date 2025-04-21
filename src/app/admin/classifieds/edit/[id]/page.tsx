@@ -1,9 +1,11 @@
+import { redirect } from 'next/navigation';
+
 import { routes } from '@/config/routes';
-import type { PageProps } from '@/config/types';
 import { ClassifiedForm } from '@/features/classifieds/components/classified-form';
 import { prisma } from '@/lib/prisma';
 import { validateIdSchema } from '@/schemas';
-import { redirect } from 'next/navigation';
+
+import type { PageProps } from '@/config/types';
 
 export default async function EditClassified(props: PageProps) {
   const params = await props.params;

@@ -1,15 +1,22 @@
-import { Table, TableBody } from '@/components/ui';
-import { ClassifiedsTableHeader } from '@/features/classifieds/components/classifieds-table-header';
-import { PageProps, routes } from '@/config';
-import { ClassifiedKeys } from '@/features';
-import { AdminClassifiedsHeader } from '@/features/admin/components/classifeds-header';
-import { validatePagination } from '@/schemas/pagination.schema';
-import { AdminClassifiedFilterSchema } from '@/schemas/table-filters.schema';
-import { ClassifiedsTableSortSchema, ClassifiedsTableSortType } from '@/schemas/table-sort.schema';
-import { validateSortOrder } from '@/schemas/table-sort.schema';
-import { ClassifiedsTableRow } from '@/features/classifieds/components/classified-table-row';
 import { AdminTableFooter } from '@/components';
+import { Table, TableBody } from '@/components/ui';
+import { routes } from '@/config';
+import { AdminClassifiedsHeader } from '@/features/admin/components/classifeds-header';
 import { getAdminClassifieds } from '@/features/admin/services/classified.service';
+import { ClassifiedsTableRow } from '@/features/classifieds/components/classified-table-row';
+import { ClassifiedsTableHeader } from '@/features/classifieds/components/classifieds-table-header';
+import { validatePagination } from '@/schemas/pagination.schema';
+
+import { AdminClassifiedFilterSchema } from '@/schemas/table-filters.schema';
+import type { PageProps} from '@/config';
+
+import type { ClassifiedKeys } from '@/features';
+
+
+import type { ClassifiedsTableSortType } from '@/schemas/table-sort.schema';
+
+import { ClassifiedsTableSortSchema } from '@/schemas/table-sort.schema';
+import { validateSortOrder } from '@/schemas/table-sort.schema';
 
 export default async function ClassifiedsPage(props: PageProps) {
   const searchParams = await props.searchParams;

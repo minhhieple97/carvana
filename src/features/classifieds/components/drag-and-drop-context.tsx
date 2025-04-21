@@ -12,8 +12,11 @@ import {
 } from '@dnd-kit/core';
 import { SortableContext, arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { type JSX, useCallback, useMemo, useState } from 'react';
+
 import { SortableOverlay } from './sortable-overlay';
-import { ClassifiedImages, ClassifiedWithImages } from '../types';
+import { ClassifiedWithImages } from '../types';
+
+import type { ClassifiedImages } from '../types';
 
 type ClassifiedImage = ClassifiedImages[number];
 

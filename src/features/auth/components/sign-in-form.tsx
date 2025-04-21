@@ -11,11 +11,7 @@ export const SignInForm = () => {
       title="Admin Sign In"
       fields={fields}
       submitButtonText="Sign In"
-      footerText={
-        <>
-          <b>This is for admin only.</b>
-        </>
-      }
+      footerText={<b>This is for admin only.</b>}
       onSubmit={handleSubmit}
       isPending={isPending}
       error={error}

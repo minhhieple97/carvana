@@ -1,9 +1,11 @@
 'use client';
-import type { AwaitedPageProps } from '@/config/types';
-import { cn } from '@/lib/utils';
-import type { ClassifiedStatus } from '@prisma/client';
 import { useRouter } from 'next/navigation';
+
 import { Label, RadioGroup, RadioGroupItem } from '@/components/ui';
+import { cn } from '@/lib/utils';
+
+import type { AwaitedPageProps } from '@/config/types';
+import type { ClassifiedStatus } from '@prisma/client';
 
 type RadioFilterProps = AwaitedPageProps & {
   items: string[];

@@ -1,8 +1,10 @@
-import { MAX_IMAGES, MAX_IMAGE_SIZE } from '@/config/constants';
-import { cn, convertToMb } from '@/lib/utils';
 import { ImagePlus, Loader2 } from 'lucide-react';
 import { type ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
-import { ClassifiedImages } from '../types';
+
+import { MAX_IMAGES, MAX_IMAGE_SIZE } from '@/config/constants';
+import { cn, convertToMb } from '@/lib/utils';
+
+import type { ClassifiedImages } from '../types';
 
 type DragAndDropProps = {
   isUploading: boolean;
@@ -152,7 +154,7 @@ export const DragAndDrop = (props: DragAndDropProps) => {
       >
         <input
           disabled={isUploading}
-          multiple={true}
+          multiple
           type="file"
           ref={inputRef}
           accept="image/*"

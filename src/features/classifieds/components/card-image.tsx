@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { ImgixImage } from '@/components/ui/imgix-image';
 import { routes } from '@/config/routes';

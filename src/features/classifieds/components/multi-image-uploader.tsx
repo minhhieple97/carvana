@@ -1,20 +1,27 @@
 'use client';
-import { env } from '@/env';
 
-import { cn } from '@/lib/utils';
 import dynamic from 'next/dynamic';
 import { useCallback, useState } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import { createPngDataUri } from 'unlazy/thumbhash';
 import { v4 as uuidv4 } from 'uuid';
+
 import { Skeleton } from '@/components/ui';
-import { DragAndDrop } from './drag-and-drop';
-import { SortableItem } from './sortable-item';
-import { UpdateClassifiedType } from '@/schemas';
-import { ClassifiedImages } from '../types';
+import { env } from '@/env';
 import { generateThumbHashFromFile } from '@/lib/thumbhash-client';
 import { Uploader } from '@/lib/uploader';
-import { ProgressArgs } from '@/config';
+
+import { cn } from '@/lib/utils';
+import { DragAndDrop } from './drag-and-drop';
+import { SortableItem } from './sortable-item';
+
+import type { ClassifiedImages } from '../types';
+
+
+import type { ProgressArgs } from '@/config';
+
+
+import type { UpdateClassifiedType } from '@/schemas';
 
 const DragAndDropContext = dynamic(
   () => import('./drag-and-drop-context').then((mod) => mod.DragAndDropContext),

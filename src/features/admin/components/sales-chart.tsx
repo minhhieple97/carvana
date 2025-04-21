@@ -1,8 +1,5 @@
 'use client';
 
-import type { ChartDataType } from '@/app/admin/dashboard/page';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { formatPrice } from '@/lib/utils';
 import { use } from 'react';
 import {
   Bar,
@@ -13,6 +10,11 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { formatPrice } from '@/lib/utils';
+
+import type { ChartDataType } from '@/app/admin/dashboard/page';
 
 type SalesChartProps = {
   data: ChartDataType;

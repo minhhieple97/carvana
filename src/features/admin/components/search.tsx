@@ -1,6 +1,7 @@
 'use client';
-import { SearchInput } from '@/components/shared/search-input';
 import { usePathname } from 'next/navigation';
+
+import { SearchInput } from '@/components/shared/search-input';
 
 export const AdminSearch = () => {
   const pathname = usePathname();

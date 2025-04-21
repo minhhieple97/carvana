@@ -1,15 +1,19 @@
-import { env } from '@/env';
 import { createOpenAI } from '@ai-sdk/openai';
 import { type CoreMessage, type UserContent, generateObject } from 'ai';
 import { createStreamableUI, createStreamableValue } from 'ai/rsc';
-import { StreamableSkeleton } from '../components/streamable-skeleton';
+
+import { env } from '@/env';
 import {
   ClassifiedDetailsAISchema,
   ClassifiedTaxonomyAISchema,
 } from '@/schemas/classified-ai.schema';
-import { mapToTaxonomyOrCreate } from './index';
-import { StreamableSkeletonProps } from '../types';
+
+import { StreamableSkeleton } from '../components/streamable-skeleton';
 import { findMakeByName } from '../db/classified.db';
+
+import { mapToTaxonomyOrCreate } from './index';
+
+import type { StreamableSkeletonProps } from '../types';
 
 const openai = createOpenAI({
   apiKey: env.OPENAI_API_KEY,
@@ -60,7 +64,7 @@ export async function generateClassifiedData(image: string) {
       ...details,
     };
 
-    uiStream.update(<StreamableSkeleton done={true} {...classified} />);
+    uiStream.update(<StreamableSkeleton done {...classified} />);
   } catch (error) {
     console.error('Error generating classified data:', error);
   } finally {

@@ -1,10 +1,12 @@
 'use client';
 
-import { env } from '@/env';
-import type { IAllProps } from '@tinymce/tinymce-react';
 import { Editor, type InitOptions } from '@tinymce/tinymce-react/lib/cjs/main/ts/components/Editor';
 import { useFormContext } from 'react-hook-form';
+
 import { FormLabel } from '@/components/ui';
+import { env } from '@/env';
+
+import type { IAllProps } from '@tinymce/tinymce-react';
 
 type TextEditorProps = {
   name: string;

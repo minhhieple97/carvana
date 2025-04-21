@@ -3,8 +3,10 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CheckCircle, XIcon } from 'lucide-react';
+
 import { Button, ImgixImage } from '@/components/ui';
-import { ClassifiedImages } from '../types';
+
+import type { ClassifiedImages } from '../types';
 
 type SortableItemProps = {
   index: number;

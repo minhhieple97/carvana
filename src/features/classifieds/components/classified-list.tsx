@@ -1,6 +1,6 @@
 'use client';
-import { use } from 'react';
 import { Car, SearchX } from 'lucide-react';
+import { use } from 'react';
 
 import { ClassifiedCard } from './classified-card';
 

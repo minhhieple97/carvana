@@ -1,14 +1,16 @@
 'use client';
 
-import { Button } from '@/components/ui';
 import { EyeIcon, PencilIcon, Trash } from 'lucide-react';
 import { Loader2 } from 'lucide-react';
-import { deleteClassifiedAction } from '@/features/admin/actions/classified';
-import { useTransition } from 'react';
-import { routes } from '@/config';
 import Link from 'next/link';
-import { ClassifiedWithImages } from '../types';
+import { useTransition } from 'react';
 import { Tooltip } from 'react-tooltip';
+
+import { Button } from '@/components/ui';
+import { routes } from '@/config';
+import { deleteClassifiedAction } from '@/features/admin/actions/classified';
+
+import type { ClassifiedWithImages } from '../types';
 export const ActionButtons = ({ classified }: { classified: ClassifiedWithImages }) => {
   const [isPending, startTransition] = useTransition();
   const deleteClassified = (id: number) => {

@@ -1,11 +1,13 @@
 'use client';
 
-import type { FilterOptions } from '@/config/types';
-import { cn } from '@/lib/utils';
 import { useFormContext } from 'react-hook-form';
-import type { NumericFormatProps } from 'react-number-format';
+
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components';
 import { NumberInput } from '@/components/shared';
+import { cn } from '@/lib/utils';
+
+import type { FilterOptions } from '@/config/types';
+import type { NumericFormatProps } from 'react-number-format';
 
 type InputSelectProps = NumericFormatProps & {
   inputName: string;

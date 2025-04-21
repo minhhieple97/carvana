@@ -1,5 +1,7 @@
 'use client';
 
+import { Loader2 } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -10,7 +12,6 @@ import {
 } from '@/components/ui/dialog';
 import { Form } from '@/components/ui/form';
 import { cn } from '@/lib/utils';
-import { Loader2 } from 'lucide-react';
 
 import { ImageUploader } from './single-image-uploader';
 import { useCreateClassifiedDialog } from '../hooks/useCreateClassifiedDialog';

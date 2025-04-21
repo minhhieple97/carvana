@@ -1,14 +1,6 @@
 'use client';
 
 import {
-  formatBodyType,
-  formatColour,
-  formatFuelType,
-  formatTransmission,
-  formatUlezCompliance,
-  generateYears,
-} from '@/lib/utils';
-import {
   BodyType,
   Colour,
   CurrencyCode,
@@ -20,7 +12,6 @@ import {
 import dynamic from 'next/dynamic';
 import { useFormContext } from 'react-hook-form';
 
-import { TaxonomySelects } from './taxonomy-selects';
 import {
   FormControl,
   FormField,
@@ -33,6 +24,16 @@ import {
   Select,
   Skeleton,
 } from '@/components';
+import {
+  formatBodyType,
+  formatColour,
+  formatFuelType,
+  formatTransmission,
+  formatUlezCompliance,
+  generateYears,
+} from '@/lib/utils';
+
+import { TaxonomySelects } from './taxonomy-selects';
 
 const RichTextEditor = dynamic(
   () => import('./rich-text-editor').then((mod) => mod.RichTextEditor),

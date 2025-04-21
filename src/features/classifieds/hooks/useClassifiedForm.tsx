@@ -1,14 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ClassifiedStatus, CurrencyCode, OdoUnit } from '@prisma/client';
-import { useForm } from 'react-hook-form';
 import { useAction } from 'next-safe-action/hooks';
+import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
-import { updateClassifiedSchema } from '@/schemas';
 import { updateClassifiedAction } from '@/features/admin/actions/classified';
 import { formatClassifiedStatus } from '@/lib/utils';
-import { ClassifiedWithImages } from '@/features/classifieds';
+import { updateClassifiedSchema } from '@/schemas';
 
+import type { ClassifiedWithImages } from '@/features/classifieds';
 import type { UpdateClassifiedType } from '@/schemas/classified.schema';
 
 function extractKey(url: string) {

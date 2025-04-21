@@ -1,6 +1,7 @@
-import { prisma } from '@/lib/prisma';
 import { ClassifiedStatus, CustomerStatus } from '@prisma/client';
 import { endOfMonth, format, startOfMonth, subMonths } from 'date-fns';
+
+import { prisma } from '@/lib/prisma';
 
 export async function fetchMonthlySalesData() {
   const now = new Date();

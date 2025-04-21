@@ -1,12 +1,14 @@
 'use client';
 
-import { FormLabel, FormControl, FormItem, FormMessage, Select } from '@/components/ui';
-import { FormField } from '@/components';
-import { endpoints } from '@/config/endpoints';
-import type { FilterOptions } from '@/config/types';
-import { api } from '@/lib/api-client';
 import { type ChangeEvent, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+
+import { FormField } from '@/components';
+import { FormLabel, FormControl, FormItem, FormMessage, Select } from '@/components/ui';
+import { endpoints } from '@/config/endpoints';
+import { api } from '@/lib/api-client';
+
+import type { FilterOptions } from '@/config/types';
 
 export const TaxonomySelects = () => {
   const form = useFormContext();

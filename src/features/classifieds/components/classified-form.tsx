@@ -3,10 +3,6 @@
 import { Loader2 } from 'lucide-react';
 import { FormProvider } from 'react-hook-form';
 
-import { ClassifiedFormFields } from './classified-form-fields';
-import { MultiImageUploader } from './multi-image-uploader';
-import { ClassifiedWithImages } from '@/features/classifieds';
-import { useClassifiedForm } from '../hooks/useClassifiedForm';
 import {
   FormField,
   FormLabel,
@@ -17,6 +13,12 @@ import {
   Select,
 } from '@/components';
 import { MAX_IMAGES } from '@/config/constants';
+
+import { ClassifiedFormFields } from './classified-form-fields';
+import { MultiImageUploader } from './multi-image-uploader';
+import { useClassifiedForm } from '../hooks/useClassifiedForm';
+
+import type { ClassifiedWithImages } from '@/features/classifieds';
 
 type ClassifiedFormProps = {
   classified: ClassifiedWithImages;

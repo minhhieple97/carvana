@@ -1,12 +1,14 @@
 'use client';
-import type { Variants } from 'framer-motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CarFrontIcon, LayoutDashboardIcon, SettingsIcon, UsersIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useState } from 'react';
+
 import { ActiveLink } from '@/components/ui';
 import { routes } from '@/config';
+
+import type { Variants } from 'framer-motion';
 
 const navigation = [
   {
@@ -83,7 +85,7 @@ export const AdminSidebar = () => {
                 >
                   <Image
                     src="/logo.svg"
-                    fill={true}
+                    fill
                     className="object-contain object-left"
                     alt="Majestic Motors Logo"
                   />
@@ -100,7 +102,7 @@ export const AdminSidebar = () => {
                 >
                   <Image
                     src="/logo-mob.svg"
-                    fill={true}
+                    fill
                     className="object-contain object-left"
                     alt="Majestic Motors Mobile Logo"
                   />
@@ -110,28 +112,26 @@ export const AdminSidebar = () => {
           </div>
         </Link>
         <nav className="flex flex-col gap-2">
-          {navigation.map((item) => {
-            return (
-              <ActiveLink
-                key={item.name}
-                href={item.href}
-                className="flex items-center p-2 rounded-lg transition-colors duration-200 w-full cursor-pointer"
-              >
-                <div className="flex items-center justify-center">
-                  <item.icon aria-hidden="true" className="h-6 w-6 shrinnk-0" />
-                  <motion.span
-                    variants={menuTextVariants}
-                    animate={isSidebarExpanded ? 'expanded' : 'collapsed'}
-                    initial="collapsed"
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="whitespace-nowrap overflow-hidden"
-                  >
-                    {item.name}
-                  </motion.span>
-                </div>
-              </ActiveLink>
-            );
-          })}
+          {navigation.map((item) => (
+            <ActiveLink
+              key={item.name}
+              href={item.href}
+              className="flex items-center p-2 rounded-lg transition-colors duration-200 w-full cursor-pointer"
+            >
+              <div className="flex items-center justify-center">
+                <item.icon aria-hidden="true" className="h-6 w-6 shrinnk-0" />
+                <motion.span
+                  variants={menuTextVariants}
+                  animate={isSidebarExpanded ? 'expanded' : 'collapsed'}
+                  initial="collapsed"
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="whitespace-nowrap overflow-hidden"
+                >
+                  {item.name}
+                </motion.span>
+              </div>
+            </ActiveLink>
+          ))}
         </nav>
       </div>
     </motion.div>

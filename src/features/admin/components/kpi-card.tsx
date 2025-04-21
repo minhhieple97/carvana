@@ -1,7 +1,8 @@
-import type React from 'react';
-import { DashboardItem } from '../types';
-import { cn, formatNumber, formatPrice } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui';
+import { cn, formatNumber, formatPrice } from '@/lib/utils';
+
+import type { DashboardItem } from '../types';
+import type React from 'react';
 export const KPICard = (props: DashboardItem[][number]) => {
   const { icon: Icon, ...rest } = props;
 

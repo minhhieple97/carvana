@@ -1,13 +1,3 @@
-import { Skeleton } from '@/components/ui';
-import {
-  formatBodyType,
-  formatColour,
-  formatFuelType,
-  formatNumber,
-  formatOdometerUnit,
-  formatTransmission,
-  formatUlezCompliance,
-} from '@/lib/utils';
 import {
   CarFrontIcon,
   CarIcon,
@@ -20,7 +10,19 @@ import {
   XIcon,
 } from 'lucide-react';
 import Image from 'next/image';
-import { StreamableSkeletonProps } from '../types';
+
+import { Skeleton } from '@/components/ui';
+import {
+  formatBodyType,
+  formatColour,
+  formatFuelType,
+  formatNumber,
+  formatOdometerUnit,
+  formatTransmission,
+  formatUlezCompliance,
+} from '@/lib/utils';
+
+import type { StreamableSkeletonProps } from '../types';
 
 export const StreamableSkeleton = (props: StreamableSkeletonProps) => {
   const {

@@ -1,8 +1,10 @@
 import { CarIcon, PoundSterling, TrendingUpIcon, UsersIcon } from 'lucide-react';
-import type React from 'react';
 import { use } from 'react';
-import { DashboardItem, KpiCardDataProps } from '../types';
+
 import { KPICard } from './kpi-card';
+
+import type { DashboardItem, KpiCardDataProps } from '../types';
+import type React from 'react';
 
 export const KPICards = (props: KpiCardDataProps) => {
   const { data } = props;

@@ -65,8 +65,8 @@ export const HeroSection = async (props: AwaitedPageProps) => {
                       />
                     </svg>
                   </div>
-                  <span className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"></span>
-                  <span className="absolute top-0 left-0 w-full h-full -z-5 bg-gradient-to-br from-primary-400 to-primary-600 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-full"></span>
+                  <span className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100" />
+                  <span className="absolute top-0 left-0 w-full h-full -z-5 bg-gradient-to-br from-primary-400 to-primary-600 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 rounded-full" />
                 </Link>
               </Button>
             </div>

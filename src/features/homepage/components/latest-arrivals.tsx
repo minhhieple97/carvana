@@ -1,5 +1,4 @@
 import { getLatestArrivals } from '@/features/classifieds';
-import { prisma } from '@/lib/prisma';
 import { redis } from '@/lib/redis-store';
 import { getSourceId } from '@/lib/source-id';
 

@@ -1,11 +1,12 @@
 'use client';
 
+import { ImagePlus, Loader2 } from 'lucide-react';
+import { type ChangeEvent, type DragEvent, useRef, useState } from 'react';
+
 import { MAX_IMAGE_SIZE } from '@/config/constants';
 import { endpoints } from '@/config/endpoints';
 import { api } from '@/lib/api-client';
 import { cn, convertToMb } from '@/lib/utils';
-import { ImagePlus, Loader2 } from 'lucide-react';
-import { type ChangeEvent, type DragEvent, useRef, useState } from 'react';
 
 type ImageUploaderProps = {
   onUploadComplete: (url: string) => void;

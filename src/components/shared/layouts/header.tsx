@@ -27,7 +27,7 @@ export const PublicHeader = async () => {
             className="group font-heading rounded px-3 py-2 text-base text-foreground hover:text-primary duration-300 transition-all ease-in-out font-semibold uppercase"
             href={link.href}
             key={link.id}
-            prefetch={true}
+            prefetch
           >
             {link.label}
           </Link>

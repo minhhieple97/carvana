@@ -1,11 +1,14 @@
 'use client';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { type ChangeEvent } from 'react';
+
 import { Select, TableRow } from '@/components/ui';
 import { TableCell } from '@/components/ui';
 import { TableFooter } from '@/components/ui';
-import type { AwaitedPageProps, FilterOptions } from '@/config/types';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { type ChangeEvent } from 'react';
+
 import { CustomPagination } from '../cusstom-pagination';
+
+import type { AwaitedPageProps, FilterOptions } from '@/config/types';
 
 const itemsPerPageOptions: FilterOptions<string, string> = [
   { label: '10', value: '10' },
