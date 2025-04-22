@@ -2,6 +2,7 @@ import { unstable_noStore as noStore } from 'next/cache';
 
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { redis } from '@/lib/redis-store';
+import { getSourceId } from '@/lib/source-id';
 
 import { getPaginatedFavouriteClassifieds, getFavouritesCount } from '../db/favourites';
 
@@ -35,4 +36,21 @@ export const getTotalFavouritesCount = async (favouriteIds: number[]): Promise<n
     return 0;
   }
   return getFavouritesCount(favouriteIds);
+};
+
+export const toggleFavourite = async (id: number): Promise<number[]> => {
+  const sourceId = await getSourceId();
+  if (!sourceId) return [];
+
+  const storedFavourites = await redis.get<Favourites>(sourceId);
+  const favourites: Favourites = storedFavourites || { ids: [] };
+
+  if (favourites.ids.includes(id)) {
+    favourites.ids = favourites.ids.filter((favId) => favId !== id);
+  } else {
+    favourites.ids.push(id);
+  }
+
+  await redis.set(sourceId, favourites);
+  return favourites.ids;
 };
