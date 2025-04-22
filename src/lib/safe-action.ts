@@ -2,6 +2,7 @@ import { Role } from '@prisma/client';
 import { cookies } from 'next/headers';
 import { createSafeActionClient, DEFAULT_SERVER_ERROR_MESSAGE } from 'next-safe-action';
 
+import { COOKIE_SESSION_KEY } from '@/config';
 import { getUserFromSession } from '@/features/auth';
 export class ActionError extends Error {}
 export const action = createSafeActionClient({
@@ -18,8 +19,7 @@ export const action = createSafeActionClient({
 
 export const authAction = action.use(async ({ next }) => {
   const cookieStore = await cookies();
-  const session = cookieStore.get('session')?.value;
-
+  const session = cookieStore.get(COOKIE_SESSION_KEY)?.value;
   if (!session) {
     throw new ActionError('Session not found!');
   }

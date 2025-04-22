@@ -78,7 +78,11 @@ export const useCreateClassifiedDialog = () => {
   );
 
   const handleImageUpload = (url: string) => {
-    imageForm.setValue('image', url);
+    imageForm.setValue('image', url, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    });
   };
 
   const onImageSubmit: SubmitHandler<SingleImageType> = (data) => {
@@ -94,7 +98,6 @@ export const useCreateClassifiedDialog = () => {
         for await (const value of readStreamableValue(responseMessage.classified)) {
           if (value) {
             const mappedData = mapStreamDataToCreateType(value);
-            // Reset the form with the mapped data, ensuring required fields are present before submission
             createForm.reset(mappedData);
           }
         }
@@ -108,7 +111,6 @@ export const useCreateClassifiedDialog = () => {
   };
 
   const onCreateSubmit: SubmitHandler<CreateClassifiedType> = (data) => {
-    // Data now conforms to CreateClassifiedType thanks to the resolver
     executeCreateAction(data);
   };
 

@@ -1,131 +1,32 @@
 'use client';
 
-import { ImagePlus, Loader2 } from 'lucide-react';
-import { type ChangeEvent, type DragEvent, useRef, useState } from 'react';
+import { CheckCircle, ImagePlus, Loader2 } from 'lucide-react';
+import { useRef } from 'react';
 
 import { MAX_IMAGE_SIZE } from '@/config/constants';
-import { endpoints } from '@/config/endpoints';
-import { api } from '@/lib/api-client';
 import { cn, convertToMb } from '@/lib/utils';
+import { useSingleImageUpload } from '../hooks/useSingleImageUpload';
 
-type ImageUploaderProps = {
-  defaultValue?: string;
+type SingleImageUploaderProps = {
   onUploadComplete: (url: string) => void;
 };
 
-export const ImageUploader = (props: ImageUploaderProps) => {
-  const { onUploadComplete, defaultValue } = props;
-  const [preview, setPreview] = useState<string | null>(defaultValue || null);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadComplete, setUploadComplete] = useState(!!defaultValue);
-  const [draggingOver, setDraggingOver] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+export const SingleImageUploader = (props: SingleImageUploaderProps) => {
+  const { onUploadComplete } = props;
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const file = e.target.files?.[0];
-    if (!file) return;
-    if (file.size > MAX_IMAGE_SIZE) {
-      setError(`File size exceeds ${convertToMb(file.size)} limit`);
-      return;
-    }
-
-    setError(null);
-    setIsUploading(true);
-
-    if (preview !== defaultValue) {
-      setPreview(null);
-    }
-
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setPreview(reader.result as string);
-    };
-
-    reader.readAsDataURL(file);
-
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      const response = await api.post<{ url: string }>(endpoints.images.singleUpload, {
-        body: formData,
-      });
-      const { url } = response;
-      onUploadComplete(url);
-      setUploadComplete(true);
-    } catch (error) {
-      console.log('Error uploading file: ', error);
-      setError('Failed to upload image. Please try again.');
-    } finally {
-      setIsUploading(false);
-    }
-  };
-
-  const handleDrop = async (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDraggingOver(false);
-
-    const file = e.dataTransfer.files?.[0];
-    if (!file) return;
-    if (file.size > MAX_IMAGE_SIZE) {
-      setError(`File size exceeds ${convertToMb(file.size)} limit`);
-      return;
-    }
-
-    setError(null);
-    setIsUploading(true);
-
-    if (preview !== defaultValue) {
-      setPreview(null);
-    }
-
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setPreview(reader.result as string);
-    };
-
-    reader.readAsDataURL(file);
-
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      const response = await api.post<{ url: string }>(endpoints.images.singleUpload, {
-        body: formData,
-      });
-
-      const { url } = response;
-
-      onUploadComplete(url);
-      setUploadComplete(true);
-    } catch (error) {
-      console.log('Error uploading file: ', error);
-      setError('Failed to upload image. Please try again.');
-    } finally {
-      setIsUploading(false);
-    }
-  };
-
-  const stopEvent = (e: DragEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-  const handleDragEnter = (e: DragEvent<HTMLInputElement>) => {
-    stopEvent(e);
-  };
-  const handleDragLeave = (e: DragEvent<HTMLInputElement>) => {
-    stopEvent(e);
-    setDraggingOver(false);
-  };
-  const handleDragOver = (e: DragEvent<HTMLInputElement>) => {
-    stopEvent(e);
-    setDraggingOver(true);
-  };
+  const {
+    preview,
+    isUploading,
+    uploadComplete,
+    draggingOver,
+    error,
+    handleUpload,
+    handleDrop,
+    handleDragEnter,
+    handleDragLeave,
+    handleDragOver,
+  } = useSingleImageUpload({ onUploadComplete });
 
   const handleClick = () => {
     if (uploadComplete && preview) return;
@@ -169,9 +70,7 @@ export const ImageUploader = (props: ImageUploaderProps) => {
           multiple={false}
         />
         {preview ? (
-          <>
-            <img src={preview} alt="Preview" className="h-full w-full object-cover rounded-md" />
-          </>
+          <img src={preview} alt="Preview" className="h-full w-full object-cover rounded-md" />
         ) : (
           <div className="text-center flex items-center justify-center flex-col p-4">
             <ImagePlus className="mx-auto w-12 h-12 text-muted-foreground" />
@@ -183,6 +82,11 @@ export const ImageUploader = (props: ImageUploaderProps) => {
         {isUploading && (
           <div className="absolute inset-0 flex items-center justify-center bg-background/75 dark:bg-background/80 rounded-md">
             <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+          </div>
+        )}
+        {uploadComplete && (
+          <div className="absolute inset-0 flex items-center justify-center bg-background/75 dark:bg-background/80 rounded-md">
+            <CheckCircle className="w-8 h-8 text-muted-foreground" />
           </div>
         )}
       </div>

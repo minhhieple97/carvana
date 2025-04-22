@@ -2,8 +2,6 @@
 
 import { createAI } from 'ai/rsc';
 
-import { adminAction } from '@/lib/safe-action';
-
 import { generateClassifiedData } from '../services/ai.service';
 
 import type { ServerMessage, ClientMessage } from '../types';

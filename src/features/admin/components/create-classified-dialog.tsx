@@ -13,7 +13,7 @@ import {
 import { Form } from '@/components/ui/form';
 import { cn } from '@/lib/utils';
 
-import { ImageUploader } from './single-image-uploader';
+import { SingleImageUploader } from './single-image-uploader';
 import { useCreateClassifiedDialog } from '../hooks/useCreateClassifiedDialog';
 
 export const CreateClassifiedDialog = () => {
@@ -29,7 +29,6 @@ export const CreateClassifiedDialog = () => {
     onImageSubmit,
     onCreateSubmit,
   } = useCreateClassifiedDialog();
-
   const isLoading = isUploading || isCreating;
 
   return (
@@ -74,7 +73,7 @@ export const CreateClassifiedDialog = () => {
         ) : (
           <Form {...imageForm}>
             <form className="space-y-4" onSubmit={onImageSubmit}>
-              <ImageUploader onUploadComplete={handleImageUpload} />
+              <SingleImageUploader onUploadComplete={handleImageUpload} />
               <div className="flex justify-between gap-2">
                 <Button
                   variant="outline"

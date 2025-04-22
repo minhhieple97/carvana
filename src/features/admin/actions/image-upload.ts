@@ -1,4 +1,5 @@
 'use server';
+import mimetype from 'mime-types';
 import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -30,7 +31,6 @@ const singleUpload = async ({
       throw new ActionError('File size exceeds maximum limit');
     }
 
-    const { default: mimetype } = await import('mime-types');
     const mime = mimetype.lookup(file.name)?.toString();
 
     if (!mime?.match(/image\/(jpeg|jpg|png|webp)/)) {
