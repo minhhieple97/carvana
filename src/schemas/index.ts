@@ -7,3 +7,4 @@ export * from './auth.schema';
 export * from './pagination.schema';
 export * from './table-filters.schema';
 export * from './table-sort.schema';
+export * from './images.schema';

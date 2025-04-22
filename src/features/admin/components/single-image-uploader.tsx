@@ -176,7 +176,7 @@ export const ImageUploader = (props: ImageUploaderProps) => {
           <div className="text-center flex items-center justify-center flex-col p-4">
             <ImagePlus className="mx-auto w-12 h-12 text-muted-foreground" />
             <p className="mt-1 text-sm text-muted-foreground">
-              Click or drag to upload image (max {convertToMb(MAX_IMAGE_SIZE)}mb)
+              Click or drag to upload image (max {convertToMb(MAX_IMAGE_SIZE)})
             </p>
           </div>
         )}
