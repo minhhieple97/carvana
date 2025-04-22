@@ -34,20 +34,39 @@ export const CreateClassifiedDialog = () => {
   return (
     <Dialog open={isModalOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <Button className="ml-4" size="sm">
+        <Button className="ml-4 bg-primary text-primary-foreground hover:bg-primary/90" size="sm">
           Create New
         </Button>
       </DialogTrigger>
-      <DialogContent className={cn('max-w-6xl bg-white')}>
+      <DialogContent
+        className={cn(
+          'max-w-6xl',
+          'bg-background dark:bg-card',
+          'text-foreground dark:text-card-foreground',
+          'border border-border dark:border-input',
+          'shadow-lg'
+        )}
+      >
         <DialogHeader>
-          <DialogTitle>Create New Classified</DialogTitle>
+          <DialogTitle className="text-foreground dark:text-card-foreground">
+            Create New Classified
+          </DialogTitle>
         </DialogHeader>
         {messages.length ? (
           <Form {...createForm}>
             <form className="space-y-4" onSubmit={onCreateSubmit}>
               {messages.map((message) => (
-                <div className="w-full" key={message.id}>
-                  {typeof message.display === 'string' ? <p>{message.display}</p> : message.display}
+                <div
+                  className="w-full text-foreground/90 dark:text-card-foreground/90"
+                  key={message.id}
+                >
+                  {typeof message.display === 'string' ? (
+                    <p className="text-foreground/90 dark:text-card-foreground/90">
+                      {message.display}
+                    </p>
+                  ) : (
+                    message.display
+                  )}
                 </div>
               ))}
               <div className="flex justify-between gap-2">
@@ -56,15 +75,21 @@ export const CreateClassifiedDialog = () => {
                   type="button"
                   onClick={() => handleOpenChange(false)}
                   disabled={isLoading}
+                  className="border-border dark:border-input hover:bg-secondary/80 dark:hover:bg-secondary/20"
                 >
                   Cancel
                 </Button>
                 <Button
                   disabled={isLoading || !createForm.formState.isValid}
                   type="submit"
-                  className="flex items-center gap-x-2"
+                  className={cn(
+                    'flex items-center gap-x-2',
+                    'bg-primary text-primary-foreground',
+                    'hover:bg-primary/90 dark:hover:bg-primary/80',
+                    'disabled:bg-muted disabled:text-muted-foreground'
+                  )}
                 >
-                  {isLoading ? <Loader2 className="animate-spin h-4 w-4" /> : null}
+                  {isLoading && <Loader2 className="animate-spin h-4 w-4" />}
                   {isUploading ? 'Processing...' : 'Create'}
                 </Button>
               </div>
@@ -80,13 +105,19 @@ export const CreateClassifiedDialog = () => {
                   type="button"
                   onClick={() => handleOpenChange(false)}
                   disabled={isUploading}
+                  className="border-border dark:border-input hover:bg-secondary/80 dark:hover:bg-secondary/20"
                 >
                   Cancel
                 </Button>
                 <Button
                   disabled={isUploading || !imageForm.formState.isValid}
                   type="submit"
-                  className="flex items-center gap-x-2"
+                  className={cn(
+                    'flex items-center gap-x-2',
+                    'bg-primary text-primary-foreground',
+                    'hover:bg-primary/90 dark:hover:bg-primary/80',
+                    'disabled:bg-muted disabled:text-muted-foreground'
+                  )}
                 >
                   {isUploading && <Loader2 className="animate-spin h-4 w-4" />}
                   Generate Details
