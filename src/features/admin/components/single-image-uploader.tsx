@@ -9,14 +9,15 @@ import { api } from '@/lib/api-client';
 import { cn, convertToMb } from '@/lib/utils';
 
 type ImageUploaderProps = {
+  defaultValue?: string;
   onUploadComplete: (url: string) => void;
 };
 
 export const ImageUploader = (props: ImageUploaderProps) => {
-  const { onUploadComplete } = props;
-  const [preview, setPreview] = useState<string | null>(null);
+  const { onUploadComplete, defaultValue } = props;
+  const [preview, setPreview] = useState<string | null>(defaultValue || null);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadComplete, setUploadComplete] = useState(false);
+  const [uploadComplete, setUploadComplete] = useState(!!defaultValue);
   const [draggingOver, setDraggingOver] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -34,6 +35,10 @@ export const ImageUploader = (props: ImageUploaderProps) => {
 
     setError(null);
     setIsUploading(true);
+
+    if (preview !== defaultValue) {
+      setPreview(null);
+    }
 
     const reader = new FileReader();
 
@@ -74,6 +79,10 @@ export const ImageUploader = (props: ImageUploaderProps) => {
 
     setError(null);
     setIsUploading(true);
+
+    if (preview !== defaultValue) {
+      setPreview(null);
+    }
 
     const reader = new FileReader();
 
@@ -119,6 +128,7 @@ export const ImageUploader = (props: ImageUploaderProps) => {
   };
 
   const handleClick = () => {
+    if (uploadComplete && preview) return;
     inputRef.current?.click();
   };
 
@@ -130,13 +140,23 @@ export const ImageUploader = (props: ImageUploaderProps) => {
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onClick={handleClick}
-        onKeyDown={() => null}
+        onKeyDown={(e) => {
+          if (!uploadComplete && (e.key === 'Enter' || e.key === ' ')) {
+            handleClick();
+          }
+        }}
+        role="button"
+        tabIndex={uploadComplete ? -1 : 0}
+        aria-label={preview ? 'Uploaded image preview' : 'Click or drag to upload image'}
         className={cn(
-          'relative flex aspect-3/2 cursor-pointer flex-col items-center justify-center rounded-md',
-          error && 'border-red-500 border-2 border-dotted',
+          'relative flex aspect-3/2 flex-col items-center justify-center rounded-md border-border dark:border-input',
+          !preview && 'cursor-pointer',
+          error && 'border-destructive border-2 border-dotted',
           isUploading && 'pointer-events-none opacity-50',
           draggingOver && 'opacity-50',
-          !uploadComplete && 'border-2 border-dashed border-gray-300'
+          !uploadComplete &&
+            !preview &&
+            'border-2 border-dashed border-muted-foreground/50 dark:border-muted-foreground/40'
         )}
       >
         <input
@@ -145,24 +165,28 @@ export const ImageUploader = (props: ImageUploaderProps) => {
           accept="image/*"
           onChange={handleUpload}
           className="hidden"
-          disabled={isUploading}
+          disabled={isUploading || uploadComplete}
           multiple={false}
         />
         {preview ? (
-          <img src={preview} alt="Preview" className="h-full w-full object-cover rounded-md" />
+          <>
+            <img src={preview} alt="Preview" className="h-full w-full object-cover rounded-md" />
+          </>
         ) : (
-          <div className="text-center flex items-center justify-center flex-col">
-            <ImagePlus className="mx-atuo w-12 h-12 text-gray-400" />
-            <p className="mt-1 text-sm text-gray-600">Click or drag to upload image (max 2mb)</p>
+          <div className="text-center flex items-center justify-center flex-col p-4">
+            <ImagePlus className="mx-auto w-12 h-12 text-muted-foreground" />
+            <p className="mt-1 text-sm text-muted-foreground">
+              Click or drag to upload image (max {convertToMb(MAX_IMAGE_SIZE)}mb)
+            </p>
           </div>
         )}
         {isUploading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
-            <Loader2 className="w-8 h-8 animate-spin text-gray-500" />
+          <div className="absolute inset-0 flex items-center justify-center bg-background/75 dark:bg-background/80 rounded-md">
+            <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
           </div>
         )}
       </div>
-      {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
+      {error && <p className="mt-2 text-sm text-destructive">{error}</p>}
     </div>
   );
 };

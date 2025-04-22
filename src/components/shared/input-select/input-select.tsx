@@ -35,9 +35,13 @@ export const InputSelect = (props: InputSelectProps) => {
               </FormLabel>
             )}
             <FormControl>
-              <div className="flex items-center">
+              <div className="flex items-center gap-0">
                 <NumberInput
-                  className="text-form-text bg-form-bg border-form-border h-10 rounded-l-form-radius rounded-r-none placeholder:text-form-placeholder focus:border-form-border-focus hover:border-form-border-focus transition-colors flex-grow"
+                  className={cn(
+                    'w-[120px] bg-form-bg text-form-text border border-form-border',
+                    'h-10 min-h-10 px-3',
+                    'm-0 py-0'
+                  )}
                   onValueChange={(values) => {
                     onChange(values.floatValue);
                   }}
@@ -49,8 +53,14 @@ export const InputSelect = (props: InputSelectProps) => {
                   name={selectName}
                   render={({ field: { ref, ...rest } }) => (
                     <select
+                      ref={ref}
                       className={cn(
-                        'custom-select appearance-none px-3 h-10 bg-no-repeat bg-form-bg text-form-text border border-form-border rounded-r-form-radius rounded-l-none border-l-0 focus:border-form-border-focus hover:border-form-border-focus transition-colors min-w-[100px] text-center mt-1'
+                        'custom-select',
+                        'w-[100px] bg-form-bg text-form-text border border-form-border',
+                        'h-10 min-h-10',
+                        'px-3 pr-8',
+                        'rounded-r-[--form-radius] rounded-l-none',
+                        'border-l-0'
                       )}
                       {...rest}
                     >
