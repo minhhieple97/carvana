@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { ITEMS_PER_PAGE } from '@/config/constants';
+
 export const PaginationSchema = z.object({
   page: z
     .string()
@@ -8,11 +10,11 @@ export const PaginationSchema = z.object({
     })
     .default('1'),
   itemsPerPage: z
-    .enum(['10', '25', '50', '100'])
+    .enum(Object.values(ITEMS_PER_PAGE) as [string, ...string[]])
     .refine((val) => Number(val) > 0, {
       message: 'Items per page must be greater than 0',
     })
-    .default('10'),
+    .default(ITEMS_PER_PAGE['10']),
 });
 
 export type PaginationType = z.infer<typeof PaginationSchema>;

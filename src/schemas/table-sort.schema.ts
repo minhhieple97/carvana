@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { SORT_ORDER } from '@/config/constants';
+
 export const CustomersTableSortSchema = z.object({
   order: z.enum(['asc', 'desc']).default('desc'),
   sort: z
@@ -21,7 +23,7 @@ export const CustomersTableSortSchema = z.object({
 export type CustomersTableSortType = z.infer<typeof CustomersTableSortSchema>;
 
 export const ClassifiedsTableSortSchema = z.object({
-  order: z.enum(['asc', 'desc']).default('desc'),
+  order: z.enum(Object.values(SORT_ORDER) as [string, ...string[]]).default(SORT_ORDER.DESC),
   sort: z
     .enum(['status', 'title', 'vrm', 'id', 'views', 'year', 'colour', 'price', 'createdAt'])
     .default('createdAt'),

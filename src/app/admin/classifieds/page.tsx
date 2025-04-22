@@ -1,6 +1,6 @@
 import { AdminTableFooter } from '@/components';
 import { Table, TableBody } from '@/components/ui';
-import { routes } from '@/config';
+import { ADMIN_CLASSIFIEDS_PER_PAGE, ADMIN_CLASSIFIEDS_PAGE, routes } from '@/config';
 import { AdminClassifiedsHeader } from '@/features/admin/components/classifeds-header';
 import { getAdminClassifieds } from '@/features/admin/services/classified.service';
 import { ClassifiedsTableRow } from '@/features/classifieds/components/classified-table-row';
@@ -8,10 +8,9 @@ import { ClassifiedsTableHeader } from '@/features/classifieds/components/classi
 import { validatePagination } from '@/schemas/pagination.schema';
 
 import { AdminClassifiedFilterSchema } from '@/schemas/table-filters.schema';
-import type { PageProps} from '@/config';
+import type { ItemsPerPageType, PageProps, SortOrderType } from '@/config';
 
 import type { ClassifiedKeys } from '@/features';
-
 
 import type { ClassifiedsTableSortType } from '@/schemas/table-sort.schema';
 
@@ -22,24 +21,23 @@ export default async function ClassifiedsPage(props: PageProps) {
   const searchParams = await props.searchParams;
 
   const { page, itemsPerPage } = validatePagination({
-    page: (searchParams?.page as string) || '1',
-    itemsPerPage: (searchParams?.itemsPerPage as '10') || '10',
+    page: (searchParams?.page as string) || ADMIN_CLASSIFIEDS_PAGE,
+    itemsPerPage: (searchParams?.itemsPerPage as string) || ADMIN_CLASSIFIEDS_PER_PAGE,
   });
 
   const { sort, order } = validateSortOrder<ClassifiedsTableSortType>({
     sort: searchParams?.sort as ClassifiedKeys,
-    order: searchParams?.order as 'asc' | 'desc',
+    order: searchParams?.order as SortOrderType,
     schema: ClassifiedsTableSortSchema,
   });
 
   const { data: filters, error } = AdminClassifiedFilterSchema.safeParse(searchParams);
   if (error) console.log('Validation error: ', error);
-
   const { classifieds, totalPages } = await getAdminClassifieds({
     page,
-    itemsPerPage,
+    itemsPerPage: itemsPerPage as ItemsPerPageType,
     sort: sort as ClassifiedKeys,
-    order: order as 'asc' | 'desc',
+    order: order as SortOrderType,
     filters: filters || {},
   });
 

@@ -26,6 +26,7 @@ import {
   deleteClassifiedById as deleteClassifiedDb,
   findClassifiedsWithFilter,
   countClassifiedsWithFilter,
+  findClassifiedWithImagesById,
 } from '../db/classified.db';
 import { findMakeByName } from '../db/taxonomy.db';
 import { findOrCreateModel } from '../db/taxonomy.db';
@@ -38,6 +39,7 @@ import type {
   UpdateClassifiedDbInput,
   UpdateClassifiedImagesInput,
 } from '../types';
+import type { ItemsPerPageType, SortOrderType } from '@/config/constants';
 import type { ClassifiedKeys } from '@/features';
 import type { ClassifiedWithImages } from '@/features/classifieds/types';
 import type { CreateClassifiedType, UpdateClassifiedType } from '@/schemas/classified.schema';
@@ -231,9 +233,9 @@ export const getAdminClassifieds = async ({
   filters,
 }: {
   page: string;
-  itemsPerPage: string;
+  itemsPerPage: ItemsPerPageType;
   sort: ClassifiedKeys;
-  order: 'asc' | 'desc';
+  order: SortOrderType;
   filters: { q?: string | undefined; status?: string | undefined };
 }): Promise<{ classifieds: ClassifiedWithImages[]; count: number; totalPages: number }> => {
   const offset = (Number(page) - 1) * Number(itemsPerPage);
@@ -260,4 +262,10 @@ export const getAdminClassifieds = async ({
     count,
     totalPages,
   };
+};
+
+export const getAdminClassified = async (id: number): Promise<ClassifiedWithImages> => {
+  const classified = await findClassifiedWithImagesById(id);
+  if (!classified) throw new ActionError('Classified not found.');
+  return classified;
 };

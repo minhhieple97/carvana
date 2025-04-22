@@ -27,3 +27,32 @@ export const MAX_IMAGE_SIZE = 20 * 1000 * 1000; // 2mb
 export const MAX_IMAGES = 20;
 
 export const sortOrder = ['asc', 'desc'] as const;
+
+export const ADMIN_CLASSIFIEDS_PER_PAGE = '10';
+export const ADMIN_CLASSIFIEDS_PAGE = '1';
+export const ITEMS_PER_PAGE = {
+  '10': '10',
+  '25': '25',
+  '50': '50',
+  '100': '100',
+} as const;
+
+export type ItemsPerPageType = keyof typeof ITEMS_PER_PAGE;
+
+export const SORT_OPTIONS = {
+  PRICE: 'price',
+  YEAR: 'year',
+  MAKE: 'make',
+  MODEL: 'model',
+} as const;
+
+export type SortOptionsType = keyof typeof SORT_OPTIONS;
+
+export const SORT_ORDER = {
+  ASC: 'asc',
+  DESC: 'desc',
+} as const;
+
+export type SortOrderType = (typeof SORT_ORDER)[keyof typeof SORT_ORDER];
+
+export type SortDirectionType = 'asc' | 'desc';

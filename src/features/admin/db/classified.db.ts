@@ -21,6 +21,9 @@ export const countClassifiedsWithSlugLike = (slug: string) =>
 
 export const findClassifiedById = (id: number) => prisma.classified.findUnique({ where: { id } });
 
+export const findClassifiedWithImagesById = (id: number) =>
+  prisma.classified.findUnique({ where: { id }, include: { images: true } });
+
 export const createClassifiedWithImages = (data: CreateClassifiedDbInput) => {
   const { images, ...classifiedData } = data;
   return prisma.classified.create({

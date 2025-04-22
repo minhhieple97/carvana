@@ -18,6 +18,7 @@ import { findMakeByName } from '../db/taxonomy.db';
 const openai = createOpenAI({
   apiKey: env.OPENAI_API_KEY,
   compatibility: 'strict',
+  baseURL: 'https://multiappai-api.itmovnteam.com/v1',
 });
 
 export async function generateClassifiedData(image: string) {
@@ -29,12 +30,10 @@ export async function generateClassifiedData(image: string) {
   uiStream.update(<StreamableSkeleton {...classified} />);
 
   try {
-    // Step 1: Generate taxonomy data
     const taxonomyData = await generateTaxonomyData(image);
 
     classified.title = formatTitle(taxonomyData);
 
-    // Step 2: Map to existing taxonomy or create new
     const foundTaxonomy = await mapToTaxonomyOrCreate({
       year: taxonomyData.year,
       make: taxonomyData.make,
@@ -83,7 +82,8 @@ export async function generateClassifiedData(image: string) {
 
 async function generateTaxonomyData(image: string) {
   const { object: taxonomy } = await generateObject({
-    model: openai('gpt-4o-mini-2024-07-18', { structuredOutputs: true }),
+    model: openai('gpt-4o-mini', { structuredOutputs: true }),
+
     schema: ClassifiedTaxonomyAISchema,
     system:
       'You are an expert at analysing images of vehicles and responding with a structured JSON object based on the schema provided',

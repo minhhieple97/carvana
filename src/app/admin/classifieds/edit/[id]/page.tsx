@@ -6,6 +6,7 @@ import { prisma } from '@/lib/prisma';
 import { validateIdSchema } from '@/schemas';
 
 import type { PageProps } from '@/config/types';
+import { getAdminClassified } from '@/features/admin/services/classified.service';
 
 export default async function EditClassified(props: PageProps) {
   const params = await props.params;
@@ -16,10 +17,7 @@ export default async function EditClassified(props: PageProps) {
 
   if (!success) redirect(routes.admin.classifieds);
 
-  const classified = await prisma.classified.findUnique({
-    where: { id: data.id },
-    include: { images: true },
-  });
+  const classified = await getAdminClassified(data.id);
 
   if (!classified) redirect(routes.admin.classifieds);
 
