@@ -21,13 +21,13 @@ export const CustomPagination = (props: PaginationProps) => {
 
   // Define base styles using CSS variables for better theme support
   const baseLinkStyle =
-    'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center text-foreground dark:text-foreground hover:bg-accent hover:text-accent-foreground pagination-link';
+    'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground pagination-link';
   const activeLinkStyle =
-    'bg-primary text-primary-foreground font-semibold hover:bg-primary/90 pagination-link-active';
+    'bg-primary text-white border-primary font-bold shadow-md dark:shadow-primary/30 dark:border-2 dark:border-primary dark:text-primary-foreground hover:bg-primary hover:text-primary-foreground';
   const ellipsisStyle =
-    'text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md min-w-[32px] h-[32px] flex items-center justify-center pagination-ellipsis';
+    'text-muted-foreground dark:text-muted-foreground/90 hover:bg-accent hover:text-accent-foreground rounded-md min-w-[32px] h-[32px] flex items-center justify-center pagination-ellipsis';
   const prevNextStyle =
-    'text-foreground dark:text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-md pagination-nav';
+    'text-foreground dark:text-foreground/90 border border-border bg-background hover:bg-accent hover:text-accent-foreground transition-colors rounded-md px-2 pagination-nav';
   const disabledStyle = 'opacity-50 pointer-events-none';
 
   return (

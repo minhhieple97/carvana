@@ -39,19 +39,19 @@ export const AdminTableFooter = (props: AdminTableFooterProps) => {
   };
 
   return (
-    <TableFooter className="border-primary-800 bg-transparent">
-      <TableRow className="hover:bg-transparent">
+    <TableFooter className="border-t border-border bg-background">
+      <TableRow className="hover:bg-muted/50">
         <TableCell colSpan={cols}>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between py-2">
             <Select
               name="itemsPerPage"
               value={itemsPerPage as string}
               onChange={handleItemsPerPage}
               options={itemsPerPageOptions}
               disabled={disabled && totalPages <= 1}
-              className="-mt-1"
+              className="-mt-1 w-24"
               noDefault={false}
-              selectClassName="bg-primary-800 text-muted/75 border-primary-800"
+              selectClassName="bg-background text-foreground border-border hover:border-input-border focus:ring-ring/20"
             />
             {totalPages > 1 && (
               <CustomPagination
@@ -59,10 +59,10 @@ export const AdminTableFooter = (props: AdminTableFooterProps) => {
                 baseURL={baseURL}
                 styles={{
                   paginationRoot: 'justify-end',
-                  paginationPrevious: 'border-none hover:bg-primary-800 text-muted',
-                  paginationNext: 'hover:bg-primary-800 text-muted',
-                  paginationLink: 'border-none hover:bg-primary-800 text-muted',
-                  paginationLinkActive: 'bg-primary-800 !text-white',
+                  paginationPrevious: 'border border-border hover:bg-accent text-foreground',
+                  paginationNext: 'border border-border hover:bg-accent text-foreground',
+                  paginationLink: 'border border-border hover:bg-accent text-foreground',
+                  paginationLinkActive: 'bg-primary !text-primary-foreground border-primary',
                 }}
               />
             )}
