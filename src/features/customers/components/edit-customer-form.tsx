@@ -39,13 +39,13 @@ export const EditCustomerForm = ({ customer }: EditCustomerFormProps) => {
 
   return (
     <Form {...form}>
-      <form onChange={form.handleSubmit(onChangeHandler)}>
+      <form onChange={form.handleSubmit(onChangeHandler)} className="w-[240px]">
         <FormField
           control={form.control}
           name="status"
           render={({ field: { ref, ...rest } }) => (
             <FormItem>
-              <FormLabel htmlFor="status">Customer Status</FormLabel>
+              <FormLabel className="text-foreground">Status</FormLabel>
               <FormControl>
                 <Select
                   options={Object.values(CustomerStatus).map((value) => ({
@@ -53,7 +53,7 @@ export const EditCustomerForm = ({ customer }: EditCustomerFormProps) => {
                     value,
                   }))}
                   noDefault={false}
-                  selectClassName="bg-primary-800 border-transparent text-muted/75"
+                  selectClassName="bg-background border-input text-foreground hover:bg-accent hover:text-accent-foreground"
                   {...rest}
                 />
               </FormControl>

@@ -2,6 +2,9 @@ import { z } from 'zod';
 
 import { SORT_ORDER } from '@/config/constants';
 
+import type { SortOrderType } from '@/config/constants';
+import type { CustomerKeys } from '@/features/customers/types';
+
 export const CustomersTableSortSchema = z.object({
   order: z.enum(['asc', 'desc']).default('desc'),
   sort: z
@@ -41,19 +44,17 @@ export type ValidateSortOrderArgs<TSchemaType> = {
 
 export function validateSortOrder<TSchemaType>(args: ValidateSortOrderArgs<TSchemaType>) {
   const { sort, order, schema } = args;
-  const { data, success, error } = schema.safeParse({
+  const { data, success } = schema.safeParse({
     sort,
     order,
   });
 
-  if (error) console.error(error);
-
   if (!success) {
     return {
-      sort: undefined,
-      order: undefined,
+      sort: 'createdAt' as const,
+      order: 'desc' as const,
     };
   }
 
-  return data;
+  return data as { sort: CustomerKeys; order: SortOrderType };
 }

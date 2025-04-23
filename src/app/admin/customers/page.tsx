@@ -10,14 +10,13 @@ import {
   CustomersTableHeader,
   CustomerTableRow,
 } from '@/features/customers/components';
-
 import { AdminTableFooter } from '@/components/shared/admin-table-footer';
 import { Table, TableBody } from '@/components/ui/table';
 import { routes } from '@/config/routes';
 import type { PageProps } from '@/config/types';
-import { prisma } from '@/lib/prisma';
 import { CustomerKeys } from '@/features/customers/types';
 import { ADMIN_CUSTOMERS_PER_PAGE, ADMIN_CUSTOMERS_PAGE, SortOrderType } from '@/config/constants';
+import { getCustomers } from '@/features/customers/services';
 
 export default async function CustomersPage(props: PageProps) {
   const searchParams = await props.searchParams;
@@ -33,37 +32,22 @@ export default async function CustomersPage(props: PageProps) {
     schema: CustomersTableSortSchema,
   });
 
-  const offset = (Number(page) - 1) * Number(itemsPerPage);
+  const { data } = AdminCustomerFilterSchema.safeParse(searchParams);
 
-  const { data, error } = AdminCustomerFilterSchema.safeParse(searchParams);
-
-  if (error) console.log('Validation error: ', error);
-
-  const customers = await prisma.customer.findMany({
-    where: {
-      ...(data?.q && { title: { contains: data.q, mode: 'insensitive' } }),
-      ...(data?.status && data.status !== 'ALL' && { status: data.status }),
-    },
-    orderBy: { [sort as string]: order as SortOrderType },
-    include: { classified: true },
-    skip: offset,
-    take: Number(itemsPerPage),
+  const { customers, totalPages } = await getCustomers({
+    page: Number(page),
+    itemsPerPage: Number(itemsPerPage),
+    sort,
+    order,
+    q: data?.q,
+    status: data?.status,
   });
-
-  const count = await prisma.customer.count({
-    where: {
-      ...(data?.q && { title: { contains: data.q, mode: 'insensitive' } }),
-      ...(data?.status && data.status !== 'ALL' && { status: data.status }),
-    },
-  });
-
-  const totalPages = Math.ceil(count / Number(itemsPerPage));
 
   return (
     <>
       <AdminCustomersHeader searchParams={searchParams} />
       <Table>
-        <CustomersTableHeader sort={sort as CustomerKeys} order={order as SortOrderType} />
+        <CustomersTableHeader sort={sort} order={order} />
         <TableBody>
           {customers.map((customer) => (
             <CustomerTableRow key={customer.id} {...customer} />
