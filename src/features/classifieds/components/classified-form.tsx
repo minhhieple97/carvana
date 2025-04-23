@@ -29,7 +29,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit}>
-        <h1 className="text-3xl font-bold mb-6 text-white">Upload Vehicle</h1>
+        <h1 className="text-3xl font-bold mb-6 text-foreground">Upload Vehicle</h1>
         <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ClassifiedFormFields />
           <div className="space-y-6">
@@ -38,7 +38,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
               name="images"
               render={({ field: { name, onChange } }) => (
                 <FormItem>
-                  <FormLabel className="text-white" htmlFor="images">
+                  <FormLabel className="text-form-label-color" htmlFor="images">
                     Images (up to {MAX_IMAGES})
                   </FormLabel>
                   <FormControl>
@@ -54,14 +54,14 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
               name="status"
               render={({ field: { ref, ...rest } }) => (
                 <FormItem>
-                  <FormLabel className="text-white/90" htmlFor="status">
+                  <FormLabel className="text-form-label-color" htmlFor="status">
                     Status
                   </FormLabel>
                   <FormControl>
                     <Select
                       options={statusOptions}
                       noDefault={false}
-                      selectClassName="bg-background border-form-border text-form-text focus:border-form-border-focus"
+                      selectClassName="bg-form-bg border-form-border text-form-text focus:border-form-border-focus focus:ring-ring focus:ring-offset-background rounded-form-radius"
                       {...rest}
                     />
                   </FormControl>
@@ -73,7 +73,7 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
             <Button
               disabled={isPending}
               type="submit"
-              className="w-full flex gap-x-2 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 shadow-sm rounded-form-radius transition-colors duration-200"
+              className="w-full flex gap-x-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-form-radius transition-colors duration-200"
             >
               {isPending && <Loader2 className="animate-spin h-4 w-4" />}
               Submit

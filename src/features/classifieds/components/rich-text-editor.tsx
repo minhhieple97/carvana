@@ -2,6 +2,7 @@
 
 import { Editor, type InitOptions } from '@tinymce/tinymce-react/lib/cjs/main/ts/components/Editor';
 import { useFormContext } from 'react-hook-form';
+import { useTheme } from 'next-themes';
 
 import { FormLabel } from '@/components/ui';
 import { env } from '@/env';
@@ -16,6 +17,8 @@ type TextEditorProps = {
 
 export const RichTextEditor = (props: TextEditorProps) => {
   const { name, label, config } = props;
+  const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
 
   const init: InitOptions = {
     height: 200,
@@ -31,34 +34,45 @@ export const RichTextEditor = (props: TextEditorProps) => {
     importcss_append: true,
     browser_spellcheck: true,
     highlight_on_focus: true,
-    newline_behavior: 'linebreak', // Changed from 'linebreak'
-    forced_root_block: 'p', // Added to ensure consistent block behavior
+    newline_behavior: 'linebreak',
+    forced_root_block: 'p',
     plugins: ['lists', 'link', 'wordcount', 'importcss', 'media'],
     valid_elements: 'p,a[href|rel|target],strong/b,em/i,u,strike,br,ul,ol,li',
     toolbar: 'undo redo | styles | formatselect bold italic | bullist numlist | link',
 
-    // Configure link settings
     link_default_target: '_blank',
     link_assume_external_targets: true,
     autolink_pattern: /^(https?:\/\/|www\.)(.+)$/i,
 
-    // Configure paste behavior
     paste_postprocess: (_plugin: any, args: any) => {
       const links = args.node.getElementsByTagName('a');
       for (let i = 0; i < links.length; i++) {
-        links[i].style.color = '#3b82f6';
+        links[i].style.color = '#93c5fd';
         links[i].style.textDecoration = 'underline';
       }
     },
-    // Add custom styles for links
     content_style: `
+        body {
+            font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+            color: hsl(210 40% 98%);
+            background-color: hsl(217 33% 17%);
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+        }
         a {
-            color: #3b82f6;
+            color: #93c5fd;
             text-decoration: underline;
             cursor: pointer;
         }
         a:hover {
-            color: #2563eb;
+            color: #60a5fa;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        ul, ol {
+            margin-left: 1rem;
         }
     `,
     ...(config?.init && { ...config.init }),
@@ -75,13 +89,15 @@ export const RichTextEditor = (props: TextEditorProps) => {
     <div className="space-y-2">
       <FormLabel htmlFor={name}>{label}</FormLabel>
 
-      <Editor
-        {...props.config}
-        init={init}
-        value={value}
-        apiKey={env.NEXT_PUBLIC_TINYMCE_API_KEY}
-        onEditorChange={handleEditorChange}
-      />
+      <div className="border border-input rounded-md overflow-hidden shadow-sm bg-muted">
+        <Editor
+          {...props.config}
+          init={init}
+          value={value}
+          apiKey={env.NEXT_PUBLIC_TINYMCE_API_KEY}
+          onEditorChange={handleEditorChange}
+        />
+      </div>
     </div>
   );
 };
