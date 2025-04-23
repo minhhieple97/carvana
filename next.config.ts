@@ -1,3 +1,5 @@
+import { env } from './env.mjs';
+
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -5,25 +7,25 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'carvana-890304154.imgix.net',
+        hostname: env.NEXT_PUBLIC_IMGIX_HOSTNAME,
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'majestic-motors.s3.eu-west-2.amazonaws.com',
+        hostname: env.NEXT_PUBLIC_S3_HOSTNAME,
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'vl.imgix.net',
+        hostname: env.NEXT_PUBLIC_VL_IMGIX_HOSTNAME,
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'carvana-motors.s3.amazonaws.com',
+        hostname: env.NEXT_PUBLIC_CARVANA_S3_HOSTNAME,
         port: '',
         pathname: '/**',
       },

@@ -21,6 +21,10 @@ export const env = createEnv({
     NEXT_PUBLIC_IMGIX_URL: z.string().url(),
     NEXT_PUBLIC_TINYMCE_API_KEY: z.string(),
     NEXT_PUBLIC_S3_URL: z.string().url(),
+    NEXT_PUBLIC_IMGIX_HOSTNAME: z.string(),
+    NEXT_PUBLIC_S3_HOSTNAME: z.string(),
+    NEXT_PUBLIC_VL_IMGIX_HOSTNAME: z.string(),
+    NEXT_PUBLIC_CARVANA_S3_HOSTNAME: z.string(),
   },
 
   runtimeEnv: {
@@ -39,5 +43,9 @@ export const env = createEnv({
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     NEXT_PUBLIC_TINYMCE_API_KEY: process.env.NEXT_PUBLIC_TINYMCE_API_KEY,
     NEXT_PUBLIC_S3_URL: process.env.NEXT_PUBLIC_S3_URL,
+    NEXT_PUBLIC_IMGIX_HOSTNAME: process.env.NEXT_PUBLIC_IMGIX_HOSTNAME,
+    NEXT_PUBLIC_S3_HOSTNAME: process.env.NEXT_PUBLIC_S3_HOSTNAME,
+    NEXT_PUBLIC_VL_IMGIX_HOSTNAME: process.env.NEXT_PUBLIC_VL_IMGIX_HOSTNAME,
+    NEXT_PUBLIC_CARVANA_S3_HOSTNAME: process.env.NEXT_PUBLIC_CARVANA_S3_HOSTNAME,
   },
 });
