@@ -13,3 +13,4 @@ export * from './number-input';
 export * from './theme-provider';
 export * from './theme-toggle';
 export * from './sort-icon';
+export * from './sortable-table';

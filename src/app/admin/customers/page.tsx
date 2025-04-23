@@ -17,18 +17,19 @@ import { routes } from '@/config/routes';
 import type { PageProps } from '@/config/types';
 import { prisma } from '@/lib/prisma';
 import { CustomerKeys } from '@/features/customers/types';
+import { ADMIN_CUSTOMERS_PER_PAGE, ADMIN_CUSTOMERS_PAGE, SortOrderType } from '@/config/constants';
 
 export default async function CustomersPage(props: PageProps) {
   const searchParams = await props.searchParams;
 
   const { page, itemsPerPage } = validatePagination({
-    page: (searchParams?.page as string) || '1',
-    itemsPerPage: (searchParams?.itemsPerPage as '10') || '10',
+    page: (searchParams?.page as string) || ADMIN_CUSTOMERS_PAGE,
+    itemsPerPage: (searchParams?.itemsPerPage as string) || ADMIN_CUSTOMERS_PER_PAGE,
   });
 
   const { sort, order } = validateSortOrder<CustomersTableSortType>({
     sort: searchParams?.sort as CustomerKeys,
-    order: searchParams?.order as 'asc' | 'desc',
+    order: searchParams?.order as SortOrderType,
     schema: CustomersTableSortSchema,
   });
 
@@ -43,7 +44,7 @@ export default async function CustomersPage(props: PageProps) {
       ...(data?.q && { title: { contains: data.q, mode: 'insensitive' } }),
       ...(data?.status && data.status !== 'ALL' && { status: data.status }),
     },
-    orderBy: { [sort as string]: order as 'asc' | 'desc' },
+    orderBy: { [sort as string]: order as SortOrderType },
     include: { classified: true },
     skip: offset,
     take: Number(itemsPerPage),
@@ -62,7 +63,7 @@ export default async function CustomersPage(props: PageProps) {
     <>
       <AdminCustomersHeader searchParams={searchParams} />
       <Table>
-        <CustomersTableHeader sort={sort as CustomerKeys} order={order as 'asc' | 'desc'} />
+        <CustomersTableHeader sort={sort as CustomerKeys} order={order as SortOrderType} />
         <TableBody>
           {customers.map((customer) => (
             <CustomerTableRow key={customer.id} {...customer} />

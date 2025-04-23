@@ -1,39 +1,49 @@
 import { formatCustomerStatus } from '@/lib/utils';
 import { format } from 'date-fns';
-import { Badge, TableCell, TableRow } from '@/components/ui';
+import { Badge } from '@/components/ui';
 import { ActionButtons } from './action-buttons';
 import { CustomerWithClassified } from '../types';
 import { CustomerBadgeMap } from '@/config';
+import { TableRowBase, ResponsiveTableCell } from '@/components/shared/sortable-table';
 
 export const CustomerTableRow = (customer: CustomerWithClassified) => {
   return (
-    <TableRow className="text-muted/75 border-white/5 hover:bg-primary-300">
-      <TableCell className="font-medium">{customer.id}</TableCell>
-      <TableCell className="font-medium">
-        <Badge className="text-muted/75" variant={CustomerBadgeMap[customer.status]}>
+    <TableRowBase>
+      <ResponsiveTableCell className="font-medium">{customer.id}</ResponsiveTableCell>
+
+      <ResponsiveTableCell className="font-medium">
+        <Badge variant={CustomerBadgeMap[customer.status]}>
           {formatCustomerStatus(customer.status)}
         </Badge>
-      </TableCell>
-      <TableCell className="hidden md:table-cell">
+      </ResponsiveTableCell>
+
+      <ResponsiveTableCell hideOnMobile>
         {customer.firstName} {customer.lastName}
-      </TableCell>
-      <TableCell className="hidden md:table-cell">{customer.email}</TableCell>
-      <TableCell className="hidden md:table-cell">{customer.mobile}</TableCell>
-      <TableCell className="hidden md:table-cell">
+      </ResponsiveTableCell>
+
+      <ResponsiveTableCell hideOnMobile>{customer.email}</ResponsiveTableCell>
+
+      <ResponsiveTableCell hideOnMobile>{customer.mobile}</ResponsiveTableCell>
+
+      <ResponsiveTableCell hideOnMobile>
         {customer.classified?.title} ({customer.classified?.vrm})
-      </TableCell>
-      <TableCell className="hidden md:table-cell">
+      </ResponsiveTableCell>
+
+      <ResponsiveTableCell hideOnMobile>
         {format(customer.createdAt, 'do MMM yyy HH:mm')}
-      </TableCell>
-      <TableCell className="hidden md:table-cell">
+      </ResponsiveTableCell>
+
+      <ResponsiveTableCell hideOnMobile>
         {format(customer.updatedAt, 'do MMM yyy HH:mm')}
-      </TableCell>
-      <TableCell>
+      </ResponsiveTableCell>
+
+      <ResponsiveTableCell>
         {customer.bookingDate ? format(customer.bookingDate, 'do MMM yyy HH:mm') : 'N/A'}
-      </TableCell>
-      <TableCell className="flex gap-x-2">
+      </ResponsiveTableCell>
+
+      <ResponsiveTableCell className="flex gap-x-2">
         <ActionButtons customer={customer} />
-      </TableCell>
-    </TableRow>
+      </ResponsiveTableCell>
+    </TableRowBase>
   );
 };

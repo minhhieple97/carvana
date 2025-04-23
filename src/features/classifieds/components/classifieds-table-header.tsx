@@ -1,14 +1,12 @@
 'use client';
 
-import { parseAsStringLiteral, useQueryState } from 'nuqs';
-
-import { SortIcon } from '@/components';
-import { TableHead, TableHeader, TableRow } from '@/components/ui';
-import { sortOrder } from '@/config/constants';
-
-import type { ClassifiedKeys } from '../types';
-import type { PageProps } from '@/config';
-import type { Classified } from '@prisma/client';
+import {
+  SortableTableHeader,
+  SortableColumn,
+  NonSortableColumn,
+} from '@/components/shared/sortable-table';
+import { ClassifiedKeys } from '../types';
+import { SortOrderType } from '@/config/constants';
 
 const classifiedKeys = [
   'status',
@@ -22,154 +20,91 @@ const classifiedKeys = [
   'createdAt',
 ] as const;
 
-type ClassifiedTableProps = PageProps & {
-  classifieds: Classified[];
+type ClassifiedsTableHeaderProps = {
   sort: ClassifiedKeys;
-  order: 'asc' | 'desc';
-  currentPage: number;
-  totalPages: number;
+  order: SortOrderType;
 };
 
-type ClassifiedsTableHeaderProps = Pick<ClassifiedTableProps, 'sort' | 'order'>;
-
-export const ClassifiedsTableHeader = (props: ClassifiedsTableHeaderProps) => {
-  const { sort: initialSort, order: initialOrder } = props;
-  const [sort, setSort] = useQueryState(
-    'sort',
-    parseAsStringLiteral(classifiedKeys).withDefault(initialSort).withOptions({ shallow: false })
-  );
-  const [order, setOrder] = useQueryState(
-    'order',
-    parseAsStringLiteral(sortOrder).withDefault(initialOrder).withOptions({ shallow: false })
-  );
-
-  const handleSort = (newSort: ClassifiedKeys) => {
-    if (newSort === sort) {
-      setOrder(order === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSort(newSort);
-      setOrder('asc');
-    }
-  };
-
+export const ClassifiedsTableHeader = ({
+  sort: initialSort,
+  order: initialOrder,
+}: ClassifiedsTableHeaderProps) => {
   return (
-    <TableHeader>
-      <TableRow className="hover:bg-accent/30 border-border/50 bg-card">
-        <TableHead className="text-muted-foreground font-medium w-[80px]">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('id')}
-            onKeyDown={() => handleSort('id')}
-          >
-            ID
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="id"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium w-[80px]">Image</TableHead>
-        <TableHead className="text-muted-foreground font-medium w-[150px]">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('title')}
-            onKeyDown={() => handleSort('title')}
-          >
-            Title
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="title"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium w-[150px]">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('price')}
-            onKeyDown={() => handleSort('price')}
-          >
-            Price
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="price"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium w-[150px]">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('vrm')}
-            onKeyDown={() => handleSort('vrm')}
-          >
-            VRM
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="vrm"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium w-[150px]">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('colour')}
-            onKeyDown={() => handleSort('colour')}
-          >
-            Colour
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="colour"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('status')}
-            onKeyDown={() => handleSort('status')}
-          >
-            Status
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="status"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium hidden md:table-cell">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('createdAt')}
-            onKeyDown={() => handleSort('createdAt')}
-          >
-            Date Created
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="createdAt"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium">
-          <div
-            className="flex items-center gap-2 ■-pointer hover:text-foreground transition-colors"
-            onClick={() => handleSort('views')}
-            onKeyDown={() => handleSort('views')}
-          >
-            Views
-            <SortIcon<ClassifiedKeys>
-              currentSort={sort}
-              currentOrder={order as 'asc' | 'desc' | null}
-              sort="views"
-            />
-          </div>
-        </TableHead>
-        <TableHead className="text-muted-foreground font-medium w-[100px]">Actions</TableHead>
-      </TableRow>
-    </TableHeader>
+    <SortableTableHeader<ClassifiedKeys>
+      initialSort={initialSort}
+      initialOrder={initialOrder}
+      sortKeys={classifiedKeys}
+    >
+      {({ sort, order, handleSort }) => (
+        <>
+          <SortableColumn
+            label="ID"
+            sort="id"
+            currentSort={sort}
+            currentOrder={order}
+            width="w-[80px]"
+            onSort={handleSort}
+          />
+          <NonSortableColumn label="Image" width="w-[80px]" />
+          <SortableColumn
+            label="Title"
+            sort="title"
+            currentSort={sort}
+            currentOrder={order}
+            width="w-[150px]"
+            onSort={handleSort}
+          />
+          <SortableColumn
+            label="Price"
+            sort="price"
+            currentSort={sort}
+            currentOrder={order}
+            width="w-[150px]"
+            onSort={handleSort}
+          />
+          <SortableColumn
+            label="VRM"
+            sort="vrm"
+            currentSort={sort}
+            currentOrder={order}
+            width="w-[150px]"
+            onSort={handleSort}
+          />
+          <SortableColumn
+            label="Colour"
+            sort="colour"
+            currentSort={sort}
+            currentOrder={order}
+            width="w-[150px]"
+            onSort={handleSort}
+          />
+          <SortableColumn
+            label="Status"
+            sort="status"
+            currentSort={sort}
+            currentOrder={order}
+            width="max-w-[150px]"
+            onSort={handleSort}
+          />
+          <SortableColumn
+            label="Date Created"
+            sort="createdAt"
+            currentSort={sort}
+            currentOrder={order}
+            width="hidden md:table-cell"
+            onSort={handleSort}
+          />
+          <SortableColumn
+            label="Views"
+            sort="views"
+            currentSort={sort}
+            currentOrder={order}
+            width="w-[100px]"
+            onSort={handleSort}
+          />
+          <NonSortableColumn label="Actions" width="w-[100px]" />
+        </>
+      )}
+    </SortableTableHeader>
   );
 };

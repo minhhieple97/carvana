@@ -34,6 +34,8 @@ export const sortOrder = ['asc', 'desc'] as const;
 
 export const ADMIN_CLASSIFIEDS_PER_PAGE = '10';
 export const ADMIN_CLASSIFIEDS_PAGE = '1';
+export const ADMIN_CUSTOMERS_PER_PAGE = '10';
+export const ADMIN_CUSTOMERS_PAGE = '1';
 export const ITEMS_PER_PAGE = {
   '10': '10',
   '25': '25',

@@ -32,7 +32,7 @@ export default async function ClassifiedsPage(props: PageProps) {
   });
 
   const { data: filters, error } = AdminClassifiedFilterSchema.safeParse(searchParams);
-  if (error) console.log('Validation error: ', error);
+  if (error) console.error('Validation error: ', error);
   const { classifieds, totalPages } = await getAdminClassifieds({
     page,
     itemsPerPage: itemsPerPage as ItemsPerPageType,
@@ -45,7 +45,7 @@ export default async function ClassifiedsPage(props: PageProps) {
     <>
       <AdminClassifiedsHeader searchParams={searchParams} />
       <Table>
-        <ClassifiedsTableHeader sort={sort as ClassifiedKeys} order={order as 'asc' | 'desc'} />
+        <ClassifiedsTableHeader sort={sort as ClassifiedKeys} order={order as SortOrderType} />
         <TableBody>
           {classifieds.map((classified) => (
             <ClassifiedsTableRow key={classified.id} {...classified} />
