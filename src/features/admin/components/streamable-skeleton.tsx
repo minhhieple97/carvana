@@ -11,7 +11,8 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 
-import { Skeleton } from '@/components/ui';
+import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   formatBodyType,
   formatColour,
@@ -24,11 +25,66 @@ import {
 
 import type { StreamableSkeletonProps } from '../types';
 
+const DetailItem = ({
+  icon: Icon,
+  label,
+  value,
+  isLoading,
+  formatter,
+  unit,
+  isBoolean = false,
+}: {
+  icon: React.ElementType;
+  label: string;
+  value?: string | number | boolean | null | undefined;
+  isLoading: boolean;
+  formatter?: (val: any) => string;
+  unit?: string;
+  isBoolean?: boolean;
+}) => {
+  const displayValue =
+    formatter && value !== undefined && value !== null ? formatter(value) : value;
+  const hasValue = value !== undefined && value !== null && value !== '';
+
+  return (
+    <div className="flex items-center gap-3 rounded-lg border h-auto bg-card p-3 shadow-sm">
+      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-muted text-muted-foreground">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div className="flex flex-col">
+        <span className="text-xs text-muted-foreground">{label}</span>
+        {isLoading && !hasValue ? (
+          <Skeleton className="mt-1 h-4 w-16" />
+        ) : hasValue ? (
+          <span className="text-sm font-medium text-card-foreground">
+            {isBoolean ? (
+              value ? (
+                <CheckIcon className="h-5 w-5 text-green-500" />
+              ) : (
+                <XIcon className="h-5 w-5 text-red-500" />
+              )
+            ) : (
+              `${displayValue ?? ''}${unit ? ` ${unit}` : ''}`
+            )}
+          </span>
+        ) : (
+          <span className="text-sm font-medium text-muted-foreground">N/A</span>
+        )}
+      </div>
+    </div>
+  );
+};
+
 export const StreamableSkeleton = (props: StreamableSkeletonProps) => {
   const {
     image,
     title,
+    make,
+    model,
+    modelVariant,
+    year,
     odoReading,
+    odoUnit,
     fuelType,
     transmission,
     description,
@@ -38,164 +94,144 @@ export const StreamableSkeleton = (props: StreamableSkeletonProps) => {
     doors,
     colour,
     vrm,
-    odoUnit,
-    make,
     done,
   } = props;
+
+  const isLoading = !done;
+
+  const fullTitle = [make?.name, model, modelVariant, year].filter(Boolean).join(' ');
+
   return (
-    <div className="flex flex-col container mx-auto py-12">
-      <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/2 relative">
-          {image ? (
+    <div className="flex flex-col gap-6 overflow-y-auto p-1 md:flex-row md:gap-8">
+      <div className="w-full shrink-0 md:w-1/3 lg:w-2/5">
+        {image ? (
+          <div className="relative aspect-video w-full overflow-hidden rounded-lg border">
             <Image
               src={image}
-              alt={title || 'Vehicle Image'}
-              width={600}
-              height={400}
-              className="rounded-lg aspect-3/2 object-cover"
+              alt={fullTitle || title || 'Vehicle Image'}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 40vw"
+              className="object-cover"
+              priority
             />
-          ) : (
-            <Skeleton className="aspect-3/2 w-full" />
-          )}
+          </div>
+        ) : (
+          <Skeleton className="aspect-video w-full rounded-lg" />
+        )}
+      </div>
+
+      <div className="flex w-full flex-col gap-4 md:w-2/3 lg:w-3/5">
+        <div className="flex items-start gap-4">
+          {make?.image ? (
+            <Image
+              src={make.image}
+              alt={make.name || 'Manufacturer'}
+              width={48}
+              height={48}
+              className="h-12 w-12 object-contain"
+            />
+          ) : isLoading && !make ? (
+            <Skeleton className="h-12 w-12 shrink-0 rounded-md" />
+          ) : null}
+          <div className="flex-grow">
+            {fullTitle || title ? (
+              <h2 className="text-xl font-semibold leading-tight text-foreground lg:text-2xl">
+                {fullTitle || title}
+              </h2>
+            ) : isLoading ? (
+              <>
+                <Skeleton className="mb-2 h-6 w-3/4" />
+                <Skeleton className="h-5 w-1/2" />
+              </>
+            ) : (
+              <h2 className="text-xl font-semibold text-muted-foreground lg:text-2xl">
+                Details Unavailable
+              </h2>
+            )}
+          </div>
         </div>
-        <div className="md:w-1/2 md:pl-8 mt-4 md:mt-0">
-          <div className="flex flex-col md:flex-row items-start md:items-center">
-            {make ? (
-              <Image src={make.image} alt={make.name} width={80} height={64} className="mr-4" />
-            ) : !done ? (
-              <Skeleton className="w-20 h-16 mr-4" />
-            ) : null}
-            <div>
-              {title ? (
-                <h1 className="text-2xl font-bold">{title}</h1>
-              ) : (
-                <Skeleton className="h-8 w-64 mb-2" />
-              )}
-            </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          {odoReading && odoUnit ? (
+            <Badge variant="secondary">
+              {formatNumber(odoReading)} {formatOdometerUnit(odoUnit)}
+            </Badge>
+          ) : isLoading && odoReading === undefined ? (
+            <Skeleton className="h-6 w-20 rounded-full" />
+          ) : null}
+          {fuelType ? (
+            <Badge variant="secondary">{formatFuelType(fuelType)}</Badge>
+          ) : isLoading && fuelType === undefined ? (
+            <Skeleton className="h-6 w-16 rounded-full" />
+          ) : null}
+          {colour ? (
+            <Badge variant="secondary">{formatColour(colour)}</Badge>
+          ) : isLoading && colour === undefined ? (
+            <Skeleton className="h-6 w-16 rounded-full" />
+          ) : null}
+          {transmission ? (
+            <Badge variant="secondary">{formatTransmission(transmission)}</Badge>
+          ) : isLoading && transmission === undefined ? (
+            <Skeleton className="h-6 w-20 rounded-full" />
+          ) : null}
+        </div>
+
+        {description ? (
+          <p className="text-sm text-muted-foreground">{description}</p>
+        ) : isLoading && description === undefined ? (
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-5/6" />
           </div>
-          <div className="my-4 flex flex-wrap items-center gap-2">
-            {odoReading && odoUnit ? (
-              <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2 5 py-0 5 rounded-md">
-                {formatNumber(odoReading)} {formatOdometerUnit(odoUnit)}
-              </span>
-            ) : !done ? (
-              <Skeleton className="h-6 w-16 rounded-md" />
-            ) : null}
-            {fuelType ? (
-              <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2 5 py-0 5 rounded-md">
-                {formatFuelType(fuelType)}
-              </span>
-            ) : !done ? (
-              <Skeleton className="h-6 w-16 rounded-md" />
-            ) : null}
-            {colour ? (
-              <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2 5 py-0 5 rounded-md">
-                {formatColour(colour)}
-              </span>
-            ) : !done ? (
-              <Skeleton className="h-6 w-16 rounded-md" />
-            ) : null}
-            {transmission ? (
-              <span className="bg-gray-200 text-gray-800 text-sm font-medium px-2 5 py-0 5 rounded-md">
-                {formatTransmission(transmission)}
-              </span>
-            ) : !done ? (
-              <Skeleton className="h-6 w-16 rounded-md" />
-            ) : null}
-          </div>
-          {description ? (
-            <p className="text-gray-600 mb-4">{description}</p>
-          ) : (
-            <Skeleton className="h-20 w-full mb-4" />
-          )}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              {ulezCompliance === 'EXEMPT' ? (
-                <CheckIcon className="w-6 h-6 mx-auto text-green-500" />
-              ) : (
-                <XIcon className="w-6 h-6 mx-auto text-red-500" />
-              )}
-              {ulezCompliance ? (
-                <p className="text-sm font-medium mt-2">{formatUlezCompliance(ulezCompliance)}</p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              <Fingerprint className="w-6 h-6 mx-auto text-zinc-400" />
-              {vrm ? (
-                <p className="text-sm font-medium mt-2">{vrm}</p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              <CarIcon className="w-6 h-6 mx-auto text-zinc-400" />
-              {bodyType ? (
-                <p className="text-sm font-medium mt-2">{formatBodyType(bodyType)}</p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              <FuelIcon className="w-6 h-6 mx-auto text-zinc-400" />
-              {fuelType ? (
-                <p className="text-sm font-medium mt-2">{formatFuelType(fuelType)}</p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              <PowerIcon className="w-6 h-6 mx-auto text-zinc-400" />
-              {transmission ? (
-                <p className="text-sm font-medium mt-2">{formatTransmission(transmission)}</p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              <GaugeIcon className="w-6 h-6 mx-auto text-zinc-400" />
-              {odoReading && odoUnit ? (
-                <p className="text-sm font-medium mt-2">
-                  {formatNumber(odoReading)} {formatOdometerUnit(odoUnit)}
-                </p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              <UsersIcon className="w-6 h-6 mx-auto text-zinc-400" />
-              {seats ? (
-                <p className="text-sm font-medium mt-2">{seats}</p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-            <div className="bg-gray-100 rounded-lg shadow-xs p-4 text-center">
-              <CarFrontIcon className="w-6 h-6 mx-auto text-zinc-400" />
-              {doors ? (
-                <p className="text-sm font-medium mt-2">{doors}</p>
-              ) : !done ? (
-                <Skeleton className="h-4 w-16 mx-auto mt-2" />
-              ) : (
-                <p className="text-sm font-medium mt-2">UNKNOWN</p>
-              )}
-            </div>
-          </div>
+        ) : null}
+
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          <DetailItem
+            icon={Fingerprint}
+            label="Registration (VRM)"
+            value={vrm}
+            isLoading={isLoading}
+          />
+          <DetailItem
+            icon={CheckIcon}
+            label="ULEZ Compliance"
+            value={ulezCompliance === 'EXEMPT'}
+            isLoading={isLoading}
+            isBoolean={true}
+            formatter={formatUlezCompliance}
+          />
+          <DetailItem
+            icon={CarIcon}
+            label="Body Type"
+            value={bodyType}
+            isLoading={isLoading}
+            formatter={formatBodyType}
+          />
+          <DetailItem
+            icon={FuelIcon}
+            label="Fuel Type"
+            value={fuelType}
+            isLoading={isLoading}
+            formatter={formatFuelType}
+          />
+          <DetailItem
+            icon={PowerIcon}
+            label="Transmission"
+            value={transmission}
+            isLoading={isLoading}
+            formatter={formatTransmission}
+          />
+          <DetailItem
+            icon={GaugeIcon}
+            label="Odometer"
+            value={odoReading}
+            unit={odoUnit ? formatOdometerUnit(odoUnit) : ''}
+            isLoading={isLoading}
+            formatter={formatNumber}
+          />
+          <DetailItem icon={UsersIcon} label="Seats" value={seats} isLoading={isLoading} />
+          <DetailItem icon={CarFrontIcon} label="Doors" value={doors} isLoading={isLoading} />
         </div>
       </div>
     </div>

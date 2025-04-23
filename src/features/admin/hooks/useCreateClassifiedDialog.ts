@@ -6,7 +6,6 @@ import { useState, useTransition } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { toast } from 'sonner';
 
-import { routes } from '@/config/routes';
 import { CreateClassifiedSchema, type CreateClassifiedType } from '@/schemas/classified.schema';
 import { SingleImageSchema, type SingleImageType } from '@/schemas/images.schema';
 
@@ -63,9 +62,7 @@ export const useCreateClassifiedDialog = () => {
         toast.success('Classified created successfully');
         setIsModalOpen(false);
         setMessages([]);
-        if (result.data?.classifiedId) {
-          router.push(routes.admin.editClassified(result.data.classifiedId));
-        } else {
+        if (!result.data?.classifiedId) {
           toast.error('Failed to get classified ID after creation.');
         }
         router.refresh();
@@ -104,7 +101,6 @@ export const useCreateClassifiedDialog = () => {
       } catch (error) {
         console.error('Error generating classified details:', error);
         toast.error('An error occurred while generating classified details.');
-        // Optionally clear messages or reset state here
         setMessages([]);
       }
     });
@@ -114,12 +110,11 @@ export const useCreateClassifiedDialog = () => {
     executeCreateAction(data);
   };
 
-  // Reset forms and messages when modal closes
   const handleOpenChange = (open: boolean) => {
     if (!open) {
       setMessages([]);
       imageForm.reset();
-      createForm.reset(); // Reset create form as well
+      createForm.reset();
     }
     setIsModalOpen(open);
   };

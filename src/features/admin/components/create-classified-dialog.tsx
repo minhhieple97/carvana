@@ -39,6 +39,9 @@ export const CreateClassifiedDialog = () => {
         </Button>
       </DialogTrigger>
       <DialogContent
+        onInteractOutside={(e) => {
+          e.preventDefault();
+        }}
         className={cn(
           'max-w-6xl',
           'bg-background dark:bg-card',
