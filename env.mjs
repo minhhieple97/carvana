@@ -14,6 +14,8 @@ export const env = createEnv({
     GITHUB_CLIENT_ID: z.string(),
     GITHUB_CLIENT_SECRET: z.string(),
     OPENAI_API_KEY: z.string(),
+    OPENAI_MODEL: z.string(),
+    OPENAI_BASE_URL: z.string(),
   },
 
   client: {
@@ -47,5 +49,7 @@ export const env = createEnv({
     NEXT_PUBLIC_S3_HOSTNAME: process.env.NEXT_PUBLIC_S3_HOSTNAME,
     NEXT_PUBLIC_VL_IMGIX_HOSTNAME: process.env.NEXT_PUBLIC_VL_IMGIX_HOSTNAME,
     NEXT_PUBLIC_CARVANA_S3_HOSTNAME: process.env.NEXT_PUBLIC_CARVANA_S3_HOSTNAME,
+    OPENAI_MODEL: process.env.OPENAI_MODEL,
+    OPENAI_BASE_URL: process.env.OPENAI_BASE_URL,
   },
 });

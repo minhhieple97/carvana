@@ -18,7 +18,7 @@ import { findMakeByName } from '../db/taxonomy.db';
 const openai = createOpenAI({
   apiKey: env.OPENAI_API_KEY,
   compatibility: 'strict',
-  baseURL: 'https://multiappai-api.itmovnteam.com/v1',
+  baseURL: env.OPENAI_BASE_URL,
 });
 
 export async function generateClassifiedData(image: string) {
@@ -82,7 +82,7 @@ export async function generateClassifiedData(image: string) {
 
 async function generateTaxonomyData(image: string) {
   const { object: taxonomy } = await generateObject({
-    model: openai('gpt-4o-mini', { structuredOutputs: true }),
+    model: openai(env.OPENAI_MODEL, { structuredOutputs: true }),
 
     schema: ClassifiedTaxonomyAISchema,
     system:
@@ -106,7 +106,7 @@ async function generateTaxonomyData(image: string) {
 
 async function generateVehicleDetails(image: string, title: string) {
   const { object: details } = await generateObject({
-    model: openai('gpt-4o-mini-2024-07-18', { structuredOutputs: true }),
+    model: openai(env.OPENAI_MODEL, { structuredOutputs: true }),
     schema: ClassifiedDetailsAISchema,
     system: 'You are an expert at writing vehicle descriptions and generating structured data',
     messages: [
