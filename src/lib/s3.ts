@@ -12,12 +12,12 @@ export const s3 = new S3Client({
   credentials,
 });
 
-interface UploadToS3Args {
+type UploadToS3Args = {
   bucketName: string;
   path: string;
   file: Buffer;
   mimetype: string;
-}
+};
 
 export async function uploadToS3({ bucketName, file, path, mimetype }: UploadToS3Args) {
   const params = {

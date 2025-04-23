@@ -2,6 +2,7 @@ import {
   BodyType,
   ClassifiedStatus,
   Colour,
+  CustomerStatus,
   FuelType,
   OdoUnit,
   Transmission,
@@ -388,3 +389,18 @@ export const generateYears = (minYear: number, maxYear?: number) => {
 
   return years;
 };
+
+export function formatCustomerStatus(status: CustomerStatus) {
+  switch (status) {
+    case CustomerStatus.COLD:
+      return 'Cold';
+    case CustomerStatus.CONTACTED:
+      return 'Contacted';
+    case CustomerStatus.INTERESTED:
+      return 'Interested';
+    case CustomerStatus.PURCHASED:
+      return 'Purchased';
+    case CustomerStatus.SUBSCRIBER:
+      return 'Subscriber';
+  }
+}

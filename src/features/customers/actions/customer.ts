@@ -2,7 +2,7 @@
 
 import { nanoid } from 'nanoid';
 
-import { action, ActionError } from '@/lib/safe-action';
+import { action, ActionError, adminAction } from '@/lib/safe-action';
 import { CreateCustomerSchema, DeleteCustomerSchema, UpdateCustomerSchema } from '@/schemas';
 
 import {
@@ -15,7 +15,7 @@ import {
   updateCustomer as updateCustomerService,
   cleanupRedisSubmission,
   findCustomerById,
-} from '../services/customer';
+} from '../../reserve/services/customer';
 
 export const createCustomerAction = action
   .schema(CreateCustomerSchema)
@@ -45,7 +45,7 @@ export const createCustomerAction = action
     }
   });
 
-export const updateCustomerAction = action
+export const updateCustomerAction = adminAction
   .schema(UpdateCustomerSchema)
   .action(async ({ parsedInput }) => {
     const { id, status } = parsedInput;
@@ -59,6 +59,6 @@ export const updateCustomerAction = action
     return updateCustomerService(id, status);
   });
 
-export const deleteCustomerAction = action
+export const deleteCustomerAction = adminAction
   .schema(DeleteCustomerSchema)
   .action(async ({ parsedInput }) => deleteCustomerService(parsedInput.id));

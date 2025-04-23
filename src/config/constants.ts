@@ -1,4 +1,8 @@
+import { CustomerStatus } from '@prisma/client';
+
 import { routes } from './routes';
+
+import type { BadgeProps } from './types';
 
 // export const imageSources = {
 //   classifiedPlaceholder: `${env.NEXT_PUBLIC_IMGIX_URL}/uploads/AdobeStock_855683950.jpeg`,
@@ -56,3 +60,11 @@ export const SORT_ORDER = {
 export type SortOrderType = (typeof SORT_ORDER)[keyof typeof SORT_ORDER];
 
 export type SortDirectionType = 'asc' | 'desc';
+
+export const CustomerBadgeMap: Record<CustomerStatus, BadgeProps['variant']> = {
+  [CustomerStatus.COLD]: 'secondary',
+  [CustomerStatus.CONTACTED]: 'default',
+  [CustomerStatus.INTERESTED]: 'destructive',
+  [CustomerStatus.PURCHASED]: 'outline',
+  [CustomerStatus.SUBSCRIBER]: 'outline',
+} as const;
