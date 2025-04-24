@@ -6,16 +6,13 @@ import { getAdminClassifieds } from '@/features/admin/services/classified.servic
 import { ClassifiedsTableRow } from '@/features/classifieds/components/classified-table-row';
 import { ClassifiedsTableHeader } from '@/features/classifieds/components/classifieds-table-header';
 import { validatePagination } from '@/schemas/pagination.schema';
-
 import { AdminClassifiedFilterSchema } from '@/schemas/table-filters.schema';
-import type { ItemsPerPageType, PageProps, SortOrderType } from '@/config';
-
-import type { ClassifiedKeys } from '@/features';
-
-import type { ClassifiedsTableSortType } from '@/schemas/table-sort.schema';
-
 import { ClassifiedsTableSortSchema } from '@/schemas/table-sort.schema';
 import { validateSortOrder } from '@/schemas/table-sort.schema';
+
+import type { ItemsPerPageType, PageProps, SortOrderType } from '@/config';
+import type { ClassifiedKeys } from '@/features';
+import type { ClassifiedsTableSortType } from '@/schemas/table-sort.schema';
 
 export default async function ClassifiedsPage(props: PageProps) {
   const searchParams = await props.searchParams;

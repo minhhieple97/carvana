@@ -1,9 +1,12 @@
 'use client';
 
 import { parseAsStringLiteral, useQueryState } from 'nuqs';
+
 import { SortIcon } from '@/components/shared';
 import { TableHead, TableHeader, TableRow } from '@/components/ui';
-import { SORT_ORDER, sortOrder, SortOrderType } from '@/config/constants';
+import { SORT_ORDER, sortOrder } from '@/config/constants';
+
+import type { SortOrderType } from '@/config/constants';
 
 type SortableColumnProps<T extends string> = {
   label: string;
@@ -21,20 +24,18 @@ export const SortableColumn = <T extends string>({
   currentOrder,
   width,
   onSort,
-}: SortableColumnProps<T>) => {
-  return (
-    <TableHead className={`text-muted-foreground font-medium ${width || ''}`}>
-      <div
-        className="flex items-center gap-2 cursor-pointer hover:text-foreground transition-colors"
-        onClick={() => onSort(sort)}
-        onKeyDown={() => onSort(sort)}
-      >
-        {label}
-        <SortIcon<T> currentSort={currentSort} currentOrder={currentOrder} sort={sort} />
-      </div>
-    </TableHead>
-  );
-};
+}: SortableColumnProps<T>) => (
+  <TableHead className={`text-muted-foreground font-medium ${width || ''}`}>
+    <div
+      className="flex items-center gap-2 cursor-pointer hover:text-foreground transition-colors"
+      onClick={() => onSort(sort)}
+      onKeyDown={() => onSort(sort)}
+    >
+      {label}
+      <SortIcon<T> currentSort={currentSort} currentOrder={currentOrder} sort={sort} />
+    </div>
+  </TableHead>
+);
 
 type NonSortableColumnProps = {
   label: string;

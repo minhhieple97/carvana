@@ -8,13 +8,12 @@ import { toast } from 'sonner';
 
 import { routes } from '@/config/routes';
 import { MultiStepFormEnum } from '@/config/types';
+import { createCustomerAction } from '@/features/customers/actions';
 import { formatDate, isValidHandoverDateTime } from '@/lib/utils';
 import { SubmitDetailsSchema } from '@/schemas/customer.schema';
 
 import type { AwaitedPageProps } from '@/config/types';
 import type { SubmitDetailsSchemaType } from '@/schemas/customer.schema';
-
-import { createCustomerAction } from '@/features/customers/actions';
 
 export const useSubmitDetails = (
   params: AwaitedPageProps['params'],

@@ -1,3 +1,7 @@
+import { format } from 'date-fns';
+import { redirect } from 'next/navigation';
+import { z } from 'zod';
+
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -10,13 +14,11 @@ import {
 } from '@/components/ui/table';
 import { CustomerBadgeMap } from '@/config/constants';
 import { routes } from '@/config/routes';
-import type { PageProps } from '@/config/types';
 import { EditCustomerForm } from '@/features/customers/components';
 import { getCustomerById } from '@/features/customers/services';
 import { formatCustomerStatus } from '@/lib/utils';
-import { format } from 'date-fns';
-import { redirect } from 'next/navigation';
-import { z } from 'zod';
+
+import type { PageProps } from '@/config/types';
 
 const validateCustomerId = (id: string | string[] | undefined) => {
   const { data, success } = z.object({ id: z.number() }).safeParse({

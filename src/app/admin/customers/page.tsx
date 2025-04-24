@@ -1,3 +1,13 @@
+import { AdminTableFooter } from '@/components/shared/admin-table-footer';
+import { Table, TableBody } from '@/components/ui/table';
+import { ADMIN_CUSTOMERS_PER_PAGE, ADMIN_CUSTOMERS_PAGE } from '@/config/constants';
+import { routes } from '@/config/routes';
+import {
+  AdminCustomersHeader,
+  CustomersTableHeader,
+  CustomerTableRow,
+} from '@/features/customers/components';
+import { getCustomers } from '@/features/customers/services';
 import {
   validatePagination,
   AdminCustomerFilterSchema,
@@ -5,18 +15,10 @@ import {
   type CustomersTableSortType,
   validateSortOrder,
 } from '@/schemas';
-import {
-  AdminCustomersHeader,
-  CustomersTableHeader,
-  CustomerTableRow,
-} from '@/features/customers/components';
-import { AdminTableFooter } from '@/components/shared/admin-table-footer';
-import { Table, TableBody } from '@/components/ui/table';
-import { routes } from '@/config/routes';
+
+import type { SortOrderType } from '@/config/constants';
 import type { PageProps } from '@/config/types';
-import { CustomerKeys } from '@/features/customers/types';
-import { ADMIN_CUSTOMERS_PER_PAGE, ADMIN_CUSTOMERS_PAGE, SortOrderType } from '@/config/constants';
-import { getCustomers } from '@/features/customers/services';
+import type { CustomerKeys } from '@/features/customers/types';
 
 export default async function CustomersPage(props: PageProps) {
   const searchParams = await props.searchParams;

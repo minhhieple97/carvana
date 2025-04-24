@@ -1,6 +1,8 @@
-import { RadioFilter } from '@/components/shared/radio-filter';
-import type { AwaitedPageProps } from '@/config/types';
 import { CustomerStatus } from '@prisma/client';
+
+import { RadioFilter } from '@/components/shared/radio-filter';
+
+import type { AwaitedPageProps } from '@/config/types';
 
 export const AdminCustomersHeader = ({ searchParams }: AwaitedPageProps) => (
   <div className="flex flex-col p-6 space-y-4 bg-card/50 rounded-t-md border-b border-border/30">

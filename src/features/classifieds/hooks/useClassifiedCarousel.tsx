@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+
 import { imgixLoader } from '@/lib/imgix-loader';
 
 import type { Image as PrismaImage } from '@prisma/client';

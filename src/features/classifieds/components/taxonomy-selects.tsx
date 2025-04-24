@@ -2,6 +2,7 @@
 
 import { FormField } from '@/components';
 import { FormLabel, FormControl, FormItem, FormMessage, Select } from '@/components/ui';
+
 import { useTaxonomySelects } from '../hooks/useTaxonomySelects';
 
 export const TaxonomySelects = () => {

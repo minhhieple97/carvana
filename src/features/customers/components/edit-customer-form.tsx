@@ -1,9 +1,9 @@
 'use client';
 
-import { formatCustomerStatus } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { type Customer, CustomerStatus } from '@prisma/client';
 import { type SubmitHandler, useForm } from 'react-hook-form';
+
 import {
   Form,
   FormControl,
@@ -13,8 +13,12 @@ import {
   FormMessage,
   Select,
 } from '@/components/ui';
-import { EditCustomerSchema, EditCustomerType } from '@/schemas';
+import { formatCustomerStatus } from '@/lib/utils';
+import { EditCustomerSchema } from '@/schemas';
+
 import { useUpdateCustomer } from '../hooks';
+
+import type { EditCustomerType } from '@/schemas';
 
 type EditCustomerFormProps = {
   customer: Customer;

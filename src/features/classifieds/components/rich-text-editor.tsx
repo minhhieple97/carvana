@@ -1,8 +1,8 @@
 'use client';
 
 import { Editor, type InitOptions } from '@tinymce/tinymce-react/lib/cjs/main/ts/components/Editor';
-import { useFormContext } from 'react-hook-form';
 import { useTheme } from 'next-themes';
+import { useFormContext } from 'react-hook-form';
 
 import { FormLabel } from '@/components/ui';
 import { env } from '@/env';

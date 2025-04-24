@@ -1,6 +1,6 @@
 'use client';
-import { Label } from '@/components/ui/label';
 import { RangeSelect } from '@/components/ui';
+import { Label } from '@/components/ui/label';
 
 import { useRangeFilter } from './useRangeFilter';
 

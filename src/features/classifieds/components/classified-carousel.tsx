@@ -10,9 +10,10 @@ import { SwiperSlide } from 'swiper/react';
 
 import { SwiperButtons } from '@/components/shared/swiper-button';
 import { ImgixImage } from '@/components/ui/imgix-image';
-import { useClassifiedCarousel } from '../hooks/useClassifiedCarousel';
-import { CarouselSkeleton } from './carousel-skeleton';
 import { cn } from '@/lib/utils';
+
+import { CarouselSkeleton } from './carousel-skeleton';
+import { useClassifiedCarousel } from '../hooks/useClassifiedCarousel';
 
 import type { Image as PrismaImage } from '@prisma/client';
 

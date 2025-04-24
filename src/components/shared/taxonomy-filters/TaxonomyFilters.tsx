@@ -1,7 +1,7 @@
 'use client';
 
-import { Label } from '@/components/ui/label';
 import { Select } from '@/components/ui';
+import { Label } from '@/components/ui/label';
 
 import { useTaxonomyFilters } from './useTaxonomyFilters';
 

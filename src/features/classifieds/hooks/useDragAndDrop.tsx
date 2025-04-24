@@ -1,8 +1,9 @@
 import { type ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+
 import { MAX_IMAGES, MAX_IMAGE_SIZE } from '@/config/constants';
+import { convertToMb } from '@/lib/utils';
 
 import type { ClassifiedImages } from '../types';
-import { convertToMb } from '@/lib/utils';
 
 type UseDragAndDropProps = {
   isUploading: boolean;

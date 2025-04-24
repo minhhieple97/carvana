@@ -1,8 +1,9 @@
 'use client';
 import { HeartIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
+
 import { Button } from '@/components/ui/button';
 import { useFavourite } from '@/features/favourites/hooks';
+import { cn } from '@/lib/utils';
 
 type FavouriteButtonProps = {
   initialIsFavourite: boolean;

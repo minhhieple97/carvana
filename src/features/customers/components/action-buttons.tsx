@@ -3,10 +3,13 @@
 import { EyeIcon, Loader2, PencilIcon, Trash } from 'lucide-react';
 import Link from 'next/link';
 import { Tooltip } from 'react-tooltip';
-import { routes } from '../../../config/routes';
+
 import { Button } from '@/components/ui';
-import { CustomerWithClassified } from '../types';
+
+import { routes } from '../../../config/routes';
 import { useDeleteCustomer } from '../hooks';
+
+import type { CustomerWithClassified } from '../types';
 
 type ActionButtonsProps = {
   customer: CustomerWithClassified;

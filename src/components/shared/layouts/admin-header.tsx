@@ -1,4 +1,5 @@
 import { AdminSearch } from '@/features/admin';
+
 import { ThemeToggle } from '../theme-toggle';
 
 export const AdminHeader = async () => (

@@ -1,7 +1,9 @@
 import { ImagePlus, Loader2 } from 'lucide-react';
-import { cn, convertToMb } from '@/lib/utils';
-import { useDragAndDrop } from '../hooks/useDragAndDrop';
+
 import { MAX_IMAGE_SIZE } from '@/config/constants';
+import { cn, convertToMb } from '@/lib/utils';
+
+import { useDragAndDrop } from '../hooks/useDragAndDrop';
 
 import type { ClassifiedImages } from '../types';
 

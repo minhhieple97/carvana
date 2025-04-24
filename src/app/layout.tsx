@@ -6,8 +6,8 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 import { cn } from '@/lib/utils';
 import './globals.css';
-import { Toaster } from '@/components/ui';
 import { ThemeProvider } from '@/components/shared';
+import { Toaster } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Car Dealer Website',

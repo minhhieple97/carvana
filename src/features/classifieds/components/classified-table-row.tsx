@@ -1,10 +1,12 @@
 import { format } from 'date-fns';
 import Image from 'next/image';
+
+import { TableRowBase, ResponsiveTableCell } from '@/components/shared/sortable-table';
 import { Badge } from '@/components/ui';
 import { formatClassifiedStatus, formatColour, formatPrice } from '@/lib/utils';
+
 import { ActionButtons } from './action-buttons';
 import { ClassifiedBadgeMap, type ClassifiedWithImages } from '../types';
-import { TableRowBase, ResponsiveTableCell } from '@/components/shared/sortable-table';
 
 export const ClassifiedsTableRow = (classified: ClassifiedWithImages) => (
   <TableRowBase>

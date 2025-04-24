@@ -198,7 +198,7 @@ export const StreamableSkeleton = (props: StreamableSkeletonProps) => {
             label="ULEZ Compliance"
             value={ulezCompliance === 'EXEMPT'}
             isLoading={isLoading}
-            isBoolean={true}
+            isBoolean
             formatter={formatUlezCompliance}
           />
           <DetailItem
