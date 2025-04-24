@@ -34,8 +34,8 @@ export const useClassifiedForm = (classified: ClassifiedWithImages) => {
               done: true,
             }))
           : [],
-        make: classified.makeId,
-        model: classified.modelId,
+        make: classified.makeId.toString(),
+        model: classified.modelId.toString(),
         modelVariant: classified.modelVariantId?.toString(),
         year: classified.year.toString(),
         vrm: classified.vrm ?? '',

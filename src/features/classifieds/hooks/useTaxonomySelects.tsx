@@ -27,15 +27,16 @@ export const useTaxonomySelects = () => {
       if (make) url.searchParams.append('make', make);
       if (model) url.searchParams.append('model', model);
 
-      const data = await api.get<{
+      const { models } = await api.get<{
         makes: FilterOptions<string, string>;
         models: FilterOptions<string, string>;
         modelVariants: FilterOptions<string, string>;
       }>(url.toString());
 
-      setMakes(data.makes);
-      setModels(data.models);
-      setModelVariants(data.modelVariants);
+      setMakes(makes);
+      setModels(models);
+
+      setModelVariants(modelVariants);
     })();
   }, [make, model]);
 

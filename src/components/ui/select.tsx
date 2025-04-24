@@ -94,7 +94,6 @@ export const Select = (props: SelectProps) => {
           </svg>
         </div>
       </div>
-      {error && <p className="text-sm font-medium text-destructive">{error}</p>}
     </div>
   );
 };

@@ -60,11 +60,9 @@ export const ClassifiedFormFields = () => {
         name="year"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="year" className="text-form-label-color">
-              Year
-            </FormLabel>
             <FormControl>
               <Select
+                label="Year"
                 selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={years.map((year) => ({
                   label: year,
@@ -109,11 +107,9 @@ export const ClassifiedFormFields = () => {
         name="transmission"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="transmission" className="text-form-label-color">
-              Transmission
-            </FormLabel>
             <FormControl>
               <Select
+                label="Transmission"
                 selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(Transmission).map((value) => ({
                   label: formatTransmission(value),
@@ -131,11 +127,9 @@ export const ClassifiedFormFields = () => {
         name="fuelType"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="fuelType" className="text-form-label-color">
-              Fuel Type
-            </FormLabel>
             <FormControl>
               <Select
+                label="Fuel Type"
                 selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(FuelType).map((value) => ({
                   label: formatFuelType(value),
@@ -153,11 +147,9 @@ export const ClassifiedFormFields = () => {
         name="bodyType"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="bodyType" className="text-form-label-color">
-              Body Type
-            </FormLabel>
             <FormControl>
               <Select
+                label="Body Type"
                 selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(BodyType).map((value) => ({
                   label: formatBodyType(value),
@@ -175,11 +167,9 @@ export const ClassifiedFormFields = () => {
         name="colour"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="colour" className="text-form-label-color">
-              Colour
-            </FormLabel>
             <FormControl>
               <Select
+                label="Colour"
                 selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(Colour).map((value) => ({
                   label: formatColour(value),
@@ -197,11 +187,9 @@ export const ClassifiedFormFields = () => {
         name="ulezCompliance"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="ulezCompliance" className="text-form-label-color">
-              ULEZ Compliance
-            </FormLabel>
             <FormControl>
               <Select
+                label="ULEZ Compliance"
                 selectClassName="text-form-text bg-background border-form-border h-form-input-height rounded-form-radius focus:border-form-border-focus hover:border-form-border-focus transition-colors"
                 options={Object.values(ULEZCompliance).map((value) => ({
                   label: formatUlezCompliance(value),
