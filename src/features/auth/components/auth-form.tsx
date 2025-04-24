@@ -5,8 +5,9 @@ import { FormProvider } from 'react-hook-form';
 
 import { Button, Input, Label } from '@/components/ui';
 
-import type { AuthFormProps } from '../types';
 import { OAuthButton } from './oauth-button';
+
+import type { AuthFormProps } from '../types';
 
 export const AuthForm = ({
   title,

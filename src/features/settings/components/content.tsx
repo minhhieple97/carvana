@@ -1,28 +1,27 @@
 'use client';
 
-import { Button } from '@/components/ui';
 import { Loader2 } from 'lucide-react';
-import { useAction } from 'next-safe-action/hooks';
-import { logOutOfAllSessionsAction } from '@/features/auth/actions';
 import { useRouter } from 'next/navigation';
+import { useAction } from 'next-safe-action/hooks';
 import { toast } from 'sonner';
 
-const LogoutButton = ({ isPending, onClick }: { isPending: boolean; onClick: () => void }) => {
-  return (
-    <div className="mt-8 flex">
-      <Button
-        disabled={isPending}
-        className="flex items-center gap-x-2"
-        variant="destructive"
-        type="button"
-        onClick={onClick}
-      >
-        {isPending && <Loader2 className="animate-spin w-4 h-4" />}
-        {isPending ? 'Logging out...' : 'Log out of all sessions'}
-      </Button>
-    </div>
-  );
-};
+import { Button } from '@/components/ui';
+import { logOutOfAllSessionsAction } from '@/features/auth/actions';
+
+const LogoutButton = ({ isPending, onClick }: { isPending: boolean; onClick: () => void }) => (
+  <div className="mt-8 flex">
+    <Button
+      disabled={isPending}
+      className="flex items-center gap-x-2"
+      variant="destructive"
+      type="button"
+      onClick={onClick}
+    >
+      {isPending && <Loader2 className="animate-spin w-4 h-4" />}
+      {isPending ? 'Logging out...' : 'Log out of all sessions'}
+    </Button>
+  </div>
+);
 
 export const SettingsPageContent = () => {
   const router = useRouter();
