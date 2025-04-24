@@ -55,11 +55,10 @@ function PaginationLink({
       prefetch
       className={cn(
         buttonVariants({
-          variant: isActive ? 'outline' : 'ghost',
+          variant: 'ghost',
           size,
         }),
-        'rounded-md transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[32px] h-[32px] flex items-center justify-center',
-        isActive && 'bg-primary text-primary-foreground font-semibold hover:bg-primary/90',
+        'rounded-md transition-all duration-200 min-w-[32px] h-[32px] flex items-center justify-center',
         className
       )}
       {...props}

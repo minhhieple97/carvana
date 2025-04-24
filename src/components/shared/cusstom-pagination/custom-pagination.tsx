@@ -2,6 +2,7 @@
 
 import {
   PaginationContent,
+  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -19,16 +20,7 @@ export const CustomPagination = (props: PaginationProps) => {
   const { currentPage, visibleRange, createPageUrl, handleEllipsisClick, setPage, totalPages } =
     useCustomPagination(props);
 
-  // Define base styles using CSS variables for better theme support
-  const baseLinkStyle =
-    'min-w-[32px] h-[32px] rounded-md text-sm font-medium transition-all duration-200 flex items-center justify-center border border-border bg-background text-foreground hover:bg-accent hover:text-accent-foreground pagination-link';
-  const activeLinkStyle =
-    'bg-primary text-white border-primary font-bold shadow-md dark:shadow-primary/30 dark:border-2 dark:border-primary dark:text-primary-foreground hover:bg-primary hover:text-primary-foreground';
-  const ellipsisStyle =
-    'text-muted-foreground dark:text-muted-foreground/90 hover:bg-accent hover:text-accent-foreground rounded-md min-w-[32px] h-[32px] flex items-center justify-center pagination-ellipsis';
-  const prevNextStyle =
-    'text-foreground dark:text-foreground/90 border border-border bg-background hover:bg-accent hover:text-accent-foreground transition-colors rounded-md px-2 pagination-nav';
-  const disabledStyle = 'opacity-50 pointer-events-none';
+  const disabledStyle = 'opacity-50 pointer-events-none cursor-not-allowed';
 
   return (
     <PaginationRoot className={cn('w-full mt-6', styles?.paginationRoot)}>
@@ -36,7 +28,7 @@ export const CustomPagination = (props: PaginationProps) => {
         <PaginationItem>
           <PaginationPrevious
             className={cn(
-              prevNextStyle,
+              'pagination-nav',
               currentPage <= 1 && disabledStyle,
               styles?.paginationPrevious
             )}
@@ -45,21 +37,23 @@ export const CustomPagination = (props: PaginationProps) => {
               e.preventDefault();
               if (currentPage > 1) setPage(currentPage - 1);
             }}
+            aria-disabled={currentPage <= 1}
+            tabIndex={currentPage <= 1 ? -1 : undefined}
           />
         </PaginationItem>
 
         {visibleRange.start > 1 && (
           <PaginationItem className="hidden md:block">
-            <PaginationLink
-              className={cn(ellipsisStyle, styles?.paginationLink)}
-              href="#"
+            <button
               onClick={(e) => {
                 e.preventDefault();
                 handleEllipsisClick('left');
               }}
+              aria-label="Go to previous page group"
+              className={cn('pagination-ellipsis', styles?.paginationLink)} // Style as ellipsis
             >
-              ...
-            </PaginationLink>
+              <PaginationEllipsis />
+            </button>
           </PaginationItem>
         )}
 
@@ -68,15 +62,9 @@ export const CustomPagination = (props: PaginationProps) => {
           (_, index) => visibleRange.start + index
         ).map((pageNumber) => {
           const isActive = pageNumber === currentPage;
-          let rel = '';
-
-          if (pageNumber === currentPage - 1) {
-            rel = 'prev';
-          }
-
-          if (pageNumber === currentPage + 1) {
-            rel = 'next';
-          }
+          let rel: 'prev' | 'next' | undefined;
+          if (pageNumber === currentPage - 1) rel = 'prev';
+          if (pageNumber === currentPage + 1) rel = 'next';
 
           return (
             <PaginationItem key={pageNumber}>
@@ -88,11 +76,13 @@ export const CustomPagination = (props: PaginationProps) => {
                   setPage(pageNumber);
                 }}
                 className={cn(
-                  baseLinkStyle,
-                  isActive ? activeLinkStyle : '',
+                  'pagination-link', // Base global class
+                  isActive && 'pagination-link-active', // Active global class
                   styles?.paginationLink,
                   isActive && styles?.paginationLinkActive
                 )}
+                aria-label={`Go to page ${pageNumber}`}
+                aria-current={isActive ? 'page' : undefined}
                 {...(rel ? { rel } : {})}
               >
                 {pageNumber}
@@ -103,23 +93,23 @@ export const CustomPagination = (props: PaginationProps) => {
 
         {visibleRange.end < totalPages && (
           <PaginationItem className="hidden md:block">
-            <PaginationLink
-              className={cn(ellipsisStyle, styles?.paginationLink)}
-              href="#"
+            <button
               onClick={(e) => {
                 e.preventDefault();
                 handleEllipsisClick('right');
               }}
+              aria-label="Go to next page group"
+              className={cn('pagination-ellipsis', styles?.paginationLink)} // Style as ellipsis
             >
-              ...
-            </PaginationLink>
+              <PaginationEllipsis />
+            </button>
           </PaginationItem>
         )}
 
         <PaginationItem>
           <PaginationNext
             className={cn(
-              prevNextStyle,
+              'pagination-nav',
               currentPage >= totalPages && disabledStyle,
               styles?.paginationNext
             )}
@@ -128,6 +118,8 @@ export const CustomPagination = (props: PaginationProps) => {
               e.preventDefault();
               if (currentPage < totalPages) setPage(currentPage + 1);
             }}
+            aria-disabled={currentPage >= totalPages}
+            tabIndex={currentPage >= totalPages ? -1 : undefined}
           />
         </PaginationItem>
       </PaginationContent>
