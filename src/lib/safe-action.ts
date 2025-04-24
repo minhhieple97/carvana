@@ -1,10 +1,9 @@
-import { Role } from '@prisma/client';
-import { cookies } from 'next/headers';
 import { createSafeActionClient, DEFAULT_SERVER_ERROR_MESSAGE } from 'next-safe-action';
 
-import { COOKIE_SESSION_KEY } from '@/config';
-import { getUserFromSession } from '@/features/auth';
+import { checkAuth, isAdmin } from './auth';
+
 export class ActionError extends Error {}
+
 export const action = createSafeActionClient({
   throwValidationErrors: false,
   defaultValidationErrorsShape: 'flattened',
@@ -18,23 +17,21 @@ export const action = createSafeActionClient({
 });
 
 export const authAction = action.use(async ({ next }) => {
-  const cookieStore = await cookies();
-  const session = cookieStore.get(COOKIE_SESSION_KEY)?.value;
-  if (!session) {
-    throw new ActionError('Session not found!');
+  const authResult = await checkAuth();
+
+  if (!authResult.success) {
+    throw new ActionError(authResult.message || 'Authentication failed');
   }
-  const user = await getUserFromSession(cookieStore);
-  if (!user) {
-    throw new ActionError('Session is not valid!');
-  }
-  return next({ ctx: { user } });
+
+  return next({ ctx: { user: authResult.user } });
 });
 
 export const adminAction = authAction.use(async ({ next, ctx }) => {
-  const userRole = ctx.user.role;
+  const adminResult = isAdmin(ctx.user?.role);
 
-  if (userRole !== Role.admin) {
-    throw new ActionError('Invalid action');
+  if (!adminResult.success) {
+    throw new ActionError(adminResult.message || 'Authorization failed');
   }
+
   return next({ ctx });
 });
