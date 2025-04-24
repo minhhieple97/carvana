@@ -1,10 +1,7 @@
 'use client';
 
-import { imgixLoader } from '@/lib/imgix-loader';
-
 import FsLightbox from 'fslightbox-react';
 import dynamic from 'next/dynamic';
-import { useCallback, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/virtual';
@@ -13,12 +10,11 @@ import { SwiperSlide } from 'swiper/react';
 
 import { SwiperButtons } from '@/components/shared/swiper-button';
 import { ImgixImage } from '@/components/ui/imgix-image';
-
+import { useClassifiedCarousel } from '../hooks/useClassifiedCarousel';
 import { CarouselSkeleton } from './carousel-skeleton';
+import { cn } from '@/lib/utils';
 
 import type { Image as PrismaImage } from '@prisma/client';
-import type { Swiper as SwiperType } from 'swiper/types';
-import { cn } from '@/lib/utils';
 
 type ClassifiedCarouselProps = {
   images: PrismaImage[];
@@ -35,30 +31,15 @@ const SwiperThumb = dynamic(() => import('swiper/react').then((mod) => mod.Swipe
 });
 
 export const ClassifiedCarousel = ({ images }: ClassifiedCarouselProps) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const [lightboxController, setLightboxController] = useState({
-    toggler: false,
-    sourceIndex: 0,
-  });
-
-  const setSwiper = (swiper: SwiperType) => {
-    setThumbsSwiper(swiper);
-  };
-
-  const handleSlideChange = useCallback((swiper: SwiperType) => {
-    setActiveIndex(swiper.activeIndex);
-  }, []);
-
-  const handleImageClick = useCallback(() => {
-    setLightboxController({
-      toggler: !lightboxController.toggler,
-      sourceIndex: activeIndex,
-    });
-  }, [lightboxController.toggler, activeIndex]);
-
-  const sources = images.map((image) => imgixLoader({ src: image.src, width: 2400, quality: 100 }));
+  const {
+    thumbsSwiper,
+    activeIndex,
+    lightboxController,
+    setSwiper,
+    handleSlideChange,
+    handleImageClick,
+    sources,
+  } = useClassifiedCarousel(images);
 
   return (
     <>
