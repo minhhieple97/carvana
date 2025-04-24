@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import { prisma } from '@/lib/prisma';
 
-import type { Make, Model, ModelVariant } from '@prisma/client';
+import type { Model, ModelVariant } from '@prisma/client';
 
 type LabelValue = {
   label: string;
