@@ -51,7 +51,6 @@ export const Select = (props: SelectProps) => {
           disabled={disabled}
           className={cn(
             'w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm',
-            'focus:border-ring/50 focus:outline-none focus:ring-2 focus:ring-ring/20',
             'disabled:■-not-allowed disabled:bg-muted/50 disabled:text-muted-foreground',
             'appearance-none pr-10 transition-all duration-200',
             'text-foreground font-medium',
