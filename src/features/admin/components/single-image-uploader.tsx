@@ -35,7 +35,7 @@ export const SingleImageUploader = (props: SingleImageUploaderProps) => {
   };
 
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full max-w-md mx-auto">
       <div
         onDrop={handleDrop}
         onDragEnter={handleDragEnter}
@@ -51,7 +51,7 @@ export const SingleImageUploader = (props: SingleImageUploaderProps) => {
         tabIndex={uploadComplete ? -1 : 0}
         aria-label={preview ? 'Uploaded image preview' : 'Click or drag to upload image'}
         className={cn(
-          'relative flex aspect-3/2 flex-col items-center justify-center rounded-md border-border dark:border-input',
+          'relative flex aspect-3/2 w-full flex-col items-center justify-center rounded-md border border-border dark:border-input p-1',
           !preview && 'cursor-pointer',
           error && 'border-destructive border-2 border-dotted',
           isUploading && 'pointer-events-none opacity-50',
@@ -71,7 +71,11 @@ export const SingleImageUploader = (props: SingleImageUploaderProps) => {
           multiple={false}
         />
         {preview ? (
-          <img src={preview} alt="Preview" className="h-full w-full object-cover rounded-md" />
+          <img
+            src={preview}
+            alt="Preview"
+            className="object-contain max-h-full max-w-full rounded-md"
+          />
         ) : (
           <div className="text-center flex items-center justify-center flex-col p-4">
             <ImagePlus className="mx-auto w-12 h-12 text-muted-foreground" />
