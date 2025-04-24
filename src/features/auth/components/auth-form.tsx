@@ -47,31 +47,33 @@ export const AuthForm = ({
   form,
   showOAuth = true,
 }: AuthFormProps) => (
-  <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] m-auto bg-white">
-    <div className="max-w-md w-full pb-60">
+  <div className="flex flex-col items-center justify-center min-h-screen m-auto bg-background">
+    <div className="max-w-md w-full mx-auto">
       <FormProvider {...form}>
         <form
-          className="border-muted border shadow-lg p-10 rounded-md bg-white"
+          className="border-border border shadow-lg p-10 rounded-md bg-card mx-auto"
           onSubmit={onSubmit}
         >
           <div className="flex items-center mb-6 justify-center">
-            <h2 className="uppercase text-2xl font-bold">{title}</h2>
+            <h2 className="uppercase text-2xl font-bold text-foreground">{title}</h2>
           </div>
           <div className="space-y-4">
             {fields.map((field) => (
               <div key={field.id} className="space-y-2">
-                <Label htmlFor={field.id}>{field.label}</Label>
+                <Label htmlFor={field.id} className="text-foreground">
+                  {field.label}
+                </Label>
                 <Input
                   id={field.id}
                   type={field.type}
                   {...form.register(field.id)}
                   autoComplete={field.autoComplete}
-                  className="placeholder:text-gray-500"
+                  className="placeholder:text-muted-foreground"
                   placeholder={field.placeholder}
                   aria-invalid={!!form.formState.errors[field.id]}
                 />
                 {form.formState.errors[field.id] && (
-                  <p className="text-sm text-red-600">
+                  <p className="text-sm text-destructive">
                     {form.formState.errors[field.id]?.message?.toString()}
                   </p>
                 )}
@@ -81,8 +83,8 @@ export const AuthForm = ({
             {showOAuth && (
               <div className="mt-6 space-y-4">
                 <div className="relative flex items-center justify-center">
-                  <span className="absolute inset-x-0 h-px bg-muted" />
-                  <span className="relative bg-white px-4 text-sm text-muted-foreground">
+                  <span className="absolute inset-x-0 h-px bg-border" />
+                  <span className="relative bg-card px-4 text-sm text-muted-foreground">
                     Or continue with
                   </span>
                 </div>
@@ -92,7 +94,7 @@ export const AuthForm = ({
 
             {footerText && (
               <div className="my-6">
-                <p className="text-sm text-gray-600 mb-2 text-center">{footerText}</p>
+                <p className="text-sm text-muted-foreground mb-2 text-center">{footerText}</p>
               </div>
             )}
             <div className="space-y-4">
@@ -104,7 +106,7 @@ export const AuthForm = ({
                 </div>
               )}
               {error && (
-                <div className="flex items-center gap-2 rounded-md bg-red-500 p-3 text-white">
+                <div className="flex items-center gap-2 rounded-md bg-destructive p-3 text-destructive-foreground">
                   <CircleX className="h-5 w-5" />
                   <span>Error! {error}</span>
                 </div>
