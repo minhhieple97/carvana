@@ -208,7 +208,10 @@ export const ClassifiedFormFields = () => {
         name="vrm"
         render={({ field: { ref, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="vrm" className="text-form-label-color">
+            <FormLabel
+              htmlFor="vrm"
+              className={'font-semibold mb-1.5 text-[0.925rem] text-foreground'}
+            >
               Vehicle Registration Mark
             </FormLabel>
             <FormControl>
@@ -227,7 +230,10 @@ export const ClassifiedFormFields = () => {
         name="doors"
         render={({ field: { onChange, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="doors" className="text-form-label-color">
+            <FormLabel
+              htmlFor="doors"
+              className="font-semibold mb-1.5 text-[0.925rem] text-foreground"
+            >
               Doors
             </FormLabel>
             <FormControl>
@@ -251,7 +257,10 @@ export const ClassifiedFormFields = () => {
         name="seats"
         render={({ field: { onChange, ...rest } }) => (
           <FormItem>
-            <FormLabel htmlFor="seats" className="text-form-label-color">
+            <FormLabel
+              htmlFor="seats"
+              className="font-semibold mb-1.5 text-[0.925rem] text-foreground"
+            >
               Seats
             </FormLabel>
             <FormControl>
