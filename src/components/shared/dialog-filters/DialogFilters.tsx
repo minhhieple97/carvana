@@ -47,10 +47,12 @@ export const DialogFilters = (props: DialogFiltersProps) => {
           <Settings2 className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[425px] h-[90vh] overflow-y-auto rounded-xl bg-white">
-        <div className="border-b border-gray-100 p-5">
+      <DialogContent className="max-w-[425px] h-[90vh] overflow-y-auto rounded-xl bg-white dark:bg-gray-900">
+        <div className="border-b border-gray-100 dark:border-gray-700 p-5">
           <div className="mb-5 flex items-center justify-between">
-            <DialogTitle className="text-xl font-semibold text-gray-800">Filters</DialogTitle>
+            <DialogTitle className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              Filters
+            </DialogTitle>
             <button
               type="button"
               onClick={clearFilters}
@@ -58,8 +60,8 @@ export const DialogFilters = (props: DialogFiltersProps) => {
               className={cn(
                 'rounded-full px-4 py-1.5 text-sm font-medium transition-all',
                 filterCount
-                  ? 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                  : 'cursor-not-allowed text-gray-300'
+                  ? 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-50'
+                  : 'cursor-not-allowed text-gray-300 dark:text-gray-500'
               )}
             >
               Clear all {filterCount ? `(${filterCount})` : null}
@@ -67,7 +69,7 @@ export const DialogFilters = (props: DialogFiltersProps) => {
           </div>
           <SearchInput
             placeholder="Search classifieds..."
-            className="w-full rounded-lg border-gray-200 shadow-sm focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20"
+            className="w-full rounded-lg border-gray-200 dark:border-input dark:bg-input dark:text-gray-50 dark:placeholder-muted-foreground shadow-sm focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-ring/20 dark:focus-within:border-primary/80"
           />
         </div>
 

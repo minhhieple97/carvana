@@ -13,11 +13,11 @@ export const MobileMenu = () => (
         <SheetTitle className="sr-only">Toggle nav menu</SheetTitle>
       </Button>
     </SheetTrigger>
-    <SheetContent side="right" className="w-full max-w-xs p-4 bg-white">
+    <SheetContent side="right" className="w-full max-w-xs p-4 bg-white dark:bg-gray-900">
       <nav className="grid gap-2">
         {navLinks.map((link) => (
           <Link
-            className="flex items-center gap-2 py-2 text-sm font-medium text-gray-600 hover:text-gray-900"
+            className="flex items-center gap-2 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
             href={link.href}
             key={link.id}
           >
