@@ -83,6 +83,3 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
     </main>
   );
 }
-
-export const dynamic = 'force-dynamic';
-export const fetchCache = 'force-no-store';

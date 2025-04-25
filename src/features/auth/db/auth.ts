@@ -1,4 +1,4 @@
-import { hashPassword, comparePasswords, generateSalt } from '@/lib/passwordHasher';
+import { hashPassword, comparePasswords, generateSalt } from '@/lib/password-hasher';
 import { prisma } from '@/lib/prisma';
 
 import type { CreateUserData, SignInData } from '../types';

@@ -1,4 +1,4 @@
-import { hashPassword, generateSalt } from '@/lib/passwordHasher';
+import { hashPassword, generateSalt } from '@/lib/password-hasher';
 
 import type { PrismaClient } from '@prisma/client';
 

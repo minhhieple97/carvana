@@ -14,3 +14,4 @@ export * from './theme-provider';
 export * from './theme-toggle';
 export * from './sort-icon';
 export * from './sortable-table';
+export * from './react-query';

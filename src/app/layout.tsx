@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import './globals.css';
 import { ThemeProvider } from '@/components/shared';
 import { Toaster } from '@/components/ui';
+import { ReactQueryProvider } from '@/components/shared';
 
 export const metadata: Metadata = {
   title: 'Car Dealer Website',
@@ -48,9 +49,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextTopLoader showSpinner={false} />
-          <NuqsAdapter>{children}</NuqsAdapter>
-          <Toaster />
+          <ReactQueryProvider>
+            <NextTopLoader showSpinner={false} />
+            <NuqsAdapter>{children}</NuqsAdapter>
+            <Toaster />
+          </ReactQueryProvider>
         </ThemeProvider>
       </body>
     </html>
