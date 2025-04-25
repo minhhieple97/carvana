@@ -17,7 +17,6 @@ export const TaxonomySelects = () => {
             <FormControl>
               <Select
                 label="Make"
-                selectClassName="text-form-text bg-background border-form-border focus:border-form-border-focus"
                 options={makes}
                 onChange={(e) => handleChange(e, onChange)}
                 {...rest}
@@ -35,7 +34,6 @@ export const TaxonomySelects = () => {
             <FormControl>
               <Select
                 label="Model"
-                selectClassName="text-form-text bg-background border-form-border focus:border-form-border-focus"
                 options={models}
                 onChange={(e) => handleChange(e, onChange)}
                 {...rest}
@@ -53,7 +51,6 @@ export const TaxonomySelects = () => {
             <FormControl>
               <Select
                 label="Model Variant"
-                selectClassName="text-form-text bg-background border-form-border focus:border-form-border-focus"
                 options={modelVariants}
                 onChange={(e) => handleChange(e, onChange)}
                 {...rest}

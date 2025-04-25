@@ -26,7 +26,7 @@ export const NewsletterForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="First Name" className="bg-white" {...field} />
+                    <Input placeholder="First Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -38,7 +38,7 @@ export const NewsletterForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Last Name" className="bg-white" {...field} />
+                    <Input placeholder="Last Name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -51,7 +51,7 @@ export const NewsletterForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Email" type="email" className="bg-white w-full" {...field} />
+                  <Input placeholder="Email" type="email" className="w-full" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -349,27 +349,6 @@
   :focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
-
-  /* Apply base input styles */
-  input,
-  input[type='text'],
-  input[type='number'],
-  input[type='email'],
-  input[type='password'],
-  input[type='search'],
-  input[type='tel'],
-  input[type='url'],
-  input[type='date'],
-  input[type='datetime-local'],
-  input[type='month'],
-  input[type='week'],
-  input[type='time'],
-  input[type='color'],
-  input[type='file'],
-  textarea,
-  select {
-    @apply block w-full rounded-md border bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-input dark:bg-input;
-  }
 }
 
 /* Add these to the components section */

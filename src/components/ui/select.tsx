@@ -50,13 +50,13 @@ export const Select = (props: SelectProps) => {
           value={value ?? ''}
           disabled={disabled}
           className={cn(
-            'w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm',
-            'disabled:■-not-allowed disabled:bg-muted/50 disabled:text-muted-foreground',
-            'appearance-none pr-10 transition-all duration-200',
+            'w-full rounded-md border border-input bg-transparent px-4 py-2.5 text-sm',
             'text-foreground font-medium',
-            'hover:border-input-border',
-            error &&
-              'border-destructive focus:border-destructive focus:ring-destructive/20 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent max-h-[280px] overflow-y-auto',
+            'appearance-none pr-10 transition-colors duration-200',
+            'disabled:cursor-not-allowed disabled:bg-muted/50 disabled:text-muted-foreground',
+            'hover:border-input/80 dark:hover:border-input/80',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+            error && 'border-destructive focus:border-destructive focus:ring-destructive/20',
             selectClassName
           )}
           {...rest}
@@ -93,6 +93,7 @@ export const Select = (props: SelectProps) => {
           </svg>
         </div>
       </div>
+      {error && <p className="text-sm font-medium text-destructive mt-1">{error}</p>}
     </div>
   );
 };

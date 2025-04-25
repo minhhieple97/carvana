@@ -12,13 +12,18 @@ export const NumberInput = forwardRef<ElementType<typeof NumericFormat>, Numeric
       decimalScale={0}
       allowNegative={false}
       className={cn(
-        'flex h-10 w-full rounded-md border border-input bg-transparent px-3',
-        'text-sm ring-offset-background',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+        'block w-full rounded-md border bg-transparent px-4 py-2.5 text-sm',
+        'text-foreground placeholder:text-muted-foreground',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         'disabled:cursor-not-allowed disabled:opacity-50',
+        'transition-colors duration-200',
+        'dark:border-input dark:placeholder:text-muted-foreground',
+        'hover:border-input/80 dark:hover:border-input/80',
         className
       )}
       {...props}
     />
   )
 );
+
+NumberInput.displayName = 'NumberInput';

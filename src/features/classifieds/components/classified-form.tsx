@@ -54,16 +54,8 @@ export const ClassifiedForm = ({ classified }: ClassifiedFormProps) => {
               name="status"
               render={({ field: { ref, ...rest } }) => (
                 <FormItem>
-                  <FormLabel className="text-form-label-color" htmlFor="status">
-                    Status
-                  </FormLabel>
                   <FormControl>
-                    <Select
-                      options={statusOptions}
-                      noDefault={false}
-                      selectClassName="bg-form-bg border-form-border text-form-text focus:border-form-border-focus focus:ring-ring focus:ring-offset-background rounded-form-radius"
-                      {...rest}
-                    />
+                    <Select options={statusOptions} noDefault={false} {...rest} label="Status" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
