@@ -10,7 +10,6 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   className?: string;
   selectClassName?: string;
   labelClassName?: string;
-  containerClassName?: string;
   optionsClassName?: string;
   noDefault?: boolean;
   error?: string;
@@ -26,7 +25,6 @@ export const Select = (props: SelectProps) => {
     className,
     selectClassName,
     labelClassName,
-    containerClassName,
     optionsClassName,
     noDefault = true,
     error,
@@ -44,7 +42,7 @@ export const Select = (props: SelectProps) => {
           {label}
         </label>
       )}
-      <div className={cn('relative', containerClassName)}>
+      <div className={cn('relative')}>
         <select
           onChange={onChange}
           value={value ?? ''}
