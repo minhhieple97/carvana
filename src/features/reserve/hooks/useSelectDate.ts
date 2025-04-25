@@ -62,6 +62,12 @@ export const useSelectDate = (
     }
   }, [watchedDate, form]);
 
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+    setTimeOptions(getTimeOptions(date));
+    form.setValue('handoverTime', '');
+  };
+
   const prevStep = () => {
     startPrevTransition(async () => {
       await new Promise((resolve) => setTimeout(resolve, 500));
@@ -108,5 +114,6 @@ export const useSelectDate = (
     onSelectDate,
     dateOptions,
     timeOptions,
+    handleDateSelect,
   };
 };

@@ -18,3 +18,5 @@ export * from './skeleton';
 export * from './table';
 export * from './imgix-image';
 export * from './badge';
+export * from './calendar';
+export * from './popover';
