@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
+import { toast } from 'sonner';
 
 import { endpoints } from '@/config';
 import { api } from '@/lib/api-client';
 
 import type { FilterOptions, TaxonomyFiltersProps } from '@/config';
-import { toast } from 'sonner';
 
 const QUERY_KEY_TAXONOMY = 'taxonomy';
 const STALE_TIME_TAXONOMY_DATA = 5 * 60 * 1000;

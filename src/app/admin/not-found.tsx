@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import { AlertTriangleIcon } from 'lucide-react';
+import Link from 'next/link';
+
 import { routes } from '@/config';
 
 export default function AdminNotFound() {

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { PublicLayout } from '@/components/shared';
 import { routes } from '@/config/routes';
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { Clock, Loader2 } from 'lucide-react';
 import { format, parse } from 'date-fns';
+import { Clock, Loader2 } from 'lucide-react';
 
 import {
   Button,
@@ -14,8 +14,8 @@ import {
   FormMessage,
   Select,
 } from '@/components/ui';
-import { cn } from '@/lib/utils';
 import { type MultiStepFormComponentProps } from '@/config/types';
+import { cn } from '@/lib/utils';
 
 import { useSelectDate } from '../hooks';
 
@@ -56,9 +56,7 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
                           handleDateSelect(formattedDate);
                         }
                       }}
-                      disabled={(date) => {
-                        return date < new Date(new Date().setHours(0, 0, 0, 0));
-                      }}
+                      disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
                       initialFocus
                       className="rounded-md overflow-hidden w-full"
                     />
@@ -102,7 +100,7 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
 
                         <div className="mt-4 space-y-2">
                           <div className="text-sm text-muted-foreground flex gap-2 items-center">
-                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-green-500 rounded-full" />
                             <span>Available Time Slots</span>
                           </div>
                           <div className="text-xs text-muted-foreground">

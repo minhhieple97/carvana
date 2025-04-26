@@ -202,7 +202,7 @@ export const ClassifiedFormFields = () => {
           <FormItem>
             <FormLabel
               htmlFor="vrm"
-              className={'font-semibold mb-1.5 text-[0.925rem] text-foreground'}
+              className="font-semibold mb-1.5 text-[0.925rem] text-foreground"
             >
               Vehicle Registration Mark
             </FormLabel>
