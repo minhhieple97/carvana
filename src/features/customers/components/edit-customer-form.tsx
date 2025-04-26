@@ -49,7 +49,7 @@ export const EditCustomerForm = ({ customer }: EditCustomerFormProps) => {
           name="status"
           render={({ field: { ref, ...rest } }) => (
             <FormItem>
-              <FormLabel className="text-foreground">Status</FormLabel>
+              <FormLabel className="text-foreground mb-2">Status</FormLabel>
               <FormControl>
                 <Select
                   options={Object.values(CustomerStatus).map((value) => ({

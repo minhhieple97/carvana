@@ -60,7 +60,7 @@ export const Select = (props: SelectProps) => {
           {...rest}
         >
           {noDefault && (
-            <option value="" className="text-muted-foreground font-normal dark:text-gray-300">
+            <option value="" className="text-foreground font-medium py-2.5 bg-background">
               {placeholder || `Select ${label?.toLowerCase()}`}
             </option>
           )}
@@ -68,10 +68,7 @@ export const Select = (props: SelectProps) => {
             <option
               key={option.value}
               value={option.value}
-              className={cn(
-                'text-foreground font-medium py-1.5 dark:text-gray-200',
-                optionsClassName
-              )}
+              className="text-foreground font-medium py-2.5 bg-background"
             >
               {option.label}
             </option>

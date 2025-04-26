@@ -27,20 +27,23 @@ export const RangeSelect = (props: RangeSelectProps) => {
           <select
             {...minSelect}
             className={cn(
-              'w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm',
-              'focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20',
-              'disabled:cursor-not-allowed disabled:bg-gray-50/50 disabled:text-gray-400',
-              'appearance-none pr-10 transition-all duration-200',
-              'font-medium',
-              'hover:border-gray-300',
-              minSelect.error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+              'w-full rounded-md border border-input bg-transparent px-4 py-2.5 text-sm',
+              'text-foreground font-medium',
+              'appearance-none pr-10 transition-colors duration-200',
+              'disabled:cursor-not-allowed disabled:bg-muted/50 disabled:text-muted-foreground',
+              'hover:border-input/80 dark:hover:border-input/80',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
             )}
           >
-            <option value="" className="text-gray-500 font-normal">
+            <option value="" className="text-foreground font-medium py-2.5 bg-background">
               Min {label}
             </option>
             {minSelect.options.map((option) => (
-              <option key={option.value} value={option.value} className="font-medium py-1.5">
+              <option
+                key={option.value}
+                value={option.value}
+                className="text-foreground font-medium py-2.5 bg-background"
+              >
                 {option.label}
               </option>
             ))}
@@ -68,20 +71,23 @@ export const RangeSelect = (props: RangeSelectProps) => {
           <select
             {...maxSelect}
             className={cn(
-              'w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm',
-              'focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20',
-              'disabled:cursor-not-allowed disabled:bg-gray-50/50 disabled:text-gray-400',
-              'appearance-none pr-10 transition-all duration-200',
-              'font-medium',
-              'hover:border-gray-300',
-              maxSelect.error && 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+              'w-full rounded-md border border-input bg-transparent px-4 py-2.5 text-sm',
+              'text-foreground font-medium',
+              'appearance-none pr-10 transition-colors duration-200',
+              'disabled:cursor-not-allowed disabled:bg-muted/50 disabled:text-muted-foreground',
+              'hover:border-input/80 dark:hover:border-input/80',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
             )}
           >
-            <option value="" className="text-gray-500 font-normal">
+            <option value="" className="text-foreground font-medium py-2.5 bg-background">
               Max {label}
             </option>
             {maxSelect.options.map((option) => (
-              <option key={option.value} value={option.value} className="font-medium py-1.5">
+              <option
+                key={option.value}
+                value={option.value}
+                className="text-foreground font-medium py-2.5 bg-background"
+              >
                 {option.label}
               </option>
             ))}

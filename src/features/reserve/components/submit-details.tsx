@@ -38,7 +38,7 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
                     htmlFor="firstName"
                     className="flex text-foreground dark:text-foreground/90"
                   >
-                    First Name <span className="text-destructive ml-1">*</span>
+                    First Name <span className="text-destructive ml-1 mb-2">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your first name" {...field} />
@@ -54,7 +54,7 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
                 <FormItem>
                   <FormLabel
                     htmlFor="lastName"
-                    className="flex text-foreground dark:text-foreground/90"
+                    className="flex text-foreground dark:text-foreground/90 mb-2"
                   >
                     Last Name <span className="text-destructive ml-1">*</span>
                   </FormLabel>
@@ -74,7 +74,7 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
                     htmlFor="email"
                     className="flex text-foreground dark:text-foreground/90"
                   >
-                    Email Address <span className="text-destructive ml-1">*</span>
+                    Email Address <span className="text-destructive ml-1 mb-2">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your email address" type="email" {...field} />
@@ -92,7 +92,7 @@ export const SubmitDetails = (props: MultiStepFormComponentProps) => {
                     htmlFor="mobile"
                     className="flex text-foreground dark:text-foreground/90"
                   >
-                    Mobile Number <span className="text-destructive ml-1">*</span>
+                    Mobile Number <span className="text-destructive ml-1 mb-2">*</span>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your mobile number" type="tel" {...field} />

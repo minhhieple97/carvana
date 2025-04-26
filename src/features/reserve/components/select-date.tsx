@@ -95,7 +95,6 @@ export const SelectDate = (props: MultiStepFormComponentProps) => {
                               value={field.value}
                               onChange={field.onChange}
                               onBlur={field.onBlur}
-                              className="w-full h-11"
                             />
                           </FormControl>
                           <Clock className="absolute right-10 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
