@@ -61,18 +61,15 @@ export const InputSelect = (props: InputSelectProps) => {
                           value={field.value ?? ''}
                           onChange={field.onChange}
                           className={cn(
-                            'h-full w-full rounded-l-none border border-input bg-transparent px-4 py-2.5 text-sm',
-                            'text-foreground font-medium',
-                            'appearance-none pr-10 transition-colors duration-200',
-                            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                            'hover:border-input/80 dark:hover:border-input/80'
+                            'h-full w-full rounded-l-none border border-input bg-background px-4 py-2.5 text-sm',
+                            'text-foreground font-medium transition-colors duration-200'
                           )}
                         >
                           {options.map((option) => (
                             <option
                               key={option.value}
                               value={option.value}
-                              className="text-foreground font-medium py-1.5 dark:text-gray-200"
+                              className="text-foreground font-medium py-2.5 bg-background"
                             >
                               {option.label}
                             </option>
