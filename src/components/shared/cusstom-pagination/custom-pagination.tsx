@@ -15,21 +15,31 @@ import { useCustomPagination } from './useCustomPagination';
 
 import type { PaginationProps } from '@/config';
 
+const paginationStyles = {
+  root: 'w-full justify-end',
+  content: 'justify-end gap-1 md:gap-2 items-center',
+  link: 'min-w-[32px] h-[32px] flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200 border border-transparent bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground',
+  linkActive:
+    'bg-primary text-primary-foreground border-primary hover:bg-primary/90 font-semibold shadow-sm border',
+  ellipsis:
+    'flex min-w-[32px] h-[32px] items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors duration-200',
+  nav: 'h-auto border border-border bg-background hover:bg-accent hover:text-accent-foreground text-foreground px-2.5 py-1 rounded-md transition-colors duration-200',
+  disabled: 'opacity-50 pointer-events-none cursor-not-allowed',
+};
+
 export const CustomPagination = (props: PaginationProps) => {
   const { styles } = props;
   const { currentPage, visibleRange, createPageUrl, handleEllipsisClick, setPage, totalPages } =
     useCustomPagination(props);
 
-  const disabledStyle = 'opacity-50 pointer-events-none cursor-not-allowed';
-
   return (
-    <PaginationRoot className={cn('w-full mt-6', styles?.paginationRoot)}>
-      <PaginationContent className="justify-end gap-1 md:gap-2 items-center">
+    <PaginationRoot className={cn(paginationStyles.root, styles?.paginationRoot)}>
+      <PaginationContent className={paginationStyles.content}>
         <PaginationItem>
           <PaginationPrevious
             className={cn(
-              'pagination-nav',
-              currentPage <= 1 && disabledStyle,
+              paginationStyles.nav,
+              currentPage <= 1 && paginationStyles.disabled,
               styles?.paginationPrevious
             )}
             href={createPageUrl(currentPage - 1)}
@@ -50,7 +60,7 @@ export const CustomPagination = (props: PaginationProps) => {
                 handleEllipsisClick('left');
               }}
               aria-label="Go to previous page group"
-              className={cn('pagination-ellipsis', styles?.paginationLink)} // Style as ellipsis
+              className={cn(paginationStyles.ellipsis, styles?.paginationLink)}
             >
               <PaginationEllipsis />
             </button>
@@ -76,8 +86,8 @@ export const CustomPagination = (props: PaginationProps) => {
                   setPage(pageNumber);
                 }}
                 className={cn(
-                  'pagination-link', // Base global class
-                  isActive && 'pagination-link-active', // Active global class
+                  paginationStyles.link,
+                  isActive && paginationStyles.linkActive,
                   styles?.paginationLink,
                   isActive && styles?.paginationLinkActive
                 )}
@@ -99,7 +109,7 @@ export const CustomPagination = (props: PaginationProps) => {
                 handleEllipsisClick('right');
               }}
               aria-label="Go to next page group"
-              className={cn('pagination-ellipsis', styles?.paginationLink)} // Style as ellipsis
+              className={cn(paginationStyles.ellipsis, styles?.paginationLink)}
             >
               <PaginationEllipsis />
             </button>
@@ -109,8 +119,8 @@ export const CustomPagination = (props: PaginationProps) => {
         <PaginationItem>
           <PaginationNext
             className={cn(
-              'pagination-nav',
-              currentPage >= totalPages && disabledStyle,
+              paginationStyles.nav,
+              currentPage >= totalPages && paginationStyles.disabled,
               styles?.paginationNext
             )}
             href={createPageUrl(currentPage + 1)}

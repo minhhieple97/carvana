@@ -53,19 +53,7 @@ export const AdminTableFooter = (props: AdminTableFooterProps) => {
               noDefault={false}
               selectClassName="bg-background text-foreground border-border hover:border-input-border focus:ring-ring/20"
             />
-            {totalPages > 1 && (
-              <CustomPagination
-                totalPages={totalPages}
-                baseURL={baseURL}
-                styles={{
-                  paginationRoot: 'justify-end',
-                  paginationPrevious: 'border border-border hover:bg-accent text-foreground',
-                  paginationNext: 'border border-border hover:bg-accent text-foreground',
-                  paginationLink: 'border border-border hover:bg-accent text-foreground',
-                  paginationLinkActive: 'bg-primary !text-primary-foreground border-primary',
-                }}
-              />
-            )}
+            {totalPages > 1 && <CustomPagination totalPages={totalPages} baseURL={baseURL} />}
           </div>
         </TableCell>
       </TableRow>

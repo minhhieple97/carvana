@@ -48,21 +48,7 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                       searchParams={searchParams}
                     />
                     {totalPages > 1 && (
-                      <CustomPagination
-                        baseURL={routes.classifieds}
-                        totalPages={totalPages}
-                        styles={{
-                          paginationRoot: 'w-auto mt-0',
-                          paginationLink:
-                            'text-secondary-foreground hover:text-accent-foreground hover:bg-accent font-medium transition-colors',
-                          paginationLinkActive:
-                            'bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm',
-                          paginationPrevious:
-                            'text-secondary-foreground hover:text-accent-foreground hover:bg-accent font-medium transition-colors',
-                          paginationNext:
-                            'text-secondary-foreground hover:text-accent-foreground hover:bg-accent font-medium transition-colors',
-                        }}
-                      />
+                      <CustomPagination baseURL={routes.classifieds} totalPages={totalPages} />
                     )}
                   </div>
                 </div>

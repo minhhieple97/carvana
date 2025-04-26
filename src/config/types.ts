@@ -70,7 +70,7 @@ export type PaginationProps = {
   baseURL: string;
   totalPages: number;
   maxVisiblePages?: number;
-  styles: {
+  styles?: {
     paginationRoot: string;
     paginationPrevious: string;
     paginationNext: string;

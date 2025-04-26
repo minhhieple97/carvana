@@ -94,17 +94,7 @@ async function FavouriteList({ searchParams }: PageProps) {
 
       {totalPages > 1 && (
         <div className="mt-12 flex justify-center">
-          <CustomPagination
-            baseURL={routes.favourites}
-            totalPages={totalPages}
-            styles={{
-              paginationRoot: '',
-              paginationPrevious: '',
-              paginationNext: '',
-              paginationLinkActive: '',
-              paginationLink: 'border-none',
-            }}
-          />
+          <CustomPagination baseURL={routes.favourites} totalPages={totalPages} />
         </div>
       )}
     </>

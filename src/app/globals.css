@@ -365,42 +365,6 @@
     @apply bg-background text-foreground;
   }
 
-  /* Pagination specific styles - Refined for better theme alignment */
-  .pagination-link {
-    /* Base styles: ghost-like button */
-    @apply min-w-[32px] h-[32px] flex items-center justify-center rounded-md text-sm font-medium transition-colors duration-200;
-    @apply border border-transparent bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground;
-  }
-
-  .pagination-link-active {
-    /* Active styles (Light Mode Default): primary-like button */
-    @apply bg-primary text-primary-foreground border-primary hover:bg-primary/90;
-    @apply font-semibold shadow-sm border; /* Ensure border is visible */
-  }
-
-  .dark .pagination-link-active {
-    /* Explicit dark mode active styles - uses dark mode --primary & --primary-foreground */
-    @apply bg-primary text-primary-foreground border-primary hover:bg-primary/90;
-  }
-
-  .pagination-ellipsis {
-    /* Consistent sizing with links, muted color */
-    @apply flex min-w-[32px] h-[32px] items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors duration-200;
-    /* Use Lucide icon provided by base component */
-  }
-
-  .pagination-nav {
-    /* Styles for prev/next, similar to ghost button but with border */
-    @apply h-auto border border-border bg-background hover:bg-accent hover:text-accent-foreground;
-    @apply text-foreground px-2.5 py-1 rounded-md transition-colors duration-200;
-    /* Inherits icon/text layout from base component */
-  }
-
-  /* Apply specific dark mode hover/focus states if needed */
-  .dark .pagination-nav:hover {
-    @apply bg-accent text-accent-foreground;
-  }
-
   .reserve-form {
     @apply bg-card dark:bg-card text-card-foreground dark:text-card-foreground
            border border-border dark:border-input/50 rounded-lg shadow-lg transition-colors;
