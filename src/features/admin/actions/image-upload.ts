@@ -21,10 +21,9 @@ import type {
 
 const singleUpload = async ({
   parsedInput: { file },
-  ctx: _ctx,
 }: {
   parsedInput: { file: File };
-  ctx: { user: UserSession };
+  ctx: { user: UserSession | undefined };
 }) => {
   try {
     if (file.size > MAX_IMAGE_SIZE) {
@@ -64,7 +63,7 @@ const initMultipartUpload = async ({
   ctx: _ctx,
 }: {
   parsedInput: { name: string; uuid: string };
-  ctx: { user: UserSession };
+  ctx: { user: UserSession | undefined };
 }) => {
   try {
     const key = `uploads/${uuid}/${name}`;
@@ -102,7 +101,7 @@ const finalizeMultipartUpload = async ({
     fileKey: string;
     parts: Array<{ ETag: string; PartNumber: number }>;
   };
-  ctx: { user: UserSession };
+  ctx: { user: UserSession | undefined };
 }) => {
   try {
     const { default: mimetype } = await import('mime-types');

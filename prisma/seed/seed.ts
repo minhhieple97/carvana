@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
+// import { seedClassifiedsFromJson } from './preview.seed';
 // import { seedAdmin } from './admin.seed';
 // import { seedClassifieds } from './classifieds.seed';
 // import { seedImages } from './images.seed';
@@ -16,6 +17,7 @@ async function main() {
   // await seedImages(prisma);
   // await seedAdmin(prisma);
   // await seedCustomers(prisma);
+  // await seedClassifiedsFromJson(prisma);
 }
 
 main()

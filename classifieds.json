@@ -1,0 +1,2006 @@
+[
+  {
+    "cars": [
+      {
+        "name": "Toyota LAND CRUISER",
+        "value": "VND 1 220 triệu",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104557/medium_with_watermark_toyota-land-cruiser-tinh-lam-gjong-gjam-rong-10100.jpg"
+      },
+      {
+        "name": "2014 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104518/medium_with_watermark_mercedes-benz-c-class-tinh-ben-tre-huyen-thanh-phu-6761.jpeg"
+      },
+      {
+        "name": "2012 Audi A4",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104508/medium_with_watermark_audi-a4-an-giang-huyen-an-phu-6759."
+      },
+      {
+        "name": "2021 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104507/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6758."
+      },
+      {
+        "name": "2014 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104500/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6757."
+      },
+      {
+        "name": "2016 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104488/medium_with_watermark_lexus-60-serires-an-giang-huyen-an-phu-6756."
+      },
+      {
+        "name": "2019 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104485/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6755."
+      },
+      {
+        "name": "2020 Vinfast Fadil",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104475/medium_with_watermark_vinfast-fadil-an-giang-huyen-an-phu-6754."
+      },
+      {
+        "name": "2012 Ford Focus",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104458/medium_with_watermark_ford-focus-an-giang-huyen-an-phu-6753."
+      },
+      {
+        "name": "2021 Toyota Yaris",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104457/medium_with_watermark_toyota-yaris-an-giang-huyen-an-phu-6752."
+      },
+      {
+        "name": "2021 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104452/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6751."
+      },
+      {
+        "name": "2021 Hyundai Accent",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104444/medium_with_watermark_hyundai-accent-an-giang-huyen-an-phu-6750."
+      },
+      {
+        "name": "2010 Come on Morning",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104439/medium_with_watermark_come-on-morning-an-giang-huyen-an-phu-6749."
+      },
+      {
+        "name": "2014 Toyota Yaris",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104434/medium_with_watermark_toyota-yaris-an-giang-huyen-an-phu-6748."
+      },
+      {
+        "name": "2020 Hyundai Elantra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104428/medium_with_watermark_hyundai-elantra-an-giang-huyen-an-phu-6747."
+      },
+      {
+        "name": "2015 BMW 5 series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104417/medium_with_watermark_bmw-5-series-an-giang-huyen-an-phu-6746."
+      },
+      {
+        "name": "2019 Vinfast LUX SA2.0",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104409/medium_with_watermark_vinfast-lux-sa2-0-an-giang-huyen-an-phu-6745."
+      },
+      {
+        "name": "2023 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104404/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6744."
+      },
+      {
+        "name": "2021 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104398/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6743."
+      },
+      {
+        "name": "2023 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104393/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6742."
+      },
+      {
+        "name": "2007 Hyundai Santa Fe",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104383/medium_with_watermark_hyundai-santa-fe-an-giang-huyen-an-phu-6741."
+      },
+      {
+        "name": "2020 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104376/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6740."
+      },
+      {
+        "name": "2010 Hyundai Sonata",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104350/medium_with_watermark_hyundai-sonata-an-giang-huyen-an-phu-6739."
+      },
+      {
+        "name": "2018 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104342/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6738."
+      },
+      {
+        "name": "2018 Mitsubishi Xpander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104332/medium_with_watermark_mitsubishi-xpander-an-giang-huyen-an-phu-6737."
+      },
+      {
+        "name": "2013 Come on Morning",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104331/medium_with_watermark_come-on-morning-an-giang-huyen-an-phu-6736."
+      },
+      {
+        "name": "2016 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104320/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6735."
+      },
+      {
+        "name": "2021 Mazda CX-8",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104314/medium_with_watermark_mazda-cx-8-an-giang-huyen-an-phu-6734."
+      },
+      {
+        "name": "2014 Toyota Corolla",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104303/medium_with_watermark_toyota-corolla-an-giang-huyen-an-phu-6733."
+      },
+      {
+        "name": "2021 Vinfast Fadil",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104291/medium_with_watermark_vinfast-fadil-an-giang-huyen-an-phu-6732."
+      },
+      {
+        "name": "2023 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104283/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6731."
+      },
+      {
+        "name": "2021 Hyundai Santa Fe",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104263/medium_with_watermark_hyundai-santa-fe-an-giang-huyen-an-phu-6730."
+      },
+      {
+        "name": "2006 Lexus RX series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104243/medium_with_watermark_lexus-rx-series-an-giang-huyen-an-phu-6729."
+      },
+      {
+        "name": "2021 Ford Escape",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104226/medium_with_watermark_ford-escape-an-giang-huyen-an-phu-6728."
+      },
+      {
+        "name": "2021 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104210/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6727."
+      },
+      {
+        "name": "2021 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104193/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6726."
+      },
+      {
+        "name": "2021 Mitsubishi Outlander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104176/medium_with_watermark_mitsubishi-outlander-an-giang-huyen-an-phu-6725."
+      },
+      {
+        "name": "2021 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104169/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6724."
+      },
+      {
+        "name": "2018 Volkswagen Tiguan",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104158/medium_with_watermark_volkswagen-tiguan-an-giang-huyen-an-phu-6723."
+      },
+      {
+        "name": "2018 Chevrolet Aveo",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2022 Nissan Navara",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104150/medium_with_watermark_nissan-navara-an-giang-huyen-an-phu-6721."
+      },
+      {
+        "name": "2019 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104143/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6720."
+      },
+      {
+        "name": "2021 Toyota Land Cruiser",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104133/medium_with_watermark_toyota-land-cruiser-an-giang-huyen-an-phu-6719."
+      },
+      {
+        "name": "2020 Hyundai Tucson",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104115/medium_with_watermark_hyundai-tucson-an-giang-huyen-an-phu-6718."
+      },
+      {
+        "name": "2012 Audi Other Audis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104110/medium_with_watermark_audi-other-audis-an-giang-huyen-an-phu-6717."
+      },
+      {
+        "name": "2019 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104095/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6716."
+      },
+      {
+        "name": "2021 Chevrolet Captiva",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104076/medium_with_watermark_chevrolet-captiva-an-giang-huyen-an-phu-6715."
+      },
+      {
+        "name": "2010 Nissan Touch",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104068/medium_with_watermark_nissan-touch-an-giang-huyen-an-phu-6714."
+      },
+      {
+        "name": "2004 BMW 3 series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104062/medium_with_watermark_bmw-3-series-an-giang-huyen-an-phu-6713."
+      },
+      {
+        "name": "2015 Toyota Land Cruiser",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104052/medium_with_watermark_toyota-land-cruiser-an-giang-huyen-an-phu-6712."
+      },
+      {
+        "name": "2020 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104040/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6711."
+      },
+      {
+        "name": "2023 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104030/medium_with_watermark_lexus-60-serires-an-giang-huyen-an-phu-6710."
+      },
+      {
+        "name": "2020 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104025/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6709."
+      },
+      {
+        "name": "2016 Come on Sorento",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104023/medium_with_watermark_come-on-sorento-an-giang-huyen-an-phu-6708."
+      },
+      {
+        "name": "2016 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104022/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6707."
+      },
+      {
+        "name": "2011 Ford Escape",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104006/medium_with_watermark_ford-escape-an-giang-huyen-an-phu-6706."
+      },
+      {
+        "name": "2022 Hyundai Other Hyundai",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/104005/medium_with_watermark_hyundai-other-hyundai-an-giang-huyen-an-phu-6705."
+      },
+      {
+        "name": "2013 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103998/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6704."
+      },
+      {
+        "name": "2013 Come on Other Kia",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103984/medium_with_watermark_come-on-other-kia-an-giang-huyen-an-phu-6703."
+      },
+      {
+        "name": "2016 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103973/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6702."
+      },
+      {
+        "name": "2009 Toyota Corolla",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103972/medium_with_watermark_toyota-corolla-an-giang-huyen-an-phu-6701."
+      },
+      {
+        "name": "2021 Hyundai i10",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103961/medium_with_watermark_hyundai-i10-an-giang-huyen-an-phu-6700."
+      },
+      {
+        "name": "2007 BMW X series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103952/medium_with_watermark_bmw-x-series-an-giang-huyen-an-phu-6699."
+      },
+      {
+        "name": "2011 Come on Cerato",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103946/medium_with_watermark_come-on-cerato-an-giang-huyen-an-phu-6698."
+      },
+      {
+        "name": "2017 Ford Focus",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103937/medium_with_watermark_ford-focus-an-giang-huyen-an-phu-6697."
+      },
+      {
+        "name": "2019 Mitsubishi Other Mitsubishi",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103934/medium_with_watermark_mitsubishi-other-mitsubishi-an-giang-huyen-an-phu-6696."
+      },
+      {
+        "name": "2015 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103918/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6695."
+      },
+      {
+        "name": "2023 Honda Civic",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103905/medium_with_watermark_honda-civic-an-giang-huyen-an-phu-6694."
+      },
+      {
+        "name": "2015 Come on Sorento",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103900/medium_with_watermark_come-on-sorento-an-giang-huyen-an-phu-6693."
+      },
+      {
+        "name": "2019 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103894/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6692."
+      },
+      {
+        "name": "2017 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103881/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6691."
+      },
+      {
+        "name": "2009 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103873/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6690."
+      },
+      {
+        "name": "2018 Toyota Yaris",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103867/medium_with_watermark_toyota-yaris-an-giang-huyen-an-phu-6689."
+      },
+      {
+        "name": "2020 Isuzu Other Isuzu",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103865/medium_with_watermark_isuzu-other-isuzu-an-giang-huyen-an-phu-6688."
+      },
+      {
+        "name": "2014 Come on Morning",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103855/medium_with_watermark_come-on-morning-an-giang-huyen-an-phu-6687."
+      },
+      {
+        "name": "2020 Hyundai Tucson",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103847/medium_with_watermark_hyundai-tucson-an-giang-huyen-an-phu-6686."
+      },
+      {
+        "name": "2019 Honda Brio",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103839/medium_with_watermark_honda-brio-an-giang-huyen-an-phu-6685."
+      },
+      {
+        "name": "2015 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103824/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6684."
+      },
+      {
+        "name": "2020 Hyundai Tucson",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103798/medium_with_watermark_hyundai-tucson-an-giang-huyen-an-phu-6683."
+      },
+      {
+        "name": "2021 Hyundai Santa Fe",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103787/medium_with_watermark_hyundai-santa-fe-an-giang-huyen-an-phu-6682."
+      },
+      {
+        "name": "2018 Ford Transit",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103775/medium_with_watermark_ford-transit-an-giang-huyen-an-phu-6681."
+      },
+      {
+        "name": "2020 Hyundai Accent",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103764/medium_with_watermark_hyundai-accent-an-giang-huyen-an-phu-6680."
+      },
+      {
+        "name": "2014 Mazda 2",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103756/medium_with_watermark_mazda-2-an-giang-huyen-an-phu-6679."
+      },
+      {
+        "name": "2019 Come on Cerato",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103754/medium_with_watermark_come-on-cerato-an-giang-huyen-an-phu-6678."
+      },
+      {
+        "name": "2013 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103743/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6677."
+      },
+      {
+        "name": "2022 Come on K3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103740/medium_with_watermark_come-on-k3-an-giang-huyen-an-phu-6676."
+      },
+      {
+        "name": "2016 Audi A6",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103734/medium_with_watermark_audi-a6-an-giang-huyen-an-phu-6675."
+      },
+      {
+        "name": "2019 Mercedes Benz Other Mercedes",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103719/medium_with_watermark_mercedes-benz-other-mercedes-an-giang-huyen-an-phu-6674."
+      },
+      {
+        "name": "2019 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103710/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6673."
+      },
+      {
+        "name": "2018 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103699/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6672."
+      },
+      {
+        "name": "2017 Mazda 2",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103695/medium_with_watermark_mazda-2-an-giang-huyen-an-phu-6671."
+      },
+      {
+        "name": "2021 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103681/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6670."
+      },
+      {
+        "name": "2012 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103675/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6669."
+      },
+      {
+        "name": "2021 Toyota Land Cruiser",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103663/medium_with_watermark_toyota-land-cruiser-an-giang-huyen-an-phu-6668."
+      },
+      {
+        "name": "2021 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103657/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6667."
+      },
+      {
+        "name": "2021 Hyundai Accent",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103647/medium_with_watermark_hyundai-accent-an-giang-huyen-an-phu-6666."
+      },
+      {
+        "name": "2020 Mitsubishi Outlander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103640/medium_with_watermark_mitsubishi-outlander-an-giang-huyen-an-phu-6665."
+      },
+      {
+        "name": "2019 Hyundai Tucson",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103635/medium_with_watermark_hyundai-tucson-an-giang-huyen-an-phu-6664."
+      },
+      {
+        "name": "2023 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103624/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6663."
+      },
+      {
+        "name": "2022 Honda CR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103617/medium_with_watermark_honda-cr-v-an-giang-huyen-an-phu-6662."
+      },
+      {
+        "name": "2020 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103611/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6661."
+      },
+      {
+        "name": "2023 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103605/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6660."
+      },
+      {
+        "name": "2015 Chevrolet Spark",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103602/medium_with_watermark_chevrolet-spark-an-giang-huyen-an-phu-6659."
+      },
+      {
+        "name": "2023 Hyundai H100",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103597/medium_with_watermark_hyundai-h100-an-giang-huyen-an-phu-6658."
+      },
+      {
+        "name": "2022 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103590/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6657."
+      },
+      {
+        "name": "2021 Ford Ecosport",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103585/medium_with_watermark_ford-ecosport-an-giang-huyen-an-phu-6656."
+      },
+      {
+        "name": "2021 Honda CR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103573/medium_with_watermark_honda-cr-v-an-giang-huyen-an-phu-6655."
+      },
+      {
+        "name": "2016 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103566/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6654."
+      },
+      {
+        "name": "2019 Isuzu D-MAX",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103557/medium_with_watermark_isuzu-d-max-an-giang-huyen-an-phu-6653."
+      },
+      {
+        "name": "2019 Nissan X-Terra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103549/medium_with_watermark_nissan-x-terra-an-giang-huyen-an-phu-6652."
+      },
+      {
+        "name": "2019 Mercedes Benz Other Mercedes",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103538/medium_with_watermark_mercedes-benz-other-mercedes-an-giang-huyen-an-phu-6651."
+      },
+      {
+        "name": "2006 Audi Other Audis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103528/medium_with_watermark_audi-other-audis-an-giang-huyen-an-phu-6650."
+      },
+      {
+        "name": "2015 Mitsubishi Pajero",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103524/medium_with_watermark_mitsubishi-pajero-an-giang-huyen-an-phu-6649."
+      },
+      {
+        "name": "2017 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103498/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6648."
+      },
+      {
+        "name": "2005 Mazda 6",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103488/medium_with_watermark_mazda-6-an-giang-huyen-an-phu-6647."
+      },
+      {
+        "name": "2017 Mercedes Benz E-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103477/medium_with_watermark_mercedes-benz-e-class-an-giang-huyen-an-phu-6646."
+      },
+      {
+        "name": "2023 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103455/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6645."
+      },
+      {
+        "name": "2016 Come on Morning",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103448/medium_with_watermark_come-on-morning-an-giang-huyen-an-phu-6644."
+      },
+      {
+        "name": "2015 Mercedes Benz E-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103436/medium_with_watermark_mercedes-benz-e-class-an-giang-huyen-an-phu-6643."
+      },
+      {
+        "name": "2007 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103428/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6642."
+      },
+      {
+        "name": "2022 Mercedes Benz GL",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103418/medium_with_watermark_mercedes-benz-gl-an-giang-huyen-an-phu-6641."
+      },
+      {
+        "name": "2022 Suzuki Blind Van",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103411/medium_with_watermark_suzuki-blind-van-an-giang-huyen-an-phu-6640."
+      },
+      {
+        "name": "2018 Hyundai Elantra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103402/medium_with_watermark_hyundai-elantra-an-giang-huyen-an-phu-6639."
+      },
+      {
+        "name": "2023 Toyota Land Cruiser",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103389/medium_with_watermark_toyota-land-cruiser-an-giang-huyen-an-phu-6638."
+      },
+      {
+        "name": "2016 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103369/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6637."
+      },
+      {
+        "name": "2021 Toyota Altis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103359/medium_with_watermark_toyota-altis-an-giang-huyen-an-phu-6636."
+      },
+      {
+        "name": "2021 Daihatsu Other Daihatsu",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103353/medium_with_watermark_daihatsu-other-daihatsu-an-giang-huyen-an-phu-6635."
+      },
+      {
+        "name": "2021 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103352/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6634."
+      },
+      {
+        "name": "2011 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103333/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6633."
+      },
+      {
+        "name": "2019 Mercedes Benz Other Mercedes",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103317/medium_with_watermark_mercedes-benz-other-mercedes-an-giang-huyen-an-phu-6632."
+      },
+      {
+        "name": "2011 Daewoo laces",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103302/medium_with_watermark_daewoo-laces-an-giang-huyen-an-phu-6631."
+      },
+      {
+        "name": "2003 Toyota Corolla",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103292/medium_with_watermark_toyota-corolla-an-giang-huyen-an-phu-6630."
+      },
+      {
+        "name": "2017 Suzuki Vitara",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103282/medium_with_watermark_suzuki-vitara-an-giang-huyen-an-phu-6629."
+      },
+      {
+        "name": "2011 Chevrolet Captiva",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103279/medium_with_watermark_chevrolet-captiva-an-giang-huyen-an-phu-6628."
+      },
+      {
+        "name": "2021 Chevrolet Other Chevrolet",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103274/medium_with_watermark_chevrolet-other-chevrolet-an-giang-huyen-an-phu-6627."
+      },
+      {
+        "name": "2023 Toyota Prado",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103262/medium_with_watermark_toyota-prado-an-giang-huyen-an-phu-6626."
+      },
+      {
+        "name": "2021 Toyota Other Toyotas",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103256/medium_with_watermark_toyota-other-toyotas-an-giang-huyen-an-phu-6625."
+      },
+      {
+        "name": "2008 Honda Civic",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103242/medium_with_watermark_honda-civic-an-giang-huyen-an-phu-6624."
+      },
+      {
+        "name": "2010 Honda CR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103232/medium_with_watermark_honda-cr-v-an-giang-huyen-an-phu-6623."
+      },
+      {
+        "name": "2003 Mitsubishi Lancer",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103225/medium_with_watermark_mitsubishi-lancer-an-giang-huyen-an-phu-6622."
+      },
+      {
+        "name": "2009 Chevrolet Captiva",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103213/medium_with_watermark_chevrolet-captiva-an-giang-huyen-an-phu-6621."
+      },
+      {
+        "name": "2010 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103200/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6620."
+      },
+      {
+        "name": "2013 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103192/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6619."
+      },
+      {
+        "name": "2021 Mitsubishi Xpander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103181/medium_with_watermark_mitsubishi-xpander-an-giang-huyen-an-phu-6618."
+      },
+      {
+        "name": "2021 Mitsubishi Attrage",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103172/medium_with_watermark_mitsubishi-attrage-an-giang-huyen-an-phu-6617."
+      },
+      {
+        "name": "2020 Mitsubishi Xpander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103161/medium_with_watermark_mitsubishi-xpander-an-giang-huyen-an-phu-6616."
+      },
+      {
+        "name": "2017 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103156/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6615."
+      },
+      {
+        "name": "2021 Mazda 5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103154/medium_with_watermark_mazda-5-an-giang-huyen-an-phu-6614."
+      },
+      {
+        "name": "2016 Hyundai i20",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103142/medium_with_watermark_hyundai-i20-an-giang-huyen-an-phu-6613."
+      },
+      {
+        "name": "2014 Mercedes Benz E-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103136/medium_with_watermark_mercedes-benz-e-class-an-giang-huyen-an-phu-6612."
+      },
+      {
+        "name": "2023 Mercedes Benz GL",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103118/medium_with_watermark_mercedes-benz-gl-an-giang-huyen-an-phu-6611."
+      },
+      {
+        "name": "2007 Mercedes Benz GL",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103100/medium_with_watermark_mercedes-benz-gl-an-giang-huyen-an-phu-6610."
+      },
+      {
+        "name": "2021 Mitsubishi Attrage",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103091/medium_with_watermark_mitsubishi-attrage-an-giang-huyen-an-phu-6609."
+      },
+      {
+        "name": "2011 Hyundai Santa Fe",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103088/medium_with_watermark_hyundai-santa-fe-an-giang-huyen-an-phu-6608."
+      },
+      {
+        "name": "2022 Mazda 2",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103080/medium_with_watermark_mazda-2-an-giang-huyen-an-phu-6607."
+      },
+      {
+        "name": "2009 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103070/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6606."
+      },
+      {
+        "name": "2019 Suzuki Celerio",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103060/medium_with_watermark_suzuki-celerio-an-giang-huyen-an-phu-6605."
+      },
+      {
+        "name": "2021 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103054/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6604."
+      },
+      {
+        "name": "2019 Come on K3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103040/medium_with_watermark_come-on-k3-an-giang-huyen-an-phu-6603."
+      },
+      {
+        "name": "2020 Hyundai Santa Fe",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103037/medium_with_watermark_hyundai-santa-fe-an-giang-huyen-an-phu-6602."
+      },
+      {
+        "name": "2019 Mercedes Benz GL",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103021/medium_with_watermark_mercedes-benz-gl-an-giang-huyen-an-phu-6601."
+      },
+      {
+        "name": "2020 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/103012/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6600."
+      },
+      {
+        "name": "2017 Ford Ecosport",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102996/medium_with_watermark_ford-ecosport-an-giang-huyen-an-phu-6599."
+      },
+      {
+        "name": "2023 Hyundai Accent",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102990/medium_with_watermark_hyundai-accent-an-giang-huyen-an-phu-6598."
+      },
+      {
+        "name": "2017 Come on Morning",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102976/medium_with_watermark_come-on-morning-an-giang-huyen-an-phu-6597."
+      },
+      {
+        "name": "2021 Isuzu Other Isuzu",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102967/medium_with_watermark_isuzu-other-isuzu-an-giang-huyen-an-phu-6596."
+      },
+      {
+        "name": "2015 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102957/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6595."
+      },
+      {
+        "name": "2021 Come on Cerato",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102952/medium_with_watermark_come-on-cerato-an-giang-huyen-an-phu-6594."
+      },
+      {
+        "name": "2017 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102942/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6593."
+      },
+      {
+        "name": "2022 Mercedes Benz E-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102932/medium_with_watermark_mercedes-benz-e-class-an-giang-huyen-an-phu-6592."
+      },
+      {
+        "name": "2007 Suzuki Other Suzuki",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102929/medium_with_watermark_suzuki-other-suzuki-an-giang-huyen-an-phu-6591."
+      },
+      {
+        "name": "2020 Hyundai i10",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102911/medium_with_watermark_hyundai-i10-an-giang-huyen-an-phu-6590."
+      },
+      {
+        "name": "2019 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102883/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6589."
+      },
+      {
+        "name": "2003 Daewoo Lanos",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102875/medium_with_watermark_daewoo-lanos-an-giang-huyen-an-phu-6588."
+      },
+      {
+        "name": "2020 Mitsubishi Xpander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102866/medium_with_watermark_mitsubishi-xpander-an-giang-huyen-an-phu-6587."
+      },
+      {
+        "name": "2016 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102853/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6586."
+      },
+      {
+        "name": "2020 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102840/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6585."
+      },
+      {
+        "name": "2021 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102832/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6584."
+      },
+      {
+        "name": "2021 Mercedes Benz E-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102828/medium_with_watermark_mercedes-benz-e-class-an-giang-huyen-an-phu-6583."
+      },
+      {
+        "name": "2021 Mitsubishi Other Mitsubishi",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102818/medium_with_watermark_mitsubishi-other-mitsubishi-an-giang-huyen-an-phu-6582."
+      },
+      {
+        "name": "2007 BMW X series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102809/medium_with_watermark_bmw-x-series-an-giang-huyen-an-phu-6581."
+      },
+      {
+        "name": "2021 Hyundai i10",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102797/medium_with_watermark_hyundai-i10-an-giang-huyen-an-phu-6580."
+      },
+      {
+        "name": "2015 Come on Morning",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102793/medium_with_watermark_come-on-morning-an-giang-huyen-an-phu-6579."
+      },
+      {
+        "name": "2023 Mitsubishi Other Mitsubishi",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102771/medium_with_watermark_mitsubishi-other-mitsubishi-an-giang-huyen-an-phu-6578."
+      },
+      {
+        "name": "2016 Come on K2700",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102761/medium_with_watermark_come-on-k2700-an-giang-huyen-an-phu-6577."
+      },
+      {
+        "name": "2020 Toyota Scope",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102756/medium_with_watermark_toyota-scope-an-giang-huyen-an-phu-6576."
+      },
+      {
+        "name": "2016 Mercedes Benz GL",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102753/medium_with_watermark_mercedes-benz-gl-an-giang-huyen-an-phu-6575."
+      },
+      {
+        "name": "2023 Mitsubishi Other Mitsubishi",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102735/medium_with_watermark_mitsubishi-other-mitsubishi-an-giang-huyen-an-phu-6574."
+      },
+      {
+        "name": "2016 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102715/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6573."
+      },
+      {
+        "name": "2016 Land Rover Other Lan Rovers",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102702/medium_with_watermark_land-rover-other-lan-rovers-an-giang-huyen-an-phu-6572."
+      },
+      {
+        "name": "2007 Audi Q7",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102699/medium_with_watermark_audi-q7-an-giang-huyen-an-phu-6571."
+      },
+      {
+        "name": "2023 Hyundai Accent",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102690/medium_with_watermark_hyundai-accent-an-giang-huyen-an-phu-6570."
+      },
+      {
+        "name": "2023 Hyundai i20",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102677/medium_with_watermark_hyundai-i20-an-giang-huyen-an-phu-6569."
+      },
+      {
+        "name": "2015 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102670/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6568."
+      },
+      {
+        "name": "2012 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102652/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6567."
+      },
+      {
+        "name": "2021 Honda Brio",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102647/medium_with_watermark_honda-brio-an-giang-huyen-an-phu-6566."
+      },
+      {
+        "name": "2019 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102642/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6565."
+      },
+      {
+        "name": "2019 Mazda 6",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102633/medium_with_watermark_mazda-6-an-giang-huyen-an-phu-6564."
+      },
+      {
+        "name": "2015 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102628/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6563."
+      },
+      {
+        "name": "2017 BMW 3 series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102619/medium_with_watermark_bmw-3-series-an-giang-huyen-an-phu-6562."
+      },
+      {
+        "name": "2023 Toyota Corolla Cross",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102608/medium_with_watermark_toyota-corolla-cross-an-giang-huyen-an-phu-6561."
+      },
+      {
+        "name": "2021 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102602/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6560."
+      },
+      {
+        "name": "2006 Ford Focus",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102590/medium_with_watermark_ford-focus-an-giang-huyen-an-phu-6559."
+      },
+      {
+        "name": "2018 Hyundai Elantra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102572/medium_with_watermark_hyundai-elantra-an-giang-huyen-an-phu-6558."
+      },
+      {
+        "name": "2015 Come on Morning",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102567/medium_with_watermark_come-on-morning-an-giang-huyen-an-phu-6557."
+      },
+      {
+        "name": "2003 Ford Mondeo",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102564/medium_with_watermark_ford-mondeo-an-giang-huyen-an-phu-6556."
+      },
+      {
+        "name": "2020 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102546/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6555."
+      },
+      {
+        "name": "2009 BMW 3 series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102538/medium_with_watermark_bmw-3-series-an-giang-huyen-an-phu-6554."
+      },
+      {
+        "name": "2013 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102520/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6553."
+      },
+      {
+        "name": "2004 Ford Escape",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102515/medium_with_watermark_ford-escape-an-giang-huyen-an-phu-6552."
+      },
+      {
+        "name": "2015 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102510/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6551."
+      },
+      {
+        "name": "2018 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102504/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6550."
+      },
+      {
+        "name": "2005 Toyota lying",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102491/medium_with_watermark_toyota-lying-an-giang-huyen-an-phu-6549."
+      },
+      {
+        "name": "2020 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102480/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6548."
+      },
+      {
+        "name": "2022 Come on K3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102474/medium_with_watermark_come-on-k3-an-giang-huyen-an-phu-6547."
+      },
+      {
+        "name": "2018 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102472/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6546."
+      },
+      {
+        "name": "2017 Come on Sorento",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102464/medium_with_watermark_come-on-sorento-an-giang-huyen-an-phu-6545."
+      },
+      {
+        "name": "2014 Toyota Altis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102449/medium_with_watermark_toyota-altis-an-giang-huyen-an-phu-6544."
+      },
+      {
+        "name": "2009 BMW 3 series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102441/medium_with_watermark_bmw-3-series-an-giang-huyen-an-phu-6543."
+      },
+      {
+        "name": "2017 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102425/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6542."
+      },
+      {
+        "name": "2019 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102414/medium_with_watermark_lexus-60-serires-an-giang-huyen-an-phu-6541."
+      },
+      {
+        "name": "2021 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2018 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2020 Lexus RX series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102380/medium_with_watermark_lexus-rx-series-an-giang-huyen-an-phu-6538."
+      },
+      {
+        "name": "2018 Nissan X-Trail",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102368/medium_with_watermark_nissan-x-trail-an-giang-huyen-an-phu-6537."
+      },
+      {
+        "name": "2015 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102356/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6536."
+      },
+      {
+        "name": "2022 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2021 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2020 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2019 Ford Ecosport",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2019 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2016 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2021 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2021 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2017 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2020 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2015 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2018 Mazda 3",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2016 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2021 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": ""
+      },
+      {
+        "name": "2014 Isuzu D-MAX",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102201/medium_with_watermark_isuzu-d-max-an-giang-huyen-an-phu-6521."
+      },
+      {
+        "name": "2021 Toyota Hilux",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102195/medium_with_watermark_toyota-hilux-an-giang-huyen-an-phu-6520."
+      },
+      {
+        "name": "2018 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102185/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6519."
+      },
+      {
+        "name": "2021 Lexus RX series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102173/medium_with_watermark_lexus-rx-series-an-giang-huyen-an-phu-6518."
+      },
+      {
+        "name": "2019 Hyundai i10",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102165/medium_with_watermark_hyundai-i10-an-giang-huyen-an-phu-6517."
+      },
+      {
+        "name": "2009 Hyundai H100",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102152/medium_with_watermark_hyundai-h100-an-giang-huyen-an-phu-6516."
+      },
+      {
+        "name": "2009 Toyota Altis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102150/medium_with_watermark_toyota-altis-an-giang-huyen-an-phu-6515."
+      },
+      {
+        "name": "2020 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102136/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6514."
+      },
+      {
+        "name": "2023 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102129/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6513."
+      },
+      {
+        "name": "2011 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102125/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6512."
+      },
+      {
+        "name": "2006 Lexus Other Lexus",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102114/medium_with_watermark_lexus-other-lexus-an-giang-huyen-an-phu-6511."
+      },
+      {
+        "name": "2010 Mercedes Benz Sprinter",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102104/medium_with_watermark_mercedes-benz-sprinter-an-giang-huyen-an-phu-6510."
+      },
+      {
+        "name": "2023 Toyota Corolla",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102101/medium_with_watermark_toyota-corolla-an-giang-huyen-an-phu-6509."
+      },
+      {
+        "name": "2022 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102093/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6508."
+      },
+      {
+        "name": "2023 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102087/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6507."
+      },
+      {
+        "name": "2015 Chevrolet Cruze",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102081/medium_with_watermark_chevrolet-cruze-an-giang-huyen-an-phu-6506."
+      },
+      {
+        "name": "2015 Come on K3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102077/medium_with_watermark_come-on-k3-an-giang-huyen-an-phu-6505."
+      },
+      {
+        "name": "2017 Mazda 3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102068/medium_with_watermark_mazda-3-an-giang-huyen-an-phu-6504."
+      },
+      {
+        "name": "2012 Toyota Altis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102063/medium_with_watermark_toyota-altis-an-giang-huyen-an-phu-6503."
+      },
+      {
+        "name": "2016 Hyundai Elantra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102053/medium_with_watermark_hyundai-elantra-an-giang-huyen-an-phu-6502."
+      },
+      {
+        "name": "2008 Come on K2700",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102047/medium_with_watermark_come-on-k2700-an-giang-huyen-an-phu-6501."
+      },
+      {
+        "name": "2009 Honda Civic",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102046/medium_with_watermark_honda-civic-an-giang-huyen-an-phu-6500."
+      },
+      {
+        "name": "2015 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102037/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6499."
+      },
+      {
+        "name": "2018 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102030/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6498."
+      },
+      {
+        "name": "2010 Toyota Corolla",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102020/medium_with_watermark_toyota-corolla-an-giang-huyen-an-phu-6497."
+      },
+      {
+        "name": "2015 Ford Ecosport",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/102005/medium_with_watermark_ford-ecosport-an-giang-huyen-an-phu-6496."
+      },
+      {
+        "name": "2004 Mitsubishi Jolie",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101993/medium_with_watermark_mitsubishi-jolie-an-giang-huyen-an-phu-6495."
+      },
+      {
+        "name": "2013 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101982/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6494."
+      },
+      {
+        "name": "2019 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101958/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6493."
+      },
+      {
+        "name": "2013 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101948/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6492."
+      },
+      {
+        "name": "2021 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101940/medium_with_watermark_lexus-60-serires-an-giang-huyen-an-phu-6491."
+      },
+      {
+        "name": "2022 Vinfast Fadil",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101935/medium_with_watermark_vinfast-fadil-an-giang-huyen-an-phu-6490."
+      },
+      {
+        "name": "2014 Audi A6",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101928/medium_with_watermark_audi-a6-an-giang-huyen-an-phu-6489."
+      },
+      {
+        "name": "2021 Toyota Land Cruiser",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101922/medium_with_watermark_toyota-land-cruiser-an-giang-huyen-an-phu-6488."
+      },
+      {
+        "name": "2017 Chevrolet Other Chevrolet",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101913/medium_with_watermark_chevrolet-other-chevrolet-an-giang-huyen-an-phu-6487."
+      },
+      {
+        "name": "2023 Honda Civic",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101909/medium_with_watermark_honda-civic-an-giang-huyen-an-phu-6486."
+      },
+      {
+        "name": "2019 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101897/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6485."
+      },
+      {
+        "name": "2020 Vinfast Fadil",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101892/medium_with_watermark_vinfast-fadil-an-giang-huyen-an-phu-6484."
+      },
+      {
+        "name": "2021 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101881/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6483."
+      },
+      {
+        "name": "2021 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101871/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6482."
+      },
+      {
+        "name": "2021 Hyundai Elantra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101859/medium_with_watermark_hyundai-elantra-an-giang-huyen-an-phu-6481."
+      },
+      {
+        "name": "2016 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101848/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6480."
+      },
+      {
+        "name": "2022 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101828/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6479."
+      },
+      {
+        "name": "2021 Hyundai Other Hyundai",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101823/medium_with_watermark_hyundai-other-hyundai-an-giang-huyen-an-phu-6478."
+      },
+      {
+        "name": "2016 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101816/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6477."
+      },
+      {
+        "name": "2018 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101812/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6476."
+      },
+      {
+        "name": "2021 Mitsubishi Grandis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101803/medium_with_watermark_mitsubishi-grandis-an-giang-huyen-an-phu-6475."
+      },
+      {
+        "name": "2010 Nissan Touch",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101794/medium_with_watermark_nissan-touch-an-giang-huyen-an-phu-6474."
+      },
+      {
+        "name": "2010 BMW 5 series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101783/medium_with_watermark_bmw-5-series-an-giang-huyen-an-phu-6473."
+      },
+      {
+        "name": "2020 Come on Sorento",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101770/medium_with_watermark_come-on-sorento-an-giang-huyen-an-phu-6472."
+      },
+      {
+        "name": "2018 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101749/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6471."
+      },
+      {
+        "name": "2018 Chevrolet Other Chevrolet",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101720/medium_with_watermark_chevrolet-other-chevrolet-an-giang-huyen-an-phu-6470."
+      },
+      {
+        "name": "2023 Honda CR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101713/medium_with_watermark_honda-cr-v-an-giang-huyen-an-phu-6469."
+      },
+      {
+        "name": "2007 Suzuki Carry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101710/medium_with_watermark_suzuki-carry-an-giang-huyen-an-phu-6468."
+      },
+      {
+        "name": "2009 Daewoo laces",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101702/medium_with_watermark_daewoo-laces-an-giang-huyen-an-phu-6467."
+      },
+      {
+        "name": "2016 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101694/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6466."
+      },
+      {
+        "name": "2011 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101685/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6465."
+      },
+      {
+        "name": "2021 Audi A5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101680/medium_with_watermark_audi-a5-an-giang-huyen-an-phu-6464."
+      },
+      {
+        "name": "2008 Chevrolet Captiva",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101650/medium_with_watermark_chevrolet-captiva-an-giang-huyen-an-phu-6463."
+      },
+      {
+        "name": "2008 Honda Civic",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101632/medium_with_watermark_honda-civic-an-giang-huyen-an-phu-6462."
+      },
+      {
+        "name": "2007 Chevrolet Captiva",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101620/medium_with_watermark_chevrolet-captiva-an-giang-huyen-an-phu-6461."
+      },
+      {
+        "name": "2018 Ford Explorer",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101611/medium_with_watermark_ford-explorer-an-giang-huyen-an-phu-6460."
+      },
+      {
+        "name": "2020 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101601/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6459."
+      },
+      {
+        "name": "2022 Toyota Corolla Cross",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101589/medium_with_watermark_toyota-corolla-cross-an-giang-huyen-an-phu-6458."
+      },
+      {
+        "name": "2022 Isuzu Other Isuzu",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101585/medium_with_watermark_isuzu-other-isuzu-an-giang-huyen-an-phu-6457."
+      },
+      {
+        "name": "2022 Isuzu Other Isuzu",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101580/medium_with_watermark_isuzu-other-isuzu-an-giang-huyen-an-phu-6456."
+      },
+      {
+        "name": "2022 Isuzu Other Isuzu",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101575/medium_with_watermark_isuzu-other-isuzu-an-giang-huyen-an-phu-6455."
+      },
+      {
+        "name": "2022 Come on Sorento",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101564/medium_with_watermark_come-on-sorento-an-giang-huyen-an-phu-6454."
+      },
+      {
+        "name": "2022 Honda Civic",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101557/medium_with_watermark_honda-civic-an-giang-huyen-an-phu-6453."
+      },
+      {
+        "name": "2020 Mitsubishi Xpander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101548/medium_with_watermark_mitsubishi-xpander-an-giang-huyen-an-phu-6452."
+      },
+      {
+        "name": "2020 Hyundai Elantra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101541/medium_with_watermark_hyundai-elantra-an-giang-huyen-an-phu-6451."
+      },
+      {
+        "name": "2019 Lexus GX series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101527/medium_with_watermark_lexus-gx-series-an-giang-huyen-an-phu-6450."
+      },
+      {
+        "name": "2018 Hyundai Tucson",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101512/medium_with_watermark_hyundai-tucson-an-giang-huyen-an-phu-6449."
+      },
+      {
+        "name": "2021 Toyota Hiace",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101493/medium_with_watermark_toyota-hiace-an-giang-huyen-an-phu-6448."
+      },
+      {
+        "name": "2009 Chevrolet Captiva",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101485/medium_with_watermark_chevrolet-captiva-an-giang-huyen-an-phu-6447."
+      },
+      {
+        "name": "2015 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101478/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6446."
+      },
+      {
+        "name": "2021 Mazda CX-8",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101470/medium_with_watermark_mazda-cx-8-an-giang-huyen-an-phu-6445."
+      },
+      {
+        "name": "2007 Mercedes Benz Other Mercedes",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101467/medium_with_watermark_mercedes-benz-other-mercedes-an-giang-huyen-an-phu-6444."
+      },
+      {
+        "name": "2021 Mercedes Benz GLK-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101456/medium_with_watermark_mercedes-benz-glk-class-an-giang-huyen-an-phu-6443."
+      },
+      {
+        "name": "2021 Come on Sedona",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101445/medium_with_watermark_come-on-sedona-an-giang-huyen-an-phu-6442."
+      },
+      {
+        "name": "2005 Suzuki Vitara",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101439/medium_with_watermark_suzuki-vitara-an-giang-huyen-an-phu-6441."
+      },
+      {
+        "name": "2010 BMW 5 series",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101433/medium_with_watermark_bmw-5-series-an-giang-huyen-an-phu-6440."
+      },
+      {
+        "name": "2021 Mazda 3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101430/medium_with_watermark_mazda-3-an-giang-huyen-an-phu-6439."
+      },
+      {
+        "name": "2007 Hyundai Other Hyundai",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101421/medium_with_watermark_hyundai-other-hyundai-an-giang-huyen-an-phu-6438."
+      },
+      {
+        "name": "2019 Ford Ecosport",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101418/medium_with_watermark_ford-ecosport-an-giang-huyen-an-phu-6437."
+      },
+      {
+        "name": "2015 Chevrolet Spark",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101417/medium_with_watermark_chevrolet-spark-an-giang-huyen-an-phu-6436."
+      },
+      {
+        "name": "2021 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101406/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6435."
+      },
+      {
+        "name": "2021 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101389/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6434."
+      },
+      {
+        "name": "2015 Mercedes Benz S-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101367/medium_with_watermark_mercedes-benz-s-class-an-giang-huyen-an-phu-6433."
+      },
+      {
+        "name": "2013 Ford Fiesta",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101357/medium_with_watermark_ford-fiesta-an-giang-huyen-an-phu-6432."
+      },
+      {
+        "name": "2018 Mercedes Benz Other Mercedes",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101345/medium_with_watermark_mercedes-benz-other-mercedes-an-giang-huyen-an-phu-6431."
+      },
+      {
+        "name": "2009 Audi A6",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101335/medium_with_watermark_audi-a6-an-giang-huyen-an-phu-6430."
+      },
+      {
+        "name": "2023 Toyota Other Toyotas",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101329/medium_with_watermark_toyota-other-toyotas-an-giang-huyen-an-phu-6429."
+      },
+      {
+        "name": "2023 Hyundai i10",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101323/medium_with_watermark_hyundai-i10-an-giang-huyen-an-phu-6428."
+      },
+      {
+        "name": "2023 Hyundai i10",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101317/medium_with_watermark_hyundai-i10-an-giang-huyen-an-phu-6427."
+      },
+      {
+        "name": "2022 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101311/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6426."
+      },
+      {
+        "name": "2014 Ford Everest",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101287/medium_with_watermark_ford-everest-an-giang-huyen-an-phu-6425."
+      },
+      {
+        "name": "2019 Chevrolet Other Chevrolet",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101260/medium_with_watermark_chevrolet-other-chevrolet-an-giang-huyen-an-phu-6424."
+      },
+      {
+        "name": "2015 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101240/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6423."
+      },
+      {
+        "name": "2018 Honda CR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101228/medium_with_watermark_honda-cr-v-an-giang-huyen-an-phu-6422."
+      },
+      {
+        "name": "2016 Hyundai Other Hyundai",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101205/medium_with_watermark_hyundai-other-hyundai-an-giang-huyen-an-phu-6421."
+      },
+      {
+        "name": "2022 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101195/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6420."
+      },
+      {
+        "name": "2007 Toyota Camry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101178/medium_with_watermark_toyota-camry-an-giang-huyen-an-phu-6419."
+      },
+      {
+        "name": "2023 Mercedes Benz S-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101163/medium_with_watermark_mercedes-benz-s-class-an-giang-huyen-an-phu-6418."
+      },
+      {
+        "name": "2022 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101153/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6417."
+      },
+      {
+        "name": "2006 Fiat Albea",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101141/medium_with_watermark_fiat-albea-an-giang-huyen-an-phu-6416."
+      },
+      {
+        "name": "2019 Mitsubishi Triton",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101132/medium_with_watermark_mitsubishi-triton-an-giang-huyen-an-phu-6415."
+      },
+      {
+        "name": "2014 Hyundai Starex",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101102/medium_with_watermark_hyundai-starex-an-giang-huyen-an-phu-6414."
+      },
+      {
+        "name": "2015 Hyundai Other Hyundai",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101076/medium_with_watermark_hyundai-other-hyundai-an-giang-huyen-an-phu-6413."
+      },
+      {
+        "name": "2023 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101070/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6412."
+      },
+      {
+        "name": "2021 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101053/medium_with_watermark_lexus-60-serires-an-giang-huyen-an-phu-6411."
+      },
+      {
+        "name": "2015 Mazda BT-50",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101031/medium_with_watermark_mazda-bt-50-an-giang-huyen-an-phu-6410."
+      },
+      {
+        "name": "2023 Toyota Vios",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101015/medium_with_watermark_toyota-vios-an-giang-huyen-an-phu-6409."
+      },
+      {
+        "name": "2014 Toyota Yaris",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101004/medium_with_watermark_toyota-yaris-an-giang-huyen-an-phu-6408."
+      },
+      {
+        "name": "2021 Lexus LS serires",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/101001/medium_with_watermark_lexus-ls-serires-an-giang-huyen-an-phu-6407."
+      },
+      {
+        "name": "2023 Honda CR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100996/medium_with_watermark_honda-cr-v-an-giang-huyen-an-phu-6406."
+      },
+      {
+        "name": "2023 Toyota Corolla Cross",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100991/medium_with_watermark_toyota-corolla-cross-an-giang-huyen-an-phu-6405."
+      },
+      {
+        "name": "2016 Toyota Fortuner",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100962/medium_with_watermark_toyota-fortuner-an-giang-huyen-an-phu-6404."
+      },
+      {
+        "name": "2016 Toyota Hiace",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100938/medium_with_watermark_toyota-hiace-an-giang-huyen-an-phu-6403."
+      },
+      {
+        "name": "2006 Mercedes Benz E-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100933/medium_with_watermark_mercedes-benz-e-class-an-giang-huyen-an-phu-6402."
+      },
+      {
+        "name": "2008 Toyota Innova",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100928/medium_with_watermark_toyota-innova-an-giang-huyen-an-phu-6401."
+      },
+      {
+        "name": "2016 Toyota Corolla",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100920/medium_with_watermark_toyota-corolla-an-giang-huyen-an-phu-6400."
+      },
+      {
+        "name": "2017 Come on Other Kia",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100899/medium_with_watermark_come-on-other-kia-an-giang-huyen-an-phu-6399."
+      },
+      {
+        "name": "2014 Suzuki Carry",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100876/medium_with_watermark_suzuki-carry-an-giang-huyen-an-phu-6398."
+      },
+      {
+        "name": "2023 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100871/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6397."
+      },
+      {
+        "name": "2021 Mazda BT-50",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100866/medium_with_watermark_mazda-bt-50-an-giang-huyen-an-phu-6396."
+      },
+      {
+        "name": "2019 Come on K3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100852/medium_with_watermark_come-on-k3-an-giang-huyen-an-phu-6395."
+      },
+      {
+        "name": "2023 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100846/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6394."
+      },
+      {
+        "name": "2021 Mercedes Benz Other Mercedes",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100827/medium_with_watermark_mercedes-benz-other-mercedes-an-giang-huyen-an-phu-6393."
+      },
+      {
+        "name": "2004 Ford Mondeo",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100820/medium_with_watermark_ford-mondeo-an-giang-huyen-an-phu-6392."
+      },
+      {
+        "name": "2022 Mercedes Benz GL",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100810/medium_with_watermark_mercedes-benz-gl-an-giang-huyen-an-phu-6391."
+      },
+      {
+        "name": "2019 Honda CR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100798/medium_with_watermark_honda-cr-v-an-giang-huyen-an-phu-6390."
+      },
+      {
+        "name": "2021 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100795/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6389."
+      },
+      {
+        "name": "2018 Mitsubishi Attrage",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100790/medium_with_watermark_mitsubishi-attrage-an-giang-huyen-an-phu-6388."
+      },
+      {
+        "name": "2021 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100776/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6387."
+      },
+      {
+        "name": "2015 Mazda BT-50",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100755/medium_with_watermark_mazda-bt-50-an-giang-huyen-an-phu-6386."
+      },
+      {
+        "name": "2022 Mercedes Benz S-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100738/medium_with_watermark_mercedes-benz-s-class-an-giang-huyen-an-phu-6385."
+      },
+      {
+        "name": "2016 Mazda 3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100736/medium_with_watermark_mazda-3-an-giang-huyen-an-phu-6384."
+      },
+      {
+        "name": "2016 Mazda CX-5",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100730/medium_with_watermark_mazda-cx-5-an-giang-huyen-an-phu-6383."
+      },
+      {
+        "name": "2022 Honda City",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100722/medium_with_watermark_honda-city-an-giang-huyen-an-phu-6382."
+      },
+      {
+        "name": "2017 Audi Other Audis",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100704/medium_with_watermark_audi-other-audis-an-giang-huyen-an-phu-6381."
+      },
+      {
+        "name": "2014 BMW Other BMWs",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100678/medium_with_watermark_bmw-other-bmws-an-giang-huyen-an-phu-6380."
+      },
+      {
+        "name": "2016 Ford Ranger",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100671/medium_with_watermark_ford-ranger-an-giang-huyen-an-phu-6379."
+      },
+      {
+        "name": "2021 Mitsubishi Outlander",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100663/medium_with_watermark_mitsubishi-outlander-an-giang-huyen-an-phu-6378."
+      },
+      {
+        "name": "2021 Hyundai Elantra",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100658/medium_with_watermark_hyundai-elantra-an-giang-huyen-an-phu-6377."
+      },
+      {
+        "name": "2023 Mercedes Benz Other Mercedes",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100648/medium_with_watermark_mercedes-benz-other-mercedes-an-giang-huyen-an-phu-6376."
+      },
+      {
+        "name": "2018 Mazda 3",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100644/medium_with_watermark_mazda-3-an-giang-huyen-an-phu-6375."
+      },
+      {
+        "name": "2022 Volkswagen Tiguan",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100637/medium_with_watermark_volkswagen-tiguan-an-giang-huyen-an-phu-6374."
+      },
+      {
+        "name": "2021 Isuzu Other Isuzu",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100610/medium_with_watermark_isuzu-other-isuzu-an-giang-huyen-an-phu-6373."
+      },
+      {
+        "name": "2022 Mercedes Benz GL",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100584/medium_with_watermark_mercedes-benz-gl-an-giang-huyen-an-phu-6372."
+      },
+      {
+        "name": "2022 Suzuki Ertiga",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100574/medium_with_watermark_suzuki-ertiga-an-giang-huyen-an-phu-6371."
+      },
+      {
+        "name": "2023 Hyundai Other Hyundai",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100565/medium_with_watermark_hyundai-other-hyundai-an-giang-huyen-an-phu-6370."
+      },
+      {
+        "name": "2011 Lexus 60 serires",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100554/medium_with_watermark_lexus-60-serires-an-giang-huyen-an-phu-6369."
+      },
+      {
+        "name": "2015 Land Rover Range Rover",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100543/medium_with_watermark_land-rover-range-rover-an-giang-huyen-an-phu-6368."
+      },
+      {
+        "name": "2008 Ford Escape",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100538/medium_with_watermark_ford-escape-an-giang-huyen-an-phu-6367."
+      },
+      {
+        "name": "2021 Mercedes Benz C-Class",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100512/medium_with_watermark_mercedes-benz-c-class-an-giang-huyen-an-phu-6366."
+      },
+      {
+        "name": "2023 Honda HR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100508/medium_with_watermark_honda-hr-v-an-giang-huyen-an-phu-6365."
+      },
+      {
+        "name": "2003 Daewoo Hue",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100496/medium_with_watermark_daewoo-hue-an-giang-huyen-an-phu-6364."
+      },
+      {
+        "name": "2021 Ford Focus",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100493/medium_with_watermark_ford-focus-an-giang-huyen-an-phu-6363."
+      },
+      {
+        "name": "2023 Honda HR-V",
+        "value": "NEGOTIABLE",
+        "image_url": "https://vietwheels-ruby.s3.amazonaws.com/uploads/picture/url/100490/medium_with_watermark_honda-hr-v-an-giang-huyen-an-phu-6362."
+      }
+    ]
+  }
+]
