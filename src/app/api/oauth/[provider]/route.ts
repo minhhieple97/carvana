@@ -12,8 +12,10 @@ import type { NextRequest } from 'next/server';
 
 const oAuthProviders = ['discord', 'github'] as const;
 const providerSchema = z.enum(oAuthProviders);
-
-export async function GET(request: NextRequest, { params }: { params: { provider: string } }) {
+type Params = {
+  provider: string;
+};
+export async function GET(request: NextRequest, { params }: { params: Promise<Params> }) {
   const { provider: rawProvider } = await params;
   const code = request.nextUrl.searchParams.get('code');
   const state = request.nextUrl.searchParams.get('state');

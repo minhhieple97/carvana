@@ -14,8 +14,8 @@ export const ClassifiedsTableRow = (classified: ClassifiedWithImages) => (
 
     <ResponsiveTableCell isImage>
       <Image
-        src={classified.images[0].src}
-        alt={classified.images[0].alt}
+        src={classified.images[0]?.src}
+        alt={classified.images[0]?.alt}
         width={120}
         height={80}
         quality={1}

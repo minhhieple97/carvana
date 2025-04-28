@@ -9,7 +9,7 @@ import { useClassifiedCard } from '../hooks/useClassifiedCard';
 
 import type { ClassifiedCardProps } from '@/features/classifieds';
 export const ClassifiedCard = ({ classified, favourites }: ClassifiedCardProps) => {
-  const { getKeyClassifiedInfo, isFavourite, setIsFavourite, isVisible } = useClassifiedCard({
+  const { getKeyClassifiedInfo, isFavourite, isVisible } = useClassifiedCard({
     classified,
     favourites,
   });
@@ -30,11 +30,7 @@ export const ClassifiedCard = ({ classified, favourites }: ClassifiedCardProps) 
         >
           <div className="relative">
             <CardImage image={classified.images[0]} slug={classified.slug} />
-            <FavouriteButton
-              id={classified.id}
-              isFavourite={isFavourite}
-              setIsFavourite={setIsFavourite}
-            />
+            <FavouriteButton id={classified.id} initialIsFavourite={isFavourite} />
             <PriceTag price={classified.price} />
           </div>
           <CardContent classified={classified} specifications={specifications} />

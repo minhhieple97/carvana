@@ -6,3 +6,4 @@ export * from './classified-form-fields';
 export * from './taxonomy-selects';
 export * from './classifieds-table-header';
 export * from './multi-image-uploader';
+export * from './classified-table-row';

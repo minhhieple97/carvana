@@ -2,7 +2,7 @@ import { calculatePercentageChange } from '@/lib/utils';
 
 import { fetchMonthlyKPIData, fetchMonthlySalesData } from '../db';
 
-import type { KPIData } from '../types';
+import type { ChartData, KPIData } from '../types';
 
 export async function getDashboardData(): Promise<KPIData> {
   const {

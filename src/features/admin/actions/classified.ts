@@ -26,7 +26,7 @@ const createClassified = async ({
   ctx: _ctx,
 }: {
   parsedInput: CreateClassifiedType;
-  ctx: { user: UserSession };
+  ctx: { user: UserSession | undefined };
 }) => {
   try {
     const classifiedId = await createClassifiedService(data);
@@ -51,7 +51,7 @@ const updateClassified = async ({
   ctx: _ctx,
 }: {
   parsedInput: UpdateClassifiedType;
-  ctx: { user: UserSession };
+  ctx: { user: UserSession | undefined };
 }) => {
   try {
     await updateClassifiedService(data);
@@ -74,7 +74,7 @@ const deleteClassified = async ({
   ctx: _ctx,
 }: {
   parsedInput: DeleteClassifiedType;
-  ctx: { user: UserSession };
+  ctx: { user?: UserSession | undefined };
 }) => {
   try {
     await deleteClassifiedService(id);

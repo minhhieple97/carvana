@@ -1,21 +1,11 @@
 'use client';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { type ChangeEvent } from 'react';
 
-import { Select, TableRow } from '@/components/ui';
-import { TableCell } from '@/components/ui';
-import { TableFooter } from '@/components/ui';
+import { Select, TableRow, TableCell, TableFooter } from '@/components/ui';
 
 import { CustomPagination } from '../cusstom-pagination';
+import { itemsPerPageOptions, useAdminTableFooter } from './useAdminTableFooter';
 
-import type { AwaitedPageProps, FilterOptions } from '@/config/types';
-
-const itemsPerPageOptions: FilterOptions<string, string> = [
-  { label: '10', value: '10' },
-  { label: '25', value: '25' },
-  { label: '50', value: '50' },
-  { label: '100', value: '100' },
-];
+import type { AwaitedPageProps } from '@/config/types';
 
 type AdminTableFooterProps = {
   disabled: boolean;
@@ -27,16 +17,10 @@ type AdminTableFooterProps = {
 
 export const AdminTableFooter = (props: AdminTableFooterProps) => {
   const { disabled, totalPages, baseURL, cols, searchParams } = props;
-  const itemsPerPage = searchParams?.itemsPerPage || '10';
-  const router = useRouter();
-  const currentSearchParams = useSearchParams();
-
-  const handleItemsPerPage = (e: ChangeEvent<HTMLSelectElement>) => {
-    const newSearchParams = new URLSearchParams(currentSearchParams.toString());
-    newSearchParams.set(e.target.name, e.target.value);
-    newSearchParams.set('page', '1');
-    router.push(`${baseURL}?${newSearchParams.toString()}`);
-  };
+  const { itemsPerPage, handleItemsPerPage } = useAdminTableFooter({
+    baseURL,
+    searchParams,
+  });
 
   return (
     <TableFooter className="border-t border-border bg-background">
