@@ -1,5 +1,4 @@
 'use server';
-import { isRedirectError } from 'next/dist/client/components/redirect-error';
 
 import { adminAction, ActionError } from '@/lib/safe-action';
 import {
@@ -34,7 +33,6 @@ const createClassified = async ({
     return { classifiedId };
   } catch (error) {
     console.error('Action Error [createClassified]:', error);
-    if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) {
       throw error;
     }
@@ -57,7 +55,6 @@ const updateClassified = async ({
     await updateClassifiedService(data);
   } catch (error) {
     console.error('Action Error [updateClassified]:', error);
-    if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) {
       throw error;
     }
@@ -80,7 +77,6 @@ const deleteClassified = async ({
     await deleteClassifiedService(id);
   } catch (error) {
     console.error('Action Error [deleteClassified]:', error);
-    if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) {
       throw error;
     }

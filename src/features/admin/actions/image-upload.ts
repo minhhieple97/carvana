@@ -1,6 +1,5 @@
 'use server';
 import mimetype from 'mime-types';
-import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import { v4 as uuidv4 } from 'uuid';
 
 import { MAX_IMAGE_SIZE } from '@/config';
@@ -52,7 +51,6 @@ const singleUpload = async ({
     return { url };
   } catch (error) {
     console.error('Action Error [singleUpload]:', error);
-    if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) throw error;
     throw new ActionError('An unexpected error occurred during upload.');
   }
@@ -86,7 +84,6 @@ const initMultipartUpload = async ({
     };
   } catch (error) {
     console.error('Action Error [initMultipartUpload]:', error);
-    if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) throw error;
     throw new ActionError('An unexpected error occurred during multipart upload initialization.');
   }
@@ -128,7 +125,6 @@ const finalizeMultipartUpload = async ({
     };
   } catch (error) {
     console.error('Action Error [finalizeMultipartUpload]:', error);
-    if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) throw error;
     throw new ActionError('An unexpected error occurred during multipart upload finalization.');
   }

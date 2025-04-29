@@ -1,6 +1,5 @@
 'use server';
 
-import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
@@ -20,7 +19,6 @@ export const signInAction = action.schema(SignInSchema).action(async ({ parsedIn
 
     await createUserSession(user, await cookies());
   } catch (error) {
-    if (isRedirectError(error)) throw error;
     if (error instanceof ActionError) {
       throw error;
     }

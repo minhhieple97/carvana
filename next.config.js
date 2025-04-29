@@ -1,31 +1,28 @@
-import { env } from './env.mjs';
-
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: env.NEXT_PUBLIC_IMGIX_HOSTNAME,
+        hostname: 'carvana-890304154.imgix.net',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: env.NEXT_PUBLIC_S3_HOSTNAME,
+        hostname: 'majestic-motors.s3.eu-west-2.amazonaws.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: env.NEXT_PUBLIC_VL_IMGIX_HOSTNAME,
+        hostname: 'vl.imgix.net',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: env.NEXT_PUBLIC_CARVANA_S3_HOSTNAME,
+        hostname: 'carvana-motors.s3.amazonaws.com',
         port: '',
         pathname: '/**',
       },
@@ -43,6 +40,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

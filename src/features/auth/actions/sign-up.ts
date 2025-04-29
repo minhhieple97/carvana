@@ -1,6 +1,5 @@
 'use server';
 
-import { isRedirectError } from 'next/dist/client/components/redirect-error';
 import { cookies } from 'next/headers';
 
 import { action, ActionError } from '@/lib/safe-action';
@@ -16,7 +15,6 @@ export const signUpAction = action.schema(SignUpSchema).action(async ({ parsedIn
     await createUserSession(user, await cookies());
   } catch (error) {
     console.error('Sign-up error:', error);
-    if (isRedirectError(error)) throw error;
 
     if (error instanceof ActionError) {
       throw error;
