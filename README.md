@@ -2,6 +2,24 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app), built using the **App Router**. It serves as a platform potentially focused on classified listings, managing users, customers, listings with associated taxonomies, and images.
 
+## Live Demo
+
+Check out the live demo at [carvana-nine.vercel.app](https://carvana-nine.vercel.app)
+
+## Key Features
+
+### AI-Powered Vehicle Recognition
+
+The platform leverages OpenAI's vision capabilities through `@ai-sdk/openai` to automatically extract vehicle details from uploaded images:
+
+- **Instant Vehicle Identification**: Simply upload a car image to automatically identify make, model, year, and variant
+- **Comprehensive Details Extraction**: The system automatically detects vehicle specifications like odometer reading, doors, seats, ULEZ compliance, transmission, color, fuel type, body type, and more
+- **Streamable UI Feedback**: Real-time visual feedback during the AI analysis process
+- **Taxonomy Mapping**: Automatically maps detected vehicle attributes to the platform's taxonomy system
+- **Form Auto-Population**: Pre-fills listing creation forms with AI-detected data, saving time and reducing errors
+
+This feature significantly streamlines the listing creation process, improves data accuracy, and enhances the overall user experience.
+
 ## Tech Stack
 
 This project leverages a modern tech stack focused on performance, developer experience, and type safety:
@@ -31,7 +49,9 @@ This project leverages a modern tech stack focused on performance, developer exp
 - **Drag & Drop:** [`@dnd-kit`](https://dndkit.com/)
 - **Image Handling:** [Sharp](https://sharp.pixelplumbing.com/), [ThumbHash](https://github.com/evanw/thumbhash), [unlazy](https://unlazy.byword.xyz/)
 - **Rate Limiting:** [Upstash Ratelimit](https://upstash.com/docs/ratelimit/overview) (`@upstash/ratelimit`, `@upstash/redis`)
-- **AI Integration:** [`@ai-sdk/openai`](https://sdk.vercel.ai/), [`ai`](https://sdk.vercel.ai/)
+- **AI Integration:**
+  - [`@ai-sdk/openai`](https://sdk.vercel.ai/) (OpenAI integration for image analysis)
+  - [`ai`](https://sdk.vercel.ai/) (Vercel AI SDK for streamable UI responses)
 - **Linting & Formatting:** ESLint, Prettier
 - **Development Tools:** Turbopack (via `next dev --turbopack`)
 
