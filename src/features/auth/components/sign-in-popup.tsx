@@ -11,7 +11,7 @@ type SignInPopupProps = {
 };
 
 export const SignInPopup = ({ isOpen, onOpenChange, trigger }: SignInPopupProps) => {
-  const { form, handleSubmit, isPending, error, success } = useSignInForm();
+  const { form, handleSubmit, error, success } = useSignInForm();
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>

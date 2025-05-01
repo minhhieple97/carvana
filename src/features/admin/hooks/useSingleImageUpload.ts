@@ -1,5 +1,6 @@
 import { useAction } from 'next-safe-action/hooks';
 import { type ChangeEvent, type DragEvent, useState } from 'react';
+import { toast } from 'sonner';
 
 import { MAX_IMAGE_SIZE } from '@/config/constants';
 import { convertToMb } from '@/lib/utils';
@@ -35,6 +36,7 @@ export const useSingleImageUpload = ({
     onError: (error) => {
       console.error('Error uploading file: ', error);
       setError('Failed to upload image. Please try again.');
+      toast.error('Failed to upload image. Please try again.');
     },
     onSuccess: (result) => {
       if (result.data) {
@@ -58,7 +60,10 @@ export const useSingleImageUpload = ({
     };
     reader.readAsDataURL(file);
 
-    execute({ file });
+    const formData = new FormData();
+    formData.append('file', file);
+
+    execute(formData);
   };
 
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
