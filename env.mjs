@@ -16,6 +16,7 @@ export const env = createEnv({
     OPENAI_API_KEY: z.string(),
     OPENAI_MODEL: z.string(),
     OPENAI_BASE_URL: z.string(),
+    AWS_S3_REGION: z.string(),
   },
 
   client: {
@@ -51,5 +52,6 @@ export const env = createEnv({
     NEXT_PUBLIC_CARVANA_S3_HOSTNAME: process.env.NEXT_PUBLIC_CARVANA_S3_HOSTNAME,
     OPENAI_MODEL: process.env.OPENAI_MODEL,
     OPENAI_BASE_URL: process.env.OPENAI_BASE_URL,
+    AWS_S3_REGION: process.env.AWS_S3_REGION,
   },
 });

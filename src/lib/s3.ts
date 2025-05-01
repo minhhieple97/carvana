@@ -1,15 +1,13 @@
 import { PutObjectCommand, type PutObjectCommandInput, S3Client } from '@aws-sdk/client-s3';
-import { Credentials } from 'aws-sdk/lib/core';
 
 import { env } from '@/env';
 
-const credentials = new Credentials({
-  accessKeyId: env.AWS_S3_ACCESS_KEY_ID,
-  secretAccessKey: env.AWS_S3_SECRET_ACCESS_KEY,
-});
-
 export const s3 = new S3Client({
-  credentials,
+  region: env.AWS_S3_REGION,
+  credentials: {
+    accessKeyId: env.AWS_S3_ACCESS_KEY_ID,
+    secretAccessKey: env.AWS_S3_SECRET_ACCESS_KEY,
+  },
 });
 
 type UploadToS3Args = {
