@@ -1,15 +1,8 @@
 'use client';
 
 import { useSignInForm } from '@/features/auth/hooks/useSignInForm';
-import { OAuthButton } from '@/features/auth/components/oauth-button';
-import { AuthForm } from '@/features/auth/components/auth-form';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import { OAuthButton, AuthForm } from '@/features/auth/components';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui';
 
 type SignInPopupProps = {
   isOpen: boolean;

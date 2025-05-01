@@ -6,8 +6,7 @@ import { navLinks } from '@/config/constants';
 import { routes } from '@/config/routes';
 import { getFavourites } from '@/features/classifieds';
 import { getSourceId } from '@/lib/source-id';
-import { SignInPopup } from '@/components/auth';
-import { SignInButton } from '@/components/auth/sign-in-button';
+import { SignInButton } from '@/features/auth/components';
 
 import { MobileMenu } from './mobile-menu';
 import { ThemeToggle } from '../theme-toggle';

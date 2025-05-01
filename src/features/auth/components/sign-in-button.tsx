@@ -1,7 +1,7 @@
 'use client';
 
 import { LogInIcon } from 'lucide-react';
-import { useSignInPopup } from './hooks/useSignInPopup';
+import { useSignInPopup } from '../hooks/useSignInPopup';
 import { SignInPopup } from './sign-in-popup';
 
 export const SignInButton = () => {
