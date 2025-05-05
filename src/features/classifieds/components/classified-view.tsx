@@ -10,8 +10,8 @@ import {
   XIcon,
 } from 'lucide-react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
-import { HTMLParser } from '@/components/shared/html-parser';
 import { Button } from '@/components/ui/button';
 import { ImgixImage } from '@/components/ui/imgix-image';
 import { routes } from '@/config/routes';
@@ -27,9 +27,17 @@ import {
   formatUlezCompliance,
 } from '@/lib/utils';
 
-import { ClassifiedCarousel } from './classified-carousel';
-
 import type { Prisma } from '@prisma/client';
+
+const ClassifiedCarousel = dynamic(
+  () => import('./classified-carousel').then((mod) => mod.ClassifiedCarousel),
+  { ssr: true, loading: () => <div className="animate-pulse bg-muted aspect-3/2 rounded-md" /> }
+);
+
+const HTMLParser = dynamic(
+  () => import('@/components/shared/html-parser').then((mod) => mod.HTMLParser),
+  { ssr: false }
+);
 
 type ClassifiedWithImagesAndMake = Prisma.ClassifiedGetPayload<{
   include: { make: true; images: true };
