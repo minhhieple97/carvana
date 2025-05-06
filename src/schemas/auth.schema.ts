@@ -27,5 +27,6 @@ export const SignUpSchema = z
 
 export const SessionSchema = z.object({
   id: z.string(),
-  role: z.enum(Object.values(Role) as [string, ...string[]]),
+  role: z.nativeEnum(Role),
+  email: z.string().email('Invalid email address'),
 });
