@@ -10,7 +10,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const { execute } = useAction(getCurrentUserAction, {
     onSuccess: ({ data }) => {
-      if (data?.success && data.user) {
+      if (data?.user) {
         login({
           ...data.user,
           role: data.user.role,

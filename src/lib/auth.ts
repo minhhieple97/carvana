@@ -27,6 +27,7 @@ export const checkAuth = async (): Promise<AuthResult> => {
   return { success: true, user };
 };
 
+// Client-side auth check using the store
 export const isAdmin = (userRole?: string): AuthResult => {
   if (userRole !== Role.admin) {
     return { success: false, message: 'Invalid action' };
