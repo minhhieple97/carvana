@@ -9,6 +9,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/shared';
 import { ReactQueryProvider } from '@/components/shared';
 import { Toaster } from '@/components/ui';
+import { AuthProvider } from '@/features/auth';
 
 export const metadata: Metadata = {
   title: 'Car Dealer Website',
@@ -49,11 +50,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ReactQueryProvider>
-            <NextTopLoader showSpinner={false} />
-            <NuqsAdapter>{children}</NuqsAdapter>
-            <Toaster />
-          </ReactQueryProvider>
+          <AuthProvider>
+            <ReactQueryProvider>
+              <NextTopLoader showSpinner={false} />
+              <NuqsAdapter>{children}</NuqsAdapter>
+              <Toaster />
+            </ReactQueryProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
