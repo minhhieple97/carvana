@@ -18,7 +18,7 @@ const GitHubEmailSchema = z.array(
     email: z.string().email(),
     primary: z.boolean(),
     verified: z.boolean(),
-    visibility: z.string().optional(),
+    visibility: z.string().nullable(),
   })
 );
 
