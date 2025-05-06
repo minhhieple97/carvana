@@ -48,7 +48,7 @@ export const SettingsPageContent = () => {
           </p>
         </div>
         <div className="md:col-span-2">
-          <LogoutButton isPending={isPending} onClick={execute} />
+          <LogoutButton isPending={isPending} onClick={() => execute()} />
         </div>
       </div>
     </div>
