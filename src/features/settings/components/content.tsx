@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 
 import { Button } from '@/components/ui';
 import { logOutOfAllSessionsAction } from '@/features/auth/actions';
+import { useAuthStore } from '@/features/auth';
 
 const LogoutButton = ({ isPending, onClick }: { isPending: boolean; onClick: () => void }) => (
   <div className="mt-8 flex">
@@ -25,9 +26,11 @@ const LogoutButton = ({ isPending, onClick }: { isPending: boolean; onClick: () 
 
 export const SettingsPageContent = () => {
   const router = useRouter();
+  const { logout } = useAuthStore();
   const { execute, isPending } = useAction(logOutOfAllSessionsAction, {
     onSuccess: () => {
       router.push('/');
+      logout();
     },
     onError: (error) => {
       console.error(error);

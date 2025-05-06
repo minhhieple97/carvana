@@ -1,7 +1,6 @@
 'use client';
 
 import { AuthForm } from './auth-form';
-import { OAuthButton } from './oauth-button';
 import { useSignInForm } from '../hooks/useSignInForm';
 
 export const SignInForm = () => {
@@ -20,7 +19,6 @@ export const SignInForm = () => {
 
           <div className="space-y-4">
             <AuthForm.Submit isPending={isPending}>Sign In</AuthForm.Submit>
-            <AuthForm.Status error={error} success={success} />
           </div>
         </AuthForm.Container>
       </AuthForm.Wrapper>

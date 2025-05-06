@@ -21,3 +21,4 @@ export * from './badge';
 export * from './calendar';
 export * from './popover';
 export * from './avatar';
+export * from './dropdown-menu';
