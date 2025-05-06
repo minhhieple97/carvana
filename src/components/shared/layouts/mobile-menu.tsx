@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui';
 import { navLinks } from '@/config/constants';
+import { UserAvatarWrapper } from '@/features/auth/components/user-avatar-wrapper';
 
 export const MobileMenu = () => (
   <Sheet>
@@ -14,6 +15,9 @@ export const MobileMenu = () => (
       </Button>
     </SheetTrigger>
     <SheetContent side="right" className="w-full max-w-xs p-4 bg-white dark:bg-gray-900">
+      <div className="flex justify-end mb-6">
+        <UserAvatarWrapper />
+      </div>
       <nav className="grid gap-2">
         {navLinks.map((link) => (
           <Link
