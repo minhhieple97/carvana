@@ -7,6 +7,7 @@ import { routes } from '@/config';
 import { SignInSchema } from '@/schemas';
 
 import { signInAction } from '../actions/sign-in';
+import { useAuthStore } from '../auth-slice';
 
 import type { z } from 'zod';
 
@@ -14,6 +15,7 @@ type SignInFormValues = z.infer<typeof SignInSchema>;
 
 export const useSignInForm = () => {
   const router = useRouter();
+  const { login, setLoading, setError } = useAuthStore();
 
   const form = useForm<SignInFormValues>({
     resolver: zodResolver(SignInSchema),
@@ -25,15 +27,21 @@ export const useSignInForm = () => {
   });
 
   const { execute, isPending, result } = useAction(signInAction, {
-    onSuccess: () => {
-      router.push(routes.admin.dashboard);
+    onSuccess: ({ data }) => {
+      if (data?.user) {
+        login(data.user);
+        router.push(routes.admin.dashboard);
+      }
     },
     onError: ({ error }) => {
+      const errorMessage = error?.serverError || 'Authentication failed';
+      setError(errorMessage);
       console.error('Sign in error:', error);
     },
   });
 
   const handleSubmit = form.handleSubmit((data) => {
+    setLoading(true);
     execute(data);
   });
 
