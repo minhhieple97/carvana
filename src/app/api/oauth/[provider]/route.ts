@@ -50,7 +50,7 @@ const connectUserToAccount = async ({ id, email }: OAuthUser, provider: OAuthPro
   await prisma.$transaction(async (tx) => {
     let user = await tx.user.findUnique({
       where: { email },
-      select: { id: true, role: true },
+      select: { id: true, role: true, email: true },
     });
 
     if (!user) {
@@ -58,7 +58,7 @@ const connectUserToAccount = async ({ id, email }: OAuthUser, provider: OAuthPro
         data: {
           email,
         },
-        select: { id: true, role: true },
+        select: { id: true, role: true, email: true },
       });
     }
 

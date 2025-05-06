@@ -18,6 +18,8 @@ export const signInAction = action.schema(SignInSchema).action(async ({ parsedIn
     const user = await signIn({ email, password });
 
     await createUserSession(user, await cookies());
+
+    return { user };
   } catch (error) {
     if (error instanceof ActionError) {
       throw error;

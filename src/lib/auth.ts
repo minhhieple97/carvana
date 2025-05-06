@@ -16,13 +16,10 @@ export type AuthResult = {
 export const checkAuth = async (): Promise<AuthResult> => {
   const cookieStore = await cookies();
   const session = cookieStore.get(COOKIE_SESSION_KEY)?.value;
-
   if (!session) {
     return { success: false, message: 'Session not found!' };
   }
-
   const user = await getUserFromSession(cookieStore);
-
   if (!user) {
     return { success: false, message: 'Session is not valid!' };
   }

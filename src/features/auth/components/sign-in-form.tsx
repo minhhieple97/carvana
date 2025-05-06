@@ -14,8 +14,6 @@ export const SignInForm = () => {
           <AuthForm.Header>Admin Sign In</AuthForm.Header>
           <AuthForm.Fields fields={fields} form={form} />
 
-          <AuthForm.Divider text="Or continue with" />
-
           <AuthForm.Footer>
             <b>This is for admin only.</b>
           </AuthForm.Footer>

@@ -13,6 +13,8 @@ export const signUpAction = action.schema(SignUpSchema).action(async ({ parsedIn
 
     const user = await signUp({ email, password });
     await createUserSession(user, await cookies());
+
+    return { user };
   } catch (error) {
     console.error('Sign-up error:', error);
 

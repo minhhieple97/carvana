@@ -81,7 +81,6 @@ export const removeUserFromSession = async (
 ): Promise<void | null> => {
   const sessionId = getSessionIdFromCookies(cookies);
   if (!sessionId) return null;
-
   await redisClient.del(getSessionKey(sessionId));
   cookies.delete(COOKIE_SESSION_KEY);
 };
