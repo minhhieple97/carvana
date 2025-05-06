@@ -1,5 +1,5 @@
 import { AdminSearch } from '@/features/admin';
-
+import { UserAvatarWrapper } from '@/features/auth/components/user-avatar-wrapper';
 import { ThemeToggle } from '../theme-toggle';
 
 export const AdminHeader = async () => (
@@ -7,8 +7,9 @@ export const AdminHeader = async () => (
     <div className="w-full max-w-md">
       <AdminSearch />
     </div>
-    <div className="ml-4">
+    <div className="flex items-center gap-4">
       <ThemeToggle />
+      <UserAvatarWrapper />
     </div>
   </header>
 );

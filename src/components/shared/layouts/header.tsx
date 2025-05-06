@@ -6,7 +6,7 @@ import { navLinks } from '@/config/constants';
 import { routes } from '@/config/routes';
 import { getFavourites } from '@/features/classifieds';
 import { getSourceId } from '@/lib/source-id';
-import { SignInButton } from '@/features/auth/components';
+import { UserAvatarWrapper } from '@/features/auth/components';
 
 import { MobileMenu } from './mobile-menu';
 import { ThemeToggle } from '../theme-toggle';
@@ -60,7 +60,8 @@ export const PublicHeader = async () => {
           </div>
         </Link>
       </div>
-      <SignInButton />
+
+      <UserAvatarWrapper />
 
       <MobileMenu />
     </header>
