@@ -1,1 +1,1 @@
-export { CustomPagination } from './custom-pagination';
+export * from './custom-pagination';

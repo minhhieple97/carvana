@@ -1,4 +1,4 @@
-import { AdminTableFooter } from '@/components';
+import { AdminTableFooterWithSuspense } from '@/components';
 import { Table, TableBody } from '@/components/ui';
 import { ADMIN_CLASSIFIEDS_PER_PAGE, ADMIN_CLASSIFIEDS_PAGE, routes } from '@/config';
 import { AdminClassifiedsHeader } from '@/features/admin/components';
@@ -49,7 +49,7 @@ export default async function ClassifiedsPage(props: PageProps) {
             <ClassifiedsTableRow key={classified.id} {...classified} />
           ))}
         </TableBody>
-        <AdminTableFooter
+        <AdminTableFooterWithSuspense
           baseURL={routes.admin.classifieds}
           searchParams={searchParams}
           disabled={!classifieds.length}

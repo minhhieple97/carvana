@@ -1,7 +1,6 @@
 import { unstable_cache as cache } from 'next/cache';
 import { Suspense } from 'react';
 
-import { CustomPagination } from '@/components/shared/cusstom-pagination';
 import { InventorySkeleton } from '@/components/shared/inventory/inventory-skeleton';
 import { CLASSIFIEDS_PER_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
@@ -15,6 +14,7 @@ import { getSourceId } from '@/lib/source-id';
 import { PageSchema } from '@/schemas/page.schema';
 
 import type { PageProps } from '@/config/types';
+import { CustomPaginationWithSuspense } from '@/components/shared';
 
 const getCachedFavouriteIds = cache(
   async (sourceId: string | undefined) => await getFavouriteIds(sourceId),
@@ -94,7 +94,7 @@ async function FavouriteList({ searchParams }: PageProps) {
 
       {totalPages > 1 && (
         <div className="mt-12 flex justify-center">
-          <CustomPagination baseURL={routes.favourites} totalPages={totalPages} />
+          <CustomPaginationWithSuspense baseURL={routes.favourites} totalPages={totalPages} />
         </div>
       )}
     </>

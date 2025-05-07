@@ -1,4 +1,4 @@
-import { AdminTableFooter } from '@/components/shared/admin-table-footer';
+import { AdminTableFooterWithSuspense } from '@/components/shared';
 import { Table, TableBody } from '@/components/ui/table';
 import { ADMIN_CUSTOMERS_PER_PAGE, ADMIN_CUSTOMERS_PAGE } from '@/config/constants';
 import { routes } from '@/config/routes';
@@ -55,7 +55,7 @@ export default async function CustomersPage(props: PageProps) {
             <CustomerTableRow key={customer.id} {...customer} />
           ))}
         </TableBody>
-        <AdminTableFooter
+        <AdminTableFooterWithSuspense
           baseURL={routes.admin.customers}
           searchParams={searchParams}
           disabled={!customers.length}

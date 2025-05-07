@@ -15,7 +15,6 @@ import {
   Select,
 } from '@/components/ui';
 import { type MultiStepFormComponentProps } from '@/config/types';
-import { cn } from '@/lib/utils';
 
 import { useSelectDate } from '../hooks';
 

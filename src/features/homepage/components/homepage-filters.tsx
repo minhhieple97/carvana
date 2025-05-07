@@ -2,12 +2,24 @@
 
 import { TaxonomyFilters } from '@/components';
 import { RangeFilter } from '@/components/shared/range-filter';
+import { Suspense } from 'react';
 
 import { useHomepageFilters } from '../hooks/useHomepageFilters';
 
 import type { SidebarProps } from '@/config/types';
 
 type HomepageTaxonomyFiltersProps = SidebarProps;
+
+export const HomepageTaxonomyFiltersSkeleton = () => {
+  return (
+    <div className="space-y-4">
+      <div className="h-10 w-full animate-pulse rounded-md bg-muted" />
+      <div className="h-14 w-full animate-pulse rounded-md bg-muted" />
+      <div className="h-10 w-full animate-pulse rounded-md bg-muted" />
+      <div className="h-14 w-full animate-pulse rounded-md bg-muted" />
+    </div>
+  );
+};
 
 export const HomepageTaxonomyFilters = ({
   searchParams,
@@ -44,5 +56,13 @@ export const HomepageTaxonomyFilters = ({
         }}
       />
     </>
+  );
+};
+
+export const HomepageTaxonomyFiltersWithSuspense = (props: HomepageTaxonomyFiltersProps) => {
+  return (
+    <Suspense fallback={<HomepageTaxonomyFiltersSkeleton />}>
+      <HomepageTaxonomyFilters {...props} />
+    </Suspense>
   );
 };

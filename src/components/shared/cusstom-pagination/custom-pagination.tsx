@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import {
   PaginationContent,
   PaginationEllipsis,
@@ -24,7 +25,19 @@ const paginationStyles = {
   ellipsis:
     'flex min-w-[32px] h-[32px] items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors duration-200',
   nav: 'h-auto border border-border bg-background hover:bg-accent hover:text-accent-foreground text-foreground px-2.5 py-1 rounded-md transition-colors duration-200',
-  disabled: 'opacity-50 pointer-events-none cursor-not-allowed',
+  disabled: 'opacity-50 pointer-events-none current-not-allowed',
+};
+
+export const CustomPaginationSkeleton = () => {
+  return (
+    <div className="flex items-center gap-1 md:gap-2 justify-end h-9">
+      <div className="w-8 h-8 animate-pulse rounded-md bg-muted" />
+      <div className="w-8 h-8 animate-pulse rounded-md bg-muted" />
+      <div className="w-8 h-8 animate-pulse rounded-md bg-muted" />
+      <div className="w-8 h-8 animate-pulse rounded-md bg-muted" />
+      <div className="w-8 h-8 animate-pulse rounded-md bg-muted" />
+    </div>
+  );
 };
 
 export const CustomPagination = (props: PaginationProps) => {
@@ -134,5 +147,13 @@ export const CustomPagination = (props: PaginationProps) => {
         </PaginationItem>
       </PaginationContent>
     </PaginationRoot>
+  );
+};
+
+export const CustomPaginationWithSuspense = (props: PaginationProps) => {
+  return (
+    <Suspense fallback={<CustomPaginationSkeleton />}>
+      <CustomPagination {...props} />
+    </Suspense>
   );
 };

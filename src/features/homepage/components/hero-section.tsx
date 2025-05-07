@@ -6,7 +6,7 @@ import { routes } from '@/config/routes';
 import { getClassifiedsMinMaxValues, getClassifiedsCount } from '@/features/classifieds';
 import { imgixLoader } from '@/lib/imgix-loader';
 
-import { HomepageTaxonomyFilters } from './homepage-filters';
+import { HomepageTaxonomyFiltersWithSuspense } from './homepage-filters';
 import { SearchButton } from './search-button';
 
 import type { AwaitedPageProps } from '@/config/types';
@@ -79,7 +79,10 @@ export const HeroSection = async (props: AwaitedPageProps) => {
                 <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-4">
                   Find Your Perfect Match
                 </h3>
-                <HomepageTaxonomyFilters minMaxValues={minMaxResult} searchParams={searchParams} />
+                <HomepageTaxonomyFiltersWithSuspense
+                  minMaxValues={minMaxResult}
+                  searchParams={searchParams}
+                />
                 <SearchButton count={classifiedsCount} />
                 {isFilterApplied && (
                   <Button asChild variant="outline" className="w-full">

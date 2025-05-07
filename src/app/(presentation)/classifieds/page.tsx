@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { CustomPagination, DialogFilters } from '@/components';
+import { DialogFilters } from '@/components';
 import { InventorySkeleton } from '@/components/shared/inventory';
 import { CLASSIFIEDS_PER_PAGE, routes } from '@/config';
 import {
@@ -15,6 +15,7 @@ import {
 import { getSourceId } from '@/lib/source-id';
 
 import type { PageProps } from '@/config';
+import { CustomPaginationWithSuspense } from '@/components/shared';
 
 export default async function ClassifiedsPage(pageProps: PageProps) {
   const searchParams = await pageProps.searchParams;
@@ -48,7 +49,10 @@ export default async function ClassifiedsPage(pageProps: PageProps) {
                       searchParams={searchParams}
                     />
                     {totalPages > 1 && (
-                      <CustomPagination baseURL={routes.classifieds} totalPages={totalPages} />
+                      <CustomPaginationWithSuspense
+                        baseURL={routes.classifieds}
+                        totalPages={totalPages}
+                      />
                     )}
                   </div>
                 </div>
