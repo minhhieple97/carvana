@@ -51,12 +51,13 @@ const fetchModelVariants = async (
     orderBy: { name: 'asc' },
   });
 };
+export const dynamic = 'force-dynamic';
 
 export const GET = async (req: NextRequest) => {
   try {
-    const params = new URL(req.url).searchParams;
-    const makeId = params.get('make');
-    const modelId = params.get('model');
+    const { searchParams } = new URL(req.url);
+    const makeId = searchParams.get('make');
+    const modelId = searchParams.get('model');
 
     const [makes, models, modelVariants] = await Promise.all([
       fetchMakes(),

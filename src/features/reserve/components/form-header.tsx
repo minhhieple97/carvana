@@ -1,8 +1,27 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { Suspense } from 'react';
 
 import { useFormHeader } from '../hooks';
+
+export const FormHeaderSkeleton = () => {
+  return (
+    <div className="flex justify-between bg-primary dark:bg-primary/90 p-4 shadow-lg rounded-t-lg">
+      <div className="flex flex-col justify-between flex-1">
+        <div className="h-9 w-48 animate-pulse rounded-md bg-primary-foreground/20" />
+      </div>
+      <div className="flex items-center justify-end gap-2 flex-1">
+        {[1, 2, 3, 4].map((step) => (
+          <div
+            className="w-8 h-8 rounded-full flex items-center justify-center bg-primary-foreground/20 animate-pulse"
+            key={step}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const FormHeader = () => {
   const { params, steps } = useFormHeader();
@@ -30,5 +49,13 @@ export const FormHeader = () => {
         ))}
       </div>
     </div>
+  );
+};
+
+export const FormHeaderWithSuspense = () => {
+  return (
+    <Suspense fallback={<FormHeaderSkeleton />}>
+      <FormHeader />
+    </Suspense>
   );
 };
