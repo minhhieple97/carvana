@@ -29,14 +29,11 @@ import {
 
 import type { Prisma } from '@prisma/client';
 
+import { ClientHTMLParser } from '@/components/shared';
+
 const ClassifiedCarousel = dynamic(
   () => import('./classified-carousel').then((mod) => mod.ClassifiedCarousel),
   { ssr: true, loading: () => <div className="animate-pulse bg-muted aspect-3/2 rounded-md" /> }
-);
-
-const HTMLParser = dynamic(
-  () => import('@/components/shared/html-parser').then((mod) => mod.HTMLParser),
-  { ssr: false }
 );
 
 type ClassifiedWithImagesAndMake = Prisma.ClassifiedGetPayload<{
@@ -127,7 +124,7 @@ export const ClassifiedView = (props: ClassifiedWithImagesAndMake) => (
         </div>
         {props.description && (
           <div className="mb-4">
-            <HTMLParser html={props.description} />
+            <ClientHTMLParser html={props.description} />
           </div>
         )}
 

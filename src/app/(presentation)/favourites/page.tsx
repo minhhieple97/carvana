@@ -105,9 +105,9 @@ export default async function FavouritesPage(props: PageProps) {
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12">
       <h1 className="text-3xl lg:text-4xl font-bold mb-8 lg:mb-10">Your Favourites</h1>
-
       <Suspense fallback={<InventorySkeleton count={CLASSIFIEDS_PER_PAGE} />}>
-        <FavouriteList {...props} />
+        <FavouriteList /* @next-codemod-error 'props' is used with spread syntax (...). Any asynchronous properties of 'props' must be awaited when accessed. */
+        {...props} />
       </Suspense>
     </div>
   );
